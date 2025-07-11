@@ -1,0 +1,66 @@
+/* CSS for Niyu AI floating assistant */
+.niyu-toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #007bff;       /* blue background (Odoo primary color) */
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 10010;  /* ensure it stays on top */
+}
+.niyu-toggle-btn:hover {
+  background: #0056b3;
+}
+.niyu-toggle-btn i.fa-comments {
+  line-height: 50px;  /* center the icon vertically */
+}
+
+.niyu-popup-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 450px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 10010;
+  display: flex;
+  flex-direction: column;
+}
+.niyu-popup-header {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.niyu-popup-header .title {
+  font-weight: 600;
+}
+.niyu-popup-header .close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.niyu-popup-header .close-btn:hover {
+  opacity: 0.8;
+}
+
+.niyu-popup-body {
+  padding: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
