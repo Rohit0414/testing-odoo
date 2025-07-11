@@ -396,81 +396,83 @@
         </section>
 
          <!-- GETTING STARTED - Simple Steps, Clean Visual -->
-       <!-- add this once on the page (e.g. in your <head> or just above the section) -->
-<style>
-  /* gradient text */
-  .gradient-text {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
-    line-height: 1.2;
-    background: linear-gradient(180deg, #ffffff, #66ccff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-</style>
+       <section style="padding:120px 20px; background-color:#111827;">
+  <div style="max-width:900px; margin:0 auto; text-align:center; color:#f9fafb;">
 
-<section class="bg-dark text-white" style="padding: 120px 20px;">
-  <div class="container text-center" style="max-width: 900px;">
-    <span
-      class="d-inline-block px-3 py-2 rounded-pill fw-semibold mb-4 border"
-      style="
-        background-color: rgba(102,204,255,0.15);
-        color: #66ccff;
-        border-color: rgba(102,204,255,0.4);
-      "
-    >
+    <!-- EASY SETUP badge -->
+    <span style="
+        display:inline-block;
+        background-color:rgba(102,204,255,0.15);
+        color:#66ccff;
+        padding:8px 16px;
+        border-radius:99px;
+        font-weight:600;
+        margin-bottom:24px;
+        border:1px solid rgba(102,204,255,0.4);
+      ">
       EASY SETUP
     </span>
 
-    <h2 class="gradient-text mb-5">
-      Your Path to Instant Insights
-    </h2>
+    <!-- SVG gradient heading -->
+    <div style="margin-bottom:80px;">
+      <svg viewBox="0 0 1000 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="svgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#66ccff"/>
+          </linearGradient>
+        </defs>
+        <text
+          x="50%" y="50%" dy=".35em"
+          text-anchor="middle"
+          fill="url(#svgGrad)"
+          font-family="inherit"
+          font-size="5vw"
+          font-weight="700"
+          letter-spacing="-0.03em"
+        >
+          Your Path to Instant Insights
+        </text>
+      </svg>
+    </div>
 
-    <div class="row row-cols-1 row-cols-md-2 g-4 text-start">
-      <!-- Step 01 -->
-      <div class="col">
-        <div class="border-start ps-3" style="border-left-width: 3px; border-left-color: #2dd4bf;">
-          <span class="h3 fw-bold" style="color: #2dd4bf;">01</span>
-          <h3 class="h5 text-light mb-2">Install</h3>
-          <p class="text-muted mb-0">
-            Download &amp; install Niyu AI Analyst from the Odoo App Store.
-          </p>
-        </div>
+    <!-- Steps grid -->
+    <div style="
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:30px;
+        text-align:left;
+      ">
+      <div style="border-left:3px solid #2dd4bf; padding-left:20px;">
+        <span style="font-size:1.6rem; color:#2dd4bf; font-weight:700;">01</span>
+        <h3 style="font-size:1.4rem; margin:10px 0; color:#f9fafb;">Install</h3>
+        <p style="color:#9ca3af; margin:0;">
+          Download &amp; install Niyu AI Analyst from the Odoo App Store.
+        </p>
       </div>
-
-      <!-- Step 02 -->
-      <div class="col">
-        <div class="border-start ps-3" style="border-left-width: 3px; border-left-color: #2dd4bf;">
-          <span class="h3 fw-bold" style="color: #2dd4bf;">02</span>
-          <h3 class="h5 text-light mb-2">OpenAI API Key</h3>
-          <p class="text-muted mb-0">
-            Sign up for an OpenAI account and get your API key (usage billed by OpenAI).
-          </p>
-        </div>
+      <div style="border-left:3px solid #2dd4bf; padding-left:20px;">
+        <span style="font-size:1.6rem; color:#2dd4bf; font-weight:700;">02</span>
+        <h3 style="font-size:1.4rem; margin:10px 0; color:#f9fafb;">OpenAI API Key</h3>
+        <p style="color:#9ca3af; margin:0;">
+          Sign up for an OpenAI account and get your API key (usage billed by OpenAI).
+        </p>
       </div>
-
-      <!-- Step 03 -->
-      <div class="col">
-        <div class="border-start ps-3" style="border-left-width: 3px; border-left-color: #2dd4bf;">
-          <span class="h3 fw-bold" style="color: #2dd4bf;">03</span>
-          <h3 class="h5 text-light mb-2">Configure</h3>
-          <p class="text-muted mb-0">
-            Paste your OpenAI API key into the Niyu AI settings within Odoo.
-          </p>
-        </div>
+      <div style="border-left:3px solid #2dd4bf; padding-left:20px;">
+        <span style="font-size:1.6rem; color:#2dd4bf; font-weight:700;">03</span>
+        <h3 style="font-size:1.4rem; margin:10px 0; color:#f9fafb;">Configure</h3>
+        <p style="color:#9ca3af; margin:0;">
+          Paste your OpenAI API key into the Niyu AI settings within Odoo.
+        </p>
       </div>
-
-      <!-- Step 04 -->
-      <div class="col">
-        <div class="border-start ps-3" style="border-left-width: 3px; border-left-color: #2dd4bf;">
-          <span class="h3 fw-bold" style="color: #2dd4bf;">04</span>
-          <h3 class="h5 text-light mb-2">Unlock Data</h3>
-          <p class="text-muted mb-0">
-            Start using the AI chat from the Odoo menu or shortcut to get instant answers!
-          </p>
-        </div>
+      <div style="border-left:3px solid #2dd4bf; padding-left:20px;">
+        <span style="font-size:1.6rem; color:#2dd4bf; font-weight:700;">04</span>
+        <h3 style="font-size:1.4rem; margin:10px 0; color:#f9fafb;">Unlock Data</h3>
+        <p style="color:#9ca3af; margin:0;">
+          Start using the AI chat from the Odoo menu or shortcut to get instant answers!
+        </p>
       </div>
     </div>
+
   </div>
 </section>
 
