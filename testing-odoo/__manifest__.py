@@ -11,7 +11,7 @@
     'author': "Niyu Labs",
     'website': "https://niyulabs.com",
     'category': 'Productivity',
-    'version': '12.0.2.0.0',
+      'version': '18.0.1.0.0',
     'license': 'OPL-1',
     'price': 299,
     'currency': 'USD',
