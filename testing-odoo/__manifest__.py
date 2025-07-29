@@ -27,16 +27,6 @@
         'static/src/xml/niyu_ai_view.xml',
         'static/src/css/niyu_index.css',
     ],
-    'assets': {
-        # for Website front-end pages
-        'website.assets_frontend': [
-            'your_module/static/src/css/gradient_text.css',
-        ],
-        # if you also need it in the Odoo backend (e.g. login screen)
-        'web.assets_backend': [
-            'your_module/static/src/css/gradient_text.css',
-        ],
-    },
     # …
 
     'installable': True,

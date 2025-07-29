@@ -1,9 +1,0 @@
-/* static/src/css/gradient_text.css */
-.gradient-text {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  line-height: 1.2;
-  background: linear-gradient(180deg, #ffffff, #66ccff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
