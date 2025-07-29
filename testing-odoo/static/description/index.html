@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odoo to BigQuery Connector | Sexy & Amazing</title>
+  <title>Odoo to BigQuery Connector | Unleash Your Data</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -13,99 +13,145 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS for the "Amazing" Factor -->
+  <!-- Custom CSS for the "Sexy" Factor -->
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #F8F9FA;
-      color: #343a40;
+    :root {
+      --dark-bg: #0D1117;
+      --light-text: #E6EDF3;
+      --muted-text: #8B949E;
+      --accent-glow: #22a7f0;
+      --glass-bg: rgba(139, 148, 158, 0.1);
+      --glass-border: rgba(139, 148, 158, 0.2);
     }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+      overflow-x: hidden;
+    }
+
+    /* --- The Magic Aurora Background --- */
+    .aurora-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      opacity: 0.3;
+      background: radial-gradient(circle at 10% 20%, rgba(34, 167, 240, 0.4), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(102, 51, 204, 0.4), transparent 40%);
+      animation: aurora-flow 20s infinite alternate;
+    }
+
+    @keyframes aurora-flow {
+      0% { transform: rotate(0deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1.5); }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--light-text);
+    }
+    
+    .lead {
+        color: var(--muted-text);
+    }
+    
     .gradient-text {
-      background: linear-gradient(45deg, #0d6efd, #6f42c1);
+      background: linear-gradient(45deg, var(--accent-glow), #a371f7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
     }
-    
-    .hero-section {
-        background: radial-gradient(circle, rgba(230, 240, 255, 0.6) 0%, rgba(248,249,250,0) 60%);
-    }
 
-    .benefit-card {
+    /* --- Glassmorphism Cards & Containers --- */
+    .glass-card, .glass-container {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: none;
     }
 
     .benefit-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 30px rgba(34, 167, 240, 0.2);
     }
 
+    /* --- Glowing Elements --- */
     .img-showcase {
-      border-radius: 20px;
-      outline: 8px solid #FFF;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 1.25rem;
+      box-shadow: 0 0 40px rgba(34, 167, 240, 0.15), 0 0 10px rgba(0,0,0,0.5);
+      border: 1px solid var(--glass-border);
     }
     
-    .feature-image-wrapper {
-        background-color: white;
-        padding: 1rem;
-        border-radius: 1rem;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    .btn-glow {
+        background-color: var(--accent-glow);
+        border-color: var(--accent-glow);
+        box-shadow: 0 0 15px rgba(34, 167, 240, 0.5);
+        transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+        background-color: #4dbfff;
+        border-color: #4dbfff;
+        box-shadow: 0 0 25px rgba(34, 167, 240, 0.8);
+        transform: translateY(-2px);
+    }
+
+    /* --- Scroll Animations --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
     
-    /* Custom FAQ Accordion */
-    .faq-item summary {
-      cursor: pointer;
-      position: relative;
-      padding-right: 2.5rem;
+    /* --- Custom FAQ --- */
+    .faq-item {
+        transition: background-color 0.3s;
+    }
+    .faq-item:hover {
+        background: rgba(139, 148, 158, 0.15);
     }
     .faq-item summary::after {
       content: '+';
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      font-weight: 300;
-      transition: transform 0.2s ease;
+      color: var(--accent-glow);
+      font-size: 2rem;
+      transition: transform 0.3s ease;
     }
     .faq-item[open] summary::after {
-      content: '-';
-      transform: translateY(-50%);
+      transform: rotate(45deg);
     }
-
-    /* Soft Backgrounds */
-    .bg-soft-orange { background-color: #fae7d4 !important; }
-    .bg-soft-purple { background-color: #e8dee8 !important; }
-    .bg-soft-green { background-color: #daf4da !important; }
-    .bg-soft-pink { background-color: #ffe0f8 !important; }
-    
   </style>
-
 </head>
 <body>
 
+  <div class="aurora-background"></div>
+
   <!-- ===== HERO SECTION ===== -->
-  <div class="container col-xxl-8 px-4 py-5 hero-section">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5 reveal">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="image.png" class="d-block mx-lg-auto img-fluid shadow-lg" alt="Odoo to BigQuery Connector UI" style="border-radius: 20px;" loading="lazy">
+        <img src="image.png" class="d-block mx-lg-auto img-fluid img-showcase" alt="Odoo to BigQuery Connector UI" loading="lazy">
       </div>
       <div class="col-lg-6">
-        <h1 class="display-4 fw-bold lh-1 mb-4">Stop Dumping Data. <br><span class="gradient-text">Start Analyzing Smarter.</span></h1>
-        <p class="lead" style="font-size: 1.3rem;">Export <b>filtered Odoo data</b> and <b>selected columns</b> directly to Google BigQuery. Slash your costs, accelerate your insights, and leave slow, wasteful data dumps behind.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-          <a href="#features" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">See Features</a>
-          <a href="#faq" class="btn btn-outline-secondary btn-lg px-4">Read the FAQ</a>
+        <h1 class="display-3 fw-bolder lh-1 mb-4">Ditch the Data Dumps. <br><span class="gradient-text">Unleash Your Insights.</span></h1>
+        <p class="lead fs-5">Intelligently export filtered Odoo data and specific columns directly to Google BigQuery. Stop wasting time and money—start making decisions with laser-focused analytics.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
+          <a href="#features" class="btn btn-glow btn-lg px-4 me-md-2 fw-bold text-white">Explore Features</a>
+          <a href="#faq" class="btn btn-outline-light btn-lg px-4">Ask a Question</a>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="container px-4 py-5">
+  <div class="container px-4 py-5 reveal">
       <div class="text-center mb-5">
            <img src="./query.png" alt="Querying data in BigQuery" class="img-fluid img-showcase" style="max-width: 900px;">
       </div>
@@ -113,52 +159,42 @@
 
 
   <!-- ===== BENEFITS SECTION ("What You Feel") ===== -->
-  <div class="container px-4 py-5" id="hanging-icons">
-    <h2 class="pb-2 border-bottom text-center display-6 fw-bold">Unleash Your Data's True Potential</h2>
-    <p class="text-center text-muted mb-5">Feel the difference from the very first export.</p>
+  <div class="container px-4 py-5">
+    <div class="text-center reveal">
+        <h2 class="pb-2 display-5 fw-bold">The Power to Transform Your Analytics</h2>
+        <p class="lead mb-5">This isn't just a tool; it's a competitive advantage.</p>
+    </div>
     
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
-      <div class="col d-flex align-items-start">
-        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-orange">
+      <div class="col reveal" style="transition-delay: 100ms;">
+        <div class="card h-100 benefit-card glass-card">
             <div class="card-body text-center p-4">
-                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
-                    <img src="./filter-filters-svgrepo-com.svg" alt="Filter Icon" style="width: 32px; height: 32px;">
-                </div>
-                <h3 class="fs-4 fw-semibold">Lower BigQuery Bills</h3>
-                <p>Export only needed records using Odoo domains to drastically cut BQ storage & query costs.</p>
+                <h3 class="fs-4 fw-semibold mt-3">Slash Costs</h3>
+                <p class="text-white-50">Drastically cut BigQuery storage and query costs by exporting only the records and columns you actually need.</p>
             </div>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-purple">
+      <div class="col reveal" style="transition-delay: 200ms;">
+        <div class="card h-100 benefit-card glass-card">
             <div class="card-body text-center p-4">
-                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
-                    <img src="./clipboard-note-document-report-paper-list-data-svgrepo-com.svg" alt="Data Icon" style="width: 32px; height: 32px;">
-                </div>
-                <h3 class="fs-4 fw-semibold">Faster, Cleaner Data</h3>
-                <p>Select specific columns for quicker exports and cleaner datasets in BigQuery, saving more costs.</p>
+                <h3 class="fs-4 fw-semibold mt-3">Accelerate Insights</h3>
+                <p class="text-white-50">Get cleaner datasets into BigQuery faster. No more waiting for massive, irrelevant data dumps to complete.</p>
             </div>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-green">
+      <div class="col reveal" style="transition-delay: 300ms;">
+        <div class="card h-100 benefit-card glass-card">
             <div class="card-body text-center p-4">
-                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
-                    <img src="./unlock-svgrepo-com.svg" alt="Unlock Icon" style="width: 32px; height: 32px;">
-                </div>
-                <h3 class="fs-4 fw-semibold">Reliable Large Exports</h3>
-                <p>Batch processing ensures even million-record tables export smoothly without crashing Odoo.</p>
+                <h3 class="fs-4 fw-semibold mt-3">Export Reliably</h3>
+                <p class="text-white-50">Our batch processing conquers million-record tables smoothly without crashing your Odoo instance.</p>
             </div>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-pink">
+      <div class="col reveal" style="transition-delay: 400ms;">
+        <div class="card h-100 benefit-card glass-card">
             <div class="card-body text-center p-4">
-                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
-                    <img src="./money-alt-2-svgrepo-com.svg" alt="Analytics Icon" style="width: 32px; height: 32px;">
-                </div>
-                <h3 class="fs-4 fw-semibold">Unlock Advanced Analytics</h3>
-                <p>Move beyond basic Odoo reports; leverage BigQuery for deep insights, BI tools, and AI/ML.</p>
+                <h3 class="fs-4 fw-semibold mt-3">Unlock AI/ML</h3>
+                <p class="text-white-50">Leverage the full power of BigQuery for deep insights, BI dashboards, and advanced AI/ML models.</p>
             </div>
         </div>
       </div>
@@ -167,71 +203,45 @@
 
 
   <!-- ===== FEATURES SECTION ===== -->
-  <div class="bg-light" id="features">
+  <div id="features" class="overflow-hidden">
     <div class="container px-4 py-5">
-        <h2 class="text-center display-6 fw-bold mb-5">Powerful Features, Effortless Control</h2>
+        <h2 class="text-center display-5 fw-bold mb-5 reveal">Engineered for Precision and Power</h2>
 
         <!-- Feature 1 -->
-        <div class="row align-items-center g-5 py-5">
+        <div class="row align-items-center g-5 py-5 reveal">
             <div class="col-lg-6">
-                <h3 class="fw-bold h2">Export Any Odoo Table</h3>
-                <p class="lead">Select any standard Odoo table (like Sales, Invoices, Products) and push its data to BigQuery effortlessly. Works with native and custom modules for complete access.</p>
+                <h3 class="fw-bold h2">Any Table, Any Module</h3>
+                <p class="lead">Effortlessly select any Odoo table—standard or custom—and push its data directly to BigQuery. Your entire business data landscape is now accessible.</p>
             </div>
             <div class="col-lg-6">
-                <div class="feature-image-wrapper">
-                    <img src="./sel.png" alt="Table selection screenshot" class="img-fluid" loading="lazy">
+                <div class="glass-container p-3">
+                    <img src="./sel.png" alt="Table selection screenshot" class="img-fluid rounded-3" loading="lazy">
                 </div>
             </div>
         </div>
 
         <!-- Feature 2 (Reversed) -->
-        <div class="row align-items-center g-5 py-5">
+        <div class="row align-items-center g-5 py-5 reveal">
             <div class="col-lg-6 order-lg-2">
-                <h3 class="fw-bold h2">Precise Record Filtering</h3>
-                <p class="lead">Use standard Odoo domain filters to select exactly which records to export. Send only the data you need, keeping your BigQuery instance lean and efficient.</p>
+                <h3 class="fw-bold h2">Surgical Record Filtering</h3>
+                <p class="lead">Use familiar Odoo domain filters to select the exact records you need. Keep your BigQuery instance lean, fast, and cost-effective.</p>
             </div>
             <div class="col-lg-6 order-lg-1">
-                <div class="feature-image-wrapper">
-                    <img src="./Ad_filtering.png" alt="Domain filter screenshot" class="img-fluid" loading="lazy">
+                <div class="glass-container p-3">
+                    <img src="./Ad_filtering.png" alt="Domain filter screenshot" class="img-fluid rounded-3" loading="lazy">
                 </div>
             </div>
         </div>
         
         <!-- Feature 3 -->
-        <div class="row align-items-center g-5 py-5">
+        <div class="row align-items-center g-5 py-5 reveal">
             <div class="col-lg-6">
-                <h3 class="fw-bold h2">Specific Column Selection</h3>
-                <p class="lead">Choose exactly which fields to send to BigQuery. This targeted approach accelerates exports and directly reduces your BigQuery storage and query costs.</p>
-            </div>
-            <div class="col-lg-6">
-                 <div class="feature-image-wrapper">
-                    <img src="./selection.png" alt="Column selection screenshot" class="img-fluid" loading="lazy">
-                </div>
-            </div>
-        </div>
-        
-         <!-- Feature 4 (Reversed) -->
-        <div class="row align-items-center g-5 py-5">
-            <div class="col-lg-6 order-lg-2">
-                <h3 class="fw-bold h2">Handles Massive Tables</h3>
-                <p class="lead">Our intelligent batching system exports data in manageable chunks, reliably handling tables with millions of records without timeouts or system instability.</p>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-                 <div class="feature-image-wrapper">
-                    <img src="./dataset.png" alt="Large dataset log" class="img-fluid" loading="lazy">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Feature 5 -->
-        <div class="row align-items-center g-5 py-5">
-            <div class="col-lg-6">
-                <h3 class="fw-bold h2">Incremental (CDC) Exports <span class="badge bg-success">Pro Plus</span></h3>
-                <p class="lead">After the initial sync, Change Data Capture (CDC) ensures only new or updated records are sent to BigQuery. This minimizes data transfer and keeps your dataset current.</p>
+                <h3 class="fw-bold h2">Targeted Column Selection</h3>
+                <p class="lead">Why export 100 columns when you only need 10? Choose specific fields to dramatically accelerate exports and reduce BQ costs.</p>
             </div>
             <div class="col-lg-6">
-                 <div class="feature-image-wrapper">
-                    <img src="./incre_export.png" alt="Incremental export log" class="img-fluid" loading="lazy">
+                 <div class="glass-container p-3">
+                    <img src="./selection.png" alt="Column selection screenshot" class="img-fluid rounded-3" loading="lazy">
                 </div>
             </div>
         </div>
@@ -241,35 +251,35 @@
   
   <!-- ===== TIPS & TRICKS ===== -->
   <div class="container px-4 py-5">
-    <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold"> Pro Tips for Maximum Savings</h2>
-      <p class="lead text-muted">Use the connector wisely to get the most value.</p>
+    <div class="text-center mb-5 reveal">
+      <h2 class="display-6 fw-bold"> Master Your Data Flow</h2>
+      <p class="lead text-muted">A few tips to maximize efficiency and savings.</p>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex align-items-start p-4 mb-3 shadow-sm rounded-3 border-0">
-            <div class="fs-3 text-success me-4"></div>
+        <div class="list-group">
+          <div class="list-group-item d-flex align-items-center p-4 mb-3 glass-card border-0 reveal">
+            <div class="fs-2 me-4" style="color:var(--accent-glow)">01</div>
             <div>
-              <h5 class="fw-semibold">Filter Aggressively</h5>
-              The more specific your Domain Filter, the faster the export and the lower your BQ costs. Don't pull data you don't need today.
+              <h5 class="fw-semibold mb-1">Filter Aggressively</h5>
+              <p class="mb-0 text-white-50">The more specific your domain filter, the faster the export and the lower your costs. Be ruthless.</p>
             </div>
-          </li>
-          <li class="list-group-item d-flex align-items-start p-4 mb-3 shadow-sm rounded-3 border-0">
-            <div class="fs-3 text-warning me-4"></div>
+          </div>
+          <div class="list-group-item d-flex align-items-center p-4 mb-3 glass-card border-0 reveal">
+            <div class="fs-2 me-4" style="color:var(--accent-glow)">02</div>
             <div>
-              <h5 class="fw-semibold">Select Columns Wisely</h5>
-              Every extra column adds time and cost. Only select columns required for your specific BigQuery analysis or reports.
+              <h5 class="fw-semibold mb-1">Select Columns Wisely</h5>
+              <p class="mb-0 text-white-50">Every extra column adds to the bill. Only select what is essential for your analysis.</p>
             </div>
-          </li>
-          <li class="list-group-item d-flex align-items-start p-4 shadow-sm rounded-3 border-0">
-            <div class="fs-3 text-info me-4"></div>
+          </div>
+          <div class="list-group-item d-flex align-items-center p-4 glass-card border-0 reveal">
+            <div class="fs-2 me-4" style="color:var(--accent-glow)">03</div>
             <div>
-              <h5 class="fw-semibold">Understand BigQuery Pricing</h5>
-              Remember BigQuery charges for storage and compute (queries). This connector helps you minimize both by sending less data.
+              <h5 class="fw-semibold mb-1">Leverage Incremental Syncs</h5>
+              <p class="mb-0 text-white-50">For large, active tables, the Pro Plus version's CDC feature is a game-changer for cost and speed.</p>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -277,38 +287,28 @@
 
   <!-- ===== FAQ SECTION ===== -->
   <div class="container py-5" id="faq">
-    <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold">Frequently Asked Questions</h2>
+    <div class="text-center mb-5 reveal">
+      <h2 class="display-6 fw-bold">Your Questions, Answered</h2>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="accordion" id="faqAccordion">
-            
-          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
-              <summary class="fw-semibold fs-5">How easy is the setup?</summary>
-              <p class="pt-3 text-muted">Standard Odoo module install. Enter your BQ Project ID, Dataset ID, and Service Account JSON in Settings. Done.</p>
+        <div class="accordion">
+          <details class="p-3 mb-3 glass-card faq-item reveal">
+              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">How easy is the setup?</summary>
+              <p class="pt-3 text-white-50">It's a standard Odoo module install. Plug in your BQ Project ID, Dataset ID, and Service Account JSON in Settings. You're live in minutes.</p>
           </details>
-          
-          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
-              <summary class="fw-semibold fs-5">What support is included?</summary>
-              <p class="pt-3 text-muted">21 days of free email support for installation and configuration issues for the Pro version. Pro Plus includes 3 months.</p>
+          <details class="p-3 mb-3 glass-card faq-item reveal">
+              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">Which Odoo versions are supported?</summary>
+              <p class="pt-3 text-white-50">The connector supports Odoo 15, 16, 17, and 18. Our Pro Plus plan includes free upgrades for all future Odoo versions.</p>
           </details>
-          
-          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
-              <summary class="fw-semibold fs-5">Which Odoo versions are supported?</summary>
-              <p class="pt-3 text-muted">Check the compatible versions on the store page (currently supports 15, 16, 17, 18). Pro Plus includes free upgrades for future versions.</p>
+          <details class="p-3 mb-3 glass-card faq-item reveal">
+              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">How does it handle millions of records?</summary>
+              <p class="pt-3 text-white-50">It intelligently exports data in configurable batches to prevent timeouts and server strain. We've successfully tested it on tables with over 8 million records.</p>
           </details>
-
-          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
-              <summary class="fw-semibold fs-5">How does it handle millions of records?</summary>
-              <p class="pt-3 text-muted">It exports in configurable batches to avoid timeouts. For very large data (multi-million records) or frequent syncs, the Pro Plus variant is highly recommended.</p>
+          <details class="p-3 mb-3 glass-card faq-item reveal">
+              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">When should I choose the Pro Plus version?</summary>
+              <p class="pt-3 text-white-50">Choose Pro Plus if you need automated, incremental updates (syncing only changes), scheduled refreshes, support for future Odoo versions, or are working with very large, active datasets.</p>
           </details>
-
-          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
-              <summary class="fw-semibold fs-5">When do I need Pro Plus?</summary>
-              <p class="pt-3 text-muted">If you need automated, incremental updates (syncing only new/changed data), scheduled refreshes, support for future Odoo versions, or are working with very large datasets.</p>
-          </details>
-          
         </div>
       </div>
     </div>
@@ -316,24 +316,23 @@
 
 
   <!-- ===== FOOTER ===== -->
-  <div class="bg-dark text-white">
+  <div class="border-top" style="border-color: var(--glass-border) !important;">
     <footer class="container py-5">
       <div class="row align-items-center">
         <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
           <a href="/" class="d-inline-block">
-            <img src="./icon (1).png" alt="Niyu Labs Logo" style="width: 100px;">
+            <img src="./icon (1).png" alt="Niyu Labs Logo" style="width: 100px; filter: grayscale(1) brightness(2);">
           </a>
         </div>
         <div class="col-md-6 text-center mb-4 mb-md-0">
-          <p class="mb-0 text-white-50">Empowering you to unlock insights from your data. The Google Cloud BigQuery Connector Pro is built for efficiency, flexibility, and transparency.</p>
+          <p class="mb-0 text-white-50">Engineered with passion by Niyu Labs. <br> Stop managing data, start using it.</p>
         </div>
         <div class="col-md-3 text-center text-md-end">
-          <h5 class="fw-bold">Contact Us</h5>
-          <a href="mailto:info@niyulabs.com" class="text-white-50 text-decoration-none d-block">info@niyulabs.com</a>
-          <a href="https://niyulabs.com" target="_blank" class="text-white-50 text-decoration-none">niyulabs.com</a>
+          <h5 class="fw-bold">Get in Touch</h5>
+          <a href="mailto:info@niyulabs.com" class="text-white-50 text-decoration-none">info@niyulabs.com</a>
         </div>
       </div>
-      <div class="text-center text-white-50 pt-4 mt-4 border-top border-secondary">
+      <div class="text-center text-white-50 pt-4 mt-4 small">
         © 2024 Niyu Labs. All Rights Reserved.
       </div>
     </footer>
@@ -342,7 +341,25 @@
 
   <!-- Bootstrap JS (and Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- Bootstrap Icons (for checkmarks) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- JS for Scroll Animations -->
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    revealElements.forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
