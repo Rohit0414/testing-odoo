@@ -56,19 +56,6 @@
         box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
     
-    .pricing-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .pricing-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important;
-    }
-    
-    .pro-plus-card {
-        border: 2px solid #198754;
-    }
-    
     /* Custom FAQ Accordion */
     .faq-item summary {
       cursor: pointer;
@@ -111,8 +98,8 @@
         <h1 class="display-4 fw-bold lh-1 mb-4">Stop Dumping Data. <br><span class="gradient-text">Start Analyzing Smarter.</span></h1>
         <p class="lead" style="font-size: 1.3rem;">Export <b>filtered Odoo data</b> and <b>selected columns</b> directly to Google BigQuery. Slash your costs, accelerate your insights, and leave slow, wasteful data dumps behind.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-          <a href="#pricing" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">View Pricing</a>
-          <a href="#features" class="btn btn-outline-secondary btn-lg px-4">See Features</a>
+          <a href="#features" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">See Features</a>
+          <a href="#faq" class="btn btn-outline-secondary btn-lg px-4">Read the FAQ</a>
         </div>
       </div>
     </div>
@@ -284,74 +271,6 @@
           </li>
         </ul>
       </div>
-    </div>
-  </div>
-
-
-  <!-- ===== PRICING SECTION ===== -->
-  <div class="bg-light" id="pricing">
-    <div class="container py-5">
-      <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold">Simple, Transparent Pricing</h2>
-        <p class="lead text-muted">Choose the plan that fits your data strategy.</p>
-      </div>
-
-      <div class="row justify-content-center align-items-center g-4">
-        
-        <!-- Pro Card -->
-        <div class="col-lg-5">
-          <div class="card pricing-card h-100 shadow-sm rounded-4">
-            <div class="card-header text-center p-4 bg-soft-orange">
-              <h3 class="fw-bold">Connector Pro</h3>
-              <p class="h1 fw-bolder mb-0">(This one)</p>
-              <p class="text-muted mt-2 mb-0">*Sold on Odoo App Store</p>
-            </div>
-            <div class="card-body p-4">
-              <h5 class="card-title text-center text-primary fw-bold mb-4">Best for Small to Moderate Data</h5>
-              <ul class="list-unstyled">
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Odoo Data Export</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Domain Filtering</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Column Selection</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Batch Export (~1M records)</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-x-circle-fill text-danger me-2 fs-5"></i><span>Incremental (CDC) Sync</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-x-circle-fill text-danger me-2 fs-5"></i><span>Scheduled/Real-time Refresh</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-x-circle-fill text-danger me-2 fs-5"></i><span>Free Odoo Upgrades</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>21 Days Free Support</span></li>
-              </ul>
-            </div>
-            <div class="card-footer bg-white border-0 p-4 pt-0">
-                <a href="#" class="btn btn-outline-primary w-100 btn-lg fw-bold">Get Pro on Odoo Store</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pro Plus Card -->
-        <div class="col-lg-5">
-          <div class="card pricing-card h-100 shadow-sm rounded-4 pro-plus-card">
-            <div class="card-header text-center p-4 bg-soft-green">
-              <h3 class="fw-bold">Connector Pro Plus</h3>
-              <p class="h1 fw-bolder mb-0">Free <span class="fs-5 fw-normal">(by Request)</span></p>
-              <p class="text-muted mt-2 mb-0">*Available via our website/email</p>
-            </div>
-            <div class="card-body p-4">
-              <h5 class="card-title text-center text-success fw-bold mb-4">Best for Large Data & Automation</h5>
-              <ul class="list-unstyled">
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>All Pro Features, Plus:</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Enhanced Batch Export (8M+ records)</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span class="fw-bold">Incremental (CDC) Sync</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span class="fw-bold">Scheduled & Real-time Refresh</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span class="fw-bold">Free Odoo Upgrades</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>3 Months Extended Support</span></li>
-                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Enhanced Code Protection</span></li>
-              </ul>
-            </div>
-            <div class="card-footer bg-white border-0 p-4 pt-0">
-                <a href="https://niyulabs.com" class="btn btn-success w-100 btn-lg fw-bold">Request Pro Plus</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="text-center text-muted mt-5">Not sure? <a href="mailto:info@niyulabs.com" class="fw-bold">Contact us</a> for a personalized recommendation.</p>
     </div>
   </div>
 
