@@ -1,641 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odoo to BigQuery Connector | Sexy & Amazing</title>
 
-  <div class="">
-    <div style="min-height: 90vh; position: relative; ">
-      
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS for the "Amazing" Factor -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F8F9FA;
+      color: #343a40;
+    }
+
+    .gradient-text {
+      background: linear-gradient(45deg, #0d6efd, #6f42c1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
     
-      <!-- Content Section -->
-      <div style="width: 100%;padding-bottom: 10px;">
-        <div
-          class="container d-flex flex-column justify-content-center align-items-center"
-          style="text-align: center;"
-        >
-         <img
-            style="width: 100%; height: 70vh;border-radius: 20px; outline:#F0F2F5 8px solid;"
-            src="image.png"
-            alt="Tired of slow, costly data dumps from Odoo? This connector lets you intelligently export exactly the Odoo data you need to BigQuery. Use standard Odoo filters and pick specific columns for faster, cheaper analytics."
-          />
-          
-          <!-- Heading Text -->
-       
-          <p style="max-width: 50rem; margin-top:70px;">Export <b>filtered Odoo data</b> and <b>selected columns</b> directly to Google BigQuery. Stop dumping everything, <b>start saving time and money.</b></p>
+    .hero-section {
+        background: radial-gradient(circle, rgba(230, 240, 255, 0.6) 0%, rgba(248,249,250,0) 60%);
+    }
+
+    .benefit-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .img-showcase {
+      border-radius: 20px;
+      outline: 8px solid #FFF;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .feature-image-wrapper {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    
+    .pricing-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .pricing-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.12) !important;
+    }
+    
+    .pro-plus-card {
+        border: 2px solid #198754;
+    }
+    
+    /* Custom FAQ Accordion */
+    .faq-item summary {
+      cursor: pointer;
+      position: relative;
+      padding-right: 2.5rem;
+    }
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      font-weight: 300;
+      transition: transform 0.2s ease;
+    }
+    .faq-item[open] summary::after {
+      content: '-';
+      transform: translateY(-50%);
+    }
+
+    /* Soft Backgrounds */
+    .bg-soft-orange { background-color: #fae7d4 !important; }
+    .bg-soft-purple { background-color: #e8dee8 !important; }
+    .bg-soft-green { background-color: #daf4da !important; }
+    .bg-soft-pink { background-color: #ffe0f8 !important; }
+    
+  </style>
+
+</head>
+<body>
+
+  <!-- ===== HERO SECTION ===== -->
+  <div class="container col-xxl-8 px-4 py-5 hero-section">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="image.png" class="d-block mx-lg-auto img-fluid shadow-lg" alt="Odoo to BigQuery Connector UI" style="border-radius: 20px;" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold lh-1 mb-4">Stop Dumping Data. <br><span class="gradient-text">Start Analyzing Smarter.</span></h1>
+        <p class="lead" style="font-size: 1.3rem;">Export <b>filtered Odoo data</b> and <b>selected columns</b> directly to Google BigQuery. Slash your costs, accelerate your insights, and leave slow, wasteful data dumps behind.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+          <a href="#pricing" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">View Pricing</a>
+          <a href="#features" class="btn btn-outline-secondary btn-lg px-4">See Features</a>
         </div>
-        
-        <!-- Image Section -->
-        <div style="display: flex;flex-direction: column;align-items: center;  justify-content: center; margin-top: 40px;margin-bottom: 25px;">
-          <img
-            style="width: 100%; height: 70vh;border-radius: 20px; outline:#F0F2F5 8px solid;"
-            src="./query.png"
-            alt="Tired of slow, costly data dumps from Odoo? This connector lets you intelligently export exactly the Odoo data you need to BigQuery. Use standard Odoo filters and pick specific columns for faster, cheaper analytics."
-          />
-        </div>
-        
       </div>
     </div>
-    </div>
-      <!-- Section: What You Feel While Using -->
-    <div >
-      <section style="position: relative; padding-block: 30px; width: 100%; overflow: hidden; z-index: 1;margin-top:100px;">
-        <!-- This div serves as the background image overlay -->
-        <!-- <img src="./heroBg.png" alt="image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.85;"/> -->
-        
-        <h3 style="text-align: center; margin-block: 10px;position: relative;font-size: 32px;">What You Feel While Using?</h3>
-        
-        <!-- Content Cards -->
-        <div style="display: flex; justify-content: space-between; margin: 30px auto; max-width: 1000px; padding: 0 15px; position: relative;margin-top:30px;">
-            <!-- First row - three cards with identical width settings -->
-            <div style="flex: 1 1 450px; min-width: 250px; max-width: 380px; background-color: #fae7d4; border: 1px solid #fae7d4; border-radius: 10px; padding: 20px; box-sizing: border-box; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-                <div style="width: 40px; height: 40px; border-radius:10px;"><img style="height: 100%;width: 100%;" src="./filter-filters-svgrepo-com.svg" alt=""></div>
-                <h3 style="margin-block: 35px; font-size: 24px;"> Lower BigQuery Bills</h3>
+  </div>
+  
+  <div class="container px-4 py-5">
+      <div class="text-center mb-5">
+           <img src="./query.png" alt="Querying data in BigQuery" class="img-fluid img-showcase" style="max-width: 900px;">
+      </div>
+  </div>
+
+
+  <!-- ===== BENEFITS SECTION ("What You Feel") ===== -->
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom text-center display-6 fw-bold">Unleash Your Data's True Potential</h2>
+    <p class="text-center text-muted mb-5">Feel the difference from the very first export.</p>
+    
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
+      <div class="col d-flex align-items-start">
+        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-orange">
+            <div class="card-body text-center p-4">
+                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
+                    <img src="./filter-filters-svgrepo-com.svg" alt="Filter Icon" style="width: 32px; height: 32px;">
+                </div>
+                <h3 class="fs-4 fw-semibold">Lower BigQuery Bills</h3>
                 <p>Export only needed records using Odoo domains to drastically cut BQ storage & query costs.</p>
             </div>
-            
-            <div style="margin-left:auto; flex: 1 1 450px; min-width: 250px; max-width: 380px; background-color: #e8dee8; border: 1px solid #e8dee8; border-radius: 10px; padding: 20px; box-sizing: border-box; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-              <div style="width: 40px; height: 40px; border-radius:10px;"><img style="height: 100%;width: 100%;" src="./clipboard-note-document-report-paper-list-data-svgrepo-com.svg" alt=""></div>
-              <h3 style="margin-block: 35px;font-size: 24px;"> Faster, Cleaner Data </h3>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-purple">
+            <div class="card-body text-center p-4">
+                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
+                    <img src="./clipboard-note-document-report-paper-list-data-svgrepo-com.svg" alt="Data Icon" style="width: 32px; height: 32px;">
+                </div>
+                <h3 class="fs-4 fw-semibold">Faster, Cleaner Data</h3>
                 <p>Select specific columns for quicker exports and cleaner datasets in BigQuery, saving more costs.</p>
             </div>
         </div>
-        <div style="display: flex; justify-content: space-between; margin: 30px auto; max-width: 1000px; padding: 0 15px; position: relative;margin-top:30px;">
-          
-            <div style="flex: 0 1 450px; max-width: 380px; background-color: #daf4da; border: 1px solid #daf4da; border-radius: 10px; padding: 20px; box-sizing: border-box; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-              <div style="width: 40px; height: 40px; border-radius:10px;"><img style="height: 100%;width: 100%;" src="./unlock-svgrepo-com.svg" alt=""></div>
-              <h3 style="margin-block: 35px; font-size: 24px;"> Export Large Tables Reliably</h3>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-green">
+            <div class="card-body text-center p-4">
+                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
+                    <img src="./unlock-svgrepo-com.svg" alt="Unlock Icon" style="width: 32px; height: 32px;">
+                </div>
+                <h3 class="fs-4 fw-semibold">Reliable Large Exports</h3>
                 <p>Batch processing ensures even million-record tables export smoothly without crashing Odoo.</p>
             </div>
-            
-            <!-- Second row - one card with identical width as others -->
-            <div style="margin-left:auto; flex: 1 1 450px; min-width: 250px; max-width: 380px; background-color: #ffe0f8;  border: 1px solid #ffe0f8; border-radius: 10px; padding: 20px; box-sizing: border-box; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-              <div style="width: 40px; height: 40px; border-radius:10px;"><img style="height: 100%;width: 100%;" src="./money-alt-2-svgrepo-com.svg" alt=""></div>
-              <h3 style="margin-block: 35px; font-size: 24px;"> Unlock Advanced Analytics</h3>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="card h-100 benefit-card shadow-sm w-100 bg-soft-pink">
+            <div class="card-body text-center p-4">
+                <div class="icon-square bg-white text-dark d-inline-flex align-items-center justify-content-center fs-4 rounded-3 mb-3 p-2">
+                    <img src="./money-alt-2-svgrepo-com.svg" alt="Analytics Icon" style="width: 32px; height: 32px;">
+                </div>
+                <h3 class="fs-4 fw-semibold">Unlock Advanced Analytics</h3>
                 <p>Move beyond basic Odoo reports; leverage BigQuery for deep insights, BI tools, and AI/ML.</p>
             </div>
         </div>
-    </section>
-  
-    <!-- features -->
-       <div style="display: flex; justify-content: center; margin-top: 100px; margin-bottom: 50px; text-align: center;">
-        <h3 style="font-size: 36px; font-weight: bold;">Features</h3>
-      </div>
-    <div style="background-color: #F0F2F5; padding: 30px 30px 60px; width: 100%;">
-    
-    
-      <div style="max-width: 1280px; margin: 0 auto;">
-        <!-- Container to center all sections -->
-        <section
-            style="
-              display: flex;
-              /* push the two children to the edges, with even space in between */
-              justify-content: space-between;
-              /* line up their centers; use flex-start if you want top‐aligned instead */
-              align-items: center;
-              flex-wrap: wrap;             /* optional: allows wrapping on very small screens */
-              gap: 120px;
-              margin: 80px 0 140px;
-              font-family: Arial, sans-serif;
-              background-color: #F0F2F5;
-            "
-          >
-            <!-- Text Content -->
-            <div style="flex: 1 1 300px; max-width: 600px;">
-              <h3 style="font-size: 1.8em; margin-bottom: 20px; font-weight: bold;">
-                Export Any Odoo Table
-              </h3>
-              <p style="font-size: 1.2em; line-height: 1.8; margin-right: 50px;">
-                Select any standard Odoo table (like Sales Orders, Invoices, Products,
-                Contacts) and push its data to BigQuery effortlessly. Works with all
-                native and custom modules, giving you complete access to your business
-                data for analytics.
-              </p>
-            </div>
-          
-            <!-- Image with box shadow and border -->
-            <div style="flex: 1 1 300px; max-width: 1200px;">
-              <div
-                style="
-                  background-color: white;
-                  padding: 14px;
-                  border-radius: 14px;
-                  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-                "
-              >
-                <img
-                  src="./sel.png"
-                  alt="Screenshot showing the table selection dropdown in the module's configuration for selecting Odoo tables to export"
-                  style="max-width: 1496px;  height: auto; image-rendering: pixelated;"
-                  loading="lazy"
-                >
-              </div>
-            </div>
-          </section>
-
-        <section
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              align-items: center;
-              justify-content: space-between;
-              gap: 120px;
-              margin-block: 140px;
-              font-family: Arial, sans-serif;
-              background-color: #F0F2F5;
-              margin-bottom:140px;
-            "
-          >
-            <!-- Text Content -->
-            <div style="flex: 1 1 300px; max-width: 600px;">
-              <h3 style="font-size: 1.8em; margin-bottom: 20px; font-weight: bold;">
-                Precise Record Filtering
-              </h3>
-              <p style="font-size: 1.2em; line-height: 1.8;  margin-right: 50px;">
-                Use standard Odoo domain filters [(&#39;field&#39;, &#39;operator&#39;, &#39;value&#39;)] to select exactly which records to export. Only send the data you actually need, reducing transfer volumes and keeping your BigQuery instance lean and efficient.
-              </p>
-            </div>
-          
-            <!-- Image with box shadow and border -->
-            <div style="flex: 1 1 300px; max-width: 840px;">
-              <div style="background-color: white; padding: 14px; border-radius: 14px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
-                <img
-                  src="./Ad_filtering.png"
-                  alt="Close-up screenshot of the domain filter field where users enter standard Odoo filters"
-                  style="width: 840px; height: auto; image-rendering: pixelated;"
-                  loading="lazy"
-                >
-              </div>
-            </div>
-          </section>
-          
-          <section
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              align-items: center;
-              justify-content: space-between;
-              gap: 120px;
-              margin-block: 140px;
-              font-family: Arial, sans-serif;
-              background-color: #F0F2F5;
-              margin-bottom:140px;
-            "
-          >
-            <!-- Text Content -->
-            <div style="flex: 1 1 300px; max-width: 600px;">
-              <h3 style="font-size: 1.8em; margin-bottom: 20px; font-weight: bold;">
-                Specific Column Selection
-              </h3>
-              <p style="font-size: 1.2em; line-height: 1.8; margin-right: 50px;">
-                Choose exactly which fields to send to BigQuery instead of exporting entire tables. This targeted approach accelerates exports and directly reduces your BigQuery storage and query costs.
-              </p>
-            </div>
-          
-            <!-- Image with box shadow and border -->
-            <div style="flex: 1 1 300px; max-width: 1516px;">
-              <div style="background-color: white; padding: 14px; border-radius: 14px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
-                <img
-                  src="./selection.png"
-                  alt="Screenshot highlighting the easy selection of specific table columns for export to BigQuery"
-                  style="max-width: 1516px;  height: auto; image-rendering: pixelated;"
-                  loading="lazy"
-                >
-              </div>
-            </div>
-          </section>
-          
-          <section
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              align-items: center;
-              justify-content: space-between;
-              gap: 120px;
-              margin-block: 140px;
-              font-family: Arial, sans-serif;
-              background-color: #F0F2F5;
-            "
-          >
-            <!-- Text Content -->
-            <div style="flex: 1 1 300px; max-width: 600px;">
-              <h3 style="font-size: 1.8em; margin-bottom: 20px; font-weight: bold;">
-                Handles Large Tables
-              </h3>
-              <p style="font-size: 1.2em; line-height: 1.8;  margin-right: 50px;">
-                Our intelligent batching system exports data in manageable chunks, reliably handling tables with 1M+ records. Prevents timeouts and keeps your Odoo system stable even during massive exports.
-              </p>
-            </div>
-          
-           
-            <!-- Extra Large Dataset Screenshot -->
-              <div style="flex: 1 1 300px; max-width: 847px; margin-top: 20px;">
-                <div style="background-color: white; padding: 14px; border-radius: 14px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
-                  <img
-                    src="./dataset.png"
-                    alt="Screenshot showing export log for extra large dataset"
-                    style="max-width: 847px;  height: auto; image-rendering: pixelated;"
-                    loading="lazy"
-                  >
-                </div>
-              </div>
-          </section>
-
-          <section
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 120px;
-            margin-block: 140px;
-            font-family: Arial, sans-serif;
-            background-color: #F0F2F5;
-          "
-        >
-          <!-- Text Content -->
-          <div style="flex: 1 1 300px; max-width: 600px; margin-top: 140px;">
-            <h3 style="font-size: 1.8em; margin-bottom: 20px; font-weight: bold;">
-              Incremental (CDC) Exports (Pro Plus Only)
-            </h3>
-            <p style="font-size: 1.2em; line-height: 1.8;  margin-right: 50px;">
-              Incremental Change Data Capture (CDC) exports ensure that only new or updated records are sent to BigQuery after the initial full export. This minimizes data transfer, reduces costs, and keeps your BigQuery dataset up-to-date with the latest changes in Odoo. Ideal for businesses requiring frequent updates without re-exporting entire tables.
-            </p>
-          </div>
-        
-          <!-- Image with box shadow and border -->
-          <div style="flex: 1 1 300px; max-width: 996px;">
-            <div style="background-color: white; padding: 14px; margin-top: 140px; border-radius: 14px; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
-              <img
-                src="./incre_export.png"
-                alt="Screenshot showing successful large export log with batch processing details"
-                style="max-width: 996px; height: auto; image-rendering: pixelated;"
-                loading="lazy"
-              >
-            </div>
-          </div>
-        </section>
-
       </div>
     </div>
-    <div style="text-align: center; margin: 140px 0 50px;">
-      <h2 style="font-size: 40px; font-family: Arial, sans-serif; font-weight: 700; margin-bottom: 16px; font-family: 'Segoe UI', sans-serif; color: #333;">
-        <span>&#x1F4A1; Tips, Tricks & Positive Insights</span>
-      </h2>   
-    <div style="background-color: #F8F9FB; font-family: Arial, Helvetica, sans-serif; padding: 60px 20px; width: 100%; box-sizing: border-box;">
-      <div style="max-width: 1000px; margin: 0 auto; font-family: 'Segoe UI', sans-serif; text-align: center;">
-        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 1.8; color: #444; text-align: left;">
-          
-          <!-- Tip 1 -->
-          <li style="margin-bottom: 30px; display: flex; align-items: flex-start; background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-            <div style="width: 48px; height: 48px; background-color: #daf4da; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-              <span style="font-size: 22px; color: #2ecc71;">&#x1F4A1;</span> 
+  </div>
+
+
+  <!-- ===== FEATURES SECTION ===== -->
+  <div class="bg-light" id="features">
+    <div class="container px-4 py-5">
+        <h2 class="text-center display-6 fw-bold mb-5">Powerful Features, Effortless Control</h2>
+
+        <!-- Feature 1 -->
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h3 class="fw-bold h2">Export Any Odoo Table</h3>
+                <p class="lead">Select any standard Odoo table (like Sales, Invoices, Products) and push its data to BigQuery effortlessly. Works with native and custom modules for complete access.</p>
             </div>
+            <div class="col-lg-6">
+                <div class="feature-image-wrapper">
+                    <img src="./sel.png" alt="Table selection screenshot" class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 2 (Reversed) -->
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6 order-lg-2">
+                <h3 class="fw-bold h2">Precise Record Filtering</h3>
+                <p class="lead">Use standard Odoo domain filters to select exactly which records to export. Send only the data you need, keeping your BigQuery instance lean and efficient.</p>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="feature-image-wrapper">
+                    <img src="./Ad_filtering.png" alt="Domain filter screenshot" class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h3 class="fw-bold h2">Specific Column Selection</h3>
+                <p class="lead">Choose exactly which fields to send to BigQuery. This targeted approach accelerates exports and directly reduces your BigQuery storage and query costs.</p>
+            </div>
+            <div class="col-lg-6">
+                 <div class="feature-image-wrapper">
+                    <img src="./selection.png" alt="Column selection screenshot" class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+        
+         <!-- Feature 4 (Reversed) -->
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6 order-lg-2">
+                <h3 class="fw-bold h2">Handles Massive Tables</h3>
+                <p class="lead">Our intelligent batching system exports data in manageable chunks, reliably handling tables with millions of records without timeouts or system instability.</p>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                 <div class="feature-image-wrapper">
+                    <img src="./dataset.png" alt="Large dataset log" class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-6">
+                <h3 class="fw-bold h2">Incremental (CDC) Exports <span class="badge bg-success">Pro Plus</span></h3>
+                <p class="lead">After the initial sync, Change Data Capture (CDC) ensures only new or updated records are sent to BigQuery. This minimizes data transfer and keeps your dataset current.</p>
+            </div>
+            <div class="col-lg-6">
+                 <div class="feature-image-wrapper">
+                    <img src="./incre_export.png" alt="Incremental export log" class="img-fluid" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  <!-- ===== TIPS & TRICKS ===== -->
+  <div class="container px-4 py-5">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold"> Pro Tips for Maximum Savings</h2>
+      <p class="lead text-muted">Use the connector wisely to get the most value.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex align-items-start p-4 mb-3 shadow-sm rounded-3 border-0">
+            <div class="fs-3 text-success me-4"></div>
             <div>
-              <strong>Filter Aggressively:</strong> The more specific your Domain Filter, the faster the export and the lower your BQ costs. Don't pull data you don't need today.
+              <h5 class="fw-semibold">Filter Aggressively</h5>
+              The more specific your Domain Filter, the faster the export and the lower your BQ costs. Don't pull data you don't need today.
             </div>
           </li>
-    
-          <!-- Tip 2 -->
-          <li style="margin-bottom: 30px; display: flex; align-items: flex-start; background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-            <div style="width: 48px; height: 48px; background-color: #fae7d4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-              <span style="font-size: 22px; color: #e67e22;">&#x1F4CA;</span> </div>
+          <li class="list-group-item d-flex align-items-start p-4 mb-3 shadow-sm rounded-3 border-0">
+            <div class="fs-3 text-warning me-4"></div>
             <div>
-              <strong>Select Columns Wisely:</strong> Every extra column adds time and cost. Only select columns required for your specific BigQuery analysis or reports.
+              <h5 class="fw-semibold">Select Columns Wisely</h5>
+              Every extra column adds time and cost. Only select columns required for your specific BigQuery analysis or reports.
             </div>
           </li>
-    
-          <!-- Tip 3 -->
-          <li style="display: flex; align-items: flex-start; background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-            <div style="width: 48px; height: 48px; background-color: #e8dee8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-              <span style="font-size: 22px; color: #9b59b6;">&#x1F4B8;</span> </div>
+          <li class="list-group-item d-flex align-items-start p-4 shadow-sm rounded-3 border-0">
+            <div class="fs-3 text-info me-4"></div>
             <div>
-              <strong>Understand BigQuery Pricing:</strong> Remember BigQuery charges for storage and compute (queries). This connector helps minimize both by sending less data.
+              <h5 class="fw-semibold">Understand BigQuery Pricing</h5>
+              Remember BigQuery charges for storage and compute (queries). This connector helps you minimize both by sending less data.
             </div>
           </li>
-    
         </ul>
       </div>
     </div>
-    
-    </div>   <div id="pricing" style="background-color: #d3eef200; padding: 0px 0px 80px; width: 100%; box-sizing: border-box;margin-top: 80px;"></div>
-      <div style="max-width: 1200px; margin: 0 auto;">
-        <!-- Pricing Header -->
-        <div style="text-align: center; margin-bottom: 50px;">
-          <p style="margin-block:10px;  font-size: 14px;">
-            Choose Your BigQuery Connector Plan
-          </p>
-          <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; ">Pricing Plans</h2>
-          <p style="max-width: 700px; margin: 0 auto; font-size: 18px; color: #555;">Select the perfect plan for your Odoo to BigQuery integration needs</p>
-        </div>
-  
-        <!-- Pricing Cards Container -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-          
-          <!-- Pro Card -->
-          <div style="flex: 1; min-width: 300px; max-width: 500px; background-color: white; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-            <!-- Card Header -->
-            <div style="background-color: #fae7d4; padding: 30px; position: relative;">
-              <h3 style=" font-size: 24px; font-weight: 600; margin: 0 0 8px 0;">BigQuery Connector Pro</h3>
-              <div style="font-size: 36px; font-weight: 700; margin: 20px 0 8px; ">(This one)</div>
-<!--               <div style="font-size: 16px; opacity: 0.7;">One-time payment</div> -->
-              <div style="display: inline-block; background-color: rgba(84,105,212,0.1); color: #333; padding: 6px 14px; border-radius: 20px; margin-top: 15px; font-size: 14px; font-weight: 500;">
-                <b>Best for Small to Moderate Data</b>
-              </div>
-              <div style="margin-top: 10px; font-size: 14px; opacity: 0.8;">*Sold on Odoo App Store only</div>
-            </div>
-            
-            <!-- Card Body -->
-            <div style="padding: 30px;">
-              <ul style="margin: 0; padding: 0; list-style-type: none;">
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Odoo Data Export</div>
-                    <div style="font-size: 14px; color: #718096;">Export Odoo tables to BigQuery</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Domain Filtering</div>
-                    <div style="font-size: 14px; color: #718096;">Filter records using standard Odoo domains</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Column Selection</div>
-                    <div style="font-size: 14px; color: #718096;">Choose specific columns to export</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Batch Export</div>
-                    <div style="font-size: 14px; color: #718096;">Handles around 1M records reliably in chunks</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(229, 62, 62, 0.1); color: #e53e3e; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#10060;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Incremental (CDC)</div>
-                    <div style="font-size: 14px; color: #718096;">Exports whole table in each sync</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(229, 62, 62, 0.1); color: #e53e3e; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#10060;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Scheduled Refresh</div>
-                    <div style="font-size: 14px; color: #718096;">Manual run only (no automation)</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(229, 62, 62, 0.1); color: #e53e3e; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#10060;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Real-time Refresh</div>
-                    <div style="font-size: 14px; color: #718096;">Not available</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(229, 62, 62, 0.1); color: #e53e3e; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#10060;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Free Odoo Upgrades</div>
-                    <div style="font-size: 14px; color: #718096;">Purchase per version required</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Support</div>
-                    <div style="font-size: 14px; color: #718096;">21 Days Free</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(229, 62, 62, 0.1); color: #e53e3e; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#10060;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Code Obfuscation</div>
-                    <div style="font-size: 14px; color: #718096;">Standard OPL-1</div>
-                  </div>
-                </li>
-              </ul>
-              
-              <a href="#" style="display: block; width: 100%; padding: 16px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 16px; margin-top: 30px; background-color: #fae7d4; color: #333; border: none; cursor: pointer; text-decoration: none; box-sizing: border-box; transition: background-color 0.3s; ">Get Pro on Odoo App Store</a>
-            </div>
-          </div>
-          
-          <!-- Pro Plus Card -->
-          <div style="flex: 2; min-width: 300px; max-width: 500px; background-color: white; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-            <!-- Card Header -->
-            <div style="background-color:#daf4da;padding: 30px; position: relative; ">
-              <h3 style=" font-size: 24px; font-weight: 600; margin: 0 0 8px 0;">BigQuery Connector Pro Plus</h3>
-              <div style="font-size: 36px; font-weight: 700; margin: 20px 0 8px; ">Free (Request on email)</div>
-<!--               <div style="font-size: 16px; opacity: 0.9;">One-time payment</div> -->
-              <div style="display: inline-block; background-color: rgba(255,255,255,0.2);  padding: 6px 14px; border-radius: 20px; margin-top: 15px; font-size: 14px; font-weight: 500;">
-                <b>Best for Large Data / Frequent Updates</b>
-              </div>
-              <div style="margin-top: 10px; font-size: 14px; opacity: 0.9;">Shared exclusively on/by our website/email</div>
-            </div>
-            
-            <!-- Card Body -->
-            <div style="padding: 30px;">
-              <ul style="margin: 0; padding: 0; list-style-type: none;">
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Odoo Data Export</div>
-                    <div style="font-size: 14px; color: #718096;">Export Odoo tables to BigQuery</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Domain Filtering</div>
-                    <div style="font-size: 14px; color: #718096;">Filter records using standard Odoo domains</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Column Selection</div>
-                    <div style="font-size: 14px; color: #718096;">Choose specific columns to export</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Enhanced Batch Export</div>
-                    <div style="font-size: 14px; color: #718096;">Works well and Tested on 8M+ records.</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Incremental (CDC)</div>
-                    <div style="font-size: 14px; color: #718096;">Exports only new/changed records after initial run</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Scheduled Refresh</div>
-                    <div style="font-size: 14px; color: #718096;">Set automatic refresh intervals (based on data-size and need)</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Real-time Refresh</div>
-                    <div style="font-size: 14px; color: #718096;">Near real-time sync (down to 1 min intervals)</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Free Odoo Upgrades</div>
-                    <div style="font-size: 14px; color: #718096;">Get connector updates for new Odoo versions at no extra cost</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #f0f4f8;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Extended Support</div>
-                    <div style="font-size: 14px; color: #718096;">3 Months of support included</div>
-                  </div>
-                </li>
-                
-                <li style="display: flex; align-items: flex-start; margin-bottom: 18px;">
-                  <div style="width: 24px; height: 24px; border-radius: 50%; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; flex-shrink: 0;">&#9989;</div>
-                  <div>
-                    <div style="font-weight: 600; margin-bottom: 4px;">Code Obfuscation</div>
-                    <div style="font-size: 14px; color: #718096;">Enhanced protection for your investment (prevents piracy)</div>
-                  </div>
-                </li>
-              </ul>
-              
-              <a href="#" style="display: block; width: 100%; padding: 16px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 16px; margin-top: 30px; background-color: #daf4da;  border: none; cursor: pointer; text-decoration: none; box-sizing: border-box; transition: background 0.3s; box-shadow: 0 4px 12px #daf4da; ">Get Pro Plus at niyulabs.com</a>
-            </div>
-          </div>
-          
-        </div>
+  </div>
+
+
+  <!-- ===== PRICING SECTION ===== -->
+  <div class="bg-light" id="pricing">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Simple, Transparent Pricing</h2>
+        <p class="lead text-muted">Choose the plan that fits your data strategy.</p>
+      </div>
+
+      <div class="row justify-content-center align-items-center g-4">
         
-        <!-- Help Text -->
-        <div style="text-align: center; margin-block: 40px; font-size: 16px; color: #555;margin-top:40px;">
-          <p>Not sure which plan is right for you? <a href="mailto:info@niyulabs.com" style="color: #7579ff; text-decoration: none; font-weight: 500;">Contact our team</a> for personalized guidance.</p>
+        <!-- Pro Card -->
+        <div class="col-lg-5">
+          <div class="card pricing-card h-100 shadow-sm rounded-4">
+            <div class="card-header text-center p-4 bg-soft-orange">
+              <h3 class="fw-bold">Connector Pro</h3>
+              <p class="h1 fw-bolder mb-0">(This one)</p>
+              <p class="text-muted mt-2 mb-0">*Sold on Odoo App Store</p>
+            </div>
+            <div class="card-body p-4">
+              <h5 class="card-title text-center text-primary fw-bold mb-4">Best for Small to Moderate Data</h5>
+              <ul class="list-unstyled">
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Odoo Data Export</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Domain Filtering</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Column Selection</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Batch Export (~1M records)</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-x-circle-fill text-danger me-2 fs-5"></i><span>Incremental (CDC) Sync</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-x-circle-fill text-danger me-2 fs-5"></i><span>Scheduled/Real-time Refresh</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-x-circle-fill text-danger me-2 fs-5"></i><span>Free Odoo Upgrades</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>21 Days Free Support</span></li>
+              </ul>
+            </div>
+            <div class="card-footer bg-white border-0 p-4 pt-0">
+                <a href="#" class="btn btn-outline-primary w-100 btn-lg fw-bold">Get Pro on Odoo Store</a>
+            </div>
+          </div>
         </div>
-    
-<!-- faq -->
-<div style="background-color: white; padding: 40px 20px; width: 100%; box-sizing: border-box;margin-top:140px;" id="faq">
-  <div style="display: flex; justify-content: center; margin-bottom: 40px;">
-    <h3 style="font-size: 32px; padding: 5px 20px;">Frequently Asked Questions</h3>
-  </div>
-  
-  <div style="max-width: 95%; margin: 0 auto; font-size: 17px; color: #333;">
-    <!-- FAQ Item 1 -->
-    <details style="margin-bottom: 20px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>How easy is setup?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">Standard Odoo module install. Enter your BQ Project ID, Dataset ID, and Service Account JSON in Settings. Done.</div>
-    </details>
-    
-    <!-- FAQ Item 2 -->
-    <details style="margin-bottom: 20px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>What support is included?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">21 days of free email support for installation and configuration issues for the Pro version.</div>
-    </details>
-    
-    <!-- FAQ Item 3 -->
-    <details style="margin-bottom: 20px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>Which Odoo versions are supported?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">Check the compatible versions listed on this page (currently supports Odoo 15.0, 16.0, 17.0, 18.0). Newer Odoo versions require a separate purchase for the Pro license.</div>
-    </details>
-    
-    <!-- FAQ Item 4 -->
-    <details style="margin-bottom: 20px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>How does it handle millions of records?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">It exports in batches (configurable size) to avoid timeouts and memory issues. For very large data, consider the Pro Plus variant.</div>
-    </details>
-    
-    <!-- FAQ Item 5 -->
-    <details style="margin-bottom: 20px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>Does Pro handle new records?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">Yes. The Pro version exports based on your filters each time. The full filtered table is exported on each run. True incremental export (CDC) is a Pro Plus feature after the initial full export, only new or updated records are synced.</div>
-    </details>
-    
-    <!-- FAQ Item 6 -->
-    <details style="margin-bottom: 20px; background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>When do I need Pro Plus?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">If you work with very large, frequently changing datasets and need only changes synced automatically, or require scheduled/near real-time updates, or want free upgrades for future Odoo versions.</div>
-    </details>
-    
-    <!-- FAQ Item 7 -->
-    <details style="background-color: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); position: relative; outline: none; border: none;">
-      <summary style="padding: 15px 25px; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; outline: none;">
-        &#x21A0; <b>What are your pricing models?</b>
-        <span style=" font-size: 12px;">&#x2665;</span>
-      </summary>
-      <div style="padding: 0 25px 20px 25px;">We work exclusively on a project-based pricing model to ensure predictable costs and comprehensive solutions. Contact us for a customized quote tailored to your specific requirements.</div>
-    </details>
-  </div>
-</div>
 
-
-
-    
-    </div>
-    <footer style=" padding: 50px 20px;border-top: black solid 2px; margin-top: 30px;">
-      <div class="container px-3 px-md-4">
-        <div class="row align-items-center">
-          <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
-            <img
-              src="./icon (1).png"
-              alt="Niyu Labs Logo"
-              style="width: 100px; height: auto; margin-bottom: 15px;"
-            />
-<!--             <p style="font-size: 14px;  margin: 0;">© iyu Labs</p> -->
-          </div>
-          <div class="col-md-6 mb-4 mb-md-0">
-            <p style="font-size: 16px; line-height: 1.7; text-align: center; ">
-              Google Cloud BigQuery Connector Pro gives you the freedom to export
-              your Odoo data to BigQuery effortlessly. Built to be efficient,
-              flexible, and transparent so you can focus on unlocking insights from your data.
-            </p>
-          </div>
-          <div class="col-md-3 text-center text-md-end">
-            <h4 style="font-size: 18px;  margin-bottom: 15px; font-weight: 600;">Contact Us</h4>
-            <a href="mailto:info@niyulabs.com" style=" text-decoration: none; font-size: 15px; display: block; margin-bottom: 10px;">info@niyulabs.com</a>
-            <a href="https://niyulabs.com" target="_blank" style=" text-decoration: none; font-size: 15px;">niyulabs.com</a>
+        <!-- Pro Plus Card -->
+        <div class="col-lg-5">
+          <div class="card pricing-card h-100 shadow-sm rounded-4 pro-plus-card">
+            <div class="card-header text-center p-4 bg-soft-green">
+              <h3 class="fw-bold">Connector Pro Plus</h3>
+              <p class="h1 fw-bolder mb-0">Free <span class="fs-5 fw-normal">(by Request)</span></p>
+              <p class="text-muted mt-2 mb-0">*Available via our website/email</p>
+            </div>
+            <div class="card-body p-4">
+              <h5 class="card-title text-center text-success fw-bold mb-4">Best for Large Data & Automation</h5>
+              <ul class="list-unstyled">
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>All Pro Features, Plus:</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Enhanced Batch Export (8M+ records)</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span class="fw-bold">Incremental (CDC) Sync</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span class="fw-bold">Scheduled & Real-time Refresh</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span class="fw-bold">Free Odoo Upgrades</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>3 Months Extended Support</span></li>
+                <li class="d-flex mb-3"><i class="bi bi-check-circle-fill text-success me-2 fs-5"></i><span>Enhanced Code Protection</span></li>
+              </ul>
+            </div>
+            <div class="card-footer bg-white border-0 p-4 pt-0">
+                <a href="https://niyulabs.com" class="btn btn-success w-100 btn-lg fw-bold">Request Pro Plus</a>
+            </div>
           </div>
         </div>
       </div>
-    </footer>   
+      <p class="text-center text-muted mt-5">Not sure? <a href="mailto:info@niyulabs.com" class="fw-bold">Contact us</a> for a personalized recommendation.</p>
+    </div>
   </div>
+
+
+  <!-- ===== FAQ SECTION ===== -->
+  <div class="container py-5" id="faq">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold">Frequently Asked Questions</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="accordion" id="faqAccordion">
+            
+          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
+              <summary class="fw-semibold fs-5">How easy is the setup?</summary>
+              <p class="pt-3 text-muted">Standard Odoo module install. Enter your BQ Project ID, Dataset ID, and Service Account JSON in Settings. Done.</p>
+          </details>
+          
+          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
+              <summary class="fw-semibold fs-5">What support is included?</summary>
+              <p class="pt-3 text-muted">21 days of free email support for installation and configuration issues for the Pro version. Pro Plus includes 3 months.</p>
+          </details>
+          
+          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
+              <summary class="fw-semibold fs-5">Which Odoo versions are supported?</summary>
+              <p class="pt-3 text-muted">Check the compatible versions on the store page (currently supports 15, 16, 17, 18). Pro Plus includes free upgrades for future versions.</p>
+          </details>
+
+          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
+              <summary class="fw-semibold fs-5">How does it handle millions of records?</summary>
+              <p class="pt-3 text-muted">It exports in configurable batches to avoid timeouts. For very large data (multi-million records) or frequent syncs, the Pro Plus variant is highly recommended.</p>
+          </details>
+
+          <details class="p-3 mb-3 bg-white rounded-3 shadow-sm faq-item">
+              <summary class="fw-semibold fs-5">When do I need Pro Plus?</summary>
+              <p class="pt-3 text-muted">If you need automated, incremental updates (syncing only new/changed data), scheduled refreshes, support for future Odoo versions, or are working with very large datasets.</p>
+          </details>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== FOOTER ===== -->
+  <div class="bg-dark text-white">
+    <footer class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
+          <a href="/" class="d-inline-block">
+            <img src="./icon (1).png" alt="Niyu Labs Logo" style="width: 100px;">
+          </a>
+        </div>
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+          <p class="mb-0 text-white-50">Empowering you to unlock insights from your data. The Google Cloud BigQuery Connector Pro is built for efficiency, flexibility, and transparency.</p>
+        </div>
+        <div class="col-md-3 text-center text-md-end">
+          <h5 class="fw-bold">Contact Us</h5>
+          <a href="mailto:info@niyulabs.com" class="text-white-50 text-decoration-none d-block">info@niyulabs.com</a>
+          <a href="https://niyulabs.com" target="_blank" class="text-white-50 text-decoration-none">niyulabs.com</a>
+        </div>
+      </div>
+      <div class="text-center text-white-50 pt-4 mt-4 border-top border-secondary">
+        © 2024 Niyu Labs. All Rights Reserved.
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- Bootstrap JS (and Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Bootstrap Icons (for checkmarks) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</body>
+</html>
