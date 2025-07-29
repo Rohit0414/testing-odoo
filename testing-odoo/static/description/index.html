@@ -1,200 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odoo to BigQuery Connector | Unleash Your Data</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-  <!-- Google Fonts: Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Custom CSS for the "Sexy" Factor -->
-  <style>
-    :root {
-      --dark-bg: #0D1117;
-      --light-text: #E6EDF3;
-      --muted-text: #8B949E;
-      --accent-glow: #22a7f0;
-      --glass-bg: rgba(139, 148, 158, 0.1);
-      --glass-border: rgba(139, 148, 158, 0.2);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--dark-bg);
-      color: var(--light-text);
-      overflow-x: hidden;
-    }
-
-    /* --- The Magic Aurora Background --- */
-    .aurora-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      opacity: 0.3;
-      background: radial-gradient(circle at 10% 20%, rgba(34, 167, 240, 0.4), transparent 40%),
-                  radial-gradient(circle at 80% 70%, rgba(102, 51, 204, 0.4), transparent 40%);
-      animation: aurora-flow 20s infinite alternate;
-    }
-
-    @keyframes aurora-flow {
-      0% { transform: rotate(0deg) scale(1.2); }
-      100% { transform: rotate(360deg) scale(1.5); }
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--light-text);
-    }
-    
-    .lead {
-        color: var(--muted-text);
-    }
-    
-    .gradient-text {
-      background: linear-gradient(45deg, var(--accent-glow), #a371f7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-
-    /* --- Glassmorphism Cards & Containers --- */
-    .glass-card, .glass-container {
-      background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      border-radius: 1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 0 30px rgba(34, 167, 240, 0.2);
-    }
-
-    /* --- Glowing Elements --- */
-    .img-showcase {
-      border-radius: 1.25rem;
-      box-shadow: 0 0 40px rgba(34, 167, 240, 0.15), 0 0 10px rgba(0,0,0,0.5);
-      border: 1px solid var(--glass-border);
-    }
-    
-    .btn-glow {
-        background-color: var(--accent-glow);
-        border-color: var(--accent-glow);
-        box-shadow: 0 0 15px rgba(34, 167, 240, 0.5);
-        transition: all 0.3s ease;
-    }
-    .btn-glow:hover {
-        background-color: #4dbfff;
-        border-color: #4dbfff;
-        box-shadow: 0 0 25px rgba(34, 167, 240, 0.8);
-        transform: translateY(-2px);
-    }
-
-    /* --- Scroll Animations --- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* --- Custom FAQ --- */
-    .faq-item {
-        transition: background-color 0.3s;
-    }
-    .faq-item:hover {
-        background: rgba(139, 148, 158, 0.15);
-    }
-    .faq-item summary::after {
-      content: '+';
-      color: var(--accent-glow);
-      font-size: 2rem;
-      transition: transform 0.3s ease;
-    }
-    .faq-item[open] summary::after {
-      transform: rotate(45deg);
-    }
-  </style>
-</head>
-<body>
-
-  <div class="aurora-background"></div>
+<body style="
+    font-family: 'Poppins', sans-serif;
+    background-color: #0D1117;
+    color: #E6EDF3;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 10% 20%, rgba(34, 167, 240, 0.2), transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(102, 51, 204, 0.2), transparent 50%);
+    background-attachment: fixed;">
 
   <!-- ===== HERO SECTION ===== -->
   <div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5 reveal">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="image.png" class="d-block mx-lg-auto img-fluid img-showcase" alt="Odoo to BigQuery Connector UI" loading="lazy">
+        <img src="image.png" class="d-block mx-lg-auto img-fluid" alt="Odoo to BigQuery Connector UI" loading="lazy" style="border-radius: 1.25rem; box-shadow: 0 0 40px rgba(34, 167, 240, 0.15), 0 0 10px rgba(0,0,0,0.5); border: 1px solid rgba(139, 148, 158, 0.2);">
       </div>
       <div class="col-lg-6">
-        <h1 class="display-3 fw-bolder lh-1 mb-4">Ditch the Data Dumps. <br><span class="gradient-text">Unleash Your Insights.</span></h1>
-        <p class="lead fs-5">Intelligently export filtered Odoo data and specific columns directly to Google BigQuery. Stop wasting time and money—start making decisions with laser-focused analytics.</p>
+        <h1 class="display-3 fw-bolder lh-1 mb-4">Ditch the Data Dumps. <br><span style="background: linear-gradient(45deg, #22a7f0, #a371f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent;">Unleash Your Insights.</span></h1>
+        <p class="lead fs-5" style="color: #8B949E;">Intelligently export filtered Odoo data and specific columns directly to Google BigQuery. Stop wasting time and money—start making decisions with laser-focused analytics.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
-          <a href="#features" class="btn btn-glow btn-lg px-4 me-md-2 fw-bold text-white">Explore Features</a>
+          <a href="#features" class="btn btn-lg px-4 me-md-2 fw-bold text-white" style="background-color: #22a7f0; border-color: #22a7f0; box-shadow: 0 0 15px rgba(34, 167, 240, 0.5);">Explore Features</a>
           <a href="#faq" class="btn btn-outline-light btn-lg px-4">Ask a Question</a>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="container px-4 py-5 reveal">
+  <div class="container px-4 py-5">
       <div class="text-center mb-5">
-           <img src="./query.png" alt="Querying data in BigQuery" class="img-fluid img-showcase" style="max-width: 900px;">
+           <img src="./query.png" alt="Querying data in BigQuery" class="img-fluid" style="max-width: 900px; border-radius: 1.25rem; box-shadow: 0 0 40px rgba(34, 167, 240, 0.15), 0 0 10px rgba(0,0,0,0.5); border: 1px solid rgba(139, 148, 158, 0.2);">
       </div>
   </div>
 
 
   <!-- ===== BENEFITS SECTION ("What You Feel") ===== -->
   <div class="container px-4 py-5">
-    <div class="text-center reveal">
+    <div class="text-center">
         <h2 class="pb-2 display-5 fw-bold">The Power to Transform Your Analytics</h2>
-        <p class="lead mb-5">This isn't just a tool; it's a competitive advantage.</p>
+        <p class="lead mb-5" style="color: #8B949E;">This isn't just a tool; it's a competitive advantage.</p>
     </div>
     
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
-      <div class="col reveal" style="transition-delay: 100ms;">
-        <div class="card h-100 benefit-card glass-card">
+      <div class="col">
+        <div class="card h-100 text-white" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
             <div class="card-body text-center p-4">
                 <h3 class="fs-4 fw-semibold mt-3">Slash Costs</h3>
-                <p class="text-white-50">Drastically cut BigQuery storage and query costs by exporting only the records and columns you actually need.</p>
+                <p style="color: rgba(255,255,255,0.7);">Drastically cut BigQuery storage and query costs by exporting only the records and columns you actually need.</p>
             </div>
         </div>
       </div>
-      <div class="col reveal" style="transition-delay: 200ms;">
-        <div class="card h-100 benefit-card glass-card">
+      <div class="col">
+        <div class="card h-100 text-white" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
             <div class="card-body text-center p-4">
                 <h3 class="fs-4 fw-semibold mt-3">Accelerate Insights</h3>
-                <p class="text-white-50">Get cleaner datasets into BigQuery faster. No more waiting for massive, irrelevant data dumps to complete.</p>
+                <p style="color: rgba(255,255,255,0.7);">Get cleaner datasets into BigQuery faster. No more waiting for massive, irrelevant data dumps to complete.</p>
             </div>
         </div>
       </div>
-      <div class="col reveal" style="transition-delay: 300ms;">
-        <div class="card h-100 benefit-card glass-card">
+      <div class="col">
+        <div class="card h-100 text-white" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
             <div class="card-body text-center p-4">
                 <h3 class="fs-4 fw-semibold mt-3">Export Reliably</h3>
-                <p class="text-white-50">Our batch processing conquers million-record tables smoothly without crashing your Odoo instance.</p>
+                <p style="color: rgba(255,255,255,0.7);">Our batch processing conquers million-record tables smoothly without crashing your Odoo instance.</p>
             </div>
         </div>
       </div>
-      <div class="col reveal" style="transition-delay: 400ms;">
-        <div class="card h-100 benefit-card glass-card">
+      <div class="col">
+        <div class="card h-100 text-white" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
             <div class="card-body text-center p-4">
                 <h3 class="fs-4 fw-semibold mt-3">Unlock AI/ML</h3>
-                <p class="text-white-50">Leverage the full power of BigQuery for deep insights, BI dashboards, and advanced AI/ML models.</p>
+                <p style="color: rgba(255,255,255,0.7);">Leverage the full power of BigQuery for deep insights, BI dashboards, and advanced AI/ML models.</p>
             </div>
         </div>
       </div>
@@ -205,42 +79,42 @@
   <!-- ===== FEATURES SECTION ===== -->
   <div id="features" class="overflow-hidden">
     <div class="container px-4 py-5">
-        <h2 class="text-center display-5 fw-bold mb-5 reveal">Engineered for Precision and Power</h2>
+        <h2 class="text-center display-5 fw-bold mb-5">Engineered for Precision and Power</h2>
 
         <!-- Feature 1 -->
-        <div class="row align-items-center g-5 py-5 reveal">
+        <div class="row align-items-center g-5 py-5">
             <div class="col-lg-6">
                 <h3 class="fw-bold h2">Any Table, Any Module</h3>
-                <p class="lead">Effortlessly select any Odoo table—standard or custom—and push its data directly to BigQuery. Your entire business data landscape is now accessible.</p>
+                <p class="lead" style="color: #8B949E;">Effortlessly select any Odoo table—standard or custom—and push its data directly to BigQuery. Your entire business data landscape is now accessible.</p>
             </div>
             <div class="col-lg-6">
-                <div class="glass-container p-3">
+                <div class="p-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
                     <img src="./sel.png" alt="Table selection screenshot" class="img-fluid rounded-3" loading="lazy">
                 </div>
             </div>
         </div>
 
         <!-- Feature 2 (Reversed) -->
-        <div class="row align-items-center g-5 py-5 reveal">
+        <div class="row align-items-center g-5 py-5">
             <div class="col-lg-6 order-lg-2">
                 <h3 class="fw-bold h2">Surgical Record Filtering</h3>
-                <p class="lead">Use familiar Odoo domain filters to select the exact records you need. Keep your BigQuery instance lean, fast, and cost-effective.</p>
+                <p class="lead" style="color: #8B949E;">Use familiar Odoo domain filters to select the exact records you need. Keep your BigQuery instance lean, fast, and cost-effective.</p>
             </div>
             <div class="col-lg-6 order-lg-1">
-                <div class="glass-container p-3">
+                <div class="p-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
                     <img src="./Ad_filtering.png" alt="Domain filter screenshot" class="img-fluid rounded-3" loading="lazy">
                 </div>
             </div>
         </div>
         
         <!-- Feature 3 -->
-        <div class="row align-items-center g-5 py-5 reveal">
+        <div class="row align-items-center g-5 py-5">
             <div class="col-lg-6">
                 <h3 class="fw-bold h2">Targeted Column Selection</h3>
-                <p class="lead">Why export 100 columns when you only need 10? Choose specific fields to dramatically accelerate exports and reduce BQ costs.</p>
+                <p class="lead" style="color: #8B949E;">Why export 100 columns when you only need 10? Choose specific fields to dramatically accelerate exports and reduce BQ costs.</p>
             </div>
             <div class="col-lg-6">
-                 <div class="glass-container p-3">
+                 <div class="p-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
                     <img src="./selection.png" alt="Column selection screenshot" class="img-fluid rounded-3" loading="lazy">
                 </div>
             </div>
@@ -251,32 +125,32 @@
   
   <!-- ===== TIPS & TRICKS ===== -->
   <div class="container px-4 py-5">
-    <div class="text-center mb-5 reveal">
+    <div class="text-center mb-5">
       <h2 class="display-6 fw-bold"> Master Your Data Flow</h2>
-      <p class="lead text-muted">A few tips to maximize efficiency and savings.</p>
+      <p class="lead" style="color: #8B949E;">A few tips to maximize efficiency and savings.</p>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="list-group">
-          <div class="list-group-item d-flex align-items-center p-4 mb-3 glass-card border-0 reveal">
-            <div class="fs-2 me-4" style="color:var(--accent-glow)">01</div>
+          <div class="d-flex align-items-center p-4 mb-3 border-0" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
+            <div class="fs-2 me-4" style="color:#22a7f0">01</div>
             <div>
               <h5 class="fw-semibold mb-1">Filter Aggressively</h5>
-              <p class="mb-0 text-white-50">The more specific your domain filter, the faster the export and the lower your costs. Be ruthless.</p>
+              <p class="mb-0" style="color: rgba(255,255,255,0.7);">The more specific your domain filter, the faster the export and the lower your costs. Be ruthless.</p>
             </div>
           </div>
-          <div class="list-group-item d-flex align-items-center p-4 mb-3 glass-card border-0 reveal">
-            <div class="fs-2 me-4" style="color:var(--accent-glow)">02</div>
+          <div class="d-flex align-items-center p-4 mb-3 border-0" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
+            <div class="fs-2 me-4" style="color:#22a7f0">02</div>
             <div>
               <h5 class="fw-semibold mb-1">Select Columns Wisely</h5>
-              <p class="mb-0 text-white-50">Every extra column adds to the bill. Only select what is essential for your analysis.</p>
+              <p class="mb-0" style="color: rgba(255,255,255,0.7);">Every extra column adds to the bill. Only select what is essential for your analysis.</p>
             </div>
           </div>
-          <div class="list-group-item d-flex align-items-center p-4 glass-card border-0 reveal">
-            <div class="fs-2 me-4" style="color:var(--accent-glow)">03</div>
+          <div class="d-flex align-items-center p-4 border-0" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem;">
+            <div class="fs-2 me-4" style="color:#22a7f0">03</div>
             <div>
               <h5 class="fw-semibold mb-1">Leverage Incremental Syncs</h5>
-              <p class="mb-0 text-white-50">For large, active tables, the Pro Plus version's CDC feature is a game-changer for cost and speed.</p>
+              <p class="mb-0" style="color: rgba(255,255,255,0.7);">For large, active tables, the Pro Plus version's CDC feature is a game-changer for cost and speed.</p>
             </div>
           </div>
         </div>
@@ -287,36 +161,34 @@
 
   <!-- ===== FAQ SECTION ===== -->
   <div class="container py-5" id="faq">
-    <div class="text-center mb-5 reveal">
+    <div class="text-center mb-5">
       <h2 class="display-6 fw-bold">Your Questions, Answered</h2>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="accordion">
-          <details class="p-3 mb-3 glass-card faq-item reveal">
-              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">How easy is the setup?</summary>
-              <p class="pt-3 text-white-50">It's a standard Odoo module install. Plug in your BQ Project ID, Dataset ID, and Service Account JSON in Settings. You're live in minutes.</p>
+          <details class="p-3 mb-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem; cursor: pointer;">
+              <summary class="fw-semibold fs-5">How easy is the setup?</summary>
+              <p class="pt-3" style="color: rgba(255,255,255,0.7);">It's a standard Odoo module install. Plug in your BQ Project ID, Dataset ID, and Service Account JSON in Settings. You're live in minutes.</p>
           </details>
-          <details class="p-3 mb-3 glass-card faq-item reveal">
-              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">Which Odoo versions are supported?</summary>
-              <p class="pt-3 text-white-50">The connector supports Odoo 15, 16, 17, and 18. Our Pro Plus plan includes free upgrades for all future Odoo versions.</p>
+          <details class="p-3 mb-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem; cursor: pointer;">
+              <summary class="fw-semibold fs-5">Which Odoo versions are supported?</summary>
+              <p class="pt-3" style="color: rgba(255,255,255,0.7);">The connector supports Odoo 15, 16, 17, and 18. Our Pro Plus plan includes free upgrades for all future Odoo versions.</p>
           </details>
-          <details class="p-3 mb-3 glass-card faq-item reveal">
-              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">How does it handle millions of records?</summary>
-              <p class="pt-3 text-white-50">It intelligently exports data in configurable batches to prevent timeouts and server strain. We've successfully tested it on tables with over 8 million records.</p>
+          <details class="p-3 mb-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem; cursor: pointer;">
+              <summary class="fw-semibold fs-5">How does it handle millions of records?</summary>
+              <p class="pt-3" style="color: rgba(255,255,255,0.7);">It intelligently exports data in configurable batches to prevent timeouts and server strain. We've successfully tested it on tables with over 8 million records.</p>
           </details>
-          <details class="p-3 mb-3 glass-card faq-item reveal">
-              <summary class="fw-semibold fs-5 list-group-item d-flex justify-content-between align-items-center">When should I choose the Pro Plus version?</summary>
-              <p class="pt-3 text-white-50">Choose Pro Plus if you need automated, incremental updates (syncing only changes), scheduled refreshes, support for future Odoo versions, or are working with very large, active datasets.</p>
+          <details class="p-3 mb-3" style="background: rgba(139, 148, 158, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(139, 148, 158, 0.2); border-radius: 1rem; cursor: pointer;">
+              <summary class="fw-semibold fs-5">When should I choose the Pro Plus version?</summary>
+              <p class="pt-3" style="color: rgba(255,255,255,0.7);">Choose Pro Plus if you need automated, incremental updates (syncing only changes), scheduled refreshes, support for future Odoo versions, or are working with very large, active datasets.</p>
           </details>
-        </div>
       </div>
     </div>
   </div>
 
 
   <!-- ===== FOOTER ===== -->
-  <div class="border-top" style="border-color: var(--glass-border) !important;">
+  <div style="border-top: 1px solid rgba(139, 148, 158, 0.2);">
     <footer class="container py-5">
       <div class="row align-items-center">
         <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
@@ -325,14 +197,14 @@
           </a>
         </div>
         <div class="col-md-6 text-center mb-4 mb-md-0">
-          <p class="mb-0 text-white-50">Engineered with passion by Niyu Labs. <br> Stop managing data, start using it.</p>
+          <p class="mb-0" style="color: #8B949E;">Engineered with passion by Niyu Labs. <br> Stop managing data, start using it.</p>
         </div>
         <div class="col-md-3 text-center text-md-end">
           <h5 class="fw-bold">Get in Touch</h5>
-          <a href="mailto:info@niyulabs.com" class="text-white-50 text-decoration-none">info@niyulabs.com</a>
+          <a href="mailto:info@niyulabs.com" class="text-decoration-none" style="color: #8B949E;">info@niyulabs.com</a>
         </div>
       </div>
-      <div class="text-center text-white-50 pt-4 mt-4 small">
+      <div class="text-center pt-4 mt-4 small" style="color: #8B949E;">
         © 2024 Niyu Labs. All Rights Reserved.
       </div>
     </footer>
@@ -342,24 +214,4 @@
   <!-- Bootstrap JS (and Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-  <!-- JS for Scroll Animations -->
-  <script>
-    const revealElements = document.querySelectorAll('.reveal');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    revealElements.forEach(el => {
-      observer.observe(el);
-    });
-  </script>
-
 </body>
-</html>
