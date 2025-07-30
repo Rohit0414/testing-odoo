@@ -77,40 +77,54 @@
     </div>
   </div>
 
-  <!-- DETAILED FEATURE SPOTLIGHTS -->
-  <div style="padding: 80px 20px; background-color: #000; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 35px 35px;">
-    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 100px;">
+
+  <!-- DETAILED FEATURE SPOTLIGHTS (ENHANCED) -->
+<div style="padding: 120px 20px; background-color: #000; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 35px 35px;">
+    <!-- The max-width is increased to 1280px to allow for larger images -->
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 120px;">
+        
         <!-- Feature 1: Domain Filtering -->
-        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 50px;">
-            <div style="flex: 1; min-width: 300px;">
+        <!-- The gap is increased to 80px for better spacing. Perspective is added for the image hover effect. -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 80px; perspective: 1500px;">
+            <!-- The text column flex is set to 1 -->
+            <div style="flex: 1; min-width: 340px;">
                 <div style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: linear-gradient(90deg, #a044ff30, #5a00ff30); color: #c07aff; font-weight: 600; margin-bottom: 15px;">UNMATCHED CONTROL</div>
                 <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Filter Records with Odoo Domains</h3>
-                <p style="font-size: 18px; color: #8899B3;">Why export your entire partner list when you only need customers from a specific country? Use the familiar Odoo domain filter syntax to cherry-pick data with precision. Sync only confirmed sales orders, recently paid invoices, or active projects. Your data in BigQuery becomes cleaner and more relevant from the start.</p>
+                <p style="font-size: 18px; color: #8899B3;">Why export your entire partner list when you only need customers from a specific country? Use the familiar Odoo domain filter syntax to cherry-pick data with precision. Sync only confirmed sales orders, recently paid invoices, or active projects.</p>
             </div>
-            <div style="flex: 1.2; min-width: 320px;">
-                <img src=".Ad_filtering.png" alt="Odoo domain filter interface showing precise record selection" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 40px rgba(160, 68, 255, 0.2); border: 1px solid rgba(255,255,255,0.1);"/>
+            <!-- The image column flex is increased to 1.6 to make it significantly larger. The min-width is also increased. -->
+            <div style="flex: 1.6; min-width: 450px;">
+                <img src="./Ad_filtering.png" alt="Odoo domain filter interface showing precise record selection" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px rgba(160, 68, 255, 0.3); border: 1px solid rgba(255,255,255,0.1); transform: rotateY(-5deg) rotateX(4deg); transition: transform 0.4s ease, box-shadow 0.4s ease;"
+                onmouseover="this.style.transform='scale(1.05) rotateY(-2deg) rotateX(2deg)'; this.style.boxShadow='0 25px 70px -20px rgba(0,0,0,0.7), 0 0 100px rgba(160, 68, 255, 0.4)';"
+                onmouseout="this.style.transform='rotateY(-5deg) rotateX(4deg)'; this.style.boxShadow='0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px rgba(160, 68, 255, 0.3)';"/>
             </div>
         </div>
+
         <!-- Feature 2: Column Selection -->
-        <div class="d-flex flex-wrap-reverse align-items-center justify-content-center" style="gap: 50px;">
-            <div style="flex: 1.2; min-width: 320px;">
-                <img src="./sel.png" alt="Odoo interface showing selection of specific columns for export" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 40px rgba(160, 68, 255, 0.2); border: 1px solid rgba(255,255,255,0.1);"/>
+        <div class="d-flex flex-wrap-reverse align-items-center justify-content-center" style="gap: 80px; perspective: 1500px;">
+            <div style="flex: 1.6; min-width: 450px;">
+                <img src="./sel.png" alt="Odoo interface showing selection of specific columns for export" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px rgba(160, 68, 255, 0.3); border: 1px solid rgba(255,255,255,0.1); transform: rotateY(5deg) rotateX(4deg); transition: transform 0.4s ease, box-shadow 0.4s ease;"
+                onmouseover="this.style.transform='scale(1.05) rotateY(2deg) rotateX(2deg)'; this.style.boxShadow='0 25px 70px -20px rgba(0,0,0,0.7), 0 0 100px rgba(160, 68, 255, 0.4)';"
+                onmouseout="this.style.transform='rotateY(5deg) rotateX(4deg)'; this.style.boxShadow='0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px rgba(160, 68, 255, 0.3)';"/>
             </div>
-            <div style="flex: 1; min-width: 300px;">
+            <div style="flex: 1; min-width: 340px;">
                 <div style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: linear-gradient(90deg, #a044ff30, #5a00ff30); color: #c07aff; font-weight: 600; margin-bottom: 15px;">COST OPTIMIZATION</div>
                 <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Select Only the Columns You Need</h3>
-                <p style="font-size: 18px; color: #8899B3;">Your Odoo models can have hundreds of fields, but your BI reports might only need ten. Our connector lets you select exactly which columns to send to BigQuery. This dramatically reduces data size, accelerates export speed, and directly cuts your BigQuery storage and processing costs.</p>
+                <p style="font-size: 18px; color: #8899B3;">Your Odoo models can have hundreds of fields, but your BI reports might only need ten. This dramatically reduces data size, accelerates export speed, and directly cuts your BigQuery storage and processing costs.</p>
             </div>
         </div>
+
         <!-- Feature 3: Incremental Export -->
-        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 50px;">
-            <div style="flex: 1; min-width: 300px;">
+        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 80px; perspective: 1500px;">
+            <div style="flex: 1; min-width: 340px;">
                  <div style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: linear-gradient(90deg, #a044ff30, #5a00ff30); color: #c07aff; font-weight: 600; margin-bottom: 15px;">MAXIMUM EFFICIENCY</div>
                 <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Sync Smarter with Incremental Exports</h3>
-                <p style="font-size: 18px; color: #8899B3;">For large, frequently updated tables, a full export is wasteful. Our Incremental Sync (Change Data Capture) mode is the solution. It intelligently tracks the `write_date` of records to sync only rows that are new or have been modified since the last run. This is a game-changer for performance and cost at scale.</p>
+                <p style="font-size: 18px; color: #8899B3;">For large tables, a full export is wasteful. Our Incremental Sync (CDC) mode tracks the `write_date` of records to sync only new or modified rows since the last run. This is a game-changer for performance and cost at scale.</p>
             </div>
-            <div style="flex: 1.2; min-width: 320px;">
-                <img src="./selection.png" alt="Odoo configuration showing sync mode options including Incremental" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 40px rgba(160, 68, 255, 0.2); border: 1px solid rgba(255,255,255,0.1);"/>
+            <div style="flex: 1.6; min-width: 450px;">
+                <img src="./selection.png" alt="Odoo configuration showing sync mode options including Incremental" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px rgba(160, 68, 255, 0.3); border: 1px solid rgba(255,255,255,0.1); transform: rotateY(-5deg) rotateX(4deg); transition: transform 0.4s ease, box-shadow 0.4s ease;"
+                onmouseover="this.style.transform='scale(1.05) rotateY(-2deg) rotateX(2deg)'; this.style.boxShadow='0 25px 70px -20px rgba(0,0,0,0.7), 0 0 100px rgba(160, 68, 255, 0.4)';"
+                onmouseout="this.style.transform='rotateY(-5deg) rotateX(4deg)'; this.style.boxShadow='0 20px 60px -20px rgba(0,0,0,0.6), 0 0 80px rgba(160, 68, 255, 0.3)';"/>
             </div>
         </div>
     </div>
@@ -123,13 +137,13 @@
         <p style="font-size: clamp(16px, 2vw, 18px); color: #8899B3; max-width: 700px; margin: 0 auto 60px auto;">Go from zero to sync in minutes. Our integration is secure, direct, and configured entirely within the Odoo interface you already know.</p>
         <div class="d-flex flex-wrap justify-content-center" style="gap: 30px;">
             <!-- Step 1 -->
-            <div style="flex: 1; min-width: 250px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="flex: 1; min-width: 250px; margin-bottom: 20px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <div style="font-size: 24px; color: #A044FF; margin-bottom: 10px;"></div>
                 <h4 style="color: #fff; font-size: 18px; font-weight: 600;">Configure Service Account</h4>
                 <p style="color: #8899B3; font-size: 15px;">Create a Google Cloud Service Account with BigQuery permissions and paste the JSON key into Odoo.</p>
             </div>
             <!-- Step 2 -->
-            <div style="flex: 1; min-width: 250px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="flex: 1; min-width: 250px; margin-bottom: 20px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <div style="font-size: 24px; color: #A044FF; margin-bottom: 10px;">⚙️</div>
                 <h4 style="color: #fff; font-size: 18px; font-weight: 600;">Set Up Your Sync Job</h4>
                 <p style="color: #8899B3; font-size: 15px;">Choose your Odoo model, apply filters, select columns, and pick your sync mode (Full or Incremental).</p>
