@@ -1,99 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS for Flexbox Utilities -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Odoo to BigQuery Connector</title>
+</head>
+<body style="background-color: #0B0F19;">
 
-    
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0B0F19; color: #cdd6e1; line-height: 1.7; overflow-x: hidden; background-image: radial-gradient(ellipse at top, rgba(160, 68, 255, 0.1) 0%, transparent 50%);">
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0B0F19; color: #cdd6e1; line-height: 1.7; overflow-x: hidden; background-image: radial-gradient(ellipse at top, rgba(160, 68, 255, 0.15) 0%, transparent 50%);">
 
   <!-- HERO SECTION -->
-  <div class="d-flex flex-column justify-content-center align-items-center" style="padding: 120px 20px 100px 20px; text-align: center; min-height: 90vh;">
-    <div style="max-width: 850px; margin: 0 auto;">
+  <div class="d-flex flex-column justify-content-center align-items-center" style="padding: 120px 20px 60px 20px; text-align: center; min-height: 90vh;">
+    <div style="max-width: 850px; margin: 0 auto; margin-bottom: 60px;">
       <h1 style="
           font-size: clamp(44px, 8vw, 80px);
           font-weight: 800;
           letter-spacing: -3px;
           line-height: 1.1;
           margin-bottom: 24px;
-          color: #9ca3af; 
-          text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+          background: linear-gradient(90deg, #c07aff, #a162f7);
+          -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-         
+          text-shadow: 0 0 60px rgba(160, 68, 255, 0.5);
         ">
         The Smartest Way to Sync Odoo with BigQuery.
       </h1>
       <p style="
           font-size: clamp(18px, 2.5vw, 22px);
           color: #8899B3;
-          margin: 0 auto 40px auto;
+          margin: 0 auto;
           max-width: 650px;
         ">
-        Stop dumping data. Start saving money. Intelligently export filtered Odoo data and specific columns directly to Google BigQuery.
+        Stop dumping data. Start saving money. Intelligently export filtered Odoo data, specific columns, and sync only what's changed directly to Google BigQuery.
       </p>
     </div>
-   
-      <section class="video" style="padding: 0 0 120px 0; perspective: 1500px; background-color: #030712;">
-            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-                <div style="border-radius: 1.75rem; padding: 3px; background-color:  rgba(20, 184, 166, 0.6) !important; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9) !important; position: relative !important;">
-                    <video autoplay loop muted playsinline preload="auto" style="width: 100%; display: block; border-radius: 1.75rem; background-color: #000;">
-                        <source src="./q2.webm" type="video/webm">
-                        <!-- Fallback: Add your MP4 video here -->
-                        <!-- <source src="static/description/q1.mp4" type="video/mp4"> -->
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </section>
     
+    <div style="width: 100%; max-width: 1100px; perspective: 1500px;">
+        <div style="border-radius: 1.5rem; padding: 3px; background: linear-gradient(110deg, #A044FF, #5A00FF); box-shadow: 0 40px 100px -20px rgba(0,0,0,0.7), 0 0 80px -20px rgba(160, 68, 255, 0.6); transform: rotateX(5deg) scale(1.05); transition: all 0.4s ease;">
+            <video autoplay loop muted playsinline preload="auto" style="width: 100%; display: block; border-radius: 1.25rem; background-color: #000;">
+                <source src="./q2.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
   </div>
 
-  <!-- KEY BENEFITS SECTION -->
-  <div style="padding: 80px 20px;">
+  <!-- CORE FEATURES HIGHLIGHT -->
+  <div style="padding: 100px 20px;">
     <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 60px auto;">
-            <h2 style="font-size: clamp(30px, 5vw, 42px); font-weight: 700; color: #fff; margin-bottom: 15px;">Solve Your Biggest Data Challenges</h2>
-            <p style="font-size: clamp(16px, 2vw, 18px); color: #8899B3;">Our connector is engineered to overcome the most common frustrations with large-scale data exports and analytics.</p>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 60px auto;">
+            <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: #fff; margin-bottom: 15px; letter-spacing: -1.5px;">The Power Trio of Data Export</h2>
+            <p style="font-size: clamp(16px, 2vw, 18px); color: #8899B3;">Our connector gives you an unprecedented level of control and efficiency, engineered to solve your biggest data challenges and dramatically lower costs.</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-            <!-- Benefit Card 1 -->
-            <div style="background: rgba(22, 27, 34, 0.5); margin-bottom: 20px; backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0 30px rgba(160, 68, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">&#36;</div>
-                <h3 style="color: white; font-size: 20px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Lower BigQuery Costs</h3>
-                <p style="font-size: 16px; color: #8899B3;">Export only the records and columns you need to drastically cut storage and query expenses.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Feature Card 1 -->
+            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(12px); padding: 35px 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 0 40px rgba(160, 68, 255, 0.25)'; this.style.borderColor='rgba(160, 68, 255, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.1)';">
+                <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">🎯</div>
+                <h3 style="color: white; font-size: 22px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Precision Filtering</h3>
+                <p style="font-size: 16px; color: #8899B3;">Use Odoo's powerful domain syntax to export exactly the records you need. No more exporting entire tables when you only need a subset.</p>
             </div>
-            <!-- Benefit Card 2 -->
-            <div style="background: rgba(22, 27, 34, 0.5); margin-bottom: 20px; backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0 30px rgba(160, 68, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">&#10148;</div>
-                <h3 style="color: white; font-size: 20px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Faster, Cleaner Data</h3>
-                <p style="font-size: 16px; color: #8899B3;">Get cleaner datasets in BigQuery faster by being selective about what you send from Odoo.</p>
+            <!-- Feature Card 2 -->
+            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(12px); padding: 35px 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 0 40px rgba(160, 68, 255, 0.25)'; this.style.borderColor='rgba(160, 68, 255, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.1)';">
+                <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">✂</div>
+                <h3 style="color: white; font-size: 22px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Targeted Columns</h3>
+                <p style="font-size: 16px; color: #8899B3;">Select only the specific fields you need for your analysis. This slashes data transfer, storage, and query costs in BigQuery.</p>
             </div>
-            <!-- Benefit Card 3 -->
-            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0 30px rgba(160, 68, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">&#63104;</div>
-                <h3 style="color: white; font-size: 20px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Unlock Advanced Analytics</h3>
-                <p style="font-size: 16px; color: #8899B3;">Leverage the full power of BigQuery for BI, AI, and deep machine learning insights.</p>
+            <!-- Feature Card 3 -->
+            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(12px); padding: 35px 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 0 40px rgba(160, 68, 255, 0.25)'; this.style.borderColor='rgba(160, 68, 255, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.1)';">
+                <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">⚡️</div>
+                <h3 style="color: white; font-size: 22px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Incremental Sync (CDC)</h3>
+                <p style="font-size: 16px; color: #8899B3;">Sync only new or modified records since the last export. This Change Data Capture (CDC) method is ideal for frequent updates and massive datasets.</p>
             </div>
         </div>
     </div>
   </div>
 
-  <!-- FEATURE SPOTLIGHTS -->
-  <div style="padding: 80px 20px; background-color: #000; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 30px 30px;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-        <!-- Feature 1 -->
-        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 50px; padding: 60px 0;">
+  <!-- DETAILED FEATURE SPOTLIGHTS -->
+  <div style="padding: 80px 20px; background-color: #000; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 35px 35px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 100px;">
+        <!-- Feature 1: Domain Filtering -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 50px;">
             <div style="flex: 1; min-width: 300px;">
-                <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Precise Record Filtering</h3>
-                <p style="font-size: 18px; color: #8899B3;">Use standard Odoo domain filters to select exactly which records to export. Sync only confirmed sales orders, invoices from the last quarter, or partners from a specific country.</p>
+                <div style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: linear-gradient(90deg, #a044ff30, #5a00ff30); color: #c07aff; font-weight: 600; margin-bottom: 15px;">UNMATCHED CONTROL</div>
+                <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Filter Records with Odoo Domains</h3>
+                <p style="font-size: 18px; color: #8899B3;">Why export your entire partner list when you only need customers from a specific country? Use the familiar Odoo domain filter syntax to cherry-pick data with precision. Sync only confirmed sales orders, recently paid invoices, or active projects. Your data in BigQuery becomes cleaner and more relevant from the start.</p>
             </div>
             <div style="flex: 1.2; min-width: 320px;">
-                <img src="./Ad_filtering.png" alt="Odoo domain filter interface" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);"/>
+                <img src=".Ad_filtering.png" alt="Odoo domain filter interface showing precise record selection" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 40px rgba(160, 68, 255, 0.2); border: 1px solid rgba(255,255,255,0.1);"/>
             </div>
         </div>
-        <!-- Feature 2 -->
-        <div class="d-flex flex-wrap-reverse align-items-center justify-content-center" style="gap: 50px; padding: 60px 0;">
+        <!-- Feature 2: Column Selection -->
+        <div class="d-flex flex-wrap-reverse align-items-center justify-content-center" style="gap: 50px;">
             <div style="flex: 1.2; min-width: 320px;">
-                <img src="./selection.png" alt="Odoo column selection interface" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);"/>
+                <img src="./sel.png" alt="Odoo interface showing selection of specific columns for export" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 40px rgba(160, 68, 255, 0.2); border: 1px solid rgba(255,255,255,0.1);"/>
             </div>
             <div style="flex: 1; min-width: 300px;">
-                <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Targeted Column Selection</h3>
-                <p style="font-size: 18px; color: #8899B3;">Choose exactly which fields to send. This targeted approach accelerates exports and directly reduces your BigQuery storage and query costs.</p>
+                <div style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: linear-gradient(90deg, #a044ff30, #5a00ff30); color: #c07aff; font-weight: 600; margin-bottom: 15px;">COST OPTIMIZATION</div>
+                <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Select Only the Columns You Need</h3>
+                <p style="font-size: 18px; color: #8899B3;">Your Odoo models can have hundreds of fields, but your BI reports might only need ten. Our connector lets you select exactly which columns to send to BigQuery. This dramatically reduces data size, accelerates export speed, and directly cuts your BigQuery storage and processing costs.</p>
+            </div>
+        </div>
+        <!-- Feature 3: Incremental Export -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 50px;">
+            <div style="flex: 1; min-width: 300px;">
+                 <div style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: linear-gradient(90deg, #a044ff30, #5a00ff30); color: #c07aff; font-weight: 600; margin-bottom: 15px;">MAXIMUM EFFICIENCY</div>
+                <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Sync Smarter with Incremental Exports</h3>
+                <p style="font-size: 18px; color: #8899B3;">For large, frequently updated tables, a full export is wasteful. Our Incremental Sync (Change Data Capture) mode is the solution. It intelligently tracks the `write_date` of records to sync only rows that are new or have been modified since the last run. This is a game-changer for performance and cost at scale.</p>
+            </div>
+            <div style="flex: 1.2; min-width: 320px;">
+                <img src="./selection.png" alt="Odoo configuration showing sync mode options including Incremental" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), 0 0 40px rgba(160, 68, 255, 0.2); border: 1px solid rgba(255,255,255,0.1);"/>
             </div>
         </div>
     </div>
@@ -102,9 +119,28 @@
   <!-- HOW IT WORKS -->
   <div style="padding: 100px 20px;">
     <div style="text-align: center; max-width: 1100px; margin: 0 auto;">
-        <h2 style="font-size: clamp(30px, 5vw, 42px); font-weight: 700; color: #fff; margin-bottom: 15px;">Secure & Direct: How It Works</h2>
-        <p style="font-size: clamp(16px, 2vw, 18px); color: #8899B3; max-width: 700px; margin: 0 auto 50px auto;">Our connector uses an official Google Cloud Service Account for a robust and secure integration. All configuration is handled inside Odoo.</p>
-        <img src="./sel.png" alt="BigQuery configuration settings in Odoo" style="width: 100%; max-width: 900px; margin: 0 auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);"/>
+        <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: #fff; margin-bottom: 15px;">Simple 3-Step Setup</h2>
+        <p style="font-size: clamp(16px, 2vw, 18px); color: #8899B3; max-width: 700px; margin: 0 auto 60px auto;">Go from zero to sync in minutes. Our integration is secure, direct, and configured entirely within the Odoo interface you already know.</p>
+        <div class="d-flex flex-wrap justify-content-center" style="gap: 30px;">
+            <!-- Step 1 -->
+            <div style="flex: 1; min-width: 250px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 24px; color: #A044FF; margin-bottom: 10px;"></div>
+                <h4 style="color: #fff; font-size: 18px; font-weight: 600;">Configure Service Account</h4>
+                <p style="color: #8899B3; font-size: 15px;">Create a Google Cloud Service Account with BigQuery permissions and paste the JSON key into Odoo.</p>
+            </div>
+            <!-- Step 2 -->
+            <div style="flex: 1; min-width: 250px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 24px; color: #A044FF; margin-bottom: 10px;">⚙️</div>
+                <h4 style="color: #fff; font-size: 18px; font-weight: 600;">Set Up Your Sync Job</h4>
+                <p style="color: #8899B3; font-size: 15px;">Choose your Odoo model, apply filters, select columns, and pick your sync mode (Full or Incremental).</p>
+            </div>
+            <!-- Step 3 -->
+            <div style="flex: 1; min-width: 250px; background-color: #161B22; padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 24px; color: #A044FF; margin-bottom: 10px;"></div>
+                <h4 style="color: #fff; font-size: 18px; font-weight: 600;">Run & Automate</h4>
+                <p style="color: #8899B3; font-size: 15px;">Run the export manually or set up an Odoo Automated Action to sync your data on a schedule.</p>
+            </div>
+        </div>
     </div>
   </div>
 
@@ -116,19 +152,19 @@
       </div>
       <div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='rgba(160, 68, 255, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#222838';">
             <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">What do I need to use this module?</h4>
             <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">An Odoo instance, a Google Cloud account with BigQuery enabled, and a Service Account with "BigQuery Data Editor" and "Job User" roles.</p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
-            <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Can it sync data from custom Odoo modules?</h4>
-            <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">Yes. The connector can access and export data from any standard or custom model within your Odoo database, including any custom fields.</p>
+        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='rgba(160, 68, 255, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#222838';">
+            <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">How is the sync scheduled?</h4>
+            <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">You can trigger exports manually or automate them using Odoo's built-in "Automated Actions" (cron jobs), allowing you to schedule syncs daily, hourly, or at any interval you choose.</p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
-            <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Does the sync overwrite the BigQuery table?</h4>
-            <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">By default, yes. The connector uses `WRITE_TRUNCATE` to replace the table on each sync, ensuring it's a perfect replica of the source Odoo data.</p>
+        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.02)'; this.style.borderColor='rgba(160, 68, 255, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#222838';">
+            <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Can it sync data from custom Odoo modules?</h4>
+            <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">Yes. The connector can access and export data from any standard or custom model within your Odoo database, including any custom fields you've added.</p>
         </div>
       </div>
     </div>
@@ -137,10 +173,11 @@
   <!-- FINAL CTA -->
   <div style="padding: 100px 20px;">
     <div style="text-align: center; padding: 70px 40px; background: linear-gradient(110deg, #A044FF, #5A00FF); border-radius: 20px; max-width: 1000px; margin: 0 auto; box-shadow: 0 20px 50px -15px rgba(160, 68, 255, 0.4); position: relative; overflow: hidden;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.15), transparent), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1), transparent); opacity: 0.5;"></div>
+      <div style="position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);"></div>
+      <div style="position: absolute; bottom: -120px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);"></div>
       <div style="position: relative; z-index: 2;">
         <h2 style="font-size: clamp(28px, 4vw, 40px); color: white; font-weight: 700; margin-bottom: 15px; letter-spacing: -1px;">Ready to Unlock Your Odoo Data?</h2>
-        <p style="font-size: clamp(16px, 2vw, 20px); color: #e9d5ff; margin: 0 auto 30px auto; max-width: 600px;">Stop managing data and start using it. Get the Odoo to BigQuery Connector today.</p>
+        <p style="font-size: clamp(16px, 2vw, 20px); color: #e9d5ff; margin: 0 auto 30px auto; max-width: 600px;">Stop managing data and start using it. Get the most powerful and cost-effective Odoo to BigQuery Connector today.</p>
         <a
           href="mailto:info@niyulabs.com"
           style="
@@ -153,10 +190,10 @@
             font-size: 18px;
             display: inline-block;
             transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.2) inset;
           "
-          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.3)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)';"
+          onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.3) inset, 0 0 40px rgba(160, 68, 255, 0.5)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.2) inset';"
         >
           Contact Us: info@niyulabs.com
         </a>
@@ -167,3 +204,4 @@
 </div>
 
 </body>
+</html>
