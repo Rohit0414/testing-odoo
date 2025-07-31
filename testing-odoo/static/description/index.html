@@ -146,20 +146,67 @@
   </div>
   
   <!-- HOW IT WORKS -->
-  <div style="padding: 100px 20px;">
-    <div style="text-align: center; max-width: 1100px; margin: 0 auto;">
-        <h2 style="font-size: clamp(30px, 5vw, 42px); font-weight: 700; color: #fff; margin-bottom: 15px;">Secure & Direct: How It Works</h2>
-        <p style="font-size: clamp(16px, 2vw, 18px); color: #8899B3; max-width: 700px; margin: 0 auto 50px auto;"></p>
-          Our connector uses an official Google Cloud Service Account for a robust and secure integration. All configuration is handled inside Odoo.<br><br>
-          <strong>1. Connect Securely:</strong> Set up your Google Cloud Service Account credentials directly in Odoo. No manual file uploads or risky copy-pasting—just paste your JSON key into a secure field.<br>
-          <strong>2. Choose Your Data:</strong> Select the Odoo model you want to export, apply advanced filters, and pick only the columns you need. Instantly preview the records and fields before syncing.<br>
-          <strong>3. Configure BigQuery:</strong> Enter your BigQuery project, dataset, and table names. The connector will automatically create the table if it doesn’t exist, matching your selected columns.<br>
-          <strong>4. One-Click Sync:</strong> Start the export with a single click. Data is securely transferred using Google’s official APIs, with full support for large datasets and custom fields.<br>
-          <strong>5. Automated & Repeatable:</strong> Schedule recurring syncs or trigger exports on demand. Your BigQuery table is always up to date, reflecting the latest filtered data from Odoo.<br><br>
-          <em>All data transfers are encrypted and authenticated using Google’s recommended best practices. No third-party servers or middlemen—your data flows directly from Odoo to your BigQuery project.</em>
-        </p>      <img src="./sel.png" alt="BigQuery configuration settings in Odoo" style="width: 100%; max-width: 900px; margin: 0 auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);"/>
+ <div style="background-color: #05050A; padding: 120px 20px;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        
+        <!-- Section Header -->
+        <div style="text-align: center; margin-bottom: 80px;">
+            <h2 style="font-size: clamp(36px, 5vw, 48px); font-weight: 700; margin-bottom: 15px; letter-spacing: -2px; background: linear-gradient(90deg, #E0E0E0, #FFFFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Secure & Direct: How It Works
+            </h2>
+            <p style="font-size: clamp(18px, 2vw, 20px); color: #AEBCCF; max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                Our connector uses an official Google Cloud Service Account for a robust and secure integration. Your data flows directly from Odoo to your BigQuery project.
+            </p>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="timeline-container" style="max-width: 800px; margin: 0 auto;">
+            
+            <!-- Step 1 -->
+            <div class="timeline-step" style="margin-bottom: 50px;">
+                <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">1. Connect Securely</h3>
+                <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Set up your Google Cloud Service Account credentials directly in Odoo. Just paste your JSON key into a secure field—no manual uploads or risky copy-pasting.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-step" style="margin-bottom: 50px;">
+                <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">2. Choose Your Data</h3>
+                <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Select the Odoo model you want to export, apply advanced filters, and pick only the columns you need. Instantly preview records and fields before syncing.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-step" style="margin-bottom: 50px;">
+                <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">3. Configure BigQuery</h3>
+                <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Enter your BigQuery project, dataset, and table names. The connector automatically creates the table if it doesn’t exist, matching your selected columns.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-step" style="margin-bottom: 50px;">
+                <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">4. One-Click Sync</h3>
+                <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Start the export with a single click. Data is securely transferred using Google’s official APIs, with full support for large datasets and custom fields.</p>
+            </div>
+
+             <!-- Step 5 -->
+             <div class="timeline-step" style="margin-bottom: 80px;">
+                <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">5. Automated & Repeatable</h3>
+                <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Schedule recurring syncs or trigger exports on demand. Your BigQuery table is always up to date, reflecting the latest filtered data from Odoo.</p>
+            </div>
+        </div>
+
+        <!-- Summary & Final Image -->
+        <div style="text-align: center;">
+            <p style="font-size: 16px; color: #8899B3; max-width: 700px; margin: 0 auto 50px auto; line-height: 1.7; border-left: 3px solid #4F46E5; padding-left: 20px; text-align: left;">
+                <strong style="color: #C0C8D8;">Zero Middlemen.</strong> All data transfers are encrypted and authenticated using Google’s recommended best practices. Your data flows directly from your Odoo instance to your private BigQuery project.
+            </p>
+
+            <!-- Image with animated glow and gradient border -->
+            <div class="animated-glow" style="max-width: 900px; margin: 0 auto; border-radius: 18px; padding: 1px; background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));">
+                 <img src="https://i.imgur.com/2sO9fN8.png" alt="BigQuery configuration settings in Odoo" style="width: 100%; display: block; border-radius: 17px; border: 1px solid rgba(0,0,0,0.5);"/>
+            </div>
+        </div>
+
     </div>
-  </div>
+</div>
 
   <!-- FAQ SECTION -->
   <div style="padding: 80px 20px; background-color: #000;">
