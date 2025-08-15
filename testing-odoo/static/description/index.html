@@ -46,11 +46,11 @@
   </section>
 
   <!-- NEW SECTION 1: HOW IT WORKS -->
-  <section style="padding:70px 0; background:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;">
+  <section style="padding:70px 0; background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;">
     <div class="container" style="padding:0 15px;">
       <div class="row">
         <div class="col-12 text-center">
-          <span style="display:inline-block; font-size:14px; font-weight:800; color:#67e8f9; background:#22d3ee26; border:1px solid #22d3ee66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">ARCHITECTURE</span>
+          <span style="display:inline-block; font-size:14px; font-weight:800; color:#67e8f9; background-color:#22d3ee26; border:1px solid #22d3ee66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">ARCHITECTURE</span>
           <h2 style="font-size:34px; font-weight:800; margin:0 0 14px 0; color:#a5f3fc;">How Niyu AI Works (Under the Hood)</h2>
           <p style="font-size:16px; color:#9ca3af; max-width:860px; margin:0 auto 22px;">Natural language in, safe SQL out—executed <em>inside</em> your Odoo DB. Your business data never leaves your environment.</p>
         </div>
@@ -58,22 +58,22 @@
 
       <div class="row g-3" style="margin-top:8px;">
         <div class="col-12 col-md-4">
-          <div class="d-flex flex-column" style="background:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
-            <div style="font-size:26px; margin-bottom:6px;">🧠</div>
+          <div class="d-flex flex-column" style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
+            <div style="font-size:26px; margin-bottom:6px;">&#129504;</div>
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:18px; font-weight:800;">1) Understand your schema</h4>
             <p style="margin:0; color:#9ca3af;">We read table/field names and types (including custom modules) to build a context map. No row-level data is sent out.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="d-flex flex-column" style="background:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
-            <div style="font-size:26px; margin-bottom:6px;">🧩</div>
+          <div class="d-flex flex-column" style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
+            <div style="font-size:26px; margin-bottom:6px;">&#129521;</div>
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:18px; font-weight:800;">2) NL → SQL generation</h4>
-            <p style="margin:0; color:#9ca3af;">Your question + schema → precise SQL for joins, filters, buckets, and aggregations, tailored to Odoo’s models.</p>
+            <p style="margin:0; color:#9ca3af;">Your question + schema → precise SQL for joins, filters, buckets, and aggregations, tailored to Odoo&#8217;s models.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="d-flex flex-column" style="background:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
-            <div style="font-size:26px; margin-bottom:6px;">🔒</div>
+          <div class="d-flex flex-column" style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
+            <div style="font-size:26px; margin-bottom:6px;">&#128274;</div>
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:18px; font-weight:800;">3) Execute & visualize securely</h4>
             <p style="margin:0; color:#9ca3af;">SQL runs within Odoo; results render locally with your existing access rules & record ACLs.</p>
           </div>
@@ -82,14 +82,14 @@
 
       <div class="row g-3" style="margin-top:14px;">
         <div class="col-12 col-lg-6">
-          <div style="background:linear-gradient(180deg,#0f172a,#0b1220); border:1px solid #1f2937; border-radius:16px; padding:18px;">
+          <div style="background-color:#0b1220; border:1px solid #1f2937; border-radius:16px; padding:18px;">
             <h5 style="margin:0 0 8px; color:#f9fafb; font-size:16px; font-weight:800;">Example</h5>
             <div class="d-flex flex-column flex-md-row" style="gap:12px;">
-              <div class="flex-fill" style="background:#0b1324; border:1px solid #1f2937; border-radius:12px; padding:12px;">
+              <div class="flex-fill" style="background-color:#0b1324; border:1px solid #1f2937; border-radius:12px; padding:12px;">
                 <div style="font-size:12px; color:#93c5fd; margin-bottom:6px; font-weight:700;">QUESTION</div>
-                <p style="margin:0; color:#e5e7eb; font-size:14px;">“Show revenue by month for FY 2025, grouped by country.”</p>
+                <p style="margin:0; color:#e5e7eb; font-size:14px;">&#8221;Show revenue by month for FY 2025, grouped by country.&#8221;</p>
               </div>
-              <div class="flex-fill" style="background:#0b1324; border:1px solid #1f2937; border-radius:12px; padding:12px;">
+              <div class="flex-fill" style="background-color:#0b1324; border:1px solid #1f2937; border-radius:12px; padding:12px;">
                 <div style="font-size:12px; color:#34d399; margin-bottom:6px; font-weight:700;">GENERATED SQL</div>
                 <pre style="margin:0; color:#e5e7eb; font-size:12.5px; white-space:pre-wrap; line-height:1.5;">
 SELECT date_trunc('month', so.date_order) AS month,
@@ -106,8 +106,8 @@ ORDER BY 1;</pre>
         </div>
 
         <div class="col-12 col-lg-6">
-          <div class="d-flex align-items-center" style="background:linear-gradient(135deg, rgba(16,185,129,0.12), rgba(59,130,246,0.10)); border:1px solid #1f2937; border-radius:16px; padding:18px;">
-            <div style="font-size:22px; margin-right:10px;">🛡️</div>
+          <div class="d-flex align-items-center" style="background-color: rgba(59,130,246,0.10); border:1px solid #1f2937; border-radius:16px; padding:18px;">
+            <div style="font-size:22px; margin-right:10px;">&#65039;</div>
             <div>
               <h5 style="margin:0 0 6px; color:#f9fafb; font-size:16px; font-weight:800;">Privacy & Controls</h5>
               <ul style="margin:0; padding-left:18px; color:#9ca3af; font-size:14px;">
@@ -124,7 +124,7 @@ ORDER BY 1;</pre>
   </section>
 
   <!-- WHAT'S NEW -->
-  <div style="background:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a; padding:70px 0;">
+  <div style="background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a; padding:70px 0;">
     <div class="container" style="padding:0 15px;">
       <div class="row">
         <div class="col-12 text-center">
@@ -143,7 +143,7 @@ ORDER BY 1;</pre>
         </div>
 
         <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
             <div style="font-size:28px; color:#60a5fa; margin-bottom:6px;">&#65039;</div>
             <h3 style="color:#f9fafb; font-size:18px; margin:0 0 6px 0;">Token Meter per Question</h3>
             <p style="color:#9ca3af; margin:0;">Each message shows prompt &#43; completion tokens. Keep usage transparent and optimize prompts easily.</p>
@@ -151,7 +151,7 @@ ORDER BY 1;</pre>
         </div>
 
         <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
             <div style="font-size:28px; color:#34d399; margin-bottom:6px;">&#128218;</div>
             <h3 style="color:#f9fafb; font-size:18px; margin:0 0 6px 0;">Predefined Questions Library</h3>
             <p style="color:#9ca3af; margin:0;">One-click starters by module (Sales, Invoicing, Inventory, HR). Ideal for onboarding and non-technical users.</p>
@@ -178,7 +178,7 @@ ORDER BY 1;</pre>
   <div class="container" style="padding:70px 15px;">
     <div class="row">
       <div class="col-12 text-center">
-        <span style="display:inline-block; font-size:14px; font-weight:700; color:#60a5fa; background:#60a5fa26; border:1px solid #60a5fa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">USAGE VISIBILITY</span>
+        <span style="display:inline-block; font-size:14px; font-weight:700; color:#60a5fa; background-color:#60a5fa26; border:1px solid #60a5fa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">USAGE VISIBILITY</span>
         <h2 style="font-size:34px; font-weight:800; margin:0 0 16px 0; color:#c4d3ff;">Token Meter: Know What Each Question Costs</h2>
         <p style="font-size:16px; color:#9ca3af; max-width:760px; margin:0 auto 18px;">Each chat reply carries a compact badge showing tokens consumed (prompt + completion). Optionally show a split and estimated cost based on your model pricing.</p>
       </div>
@@ -186,13 +186,13 @@ ORDER BY 1;</pre>
 
     <div class="row" style="margin-top:8px;">
       <div class="col-12" style="overflow-x:auto;">
-        <table style="width:100%; border-collapse:collapse; border:1px solid #1f2937; background:#0f172a; border-radius:12px; overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse; border:1px solid #1f2937; background-color:#0f172a; border-radius:12px; overflow:hidden;">
           <thead>
             <tr>
-              <th style="padding:12px 14px; background:#111827; color:#94a3b8; font-weight:700; text-align:left;">Sample Question</th>
-              <th style="padding:12px 14px; background:#111827; color:#94a3b8; font-weight:700; text-align:left;">Prompt</th>
-              <th style="padding:12px 14px; background:#111827; color:#94a3b8; font-weight:700; text-align:left;">Completion</th>
-              <th style="padding:12px 14px; background:#111827; color:#94a3b8; font-weight:700; text-align:left;">Total</th>
+              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Sample Question</th>
+              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Prompt</th>
+              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Completion</th>
+              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -215,19 +215,19 @@ ORDER BY 1;</pre>
 
     <div class="row" style="margin-top:16px;">
       <div class="col-12 col-md-4" style="margin-bottom:12px;">
-        <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+        <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
           <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">How it&#8217;s shown</h4>
           <p style="margin:0; color:#9ca3af;">A small badge (e.g., <strong>1,760 tokens</strong>) appears on each answer. Optionally show prompt vs completion split and estimated cost.</p>
         </div>
       </div>
       <div class="col-12 col-md-4" style="margin-bottom:12px;">
-        <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+        <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
           <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Why it matters</h4>
           <p style="margin:0; color:#9ca3af;">Keep usage transparent, coach teams on concise prompts, and control spend without restricting access.</p>
         </div>
       </div>
       <div class="col-12 col-md-4" style="margin-bottom:12px;">
-        <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+        <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
           <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Admin toggle</h4>
           <p style="margin:0; color:#9ca3af;">Enable/disable Token Meter in <em>Settings → Niyu AI Analyst</em>. Visibility can be restricted to admins.</p>
         </div>
@@ -236,11 +236,11 @@ ORDER BY 1;</pre>
   </div>
 
   <!-- PREDEFINED QUESTIONS -->
-  <div style="background:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a; padding:70px 0;">
+  <div style="background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a; padding:70px 0;">
     <div class="container" style="padding:0 15px;">
       <div class="row">
         <div class="col-12 text-center">
-          <span style="display:inline-block; font-size:14px; font-weight:700; color:#a78bfa; background:#a78bfa26; border:1px solid #a78bfa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">ONE&#45;CLICK STARTERS</span>
+          <span style="display:inline-block; font-size:14px; font-weight:700; color:#a78bfa; background-color:#a78bfa26; border:1px solid #a78bfa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">ONE&#45;CLICK STARTERS</span>
           <h2 style="font-size:34px; font-weight:800; margin:0 0 10px 0; color:#c4b5fd;">Predefined Questions by Module</h2>
           <p style="font-size:16px; color:#9ca3af; max-width:760px; margin:0 auto 10px;">Kickstart insights with curated prompts mapped to common Odoo workflows. Perfect for onboarding and non&#45;technical users.</p>
         </div>
@@ -248,7 +248,7 @@ ORDER BY 1;</pre>
 
       <div class="row" style="margin-top:10px;">
         <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Sales &amp; CRM</h4>
             <ul style="margin:0; padding-left:18px; color:#9ca3af;">
               <li>Top 10 customers by revenue this quarter</li>
@@ -257,7 +257,7 @@ ORDER BY 1;</pre>
           </div>
         </div>
         <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Invoicing</h4>
             <ul style="margin:0; padding-left:18px; color:#9ca3af;">
               <li>Overdue invoices by account manager</li>
@@ -266,7 +266,7 @@ ORDER BY 1;</pre>
           </div>
         </div>
         <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Inventory</h4>
             <ul style="margin:0; padding-left:18px; color:#9ca3af;">
               <li>Low stock items with last 14-day sales</li>
@@ -275,7 +275,7 @@ ORDER BY 1;</pre>
           </div>
         </div>
         <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
             <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">HR</h4>
             <ul style="margin:0; padding-left:18px; color:#9ca3af;">
               <li>Leaves pending approval this week</li>
@@ -303,7 +303,7 @@ ORDER BY 1;</pre>
   <div class="container" style="padding:70px 15px;">
     <div class="row">
       <div class="col-12 text-center">
-        <span style="display:inline-block; font-size:14px; font-weight:700; color:#34d399; background:#22c55e26; border:1px solid #22c55e66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">SCREENSHOTS</span>
+        <span style="display:inline-block; font-size:14px; font-weight:700; color:#34d399; background-color:#22c55e26; border:1px solid #22c55e66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">SCREENSHOTS</span>
         <h2 style="font-size:34px; font-weight:800; margin:0 0 16px 0; color:#86efac;">See It in Action</h2>
       </div>
     </div>
@@ -330,11 +330,11 @@ ORDER BY 1;</pre>
   </div>
 
   <!-- NEW SECTION 2: SETUP & CONFIGURATION -->
-  <section style="padding:70px 0; background:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;">
+  <section style="padding:70px 0; background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;">
     <div class="container" style="padding:0 15px;">
       <div class="row">
         <div class="col-12 text-center">
-          <span style="display:inline-block; font-size:14px; font-weight:800; color:#bbf7d0; background:#22c55e26; border:1px solid #22c55e66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">SETUP IN MINUTES</span>
+          <span style="display:inline-block; font-size:14px; font-weight:800; color:#bbf7d0; background-color:#22c55e26; border:1px solid #22c55e66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">SETUP IN MINUTES</span>
           <h2 style="font-size:34px; font-weight:800; margin:0 0 14px 0; color:#d1fae5;">Installation & Configuration</h2>
           <p style="font-size:16px; color:#9ca3af; max-width:860px; margin:0 auto 22px;">From install to first answer in a few clicks—no complex infra changes required.</p>
         </div>
@@ -342,13 +342,13 @@ ORDER BY 1;</pre>
 
       <div class="row g-3">
         <div class="col-12 col-lg-7">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
+          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:18px; height:100%;">
             <ol style="margin:0; padding-left:22px; color:#e5e7eb;">
               <li style="margin-bottom:10px;"><strong>Install the module</strong> from the Odoo App Store.</li>
-              <li style="margin-bottom:10px;"><strong>Enter your LLM API key</strong> in <em>Settings → Niyu AI Analyst</em>.</li>
+              <li style="margin-bottom:10px;"><strong>Enter your LLM API key</strong> in <em>Settings &#8594; Niyu AI Analyst</em>.</li>
               <li style="margin-bottom:10px;"><strong>Select visible models</strong> and enable <em>Token Meter</em> (optional).</li>
               <li style="margin-bottom:10px;"><strong>Assign groups</strong> to control who can ask questions.</li>
-              <li style="margin-bottom:10px;"><strong>Ask your first question</strong> (e.g., “Top customers by revenue this quarter”).</li>
+              <li style="margin-bottom:10px;"><strong>Ask your first question</strong> &#40;e.g., &#8221;Top customers by revenue this quarter&#8221;&#41;.</li>
             </ol>
             <div class="d-flex align-items-center" style="margin-top:12px; font-size:14px; color:#9ca3af;">
               <span style="font-size:18px; margin-right:8px;">💡</span> Works with multi-company and respects existing ACLs/record rules.
@@ -357,7 +357,7 @@ ORDER BY 1;</pre>
         </div>
 
         <div class="col-12 col-lg-5">
-          <div style="background:linear-gradient(180deg,#0f172a,#0b1220); border:1px solid #1f2937; border-radius:16px; padding:18px;">
+          <div style="background-color:#0b1220; border:1px solid #1f2937; border-radius:16px; padding:18px;">
             <h5 style="margin:0 0 8px; color:#f9fafb; font-size:16px; font-weight:800;">Compatibility & Requirements</h5>
             <ul style="margin:0; padding-left:18px; color:#9ca3af; font-size:14px;">
               <li>Odoo 17 or later</li>
@@ -366,7 +366,7 @@ ORDER BY 1;</pre>
               <li>Custom models/fields supported</li>
               <li>On-prem & any cloud hosting</li>
             </ul>
-            <div style="height:1px; background:#1f2937; margin:12px 0;"></div>
+            <div style="height:1px; background-color:#1f2937; margin:12px 0;"></div>
             <h5 style="margin:0 0 8px; color:#f9fafb; font-size:16px; font-weight:800;">Deployment Notes</h5>
             <ul style="margin:0; padding-left:18px; color:#9ca3af; font-size:14px;">
               <li>Bring-your-own API key model</li>
