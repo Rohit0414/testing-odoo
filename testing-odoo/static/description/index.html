@@ -245,44 +245,38 @@
   </div>
 
   <!-- FAQ -->
-  <div class="container" style="padding:40px 15px; border-top:1px solid #111827;">
-    <div class="row">
-      <div class="col-12 text-center">
-        <span style="display:inline-block; font-size:14px; font-weight:700; color:#a78bfa; background:#a78bfa26; border:1px solid #a78bfa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">FAQ &#8211; NEW</span>
-        <h2 style="font-size:32px; font-weight:800; margin:0 0 14px 0; color:#a78bfa;">Questions about Token Meter &amp; Presets</h2>
-      </div>
-    </div>
-    <div class="row" style="margin-top:4px;">
-      <div class="col-12" style="border-top:1px solid #374151; padding:18px 0;">
-        <h4 style="font-size:16px; margin:0 0 6px; color:#f9fafb;">How do you calculate tokens and cost?</h4>
-        <p style="margin:0; color:#9ca3af;">We display prompt and completion tokens reported by the model. Estimated cost is computed from your selected model&#8217;s public pricing. Final billing is handled by the provider.</p>
-      </div>
-      <div class="col-12" style="border-top:1px solid #374151; padding:18px 0;">
-        <h4 style="font-size:16px; margin:0 0 6px; color:#f9fafb;">Can I hide token badges for end users?</h4>
-        <p style="margin:0; color:#9ca3af;">Yes. Admins can toggle visibility globally or restrict to admin users in <em>Settings &#8594; Niyu AI Analyst</em>.</p>
-      </div>
-      <div class="col-12" style="border-top:1px solid #374151; padding:18px 0;">
-        <h4 style="font-size:16px; margin:0 0 6px; color:#f9fafb;">Can I customize the Predefined Questions?</h4>
-        <p style="margin:0; color:#9ca3af;">Absolutely. Add, edit, or disable presets per module to match your KPIs and custom fields.</p>
-      </div>
-    </div>
-  </div>
+    <section style="padding: 120px 20px; background-color: #030712;">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 80px;">
+                    <span style="display: inline-block; background-color: rgba(139, 92, 246, 0.15); color: #a78bfa; padding: 8px 16px; border-radius: 99px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(139, 92, 246, 0.4);">FAQ</span>
+                    <h2 style="font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.03em; margin: 0; color: #a78bfa;">Frequently Asked Questions</h2>
+                </div>
+                <div style="border-top: 1px solid #374151;">
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What Odoo versions are supported?</h4><p style="color: #9ca3af; margin: 0;">Niyu AI Analyst is currently supported on Odoo Version 17 and later. Please check the module listing for the most up-to-date compatibility information.</p></div>
+                    <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">How is my Odoo data kept secure?</h4><p style="color: #9ca3af; margin: 0;">Data security is paramount. Your actual Odoo business data *never* leaves your Odoo environment and is *never* stored on our servers or sent to OpenAI. Only non-sensitive information like your database schema (table and field names, their types) and your natural language query are sent to OpenAI via your API key to generate the correct SQL. The SQL query is then executed securely *within your Odoo database*. The results are displayed only to you in Odoo.</p></div>
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What types of questions can Niyu AI answer?</h4><p style="color: #9ca3af; margin: 0;">Niyu AI is designed to answer questions that can be resolved by querying data stored in your Odoo database. This includes questions about sales figures, inventory levels, customer data, order details, invoice status, lead information, and any data within standard or custom Odoo models. It excels at retrieving specific data sets, applying filters (by date, status, customer, etc.), sorting data, and performing aggregations (sum, count, average, min, max). For highly complex analytical tasks or external reporting needs, consider integrating with tools like our BigQuery Connector.</p></div>
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Does it work with my custom Odoo modules and fields?</h4><p style="color: #9ca3af; margin: 0;">Yes, one of the key strengths of Niyu AI Analyst is its ability to understand your specific Odoo database structure. It learns from the schema, including custom modules and fields you have created or installed, allowing you to query data unique to your business.</p></div>
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What are the technical requirements?</h4><p style="color: #9ca3af; margin: 0;">You need a running Odoo Version 17+ instance. The module requires access to the internet to communicate with the OpenAI API using your provided key. No complex server setup is required beyond standard Odoo hosting.</p></div>
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What are the costs involved?</h4><p style="color: #9ca3af; margin: 0;">You purchase the Niyu AI Analyst module license one-time from the Odoo App Store. The only ongoing operational cost is for your usage of the OpenAI API, which is billed directly by OpenAI based on your query volume. There are no additional recurring subscription fees from us for the AI analysis functionality itself.</p></div>
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Is a trial available?</h4><p style="color: #9ca3af; margin: 0;">Yes, you can install Niyu AI Analyst directly from the Odoo App Store for a free trial period (typically 15 days) to test its capabilities with your own Odoo data in your environment.</p></div>
+                     <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Where can I find documentation or support?</h4><p style="color: #9ca3af; margin: 0;">Detailed documentation is available after installation within the module settings. For support, please contact us via the Odoo App Store support channels.</p></div>
+                </div>
+            </div>
+        </section>
 
-  <!-- FINAL CTA -->
-  <div class="container" style="padding:70px 15px;">
-    <div class="row">
-      <div class="col-12 text-center">
-        <div style="background:rgba(139,92,246,0.20); padding:44px 26px; border-radius:16px; border:1px solid #1f2937; display:inline-block; max-width:100%;">
-          <span style="display:inline-block; font-size:14px; font-weight:700; color:#2dd4bf; background:#14b8a61a; border:1px solid #14b8a655; border-radius:999px; padding:8px 16px; margin-bottom:12px;">READY TO UNLOCK YOUR DATA?</span>
-          <h2 style="font-size:32px; font-weight:800; margin:0 0 12px 0; color:#2dd4bf;">Transforming Odoo Data Access Starts Here.</h2>
-          <p style="font-size:16px; color:#b0b0b0; max-width:720px; margin:0 auto 18px;">Experience the conversational way to interact with your Odoo data. Empower your team, accelerate insights, and drive growth.</p>
-          <a href="https://apps.odoo.com/apps/modules/browse?search=Niyu"
-             style="display:inline-block; background:#ffffff; color:#030712; padding:14px 28px; font-size:17px; font-weight:800; text-decoration:none; border-radius:999px; box-shadow:0 8px 20px -5px rgba(0,0,0,.3);">
-            Get Niyu AI Analyst on Odoo Apps →
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+
+        <!-- FINAL CTA - Strong, Action-Oriented -->
+        <section style="padding: 120px 20px; background-color: #030712;">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center; ">
+                <div style="background-color:rgba(139, 92, 246, 0.25); padding: 100px 40px; border-radius: 2rem; border: 1px solid #374151; box-shadow: 0 30px 80px rgba(0,0,0,0.5);">
+                     <span style="display: inline-block; background-color: rgba(20, 184, 166, 0.15); color: #2dd4bf; padding: 8px 16px; border-radius: 99px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(20, 184, 166, 0.4);">READY TO UNLOCK YOUR DATA?</span>
+                    <h2 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 20px; color:#2dd4bf;">Transforming Odoo Data Access Starts Here.</h2>
+                    <p style="max-width: 700px; margin: 0 auto 50px; color: #b0b0b0; font-size: 1.15rem;">Experience the revolutionary way to interact with your Odoo data. Empower your team, accelerate insights, and drive business growth.</p>
+                    <a href="https://apps.odoo.com/apps/modules/browse?search=Niyu" target="_blank" style="display: inline-block; background-color: #ffffff; color: #030712; padding: 18px 36px; font-size: 1.15rem; font-weight: 800; text-decoration: none; border-radius: 99px; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25);" onmouseover="this.style.transform='translateY(-7px)'; this.style.boxShadow='0 12px 25px -7px rgba(0,0,0,0.4), 0 8px 15px -7px rgba(0,0,0,0.3), 0 0 50px 10px rgba(255,255,255,0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25)';">
+                        Get Niyu AI Analyst on Odoo Apps &#8594;
+                    </a>
+                </div>
+            </div>
+        </section>
 
 </section>
