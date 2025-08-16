@@ -46,6 +46,20 @@
 
  <!-- ===== BI TABS (No-JS) ===== -->
 <section id="bi-tabs" style="padding:80px 20px; background-color:#0B0F19; border-top:1px solid #1e2636; border-bottom:1px solid #1e2636;">
+  <!-- CSS-only toggling (Odoo-safe). No JS needed. -->
+  <style>
+    /* Hide radios; keep focusability for a11y */
+    #bi-tabs input[type="radio"] { position:absolute; left:-9999px; }
+    /* Active pill + one-panel-at-a-time */
+    #bi-tabs #tab-pbi:checked + label.tab-btn { background-color:#5A00FF; color:#ffffff; border-color:#5A00FF; }
+    #bi-tabs #tab-looker:checked + label.tab-btn { background-color:#5A00FF; color:#ffffff; border-color:#5A00FF; }
+    #bi-tabs #tab-tableau:checked + label.tab-btn { background-color:#5A00FF; color:#ffffff; border-color:#5A00FF; }
+    #bi-tabs [data-panel] { display:none; }
+    #bi-tabs #tab-pbi:checked ~ #tab-panels #panel-powerbi { display:block; }
+    #bi-tabs #tab-looker:checked ~ #tab-panels #panel-looker { display:block; }
+    #bi-tabs #tab-tableau:checked ~ #tab-panels #panel-tableau { display:block; }
+  </style>
+
   <div style="max-width:1100px; margin:0 auto;">
 
     <!-- Heading -->
@@ -54,25 +68,51 @@
         Your BI Stack, Ready on Day One
       </h2>
       <p style="color:#8899B3; font-size:18px; margin:0 auto; max-width:680px;">
-        Click a button to reveal its setup + GIF. (Inline-only, Odoo-safe)
+        Click a button to reveal its setup + GIF. (No JS; Odoo-safe)
       </p>
     </div>
 
-    <!-- NAV BAR (one row) + PANELS AREA (absolute under bar) -->
+    <!-- NAV BAR + PANELS AREA -->
     <div id="tabs-row"
          class="d-flex flex-nowrap justify-content-center"
          style="position:relative; gap:10px; margin:0 auto; padding:8px; width:min(900px,92vw); border-radius:999px; background-color:#0e121c; border:1px solid #27324a; box-shadow:inset 0 0 0 1px rgba(0,0,0,.25), 0 20px 60px -20px rgba(0,0,0,.6); padding-bottom:600px;">
-      
-      <!-- POWER BI -->
-      <details open style="display:inline-block; margin:0; background-color:transparent; border:0;">
-        <summary
-          style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background-color:#5A00FF; color:#ffffff; font-weight:700; letter-spacing:.2px; border:1px solid #5A00FF;">
-          <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#3d0ab6; border:1px solid rgba(255,255,255,.18); font-size:12px;">▦</span>
-          Power BI
-        </summary>
 
-        <!-- Panel (absolute; full width under the bar) -->
-        <div style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+      <!-- RADIO + LABEL BUTTONS -->
+      <div class="d-flex flex-nowrap justify-content-center" role="tablist" aria-label="BI tabs" style="gap:10px;">
+
+        <!-- Power BI -->
+        <input type="radio" id="tab-pbi" name="bi-tabs" checked>
+        <label for="tab-pbi" class="tab-btn" role="tab" aria-controls="panel-powerbi" aria-selected="true"
+               style="cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; font-weight:700; letter-spacing:.2px; border:1px solid #27324a; background-color:#111726; color:#cdd6e1; box-shadow:none; user-select:none;">
+          <span aria-hidden="true"
+                style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#3d0ab6; border:1px solid rgba(255,255,255,.18); font-size:12px;">▦</span>
+          Power BI
+        </label>
+
+        <!-- Looker Studio -->
+        <input type="radio" id="tab-looker" name="bi-tabs">
+        <label for="tab-looker" class="tab-btn" role="tab" aria-controls="panel-looker" aria-selected="false"
+               style="cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; font-weight:700; letter-spacing:.2px; border:1px solid #27324a; background-color:#111726; color:#cdd6e1; box-shadow:none; user-select:none;">
+          <span aria-hidden="true"
+                style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">◎</span>
+          Looker Studio
+        </label>
+
+        <!-- Tableau -->
+        <input type="radio" id="tab-tableau" name="bi-tabs">
+        <label for="tab-tableau" class="tab-btn" role="tab" aria-controls="panel-tableau" aria-selected="false"
+               style="cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; font-weight:700; letter-spacing:.2px; border:1px solid #27324a; background-color:#111726; color:#cdd6e1; box-shadow:none; user-select:none;">
+          <span aria-hidden="true"
+                style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">✳</span>
+          Tableau
+        </label>
+      </div>
+
+      <!-- PANELS (absolute under the bar) -->
+      <div id="tab-panels" style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+
+        <!-- Power BI PANEL -->
+        <div id="panel-powerbi" data-panel="powerbi" role="tabpanel" aria-labelledby="tab-pbi" style="display:none;">
           <div style="border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06); box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
             <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
               <div style="flex:1 1 360px; min-width:280px;">
@@ -92,18 +132,9 @@
             </div>
           </div>
         </div>
-      </details>
 
-      <!-- LOOKER STUDIO -->
-      <details style="display:inline-block; margin:0; background-color:transparent; border:0;">
-        <summary
-          style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; font-weight:700; letter-spacing:.2px; border:1px solid #27324a;">
-          <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">◎</span>
-          Looker Studio
-        </summary>
-
-        <!-- Panel -->
-        <div style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+        <!-- Looker PANEL -->
+        <div id="panel-looker" data-panel="looker" role="tabpanel" aria-labelledby="tab-looker" style="display:none;">
           <div style="border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06); box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
             <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
               <div style="flex:1 1 360px; min-width:280px;">
@@ -123,18 +154,9 @@
             </div>
           </div>
         </div>
-      </details>
 
-      <!-- TABLEAU -->
-      <details style="display:inline-block; margin:0; background-color:transparent; border:0;">
-        <summary
-          style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; font-weight:700; letter-spacing:.2px; border:1px solid #27324a;">
-          <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">✳</span>
-          Tableau
-        </summary>
-
-        <!-- Panel -->
-        <div style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+        <!-- Tableau PANEL -->
+        <div id="panel-tableau" data-panel="tableau" role="tabpanel" aria-labelledby="tab-tableau" style="display:none;">
           <div style="border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06); box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
             <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
               <div style="flex:1 1 360px; min-width:280px;">
@@ -154,12 +176,12 @@
             </div>
           </div>
         </div>
-      </details>
 
+      </div><!-- /tab-panels -->
     </div><!-- /tabs-row -->
-
   </div>
 </section>
+
 <!-- ===== /BI TABS (No-JS) ===== -->
 
 
