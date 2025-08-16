@@ -45,9 +45,11 @@
   </div>
 
  <!-- ===== BI TABS (No-JS) ===== -->
+<!-- ========= BI TABS (Odoo-safe: inline-only, one-row buttons, GIFs) ========= -->
 <section id="bi-tabs" style="padding:80px 20px; background-color:#0B0F19; border-top:1px solid #1e2636; border-bottom:1px solid #1e2636;">
   <div style="max-width:1100px; margin:0 auto;">
 
+    <!-- Heading -->
     <div style="text-align:center; margin-bottom:24px;">
       <h2 style="font-size:clamp(28px,4.5vw,44px); font-weight:800; letter-spacing:-1px; margin:0 0 8px 0; color:#e7eaf2;">
         Your BI Stack, Ready on Day One
@@ -57,101 +59,110 @@
       </p>
     </div>
 
-    <!-- ===== Power BI ===== -->
-    <details id="bi-powerbi" open style="margin:0 0 16px 0; border-radius:18px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06);">
-      <summary style="list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; border-radius:18px; background-color:#111726; color:#e7eaf2; font-weight:700;">
-        <span class="d-flex align-items-center" style="gap:10px;">
-          <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">▦</span>
+    <!-- NAV BAR (one row) + PANELS AREA (absolute under bar) -->
+    <div id="tabs-row"
+         class="d-flex flex-nowrap justify-content-center"
+         style="position:relative; gap:10px; margin:0 auto; padding:8px; width:min(900px,92vw); border-radius:999px; background-color:#0e121c; border:1px solid #27324a; box-shadow:inset 0 0 0 1px rgba(0,0,0,.25), 0 20px 60px -20px rgba(0,0,0,.6); padding-bottom:600px;">
+      
+      <!-- POWER BI -->
+      <details open style="display:inline-block; margin:0; background-color:transparent; border:0;">
+        <summary
+          style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background-color:#5A00FF; color:#ffffff; font-weight:700; letter-spacing:.2px; border:1px solid #5A00FF;">
+          <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#3d0ab6; border:1px solid rgba(255,255,255,.18); font-size:12px;">▦</span>
           Power BI
-        </span>
-        <span style="font-size:12px; color:#8899B3;">click to toggle</span>
-      </summary>
+        </summary>
 
-      <div style="padding:22px;">
-        <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
-          <div style="flex:1 1 360px; min-width:280px;">
-            <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(255,215,0,.4); color:#ffd700; background-color:rgba(255,215,0,.08);">Optimized for DAX</div>
-            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Power BI + BigQuery</h3>
-            <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
-              <li style="margin-bottom:6px;">Use the native BigQuery connector in Power BI Desktop.</li>
-              <li style="margin-bottom:6px;">Filtered rows &amp; selected columns → faster refresh.</li>
-              <li style="margin-bottom:6px;">Star schema: <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">orders</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_lines</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">partners</code>.</li>
-            </ul>
-          </div>
-          <div style="flex:1 1 420px; min-width:320px;">
-            <!-- GIF -->
-            <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
-              <img src="./powerbi.gif" alt="Power BI demo" style="width:100%; display:block; border-radius:10px;">
+        <!-- Panel (absolute; full width under the bar) -->
+        <div style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+          <div style="border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06); box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
+            <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
+              <div style="flex:1 1 360px; min-width:280px;">
+                <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(255,215,0,.4); color:#ffd700; background-color:rgba(255,215,0,.08);">Optimized for DAX</div>
+                <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Power BI + BigQuery</h3>
+                <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
+                  <li style="margin-bottom:6px;">Use the native BigQuery connector in Power BI Desktop.</li>
+                  <li style="margin-bottom:6px;">Filtered rows &amp; selected columns → faster refresh.</li>
+                  <li style="margin-bottom:6px;">Star schema: <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">orders</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_lines</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">partners</code>.</li>
+                </ul>
+              </div>
+              <div style="flex:1 1 420px; min-width:320px;">
+                <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
+                  <img src="./powerbi.gif" alt="Power BI demo" style="width:100%; display:block; border-radius:10px;">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </details>
+      </details>
 
-    <!-- ===== Looker Studio ===== -->
-    <details id="bi-looker" style="margin:0 0 16px 0; border-radius:18px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06);">
-      <summary style="list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; border-radius:18px; background-color:#111726; color:#e7eaf2; font-weight:700;">
-        <span class="d-flex align-items-center" style="gap:10px;">
+      <!-- LOOKER STUDIO -->
+      <details style="display:inline-block; margin:0; background-color:transparent; border:0;">
+        <summary
+          style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; font-weight:700; letter-spacing:.2px; border:1px solid #27324a;">
           <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">◎</span>
           Looker Studio
-        </span>
-        <span style="font-size:12px; color:#8899B3;">click to toggle</span>
-      </summary>
+        </summary>
 
-      <div style="padding:22px;">
-        <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
-          <div style="flex:1 1 360px; min-width:280px;">
-            <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(102,204,255,.4); color:#66ccff; background-color:rgba(102,204,255,.08);">Shareable Dashboards</div>
-            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Looker Studio + BigQuery</h3>
-            <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
-              <li style="margin-bottom:6px;">Built-in BigQuery connector; use your Google account.</li>
-              <li style="margin-bottom:6px;">Pre-filtered exports keep reports fast.</li>
-              <li style="margin-bottom:6px;">Blend Odoo with Ads/GA data easily.</li>
-            </ul>
-          </div>
-          <div style="flex:1 1 420px; min-width:320px;">
-            <!-- GIF -->
-            <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
-              <img src="./looker.gif" alt="Looker Studio demo" style="width:100%; display:block; border-radius:10px;">
+        <!-- Panel -->
+        <div style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+          <div style="border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06); box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
+            <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
+              <div style="flex:1 1 360px; min-width:280px;">
+                <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(102,204,255,.4); color:#66ccff; background-color:rgba(102,204,255,.08);">Shareable Dashboards</div>
+                <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Looker Studio + BigQuery</h3>
+                <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
+                  <li style="margin-bottom:6px;">Built-in BigQuery connector; use your Google account.</li>
+                  <li style="margin-bottom:6px;">Pre-filtered exports keep reports fast.</li>
+                  <li style="margin-bottom:6px;">Blend Odoo with Ads/GA data easily.</li>
+                </ul>
+              </div>
+              <div style="flex:1 1 420px; min-width:320px;">
+                <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
+                  <img src="./looker.gif" alt="Looker Studio demo" style="width:100%; display:block; border-radius:10px;">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </details>
+      </details>
 
-    <!-- ===== Tableau ===== -->
-    <details id="bi-tableau" style="margin:0; border-radius:18px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06);">
-      <summary style="list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; border-radius:18px; background-color:#111726; color:#e7eaf2; font-weight:700;">
-        <span class="d-flex align-items-center" style="gap:10px;">
+      <!-- TABLEAU -->
+      <details style="display:inline-block; margin:0; background-color:transparent; border:0;">
+        <summary
+          style="list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; font-weight:700; letter-spacing:.2px; border:1px solid #27324a;">
           <span style="display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; border-radius:50%; background-color:#151d2e; border:1px solid #27324a; font-size:12px;">✳</span>
           Tableau
-        </span>
-        <span style="font-size:12px; color:#8899B3;">click to toggle</span>
-      </summary>
+        </summary>
 
-      <div style="padding:22px;">
-        <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
-          <div style="flex:1 1 360px; min-width:280px;">
-            <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(160,68,255,.4); color:#cba6ff; background-color:rgba(160,68,255,.08);">Viz-Centric Modeling</div>
-            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Tableau + BigQuery</h3>
-            <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
-              <li style="margin-bottom:6px;">Connect via Google BigQuery (OAuth or service account).</li>
-              <li style="margin-bottom:6px;">Small extracts, responsive live queries.</li>
-              <li style="margin-bottom:6px;">Join orders ↔ lines ↔ partners visually.</li>
-            </ul>
-          </div>
-          <div style="flex:1 1 420px; min-width:320px;">
-            <!-- GIF -->
-            <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
-              <img src="./tableau.gif" alt="Tableau demo" style="width:100%; display:block; border-radius:10px;">
+        <!-- Panel -->
+        <div style="position:absolute; left:0; right:0; top:calc(100% + 16px); margin:0 auto; max-width:1100px;">
+          <div style="border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06); box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
+            <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
+              <div style="flex:1 1 360px; min-width:280px;">
+                <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(160,68,255,.4); color:#cba6ff; background-color:rgba(160,68,255,.08);">Viz-Centric Modeling</div>
+                <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Tableau + BigQuery</h3>
+                <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
+                  <li style="margin-bottom:6px;">Connect via Google BigQuery (OAuth or service account).</li>
+                  <li style="margin-bottom:6px;">Small extracts, responsive live queries.</li>
+                  <li style="margin-bottom:6px;">Join orders ↔ lines ↔ partners visually.</li>
+                </ul>
+              </div>
+              <div style="flex:1 1 420px; min-width:320px;">
+                <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
+                  <img src="./tableau.gif" alt="Tableau demo" style="width:100%; display:block; border-radius:10px;">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </details>
+      </details>
+
+    </div><!-- /tabs-row -->
 
   </div>
 </section>
+<!-- ========= /BI TABS ========= -->
+
 
 <!-- ===== /BI TABS (No-JS) ===== -->
 
