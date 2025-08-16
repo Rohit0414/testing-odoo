@@ -45,100 +45,108 @@
   </div>
 
  <!-- ===== BI TABS (No-JS) ===== -->
-<section id="bi-tabs" style="padding:80px 20px; background-color:#0B0F19; border-top:1px solid #1e2636; border-bottom:1px solid #1e2636;">
-  <div style="max-width:1100px; margin:0 auto;">
+<!--
+  START OF THE BI TABS SECTION (BOOTSTRAP GRID & ODOO-COMPATIBLE)
+  This version uses Bootstrap's grid for responsive layout and inline onclick for functionality.
+-->
+<section id="bi-tabs" style="padding: 80px 20px; background-color: #0b0f19; border-top: 1px solid #1e2636; border-bottom: 1px solid #1e2636; overflow: hidden;">
+  <!-- CSS for the "sexy" bits: active states, hover effects, and animations. -->
+  <style>
+    .bi-tab-nav-item { transition: all 0.25s ease-in-out; cursor: pointer; }
+    .bi-tab-nav-item:hover { background-color: #192133 !important; border-color: #3a4866 !important; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .bi-tab-nav-item.active { background-color: #27324a !important; color: #fff !important; border-color: #4c82f7 !important; box-shadow: 0 0 15px rgba(76, 130, 247, 0.3); }
+    .bi-tab-cta { background-image: linear-gradient(to right, #4c82f7, #a855f7); border: none !important; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+    .bi-tab-cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 25px rgba(168, 85, 247, 0.5); }
+    .bi-tab-content { display: none; animation: fadeIn 0.5s ease-out forwards; }
+    .bi-tab-content.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
 
+  <div style="max-width: 1100px; margin: 0 auto;">
     <!-- Heading -->
-    <div style="text-align:center; margin-bottom:24px;">
-      <h2 style="font-size:clamp(28px,4.5vw,44px); font-weight:800; letter-spacing:-1px; margin:0 0 8px 0; color:#e7eaf2;">
+    <div class="text-center mb-5">
+      <h2 style="font-size: clamp(28px, 4.5vw, 44px); font-weight: 800; letter-spacing: -1px; margin: 0 0 8px 0; color: #e7eaf2;">
         Your BI Stack, Ready on Day One
       </h2>
-      <p style="color:#8899B3; font-size:18px; margin:0 auto; max-width:680px;">
+      <p style="color: #8899b3; font-size: 18px; margin: 0 auto; max-width: 680px;">
         Connect BigQuery to your favorite BI tool in minutes. Clean, filtered Odoo data → faster dashboards, lower costs.
       </p>
     </div>
 
-    <!-- Pills -->
-    <div class="d-flex flex-wrap justify-content-center" style="gap:8px; margin:0 auto 22px auto; padding:8px; width:min(860px,92vw); border-radius:999px; background-color:#0e121c; border:1px solid #27324a;">
-      <a href="#bi-powerbi" style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; text-decoration:none; border:1px solid #27324a; font-weight:700;">▦ Power BI</a>
-      <a href="#bi-looker"  style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; text-decoration:none; border:1px solid #27324a; font-weight:700;">◎ Looker Studio</a>
-      <a href="#bi-tableau" style="display:flex; align-items:center; gap:8px; padding:12px 16px; border-radius:999px; background-color:#111726; color:#cdd6e1; text-decoration:none; border:1px solid #27324a; font-weight:700;">✳ Tableau</a>
+    <!-- Tab Navigation with inline onclick handlers -->
+    <div class="d-flex flex-wrap justify-content-center align-items-center mx-auto mb-5 gap-3" style="padding: 8px; width: min(960px, 92vw); border-radius: 999px; background-color: #0e121c; border: 1px solid #27324a;">
+      <a data-tab-target="#bi-powerbi" class="bi-tab-nav-item active" style="display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; background-color: #111726; color: #cdd6e1; text-decoration: none; border: 1px solid #27324a; font-weight: 700;" onclick="event.preventDefault(); document.querySelectorAll('.bi-tab-nav-item').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.querySelectorAll('.bi-tab-content').forEach(c=>c.classList.remove('active')); document.querySelector(this.dataset.tabTarget).classList.add('active');">▦ Power BI</a>
+      <a data-tab-target="#bi-looker" class="bi-tab-nav-item" style="display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; background-color: #111726; color: #cdd6e1; text-decoration: none; border: 1px solid #27324a; font-weight: 700;" onclick="event.preventDefault(); document.querySelectorAll('.bi-tab-nav-item').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.querySelectorAll('.bi-tab-content').forEach(c=>c.classList.remove('active')); document.querySelector(this.dataset.tabTarget).classList.add('active');">◎ Looker Studio</a>
+      <a data-tab-target="#bi-tableau" class="bi-tab-nav-item" style="display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; background-color: #111726; color: #cdd6e1; text-decoration: none; border: 1px solid #27324a; font-weight: 700;" onclick="event.preventDefault(); document.querySelectorAll('.bi-tab-nav-item').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.querySelectorAll('.bi-tab-content').forEach(c=>c.classList.remove('active')); document.querySelector(this.dataset.tabTarget).classList.add('active');">✳ Tableau</a>
+      <a href="#" class="bi-tab-cta" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 999px; color: #fff; text-decoration: none; font-weight: 700;">⚡️ BigQuery Pro+ Connect</a>
     </div>
 
-    <!-- POWER BI -->
-    <div id="bi-powerbi" style="scroll-margin-top:80px; margin-bottom:28px; border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06);">
-      <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
-        <div style="flex:1 1 360px; min-width:280px;">
-          <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(255,215,0,.4); color:#ffd700; background-color:rgba(255,215,0,.08);">Optimized for DAX</div>
-          <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Power BI + BigQuery</h3>
-          <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
-            <li style="margin-bottom:6px;">Use the native BigQuery connector in Power BI Desktop.</li>
-            <li style="margin-bottom:6px;">Lean tables (filtered rows &amp; selected columns) = faster refresh.</li>
-            <li style="margin-bottom:6px;">Great for star-schema modeling: <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">orders</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_lines</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">partners</code>.</li>
-          </ul>
-          <div style="font-size:13px; color:#8899B3; margin-top:6px;">Steps: <strong>Get Data → Google BigQuery</strong> → pick project/dataset/table → Import or DirectQuery.</div>
-        </div>
-        <div style="flex:1 1 420px; min-width:320px;">
-          <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
-            <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Power BI demo" style="width:100%; display:block; border-radius:10px;"/>
+    <!-- Tab Content Panels -->
+    <div id="bi-tab-contents">
+      <!-- POWER BI -->
+      <div id="bi-powerbi" class="bi-tab-content active p-4 p-md-5 rounded-4" style="background: linear-gradient(145deg, #0e121c, #121826); border: 1px solid #27324a;">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <div style="display: inline-block; padding: 6px 12px; border-radius: 8px; font-weight: 600; margin-bottom: 14px; border: 1px solid rgba(255, 215, 0, 0.4); color: #ffd700; background-color: rgba(255, 215, 0, 0.08);">Optimized for DAX</div>
+            <h3 style="margin: 0 0 10px 0; color: #e7eaf2; font-size: 24px; font-weight: 700;">Power BI + BigQuery</h3>
+            <ul style="margin: 10px 0 16px 18px; color: #aebccf; line-height: 1.7; font-size: 16px; padding-left: 0;">
+              <li style="margin-bottom: 6px;">Use the native BigQuery connector in Power BI Desktop.</li>
+              <li style="margin-bottom: 6px;">Lean tables (filtered rows &amp; selected columns) = faster refresh.</li>
+              <li style="margin-bottom: 6px;">Great for star-schema modeling: <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">orders</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_lines</code>.</li>
+            </ul>
+            <div style="font-size: 13px; color: #8899b3; margin-top: 6px;">Steps: <strong>Get Data → Google BigQuery</strong> → pick project/dataset/table → Import or DirectQuery.</div>
+          </div>
+          <div class="col-lg-7">
+            <div class="p-3 rounded-3" style="background-color: #0a0f18; border: 1px solid #20283a; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);">
+              <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnVtbW5sbmVjaHp1bTR6eDJ2czRjb2s1ZnYwaXVoMDBjODg5NG13dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L1R1tvI9svkIWwp2pm/giphy.gif" alt="Power BI demo" class="img-fluid rounded-2" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-end" style="margin-top:14px;">
-        <a href="#bi-tabs" style="font-size:13px; color:#66ccff; text-decoration:none;">↑ Back to tabs</a>
-      </div>
-    </div>
-
-    <!-- LOOKER -->
-    <div id="bi-looker" style="scroll-margin-top:80px; margin-bottom:28px; border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06);">
-      <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
-        <div style="flex:1 1 360px; min-width:280px;">
-          <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(102,204,255,.4); color:#66ccff; background-color:rgba(102,204,255,.08);">Shareable Dashboards</div>
-          <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Looker Studio + BigQuery</h3>
-          <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
-            <li style="margin-bottom:6px;">Use the built-in BigQuery connector; authorize with your GCP account.</li>
-            <li style="margin-bottom:6px;">Pre-filtered exports keep reports blazing fast.</li>
-            <li style="margin-bottom:6px;">Blend Odoo with ads/analytics sources without overloading queries.</li>
-          </ul>
-          <div style="font-size:13px; color:#8899B3; margin-top:6px;">Steps: <strong>Create → Data Source → BigQuery</strong> → pick table → build chart → add filters.</div>
-        </div>
-        <div style="flex:1 1 420px; min-width:320px;">
-          <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
-            <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Looker Studio demo" style="width:100%; display:block; border-radius:10px;"/>
+      <!-- LOOKER -->
+      <div id="bi-looker" class="bi-tab-content p-4 p-md-5 rounded-4" style="background: linear-gradient(145deg, #0e121c, #121826); border: 1px solid #27324a;">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <div style="display: inline-block; padding: 6px 12px; border-radius: 8px; font-weight: 600; margin-bottom: 14px; border: 1px solid rgba(102, 204, 255, 0.4); color: #66ccff; background-color: rgba(102, 204, 255, 0.08);">Shareable Dashboards</div>
+            <h3 style="margin: 0 0 10px 0; color: #e7eaf2; font-size: 24px; font-weight: 700;">Looker Studio + BigQuery</h3>
+            <ul style="margin: 10px 0 16px 18px; color: #aebccf; line-height: 1.7; font-size: 16px; padding-left: 0;">
+              <li style="margin-bottom: 6px;">Use the built-in BigQuery connector; authorize with your GCP account.</li>
+              <li style="margin-bottom: 6px;">Pre-filtered exports keep reports blazing fast.</li>
+              <li style="margin-bottom: 6px;">Blend Odoo with ads/analytics sources without overloading queries.</li>
+            </ul>
+            <div style="font-size: 13px; color: #8899b3; margin-top: 6px;">Steps: <strong>Create → Data Source → BigQuery</strong> → pick table → build chart → add filters.</div>
+          </div>
+          <div class="col-lg-7">
+            <div class="p-3 rounded-3" style="background-color: #0a0f18; border: 1px solid #20283a; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);">
+              <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXd3MHBmZjUwc3JmcTRhMDU0cjJ2OXNvdDBzM21qNzdjZHlyNWIxMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/oD0t26aD75Q52/giphy.gif" alt="Looker Studio demo" class="img-fluid rounded-2" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-end" style="margin-top:14px;">
-        <a href="#bi-tabs" style="font-size:13px; color:#66ccff; text-decoration:none;">↑ Back to tabs</a>
-      </div>
-    </div>
-
-    <!-- TABLEAU -->
-    <div id="bi-tableau" style="scroll-margin-top:80px; margin-bottom:0; border-radius:18px; padding:26px; background-color:#0e121c; border:1px solid rgba(255,255,255,.06);">
-      <div class="d-flex flex-wrap align-items-start" style="gap:30px;">
-        <div style="flex:1 1 360px; min-width:280px;">
-          <div style="display:inline-block; padding:6px 12px; border-radius:8px; font-weight:600; margin-bottom:14px; border:1px solid rgba(160,68,255,.4); color:#cba6ff; background-color:rgba(160,68,255,.08);">Viz-Centric Modeling</div>
-          <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:22px; font-weight:700;">Tableau + BigQuery</h3>
-          <ul style="margin:10px 0 16px 18px; color:#AEBCCF; line-height:1.7; font-size:16px; padding-left:0;">
-            <li style="margin-bottom:6px;">Connect from Tableau Desktop → Google BigQuery (service account or OAuth).</li>
-            <li style="margin-bottom:6px;">Lightweight tables keep extracts tiny and live queries responsive.</li>
-            <li style="margin-bottom:6px;">Join orders ↔ lines ↔ partners visually for flexible vizzes.</li>
-          </ul>
-          <div style="font-size:13px; color:#8899B3; margin-top:6px;">Steps: <strong>Connect → Google BigQuery</strong> → select dataset → drag tables → build worksheet.</div>
-        </div>
-        <div style="flex:1 1 420px; min-width:320px;">
-          <div style="background-color:#0A0F18; border:1px solid #20283a; border-radius:12px; padding:10px;">
-            <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Tableau demo" style="width:100%; display:block; border-radius:10px;"/>
+      <!-- TABLEAU -->
+      <div id="bi-tableau" class="bi-tab-content p-4 p-md-5 rounded-4" style="background: linear-gradient(145deg, #0e121c, #121826); border: 1px solid #27324a;">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <div style="display: inline-block; padding: 6px 12px; border-radius: 8px; font-weight: 600; margin-bottom: 14px; border: 1px solid rgba(160, 68, 255, 0.4); color: #cba6ff; background-color: rgba(160, 68, 255, 0.08);">Viz-Centric Modeling</div>
+            <h3 style="margin: 0 0 10px 0; color: #e7eaf2; font-size: 24px; font-weight: 700;">Tableau + BigQuery</h3>
+            <ul style="margin: 10px 0 16px 18px; color: #aebccf; line-height: 1.7; font-size: 16px; padding-left: 0;">
+              <li style="margin-bottom: 6px;">Connect from Tableau Desktop → Google BigQuery (service account or OAuth).</li>
+              <li style="margin-bottom: 6px;">Lightweight tables keep extracts tiny and live queries responsive.</li>
+              <li style="margin-bottom: 6px;">Join orders ↔ lines ↔ partners visually for flexible vizzes.</li>
+            </ul>
+            <div style="font-size: 13px; color: #8899b3; margin-top: 6px;">Steps: <strong>Connect → Google BigQuery</strong> → select dataset → drag tables → build worksheet.</div>
+          </div>
+          <div class="col-lg-7">
+            <div class="p-3 rounded-3" style="background-color: #0a0f18; border: 1px solid #20283a; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);">
+              <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2Rjbm53cWFoaXljZW92ZmNmMjI5amF3Z3UwcXF4bHVhYjNlM2k5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l4EpfjeI3aLf5y1O/giphy.gif" alt="Tableau demo" class="img-fluid rounded-2" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-end" style="margin-top:14px;">
-        <a href="#bi-tabs" style="font-size:13px; color:#66ccff; text-decoration:none;">↑ Back to tabs</a>
-      </div>
     </div>
-
   </div>
 </section>
+<!-- END OF THE BI TABS SECTION -->
 
 <!-- ===== /BI TABS (No-JS) ===== -->
 
