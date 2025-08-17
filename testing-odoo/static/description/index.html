@@ -44,203 +44,186 @@
     
   </div>
 
- <!-- ===== BI TABS (No-JS) ===== -->
-<section id="bi-tabs" style="padding:88px 20px; background-color:rgba(90,0,255,.15); border-top:1px solid #1e2636; border-bottom:1px solid #1e2636;">
-  <div style="max-width:1140px; margin:0 auto;">
 
-    <!-- HERO -->
-    <div class="d-flex flex-wrap align-items-center" style="gap:24px; margin-bottom:28px;">
-      <div style="flex:1 1 520px; min-width:280px; text-align:left;">
-        <div style="display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.14); border-radius:999px; color:#b9c6dc; font-size:13px; letter-spacing:.4px; background-color:#12182a;">ODOO-SAFE • INLINE-ONLY • NO JS</div>
-        <h1 style="font-size:clamp(32px,5.2vw,56px); line-height:1.05; font-weight:900; letter-spacing:-.6px; margin:14px 0 8px 0; color:#e7eaf2;">
-          BI that looks senior. Set up in hours, not weeks.
-        </h1>
-        <p style="color:#9fb0c9; font-size:18px; margin:0; max-width:620px;">
-          Connect <span style="color:#8fb0ff;">BigQuery</span>, shape clean models from Odoo, and publish dashboards your team will actually use. Pick your tool below.
+
+
+ <!-- ===== BI TABS (No-JS) ===== -->
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #06080e; color: #cdd6e1; line-height: 1.7; overflow-x: hidden; background-image: radial-gradient(ellipse at top, rgba(90, 40, 255, 0.2), transparent 50%);">
+
+  <!-- =======================
+  1. THE UNIFIED HERO
+  ======================== -->
+  <section class="d-flex flex-column justify-content-center align-items-center" style="padding: 120px 24px; text-align: center; min-height: 90vh;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="display: inline-block; padding: 8px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; color: #c5d1ef; background-color: rgba(45, 55, 85, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(8px);">
+        ODOO → BIGQUERY → UNLIMITED INSIGHTS
+      </div>
+      <h1 style="
+          font-size: clamp(48px, 8vw, 84px);
+          font-weight: 800;
+          letter-spacing: -3.5px;
+          line-height: 1.05;
+          margin: 24px 0 20px 0;
+          /* FIX: Added background and background-clip to make the gradient text visible */
+          background: linear-gradient(90deg, #FFFFFF 60%, #A9B8D2 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow: 0 5px 30px rgba(0,0,0,0.3);">
+        The Bridge to World-Class BI.
+      </h1>
+      <p style="font-size: clamp(18px, 2.5vw, 22px); color: #a0aec7; margin: 0 auto 40px auto; max-width: 720px; line-height: 1.6;">
+        Intelligently sync your Odoo data to Google BigQuery, and unleash its full potential with the industry's most powerful analytics platforms.
+      </p>
+      
+      <!-- BI Logos for immediate recognition -->
+      <div class="d-flex justify-content-center align-items-center" style="gap: 32px; filter: grayscale(1) brightness(1.5) contrast(0.5);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo" style="height: 32px; opacity: 0.7;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Looker_logo.svg/2560px-Looker_logo.svg.png" alt="Looker Studio Logo" style="height: 24px; opacity: 0.7;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tableau_Software_logo.svg/1280px-Tableau_Software_logo.svg.png" alt="Tableau Logo" style="height: 30px; opacity: 0.7;">
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+  2. VISUAL PROOF (PRODUCT DEMO)
+  ======================== -->
+  <section style="padding: 0 24px 120px 24px; perspective: 1500px;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <!-- UPGRADE: Changed border to a gradient, added 3D perspective transform -->
+      <div style="
+        border-radius: 28px;
+        padding: 4px;
+        background: linear-gradient(135deg, rgba(160, 68, 255, 0.6), rgba(90, 0, 255, 0.2));
+        box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7);
+        transform: rotateX(10deg) rotateZ(-1deg);">
+        <img src="./Big-Query01.gif" alt="Odoo to BigQuery Connector Demo" style="width: 100%; display: block; border-radius: 24px; border: 2px solid #000;"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================
+  3. THE PAYOFF (BI CENTERPIECE)
+  ======================== -->
+  <section id="bi-integrations" style="padding: 100px 24px; background-color: #0a0d14; background-image: radial-gradient(ellipse at 50% 0%, rgba(90, 0, 255, 0.15), transparent 50%); border-top: 1px solid rgba(60, 70, 100, 0.2);">
+    <div style="max-width:1180px; margin:0 auto;">
+
+      <!-- Section Intro -->
+      <div style="text-align: center; max-width: 750px; margin: 0 auto 64px auto;">
+        <h2 style="font-size: clamp(38px, 5.5vw, 56px); font-weight: 700; letter-spacing: -2px; margin: 0 0 16px 0; color: #e7eaf2;">
+          Activate Your Analytics Stack
+        </h2>
+        <p style="font-size: 19px; color: #a9b8d2; line-height: 1.6;">
+          Your BigQuery data is the fuel. These are the engines. Connect your clean, structured Odoo data to the platform of your choice and start building dashboards that drive decisions.
         </p>
       </div>
-      <div style="flex:1 1 420px; min-width:260px;">
-        <div style="background-color:#0b1120; border:1px solid #27324a; border-radius:16px; padding:16px; box-shadow:0 30px 90px -25px rgba(0,0,0,.6);">
-          <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="BI hero preview" style="width:100%; display:block; border-radius:12px;">
-        </div>
+
+      <!-- Anchor Tiles -->
+      <div id="bi-nav" class="d-flex flex-wrap justify-content-center" role="navigation" style="gap: 24px; margin-bottom: 72px;">
+        <!-- Tile: Power BI -->
+        <a href="#panel-powerbi" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; gap:16px; padding:24px; border-radius:18px; color:#dde4f3; background: rgba(18, 24, 42, 0.6); border: 1px solid rgba(60, 70, 100, 0.4); backdrop-filter: blur(12px); box-shadow: 0 16px 50px -15px rgba(0,0,0,0.5);">
+          <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background-color:#2a2f3b; border-radius:12px; border:1px solid rgba(255,255,255,.1);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#F2C811" d="M12.519 19.346V4.654h6.307a3.173 3.173 0 0 1 3.173 3.173v8.346a3.173 3.173 0 0 1-3.173 3.173zM2 19.346h8.346V4.654H2z"></path></svg></div>
+          <div>
+            <div style="font-weight:700; font-size:18px;">Power BI</div>
+            <div style="color:#a9b8d2; font-size:14px;">For enterprise-grade models & DAX mastery.</div>
+          </div>
+        </a>
+        <!-- Tile: Looker Studio -->
+        <a href="#panel-looker" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; gap:16px; padding:24px; border-radius:18px; color:#dde4f3; background:rgba(18, 24, 42, 0.6); border:1px solid rgba(60, 70, 100, 0.4); backdrop-filter:blur(12px); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5);">
+          <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background-color:#2a2f3b; border-radius:12px; border:1px solid rgba(255,255,255,.1);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M14.12 2.62a1 1 0 0 0-1.2.37l-6 10a1 1 0 0 0 .86 1.51h12a1 1 0 0 0 .86-1.51l-6-10a1 1 0 0 0-1.08-.37Z"></path><path fill="#4285F4" d="m11.88 21.38l-6-10A1 1 0 0 1 6.74 10h12a1 1 0 0 1 .86 1.51l-6 10a1 1 0 0 1-1.72-.13Z" opacity=".7"></path></svg></div>
+          <div>
+            <div style="font-weight:700; font-size:18px;">Looker Studio</div>
+            <div style="color:#a9b8d2; font-size:14px;">For rapid reports & effortless sharing.</div>
+          </div>
+        </a>
+        <!-- Tile: Tableau -->
+        <a href="#panel-tableau" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; gap:16px; padding:24px; border-radius:18px; color:#dde4f3; background:rgba(18, 24, 42, 0.6); border:1px solid rgba(60, 70, 100, 0.4); backdrop-filter:blur(12px); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5);">
+          <!-- FIX: Corrected missing colon in justify-content -->
+          <div style="width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background-color:#2a2f3b; border-radius:12px; border:1px solid rgba(255,255,255,.1);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#E87657" d="M12 10.364h10.909v3.272H12zm-1.091-1.091h-3.273v5.455h3.273zM12 2v3.273h10.909V2zM12 18.727h10.909V22H12zm-1.091-1.09h-3.273v5.454h3.273zM8.727 2v3.273H1.091V2zm0 8.364H1.091v3.272h7.636zm-1.09 7.272H1.091V22h6.546z"></path></svg></div>
+          <div>
+            <div style="font-weight:700; font-size:18px;">Tableau</div>
+            <div style="color:#a9b8d2; font-size:14px;">For visual storytelling & deep exploration.</div>
+          </div>
+        </a>
       </div>
-    </div>
 
-    <!-- ANCHOR TILES -->
-    <div id="bi-nav" class="d-flex flex-wrap" role="navigation" aria-label="BI sections"
-         style="gap:16px; margin:0 0 36px 0;">
-      <!-- Tile -->
-      <a href="#panel-powerbi" class="d-flex" style="text-decoration:none; flex:1 1 320px; min-width:280px; align-items:center; gap:14px; padding:16px; border-radius:16px; background-color:#0d1320; border:1px solid #27324a; box-shadow:0 14px 40px -18px rgba(0,0,0,.6); color:#d7e0ef;">
-        <div style="width:48px; height:48px; border-radius:12px; background-color:#3d0ab6; border:1px solid rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; font-size:20px;">▦</div>
-        <div>
-          <div style="font-weight:900; letter-spacing:.2px;">Power BI</div>
-          <div style="color:#9fb0c9; font-size:14px;">DAX-first modeling, incremental refresh</div>
-        </div>
-      </a>
-
-      <a href="#panel-looker" class="d-flex" style="text-decoration:none; flex:1 1 320px; min-width:280px; align-items:center; gap:14px; padding:16px; border-radius:16px; background-color:#0d1320; border:1px solid #27324a; box-shadow:0 14px 40px -18px rgba(0,0,0,.6); color:#d7e0ef;">
-        <div style="width:48px; height:48px; border-radius:12px; background-color:#0a5fff; border:1px solid rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; font-size:20px;">◎</div>
-        <div>
-          <div style="font-weight:900; letter-spacing:.2px;">Looker Studio</div>
-          <div style="color:#9fb0c9; font-size:14px;">Share-ready links, quick explores</div>
-        </div>
-      </a>
-
-      <a href="#panel-tableau" class="d-flex" style="text-decoration:none; flex:1 1 320px; min-width:280px; align-items:center; gap:14px; padding:16px; border-radius:16px; background-color:#0d1320; border:1px solid #27324a; box-shadow:0 14px 40px -18px rgba(0,0,0,.6); color:#d7e0ef;">
-        <div style="width:48px; height:48px; border-radius:12px; background-color:#8e5cff; border:1px solid rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; font-size:20px;">✳</div>
-        <div>
-          <div style="font-weight:900; letter-spacing:.2px;">Tableau</div>
-          <div style="color:#9fb0c9; font-size:14px;">Visual storytelling, LOD power</div>
-        </div>
-      </a>
-    </div>
-
-    <!-- ================= POWER BI (ALT LAYOUT A) ================= -->
-    <div id="panel-powerbi" style="scroll-margin-top:96px; margin:0 0 44px 0;">
-      <div class="d-flex flex-wrap align-items-center" style="gap:28px; padding:26px; border-radius:22px; background-color:#0e1526; border:1px solid rgba(255,255,255,.08); box-shadow:0 40px 120px -30px rgba(0,0,0,.65);">
-        <!-- Media first on wide for punch -->
-        <div style="flex:1 1 520px; min-width:320px;">
-          <div style="background-color:#0a0f18; border:1px solid #20283a; border-radius:16px; padding:12px;">
-            <img src="./powerbi.gif" alt="Power BI demo" style="width:100%; display:block; border-radius:12px;">
+      <!-- Power BI Panel -->
+      <div id="panel-powerbi" style="scroll-margin-top:100px; margin-bottom: 48px;">
+        <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background:rgba(14, 21, 38, 0.7); border:1px solid rgba(60, 70, 100, 0.5); backdrop-filter: blur(16px); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
+          <div style="flex:1 1 520px; min-width:320px;">
+            <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px;"><img src="./powerbi.gif" alt="Power BI demo" style="width:100%; display:block; border-radius:12px;"></div>
           </div>
-          <div class="d-flex flex-wrap" style="gap:10px; margin-top:14px;">
-            <div style="flex:1 1 160px; min-width:140px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Import + Incremental</div>
-            <div style="flex:1 1 160px; min-width:140px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">DAX Measures Only</div>
-            <div style="flex:1 1 160px; min-width:140px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Star Schema</div>
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div style="flex:1 1 460px; min-width:300px;">
-          <div style="display:inline-block; padding:6px 12px; border-radius:999px; font-weight:700; margin-bottom:12px; border:1px solid rgba(255,215,0,.4); color:#ffd700; background-color:rgba(255,215,0,.10);">🚀 DAX-First • Native BigQuery</div>
-          <h2 style="margin:0 0 8px 0; color:#e7eaf2; font-size:30px; font-weight:900;">Power BI + BigQuery — Production Setup</h2>
-          <p style="margin:0 0 14px 0; color:#AEBCCF; line-height:1.75; font-size:16px;">Connect, model, measure, publish. A lean path you can roll out the same day.</p>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px; margin-bottom:12px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Connect to BigQuery</div>
-            <ol style="margin:0 0 0 22px; color:#c8d6ea; line-height:1.8; font-size:15px;">
-              <li>Power BI Desktop → <strong>Get Data → BigQuery</strong> (OAuth or Service Account).</li>
-              <li>Select curated tables: <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">orders</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_lines</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">partners</code>, <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">date</code>.</li>
-              <li>Model one-to-many <em>orders → order_lines</em> via <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_id</code>.</li>
-            </ol>
-          </div>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px; margin-bottom:12px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Core Measures (DAX)</div>
-            <div style="border:1px solid #24304a; background-color:#0a0f18; border-radius:10px; padding:10px; font-family:ui-monospace, Menlo, monospace; color:#cfe0ff; font-size:13px;">
-              Total Sales = SUM(orders[amount_total])<br>
-              Orders Count = COUNTROWS(orders)<br>
-              Sales Last 30D = CALCULATE([Total Sales], DATESINPERIOD('date'[date], MAX('date'[date]), -30, DAY))
+          <div style="flex:1 1 460px; min-width:300px;">
+            <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(255,215,0,.4); color:#ffd700; background:linear-gradient(rgba(255,215,0,.15), rgba(255,215,0,.05));">🚀 POWER BI + BIGQUERY</div>
+            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Build a Production-Ready Model</h3>
+            <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">The definitive path for building scalable, high-performance BI on an Odoo + BigQuery stack.</p>
+            <div style="border-radius:14px; background-color:rgba(11,17,32,0.8); border:1px solid #27324a; padding:16px 18px; margin-bottom:14px;">
+              <div style="font-weight:700; color:#d7e0ef; margin-bottom:10px; font-size:15px;">Key Plays</div>
+              <ul style="margin:0 0 0 20px; padding:0; color:#c8d6ea; line-height:1.8; font-size:15px;">
+                <li>Use the native <strong>BigQuery Connector</strong> (Import Mode).</li>
+                <li>Enable <strong>Incremental Refresh</strong> on date fields to slash refresh times.</li>
+                <li>Centralize all logic in <strong>DAX Measures</strong> for a single source of truth.</li>
+              </ul>
             </div>
           </div>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Publish & Performance</div>
-            <ul style="margin:0 0 0 18px; color:#c8d6ea; line-height:1.8; font-size:15px;">
-              <li>Enable <strong>Incremental Refresh</strong> on <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_date</code> (keep 2–3y, refresh 7–14d).</li>
-              <li>Publish to Service, store BigQuery credentials, schedule refresh.</li>
-              <li>Prefer Import + Incremental over DirectQuery for heavy models.</li>
-            </ul>
-          </div>
-
-          <a href="#bi-nav" style="display:inline-block; margin-top:14px; color:#8fb0ff; text-decoration:none; font-weight:800;">↑ Back to options</a>
         </div>
       </div>
-    </div>
-
-    <!-- ============== LOOKER STUDIO (ALT LAYOUT B) ============== -->
-    <div id="panel-looker" style="scroll-margin-top:96px; margin:0 0 44px 0;">
-      <div class="d-flex flex-wrap align-items-center" style="gap:28px; padding:26px; border-radius:22px; background-color:#0e1526; border:1px solid rgba(255,255,255,.08); box-shadow:0 40px 120px -30px rgba(0,0,0,.65);">
-        <!-- Text first this time -->
-        <div style="flex:1 1 460px; min-width:300px;">
-          <div style="display:inline-block; padding:6px 12px; border-radius:999px; font-weight:700; margin-bottom:12px; border:1px solid rgba(102,204,255,.4); color:#66ccff; background-color:rgba(102,204,255,.10);">🌐 Shareable, URL-First Reporting</div>
-          <h2 style="margin:0 0 8px 0; color:#e7eaf2; font-size:30px; font-weight:900;">Looker Studio + BigQuery — Ship Links People Click</h2>
-          <p style="margin:0 0 14px 0; color:#AEBCCF; line-height:1.75; font-size:16px;">Keep it simple, fast, and on-brand. Curated tables + clear pages = adoption.</p>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px; margin-bottom:12px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Connect to BigQuery</div>
-            <ol style="margin:0 0 0 22px; color:#c8d6ea; line-height:1.8; font-size:15px;">
-              <li>Create Data Source → <strong>BigQuery</strong> (Viewer’s or Owner’s credentials).</li>
-              <li>Select curated tables & set field types (currency, date, keys).</li>
-              <li>Pages: <em>Sales KPI</em>, <em>Product Mix</em>, <em>Top Customers</em>, <em>Retention</em>.</li>
-            </ol>
+      
+      <!-- Looker Studio Panel (Added for completeness) -->
+      <div id="panel-looker" style="scroll-margin-top:100px; margin-bottom: 48px;">
+        <div class="d-flex flex-wrap-reverse align-items-center" style="gap:48px; padding:28px; border-radius:24px; background:rgba(14, 21, 38, 0.7); border:1px solid rgba(60, 70, 100, 0.5); backdrop-filter: blur(16px); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
+          <div style="flex:1 1 520px; min-width:320px;">
+            <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px;"><img src="./looker.gif" alt="Looker Studio demo" style="width:100%; display:block; border-radius:12px;"></div>
           </div>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Performance Defaults</div>
-            <ul style="margin:0 0 0 18px; color:#c8d6ea; line-height:1.8; font-size:15px;">
-              <li>Prefer BigQuery <strong>views</strong> over heavy Blends.</li>
-              <li>Use “Extract data” on slow pages, or narrow dimensions.</li>
-              <li>Lock number formats for consistent CX across pages.</li>
-            </ul>
-          </div>
-
-          <a href="#bi-nav" style="display:inline-block; margin-top:14px; color:#8fb0ff; text-decoration:none; font-weight:800;">↑ Back to options</a>
-        </div>
-
-        <!-- Media -->
-        <div style="flex:1 1 520px; min-width:320px;">
-          <div style="background-color:#0a0f18; border:1px solid #20283a; border-radius:16px; padding:12px;">
-            <img src="./looker.gif" alt="Looker Studio demo" style="width:100%; display:block; border-radius:12px;">
-          </div>
-          <div class="d-flex flex-wrap" style="gap:10px; margin-top:14px;">
-            <div style="flex:1 1 180px; min-width:150px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Share by URL</div>
-            <div style="flex:1 1 180px; min-width:150px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Embed in Odoo</div>
-            <div style="flex:1 1 180px; min-width:150px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Lightweight pages</div>
+          <div style="flex:1 1 460px; min-width:300px;">
+            <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(66, 133, 244, 0.5); color:#8ab4f8; background:rgba(66, 133, 244, 0.1);">🌐 LOOKER STUDIO + BIGQUERY</div>
+            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Ship Insights at High Velocity</h3>
+            <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">Create beautiful, shareable dashboards that are fast, intuitive, and accessible to your entire team.</p>
+            <div style="border-radius:14px; background-color:rgba(11,17,32,0.8); border:1px solid #27324a; padding:16px 18px; margin-bottom:14px;">
+              <div style="font-weight:700; color:#d7e0ef; margin-bottom:10px; font-size:15px;">Key Plays</div>
+              <ul style="margin:0 0 0 20px; padding:0; color:#c8d6ea; line-height:1.8; font-size:15px;">
+                <li>Connect directly to BigQuery tables using <strong>Viewer's Credentials</strong> for security.</li>
+                <li>Use BigQuery <strong>Views</strong> to pre-aggregate data and speed up dashboards.</li>
+                <li>Leverage <strong>Data Extracts</strong> for heavy pages to ensure near-instant load times.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ============== TABLEAU (ALT LAYOUT A) ============== -->
-    <div id="panel-tableau" style="scroll-margin-top:96px; margin:0;">
-      <div class="d-flex flex-wrap align-items-center" style="gap:28px; padding:26px; border-radius:22px; background-color:#0e1526; border:1px solid rgba(255,255,255,.08); box-shadow:0 40px 120px -30px rgba(0,0,0,.65);">
-        <!-- Media first again for rhythm -->
-        <div style="flex:1 1 520px; min-width:320px;">
-          <div style="background-color:#0a0f18; border:1px solid #20283a; border-radius:16px; padding:12px;">
-            <img src="./tableau.gif" alt="Tableau demo" style="width:100%; display:block; border-radius:12px;">
+      
+      <!-- Tableau Panel (Added for completeness) -->
+      <div id="panel-tableau" style="scroll-margin-top:100px;">
+        <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background:rgba(14, 21, 38, 0.7); border:1px solid rgba(60, 70, 100, 0.5); backdrop-filter: blur(16px); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
+          <div style="flex:1 1 520px; min-width:320px;">
+            <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px;"><img src="./tableau.gif" alt="Tableau demo" style="width:100%; display:block; border-radius:12px;"></div>
           </div>
-          <div class="d-flex flex-wrap" style="gap:10px; margin-top:14px;">
-            <div style="flex:1 1 180px; min-width:150px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Live or Extract</div>
-            <div style="flex:1 1 180px; min-width:150px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">Relationships first</div>
-            <div style="flex:1 1 180px; min-width:150px; padding:10px 12px; border-radius:10px; background-color:#0b1120; border:1px solid #27324a; color:#cfe0ff;">LOD for reuse</div>
+          <div style="flex:1 1 460px; min-width:300px;">
+            <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(232, 118, 87, 0.5); color:#f39e86; background:rgba(232, 118, 87, 0.1);">🎨 TABLEAU + BIGQUERY</div>
+            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Craft Powerful Visual Stories</h3>
+            <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">Go beyond simple charts. Use Tableau's unparalleled visual analytics capabilities to explore your data and uncover deep insights.</p>
+            <div style="border-radius:14px; background-color:rgba(11,17,32,0.8); border:1px solid #27324a; padding:16px 18px; margin-bottom:14px;">
+              <div style="font-weight:700; color:#d7e0ef; margin-bottom:10px; font-size:15px;">Key Plays</div>
+              <ul style="margin:0 0 0 20px; padding:0; color:#c8d6ea; line-height:1.8; font-size:15px;">
+                <li>Choose between <strong>Live</strong> connections for real-time data or <strong>Extracts</strong> for peak performance.</li>
+                <li>Use Tableau's <strong>Relationships</strong> model to flexibly join Odoo tables.</li>
+                <li>Master <strong>Level of Detail (LOD) Expressions</strong> for complex cohort analysis.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-
-        <!-- Text -->
-        <div style="flex:1 1 460px; min-width:300px;">
-          <div style="display:inline-block; padding:6px 12px; border-radius:999px; font-weight:700; margin-bottom:12px; border:1px solid rgba(203,166,255,.40); color:#cba6ff; background-color:rgba(203,166,255,.10);">🎨 Viz-Centric • Live or Extract</div>
-          <h2 style="margin:0 0 8px 0; color:#e7eaf2; font-size:30px; font-weight:900;">Tableau + BigQuery — Visual Speed with Control</h2>
-          <p style="margin:0 0 14px 0; color:#AEBCCF; line-height:1.75; font-size:16px;">Use BigQuery for scale and Tableau for narrative. Keep datasets slim; push heavy compute to SQL.</p>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px; margin-bottom:12px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Connect to BigQuery</div>
-            <ol style="margin:0 0 0 22px; color:#c8d6ea; line-height:1.8; font-size:15px;">
-              <li>Connect → <strong>Google BigQuery</strong> (Standard SQL; OAuth or service account JSON).</li>
-              <li>Choose <strong>Live</strong> (near real-time) or <strong>Extract</strong> (heavy dashboards/offline).</li>
-              <li>Relate <em>orders</em> ↔ <em>order_lines</em> on <code style="background-color:#121826; padding:2px 6px; border-radius:6px;">order_id</code>; add <em>partners</em>, <em>date</em>.</li>
-            </ol>
-          </div>
-
-          <div style="border-radius:14px; background-color:#0b1324; border:1px solid #27324a; padding:14px;">
-            <div style="font-weight:800; color:#d7e0ef; margin-bottom:8px;">Publish & Design</div>
-            <ul style="margin:0 0 0 18px; color:#c8d6ea; line-height:1.8; font-size:15px;">
-              <li>Data Source Filter: last 365 days to cap query size.</li>
-              <li>Publish to Server/Cloud, store credentials, set refresh cadence.</li>
-              <li>Use <strong>LOD expressions</strong> for reusable customer-level metrics.</li>
-            </ul>
-          </div>
-
-          <a href="#bi-nav" style="display:inline-block; margin-top:14px; color:#8fb0ff; text-decoration:none; font-weight:800;">↑ Back to options</a>
         </div>
       </div>
+
     </div>
+  </section>
+  
+  <!-- The rest of your content (Features, FAQ, CTA) would go here, styled to match this new, premium aesthetic. -->
 
-  </div>
-</section>
-
+</div>
 
 <!-- ===== /BI TABS (No-JS) ===== -->
+
+
+
 
 
 
@@ -484,7 +467,7 @@
         
         <!-- Section Header -->
         <div style=" text-align: center; margin-bottom: 80px;">
-            <h2 style="font-size: clamp(36px, 5vw, 48px);   font-weight: 700; margin-bottom: 15px; letter-spacing: -2px; color: #E0E0E0; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <h2 style="font-size: clamp(36px, 5vw, 48px);   font-weight: 700; margin-bottom: 15px; letter-spacing: -2px; color: #E0E0E0; background-clip: text; -webkit-text-fill-color: transparent;">
                 Secure & Direct: How It Works
             </h2>
           
