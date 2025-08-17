@@ -64,7 +64,7 @@
           letter-spacing: -3.5px;
           line-height: 1.05;
           margin: 24px 0 20px 0;
-          /* FIX: Replaced complex text-fill with a solid color for guaranteed visibility in Odoo. */
+          /* FIX: Removed broken text-fill styles and used a solid color for guaranteed visibility. */
           color: #FFFFFF;
           text-shadow: 0 5px 30px rgba(0,0,0,0.3);">
         The Bridge to World-Class BI.
@@ -73,7 +73,7 @@
         Intelligently sync your Odoo data to Google BigQuery, and unleash its full potential with the industry's most powerful analytics platforms.
       </p>
       
-      <!-- BI Logos - Replaced generic icon with specific PNGs for clarity -->
+      <!-- BI Logos - Please ensure these image paths are correct -->
       <div class="d-flex justify-content-center align-items-center" style="gap: 32px; filter: grayscale(1) brightness(1.5) contrast(0.5);">
         <img src="./powerbi_logo.png" alt="Power BI Logo" style="height: 32px; opacity: 0.7;">
         <img src="./looker_logo.png" alt="Looker Studio Logo" style="height: 24px; opacity: 0.7;">
@@ -87,13 +87,10 @@
   ======================== -->
   <section style="padding: 0 24px 120px 24px; background-color: #06080e;">
     <div style="max-width: 1100px; margin: 0 auto;">
-      <!-- FIX: Removed transform style for better compatibility. Kept the shadow and gradient border. -->
-      <div style="
-        border-radius: 28px;
-        padding: 4px;
-        background: linear-gradient(135deg, rgba(160, 68, 255, 0.4), rgba(90, 0, 255, 0.1));
-        box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7);">
-        <img src="./Big-Query01.gif" alt="Odoo to BigQuery Connector Demo" style="width: 100%; display: block; border-radius: 24px; border: 2px solid #000;"/>
+      <!-- FIX: Removed transform style to prevent rendering issues in Odoo. -->
+      <div style="border-radius: 28px; padding: 4px; background: linear-gradient(135deg, rgba(90, 0, 255, 0.3), rgba(90, 0, 255, 0.1)); box-shadow: 0 50px 100px -20px rgba(0,0,0,0.7);">
+        <!-- FIX: Using the image from your video. Please update the path. -->
+        <img src="./lyftrondata_demo.png" alt="Odoo to BigQuery Connector Demo" style="width: 100%; display: block; border-radius: 24px; border: 2px solid #000;"/>
       </div>
     </div>
   </section>
@@ -114,30 +111,24 @@
         </p>
       </div>
 
-      <!-- Anchor Tiles with Emojis for Odoo Compatibility -->
+      <!-- Anchor Tiles with PNG Icons -->
       <div id="bi-nav" class="d-flex flex-wrap justify-content-center" role="navigation" style="gap: 24px; margin-bottom: 72px;">
-        <!-- Tile: Power BI -->
         <a href="#panel-powerbi" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; gap:16px; padding:24px; border-radius:18px; color:#dde4f3; background-color: rgba(25, 33, 51, 0.7); border: 1px solid rgba(60, 70, 100, 0.4); box-shadow: 0 16px 50px -15px rgba(0,0,0,0.5);">
-          <!-- FIX: Replaced SVG with a styled Emoji for Odoo compatibility -->
-          <span style="width:48px; height:48px; font-size: 24px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background-color:#394254; border-radius:12px;">📊</span>
+          <img src="./icon_powerbi.png" alt="Power BI" style="width:40px; height:40px; flex-shrink:0;">
           <div>
             <div style="font-weight:700; font-size:18px;">Power BI</div>
             <div style="color:#a9b8d2; font-size:14px;">For enterprise-grade models & DAX mastery.</div>
           </div>
         </a>
-        <!-- Tile: Looker Studio -->
         <a href="#panel-looker" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; gap:16px; padding:24px; border-radius:18px; color:#dde4f3; background-color:rgba(25, 33, 51, 0.7); border:1px solid rgba(60, 70, 100, 0.4); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5);">
-          <!-- FIX: Replaced SVG with a styled Emoji for Odoo compatibility -->
-          <span style="width:48px; height:48px; font-size: 24px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background-color:#394254; border-radius:12px;">📈</span>
+          <img src="./icon_looker.png" alt="Looker Studio" style="width:40px; height:40px; flex-shrink:0;">
           <div>
             <div style="font-weight:700; font-size:18px;">Looker Studio</div>
             <div style="color:#a9b8d2; font-size:14px;">For rapid reports & effortless sharing.</div>
           </div>
         </a>
-        <!-- Tile: Tableau -->
         <a href="#panel-tableau" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; gap:16px; padding:24px; border-radius:18px; color:#dde4f3; background-color:rgba(25, 33, 51, 0.7); border:1px solid rgba(60, 70, 100, 0.4); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5);">
-          <!-- FIX: Replaced SVG with a styled Emoji for Odoo compatibility -->
-          <span style="width:48px; height:48px; font-size: 24px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background-color:#394254; border-radius:12px;">🎨</span>
+          <img src="./icon_tableau.png" alt="Tableau" style="width:40px; height:40px; flex-shrink:0;">
           <div>
             <div style="font-weight:700; font-size:18px;">Tableau</div>
             <div style="color:#a9b8d2; font-size:14px;">For visual storytelling & deep exploration.</div>
@@ -147,12 +138,12 @@
 
       <!-- Power BI Panel -->
       <div id="panel-powerbi" style="scroll-margin-top:100px; margin-bottom: 48px;">
-        <!-- FIX: Corrected layout to be GIF on left, Text on right. -->
+        <!-- FIX: Corrected layout to be Image on left, Text on right. -->
         <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background-color:rgba(14, 21, 38, 0.9); border:1px solid rgba(60, 70, 100, 0.5); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
-          <!-- GIF Column -->
+          <!-- Image Column -->
           <div style="flex:1 1 500px; min-width:320px;">
             <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px;">
-              <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Power BI demo" style="width:100%; display:block; border-radius:12px;">
+              <img src="./powerbi_feature.png" alt="Power BI Feature" style="width:100%; display:block; border-radius:12px;">
             </div>
           </div>
           <!-- Text Column -->
@@ -174,15 +165,12 @@
       
       <!-- Looker Studio Panel -->
       <div id="panel-looker" style="scroll-margin-top:100px; margin-bottom: 48px;">
-        <!-- FIX: Corrected layout to be GIF on left, Text on right. Removed flex-wrap-reverse. -->
         <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background-color:rgba(14, 21, 38, 0.9); border:1px solid rgba(60, 70, 100, 0.5); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
-          <!-- GIF Column -->
           <div style="flex:1 1 500px; min-width:320px;">
            <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px;">
-             <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Looker Studio demo" style="width: 100%; display:block; border-radius:12px;">
+             <img src="./looker_feature.png" alt="Looker Studio Feature" style="width: 100%; display:block; border-radius:12px;">
            </div>
           </div>
-          <!-- Text Column -->
           <div style="flex:1 1 460px; min-width:300px;">
             <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(66, 133, 244, 0.5); color:#8ab4f8; background-color:rgba(66, 133, 244, 0.1);">🌐 LOOKER STUDIO + BIGQUERY</div>
             <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Ship Insights at High Velocity</h3>
@@ -201,15 +189,12 @@
       
       <!-- Tableau Panel -->
       <div id="panel-tableau" style="scroll-margin-top:100px;">
-        <!-- FIX: Corrected layout to be GIF on left, Text on right. -->
         <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background-color:rgba(14, 21, 38, 0.9); border:1px solid rgba(60, 70, 100, 0.5); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
-          <!-- GIF Column -->
           <div style="flex:1 1 500px; min-width:320px;">
            <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px;">
-             <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Tableau demo" style="width: 100%; display:block; border-radius:12px;">
+             <img src="./tableau_feature.png" alt="Tableau Feature" style="width: 100%; display:block; border-radius:12px;">
            </div>
           </div>
-          <!-- Text Column -->
           <div style="flex:1 1 460px; min-width:300px;">
             <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(232, 118, 87, 0.5); color:#f39e86; background-color:rgba(232, 118, 87, 0.1);">🎨 TABLEAU + BIGQUERY</div>
             <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Craft Powerful Visual Stories</h3>
@@ -230,7 +215,6 @@
   </section>
   
 </div>
-
 <!-- ===== /BI TABS (No-JS) ===== -->
 
 
