@@ -1,0 +1,8 @@
+#bi-tabs input[type="radio"]{position:absolute;left:-9999px;}
+#bi-tabs #tab-pbi:checked + label.tab-btn{background-color:#5A00FF;color:#fff;border-color:#5A00FF;}
+#bi-tabs #tab-looker:checked + label.tab-btn{background-color:#5A00FF;color:#fff;border-color:#5A00FF;}
+#bi-tabs #tab-tableau:checked + label.tab-btn{background-color:#5A00FF;color:#fff;border-color:#5A00FF;}
+#bi-tabs [data-panel]{display:none;}
+#bi-tabs #tab-pbi:checked ~ #tab-panels #panel-powerbi{display:block;}
+#bi-tabs #tab-looker:checked ~ #tab-panels #panel-looker{display:block;}
+#bi-tabs #tab-tableau:checked ~ #tab-panels #panel-tableau{display:block;}

@@ -11,25 +11,31 @@
     'author': "Niyu Labs",
     'website': "https://niyulabs.com",
     'category': 'Productivity',
-      'version': '18.0.1.0.0',
+    'version': '18.0.1.0.0',
     'license': 'OPL-1',
     'price': 299,
     'currency': 'USD',
-    'depends': ['base','web'],
-    # 'images': ['static/description/banner.gif'],
+    'depends': ['base', 'web'],   # add 'website' too if you use Website pages
     'data': [
-        'views/assets.xml',
+        'views/assets.xml',                     # optional; see note below
         'views/res_config_settings_views.xml',
         'views/niyu_ai_menu.xml',
-        # 'views/niyu_ai_view.xml',
     ],
     'qweb': [
         'static/src/xml/niyu_ai_view.xml',
-        'static/src/css/niyu_index.css',
+        # REMOVE css from qweb; it won’t load there
+        # 'static/src/css/niyu_index.css',
     ],
-    # …
-
+    # ✅ Add assets here
+    'assets': {
+        'web.assets_frontend': [
+            'testing-odoo/static/src/css/bi_tabs.css',
+        ],
+        # Include in backend too if you want the tabs to work in Settings/kanban, etc.
+        'web.assets_backend': [
+            'testing-odoo/static/src/css/bi_tabs.css',
+        ],
+    },
     'installable': True,
     'application': True,
 }
-
