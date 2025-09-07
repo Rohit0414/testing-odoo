@@ -1,43 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo to BigQuery Connector</title>
+    <style>
+        /* General Body & Typography */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0B0F19;
+            color: #cdd6e1;
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: radial-gradient(ellipse at top, rgba(160, 68, 255, 0.1) 0%, transparent 50%);
+            margin: 0;
+        }
 
-    
+        /* Flexbox Utilities */
+        .d-flex { display: flex; }
+        .flex-column { flex-direction: column; }
+        .flex-wrap { flex-wrap: wrap; }
+        .flex-wrap-reverse { flex-wrap: wrap-reverse; }
+        .justify-content-center { justify-content: center; }
+        .align-items-center { align-items: center; }
+        .align-items-start { align-items: flex-start; }
+
+        /* General Section Padding */
+        section { padding: 100px 20px; }
+
+        /* Reusable Card/Image Styles */
+        .screenshot-container {
+            border-radius: 1.5rem;
+            padding: 4px; /* Slightly thicker border */
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.6), rgba(160, 68, 255, 0.6), rgba(20, 184, 166, 0.6)); /* More vibrant gradient */
+            box-shadow: 0 25px 80px -25px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.08); /* Deeper shadow, subtle outline */
+            position: relative;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .screenshot-container:hover {
+            transform: scale(1.01); /* Subtle zoom on hover */
+            box-shadow: 0 35px 90px -25px rgba(0,0,0,0.95), 0 0 0 2px rgba(255,255,255,0.1); /* Even deeper shadow */
+        }
+        .screenshot-image, .screenshot-video {
+            width: 100%;
+            display: block;
+            border-radius: 1.3rem; /* Match container border-radius minus padding */
+            background-color: #000;
+            object-fit: cover; /* Ensures video/image covers the area without distortion */
+        }
+
+        /* Animated Glow Effect */
+        @keyframes glowing-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-glow-border {
+            position: relative;
+            border-radius: 1.75rem;
+            padding: 3px;
+            background: linear-gradient(135deg, #66ccff, #a044ff, #66ccff); /* Blue-purple gradient */
+            background-size: 200% 200%;
+            animation: glowing-border 6s ease infinite;
+            box-shadow: 0 10px 40px -10px rgba(102, 204, 255, 0.4);
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .animated-glow-border:hover {
+             transform: scale(1.01);
+             box-shadow: 0 15px 50px -10px rgba(102, 204, 255, 0.6);
+        }
+        .animated-glow-border img {
+            border-radius: 1.6rem; /* Slightly smaller than parent for border effect */
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.2); /* Inner subtle border */
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .hero-content { max-width: 850px; }
+            .hero-title { font-size: 80px; }
+            .hero-description { font-size: 22px; max-width: 650px; }
+            .video-section .screenshot-container { max-width: 1200px; }
+            .feature-content { flex: 1; min-width: 300px; }
+            .feature-image { flex: 1.2; min-width: 380px; } /* Increased min-width for images */
+            .bi-tile { flex:1 1 30%; max-width: 380px; } /* Adjust BI tiles for better spacing */
+            .bi-panel-image-col { flex: 1 1 45%; min-width: 400px; } /* BI image columns */
+            .bi-panel-text-col { flex: 1 1 45%; min-width: 380px; } /* BI text columns */
+        }
+        @media (max-width: 767px) {
+            .screenshot-container { margin: 0 auto; }
+            .d-flex { flex-direction: column; }
+            .flex-wrap, .flex-wrap-reverse { flex-direction: column; }
+            .bi-tile { margin-bottom: 20px; }
+            .bi-panel-image-col, .bi-panel-text-col { min-width: 100%; }
+        }
+
+        /* Additional specific adjustments */
+        .hero-title {
+            color: #9ca3af; 
+            text-shadow: 0 8px 25px rgba(0,0,0,0.5); /* Deeper shadow */
+            background-image: linear-gradient(to right, #a044ff, #66ccff, #a044ff); /* Gradient fill */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(44px, 8vw, 80px); /* Ensure it's responsive */
+            font-weight: 800;
+            letter-spacing: -3px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hero-description {
+            color: #8899B3;
+            font-size: clamp(18px, 2.5vw, 22px);
+        }
+
+        /* BI Integration specific styles */
+        .bi-integration-panel {
+            padding: 35px; /* Slightly more padding */
+            border-radius: 28px; /* Larger border-radius */
+            background-color: rgba(14, 21, 38, 0.95); /* Slightly darker */
+            border: 1px solid rgba(90, 100, 130, 0.6); /* More prominent border */
+            box-shadow: 0 50px 150px -30px rgba(0,0,0,.8); /* Even deeper shadow */
+            transition: box-shadow 0.3s ease;
+        }
+        .bi-integration-panel:hover {
+            box-shadow: 0 60px 180px -30px rgba(0,0,0,.9); /* Deeper shadow on hover */
+        }
+        .bi-panel-media-wrapper {
+            background-color: rgba(0,0,0,0.4); /* Darker background */
+            border: 1px solid #30384a; /* Darker border */
+            border-radius: 1.5rem; /* Consistent border radius */
+            padding: 15px; /* More padding around media */
+            margin-right: 0; /* Remove fixed margin-right */
+            width: 100%; /* Ensure it's responsive within flex column */
+            max-width: 500px; /* Optional: cap max width for aesthetic */
+            margin-left: auto;
+            margin-right: auto; /* Center image within its flex column */
+        }
+        .bi-panel-media-wrapper img, .bi-panel-media-wrapper video {
+            border-radius: 1.25rem; /* Inner border radius */
+        }
+
+        /* FAQ Item hover effect */
+        .faq-item {
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #1a1f2b, #161B22);
+            border-radius: 10px;
+            padding: 25px 30px;
+            border: 1px solid #222838;
+            transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+        }
+        .faq-item:hover {
+            border-color: #A044FF; /* Highlight border on hover */
+            background: linear-gradient(to right, #202633, #1a202b); /* Subtle background change */
+            transform: translateY(-3px); /* Lift slightly */
+        }
+
+        /* How it works timeline */
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #A044FF, #5A00FF, #A044FF);
+            opacity: 0.6;
+        }
+        .timeline-step {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 30px;
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #A044FF;
+            border: 3px solid #0B0F19;
+            box-shadow: 0 0 0 4px rgba(160, 68, 255, 0.2);
+            z-index: 1;
+        }
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0B0F19; color: #cdd6e1; line-height: 1.7; overflow-x: hidden; background-image: radial-gradient(ellipse at top, rgba(160, 68, 255, 0.1) 0%, transparent 50%);">
 
   <!-- HERO SECTION -->
   <div class="d-flex flex-column justify-content-center align-items-center" style="padding: 120px 20px 100px 20px; text-align: center; min-height: 90vh;">
-    <div style="max-width: 850px; margin: 0 auto;">
-      <h1 style="
-          font-size: clamp(44px, 8vw, 80px);
-          font-weight: 800;
-          letter-spacing: -3px;
-          line-height: 1.1;
-          margin-bottom: 24px;
-          color: #9ca3af; 
-          text-shadow: 0 5px 20px rgba(0,0,0,0.4);
-          -webkit-text-fill-color: transparent;
-         
-        ">
+    <div class="hero-content" style="margin: 0 auto;">
+      <h1 class="hero-title">
         The Smartest Way to Sync Odoo with BigQuery.
       </h1>
-      <p style="
-          font-size: clamp(18px, 2.5vw, 22px);
-          color: #8899B3;
-          margin: 0 auto 40px auto;
-          max-width: 650px;
-        ">
+      <p class="hero-description" style="margin: 0 auto 40px auto;">
         Stop dumping data. Start saving money. Intelligently export filtered Odoo data and specific columns directly to Google BigQuery.
       </p>
     </div>
    
-      <section class="video" style="padding: 0 0 120px 0; perspective: 1500px; background-color: #030712;">
+      <section class="video" style="padding: 0 0 120px 0; perspective: 1500px; background-color: transparent;">
             <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-                <div style="border-radius: 1.75rem; padding: 3px; background-color:  rgba(20, 184, 166, 0.6) !important; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9) !important; position: relative !important;">
-                    <!-- <video autoplay loop muted playsinline preload="auto" style="width: 100%; display: block; border-radius: 1.75rem; background-color: #000;">
-                        <source src="./q3.webm" type="video/webm">
-                        <!-- Fallback: Add your MP4 video here -->
-                        <!-- <source src="static/description/q1.mp4" type="video/mp4"> -->
-                        Your browser does not support the video tag.
-                    </video> -->
-                    <img src="./Big-Query01.gif" style="width: 100%; display: block; border-radius: 1.75rem; background-color: #000;"/>
+                <div class="screenshot-container">
+                    <img src="./Big-Query01.gif" class="screenshot-image" alt="Odoo BigQuery Sync Demo GIF"/>
                 </div>
             </div>
         </section>
@@ -45,11 +224,11 @@
   </div>
 
 
-  <section style="padding: 120px 20px; background-color: #0e121c; text-align: center; border-top: 1px solid #374151; border-bottom: 1px solid #374151;">
+  <section style="background-color: #0e121c; text-align: center; border-top: 1px solid #374151; border-bottom: 1px solid #374151;">
     <div style="max-width: 1000px; margin: 0 auto;">
 
         <span style="display: inline-block; background-color: rgba(102, 204, 255, 0.15); color: #66ccff; padding: 8px 16px; border-radius: 99px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(102, 204, 255, 0.4);">LATEST UPDATES & SPECIAL OFFER</span>
-        <h2 style="font-size: clamp(2.5rem, 5.5vw, 4rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 60px 0; background-color: linear-gradient(to bottom, #ffffff, #66ccff); -webkit-background-clip: text; background-clip: text; color: #66ccff;">
+        <h2 style="font-size: clamp(2.5rem, 5.5vw, 4rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 60px 0; background-image: linear-gradient(to bottom, #ffffff, #66ccff); -webkit-background-clip: text; background-clip: text; color: #66ccff;">
             What's New & What's Next
         </h2>
 
@@ -59,57 +238,18 @@
                 You Get 50 USD discount on your next purchase
             </p>
         </div>
-
-        <!-- Feature Drop July Block -->
-        <!-- <div style="margin-bottom: 80px; text-align: left;">
-            <h3 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin: 0 0 30px 0; color: #c4b5fd; text-align: center;">
-                Feature Drop July
-            </h3>
-            <ul style="list-style: none; padding: 0; margin: 0; display:grid; line-height: 60px;">
-                <li style="background-color: #1f2937; margin-bottom: 10px; padding: 32px; border-radius: 1rem; border: 1px solid #374151; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: flex-start; gap: 20px;">
-                    <span style="font-size: 2.5rem; color: #a78bfa; line-height: 1.5;">&#129504;</span>
-                    <span style="color: #e5e7eb; font-size: 1.1rem;">Brain of AI is upgraded. Can handle very hard and complex Questions.</span>
-                </li>
-                 <li style="background-color: #1f2937; margin-bottom: 10px; padding: 32px; border-radius: 1rem; border: 1px solid #374151; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: flex-start; gap: 20px;">
-                    <span style="font-size: 2.5rem; color: #a78bfa; line-height: 1.5;">&#128220;</span>
-                    <span style="color: #e5e7eb; font-size: 1.1rem;">Supported chat history so historical chat is always on your fingertips.</span>
-                </li>
-                 <li style="background-color: #1f2937; margin-bottom: 10px; padding: 32px; border-radius: 1rem; border: 1px solid #374151; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: flex-start; gap: 20px;">
-                    <span style="font-size: 2.5rem; color: #a78bfa; line-height: 1.5;">&#10024;</span>
-                    <span style="color: #e5e7eb; font-size: 1.1rem;">Popup Chat window Button is added universally. Now Get answers from any screen without leaving your work.</span>
-                </li>
-            </ul>
-        </div> -->
-
-        <!-- Ongoing Developments Block -->
-         <!-- <div style="text-align: left;">
-             <h3 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin: 0 0 30px 0; color: #4ade80; text-align: center;">
-                Ongoing developments
-            </h3>
-             <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 30px;">
-                 <li style="background-color: #1f2937; margin-bottom: 10px; padding: 32px; border-radius: 1rem; border: 1px solid #374151; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: flex-start; gap: 20px;">
-                    <span style="font-size: 2.5rem; color: #2dd4bf; line-height: 1.5;">&#128218;</span>
-                    <span style="color: #e5e7eb; font-size: 1.1rem;">Support of e-learning and knowledge base data. Provide chat-bot to your customers or team to get answers on-the-go. (could be a separate solution as it will be using a different approach)</span>
-                </li>
-                <li style="background-color: #1f2937; line-height: 50px; padding: 32px; border-radius: 1rem; border: 1px solid #374151; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: flex-start; gap: 20px;">
-                    <span style="font-size: 2.5rem; color: #2dd4bf; line-height: 1.5;">&#128273;</span>
-                    <span style="color: #e5e7eb; font-size: 1.1rem;">Access level management.</span>
-                </li>
-             </ul>
-         </div> -->
-
     </div>
 </section>
 
 
   <!-- FEATURE SPOTLIGHTS -->
-  <div style="padding: 80px 20px; background-color: #000; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 30px 30px;">
+  <section style="background-color: #000; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 30px 30px;">
     <div style="max-width: 1100px; margin: 0 auto;">
         <!-- Feature 1 -->
         <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 50px; padding: 60px 0;">
-            <div style="flex: 1; min-width: 300px;">
+            <div class="feature-content">
                 <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Precise Record Filtering</h3>
-                <p style="font-size: 18px; color: #8899B3;"></p>
+                <p style="font-size: 18px; color: #8899B3;">
                   Use standard Odoo domain filters to select exactly which records to export. Sync only confirmed sales orders, invoices from the last quarter, or partners from a specific country.<br><br>
                   <strong>Flexible Filtering:</strong> Leverage Odoo&#8217;s powerful domain syntax to build complex conditions—combine multiple fields, operators, and logical groupings to target just the data you need.<br>
                   <strong>Real-World Examples:</strong>
@@ -121,18 +261,22 @@
                   </ul>
                   <strong>Preview Before Export:</strong> Instantly see which records match your filter before syncing, ensuring accuracy and confidence in your data pipeline.
                 </p>      </div>
-            <div style="flex: 1.2; min-width: 320px;">
-                <img src="./Ad_filtering.png" alt="Odoo domain filter interface" style="width: 100%; border-radius: 12px; margin-top: 60px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);"/>
+            <div class="feature-image" style="margin-top: 40px;">
+                <div class="screenshot-container">
+                    <img src="./Ad_filtering.png" class="screenshot-image" alt="Odoo domain filter interface"/>
+                </div>
             </div>
         </div>
         <!-- Feature 2 -->
         <div class="d-flex flex-wrap-reverse align-items-center justify-content-center" style="gap: 50px; padding: 60px 0;">
-            <div style="flex: 1.2; min-width: 320px;">
-                <img src="./selection.png" alt="Odoo column selection interface" style="width: 100%; margin-top: 60px; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);"/>
+            <div class="feature-image" style="margin-top: 40px;">
+                 <div class="screenshot-container">
+                    <img src="./selection.png" class="screenshot-image" alt="Odoo column selection interface"/>
+                 </div>
             </div>
-            <div style="flex: 1; min-width: 300px;">
+            <div class="feature-content">
                 <h3 style="font-size: clamp(28px, 4vw, 36px); color: #fff; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Targeted Column Selection</h3>
-                <p style="font-size: 18px; color: #8899B3;"></p>
+                <p style="font-size: 18px; color: #8899B3;">
                   Choose exactly which fields to send. This targeted approach accelerates exports and directly reduces your BigQuery storage and query costs.<br><br>
                   <strong>Fine-Grained Control:</strong> Select only the columns you need for your analytics&#8212;skip unnecessary fields, attachments, or sensitive data.<br>
                   <strong>Customizable for Any Model:</strong> Works with all Odoo models, including custom fields and modules. Pick from standard and custom columns with a simple interface.<br>
@@ -147,9 +291,9 @@
                 </p>      </div></ul>
         </div>
     </div>
-  </div>
+  </section>
   <!-- INCREMENTAL AUTO EXPORT SECTION -->
-  <div style="padding: 80px 20px; background: linear-gradient(120deg, #161B22 60%, #0B0F19 100%);">
+  <section style="background: linear-gradient(120deg, #161B22 60%, #0B0F19 100%);">
     <div style="max-width: 950px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 50px;">
         <h2 style="font-size: clamp(30px, 5vw, 42px); color: #A044FF; font-weight: 700; margin-bottom: 15px;">
@@ -159,7 +303,7 @@
           Keep your BigQuery tables always up to date&#8212;without manual effort. Our connector supports incremental exports and full automation, so you only sync new or changed records on a schedule you control.
         </p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+      <div class="d-flex flex-wrap align-items-center justify-content-center" style="gap: 40px;">
         <div style="flex: 1; min-width: 300px;">
           <h3 style="color: #fff; font-size: 22px; font-weight: 600; margin-bottom: 12px;">How Incremental Export Works</h3>
           <ul style="color: #AEBCCF; font-size: 17px; line-height: 1.7; margin: 0 0 18px 18px; padding-left: 0;">
@@ -174,18 +318,20 @@
             <li style="margin-bottom: 8px;">Ideal for dashboards, reporting, and real-time analytics.</li>
           </ul>
         </div>
-        <div style="flex: 1.1; min-width: 420px;">
-          <img src="./incre_export.png" alt="Incremental export settings in Odoo" style="width: 100%; margin-top: 150px; border-radius: 14px; box-shadow: 0 8px 32px -8px rgba(160,68,255,0.18); border: 1px solid rgba(255,255,255,0.08); background: #181C23;"/>
+        <div style="flex: 1.1; min-width: 420px; margin-top: 40px;">
+          <div class="screenshot-container">
+            <img src="./incre_export.png" class="screenshot-image" alt="Incremental export settings in Odoo"/>
+          </div>
         </div>
       </div>
       <div style="text-align: center; margin-top: 40px;">
         <span style="color: #A044FF; font-weight: 600; font-size: 18px;">Never fall behind&#8212;your analytics are always up to date.</span>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- COLUMN SELECTION SECTION -->
-  <div style="padding: 80px 20px; background: linear-gradient(120deg, #0B0F19 60%, #161B22 100%);">
+  <section style="background: linear-gradient(120deg, #0B0F19 60%, #161B22 100%);">
     <div style="max-width: 950px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 50px;">
         <h2 style="font-size: clamp(30px, 5vw, 42px); color: #66ccff; font-weight: 700; margin-bottom: 15px;">
@@ -195,7 +341,7 @@
           Choose exactly which fields to export from Odoo to BigQuery. No more bloated tables&#8212;just the data you need for analytics, compliance, and reporting.
         </p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center;">
+      <div class="d-flex flex-wrap-reverse align-items-center justify-content-center" style="gap: 40px;">
         <div style="flex: 1; min-width: 300px;">
           <h3 style="color: #fff; font-size: 22px; font-weight: 600; margin-bottom: 12px;">Why Column Selection Matters</h3>
           <ul style="color: #AEBCCF; font-size: 17px; line-height: 1.7; margin: 0 0 18px 18px; padding-left: 0;">
@@ -210,11 +356,9 @@
             <li style="margin-bottom: 8px;">Easily adjust your selection at any time—no coding required.</li>
           </ul>
         </div>
-        <div style="text-align: center;">
-
-            <!-- Image with animated glow and gradient border -->
-            <div class="animated-glow" style="max-width: 900px; margin: 0 auto; border-radius: 18px; padding: 1px; background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));">
-                 <img src="./selection.png" alt="BigQuery configuration settings in Odoo" style="width: 100%; margin-top: 60px; display: block; border-radius: 17px; border: 1px solid rgba(0,0,0,0.5);"/>
+        <div style="text-align: center; flex: 1.1; min-width: 420px; margin-top: 40px;">
+            <div class="animated-glow-border">
+                 <img src="./selection.png" alt="BigQuery configuration settings in Odoo"/>
             </div>
         </div>
       </div>
@@ -222,19 +366,16 @@
         <span style="color: #66ccff; font-weight: 600; font-size: 18px;">Export only what matters&#8212;keep your data pipeline lean and efficient.</span>
       </div>
     </div>
-  </div>
-
-
-
+  </section>
 
  <!-- ===== BI TABS (No-JS) ===== -->
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #06080e; color: #cdd6e1; line-height: 1.7; overflow-x: hidden;">
+<div style="background-color: #06080e; color: #cdd6e1; line-height: 1.7; overflow-x: hidden;">
 
   <!-- =======================
   1. THE UNIFIED HERO
   ======================== -->
-  <section class="d-flex flex-column justify-content-center align-items-center" style="padding: 120px 24px; text-align: center;  background-color: #06080e; background-image: radial-gradient(ellipse at top, rgba(90, 40, 255, 0.2), transparent 50%);">
-    <div style="max-width: 900px; margin: 0 auto;">
+  <section class="d-flex flex-column justify-content-center align-items-center" style="background-color: #06080e; background-image: radial-gradient(ellipse at top, rgba(90, 40, 255, 0.2), transparent 50%);">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
       <div style="display: inline-block; padding: 8px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; color: #c5d1ef; background-color: rgba(45, 55, 85, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);">
         ONE CLICK &#8594; BIGQUERY &#8594; POWER BI &#8226; LOOKER &#8226; TABLEAU
       </div>
@@ -244,10 +385,9 @@
           letter-spacing: -3.5px;
           line-height: 1.05;
           margin: 24px 0 20px 0;
-          /* FIX: Removed broken text-fill styles and used a solid color for guaranteed visibility. */
-         
+          color: #e7eaf2;
           ">
-       <span style="color: #e7eaf2;">One-click to BigQuery. Connect with Power BI, Looker &amp; Tableau.</span> 
+       One-click to BigQuery. Connect with Power BI, Looker &amp; Tableau.
       </h1>
       <p style="font-size: clamp(18px, 2.5vw, 22px); color: #a0aec7; margin: 0 auto 40px auto; max-width: 720px; line-height: 1.6;">
         One-click sync from Odoo to BigQuery&#8212;then connect to Power BI, Looker, and Tableau for instant, enterprise-grade dashboards.
@@ -263,13 +403,9 @@
   </section>
 
   <!-- =======================
-  2. VISUAL PROOF (PRODUCT DEMO)
-  ======================== -->
-
-  <!-- =======================
   3. THE PAYOFF (BI CENTERPIECE)
   ======================== -->
-  <section id="bi-integrations" style="padding: 100px 24px; background-color: #0a0d14; border-top: 1px solid rgba(60, 70, 100, 0.2);">
+  <section id="bi-integrations" style="background-color: #0a0d14; border-top: 1px solid rgba(60, 70, 100, 0.2);">
     <div style="max-width:1180px; margin:0 auto;">
 
       <!-- Section Intro -->
@@ -284,22 +420,22 @@
 
       <!-- Anchor Tiles with PNG Icons -->
       <div id="bi-nav" class="d-flex flex-wrap justify-content-center" role="navigation" style="gap: 24px; margin-bottom: 72px;">
-        <a href="#powerbi" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; margin-right:16px; padding:24px; border-radius:18px; color:#dde4f3; background-color: rgba(25, 33, 51, 0.7); border: 1px solid rgba(60, 70, 100, 0.4); box-shadow: 0 16px 50px -15px rgba(0,0,0,0.5);">
-          <img src="./copy.png" alt="Power BI" style="width:50px; height:40px; flex-shrink:0;">
+        <a href="#powerbi" class="d-flex align-items-center bi-tile" style="text-decoration:none; padding:24px; border-radius:18px; color:#dde4f3; background-color: rgba(25, 33, 51, 0.7); border: 1px solid rgba(60, 70, 100, 0.4); box-shadow: 0 16px 50px -15px rgba(0,0,0,0.5); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+          <img src="./copy.png" alt="Power BI" style="width:50px; height:40px; flex-shrink:0; margin-right: 15px;">
           <div>
             <div style="font-weight:700; font-size:18px;">Power BI</div>
             <div style="color:#a9b8d2; font-size:14px;">For enterprise-grade models & DAX mastery.</div>
           </div>
         </a>
-        <a href="#looker" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px; margin-right:16px; padding:22px; border-radius:18px; color:#dde4f3; background-color:rgba(25, 33, 51, 0.7); border:1px solid rgba(60, 70, 100, 0.4); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5);">
-          <img src="./2.png" alt="Looker Studio" style="width:90px; height:84px; flex-shrink:0;">
+        <a href="#looker" class="d-flex align-items-center bi-tile" style="text-decoration:none; padding:22px; border-radius:18px; color:#dde4f3; background-color:rgba(25, 33, 51, 0.7); border:1px solid rgba(60, 70, 100, 0.4); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+          <img src="./2.png" alt="Looker Studio" style="width:90px; height:84px; flex-shrink:0; margin-right: 15px;">
           <div>
             <div style="font-weight:700; font-size:18px;">Looker Studio</div>
             <div style="color:#a9b8d2; font-size:14px;">For rapid reports & effortless sharing.</div>
           </div>
         </a>
-        <a href="#tableau" class="d-flex align-items-center" style="text-decoration:none; flex:1 1 340px; min-width:280px;  padding:24px; border-radius:18px; color:#dde4f3; background-color:rgba(25, 33, 51, 0.7); border:1px solid rgba(60, 70, 100, 0.4); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5);">
-          <img src="./hd.png" alt="Tableau" style="width:85px; height:63px; flex-shrink:0;">
+        <a href="#tableau" class="d-flex align-items-center bi-tile" style="text-decoration:none; padding:24px; border-radius:18px; color:#dde4f3; background-color:rgba(25, 33, 51, 0.7); border:1px solid rgba(60, 70, 100, 0.4); box-shadow:0 16px 50px -15px rgba(0,0,0,0.5); transition: transform 0.2s ease, box-shadow 0.2s ease;">
+          <img src="./hd.png" alt="Tableau" style="width:85px; height:63px; flex-shrink:0; margin-right: 15px;">
           <div>
             <div style="font-weight:700; font-size:18px;">Tableau</div>
             <div style="color:#a9b8d2; font-size:14px;">For visual storytelling & deep exploration.</div>
@@ -309,21 +445,18 @@
 
       <!-- Power BI Panel -->
       <div id="powerbi" style="scroll-margin-top:100px; margin-bottom: 48px;">
-        <!-- FIX: Corrected layout to be Image on left, Text on right. -->
-        <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background-color:rgba(14, 21, 38, 0.9); border:1px solid rgba(60, 70, 100, 0.5); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
+        <div class="d-flex flex-wrap align-items-center bi-integration-panel" style="gap:48px;">
           <!-- Image Column -->
-          <div style="flex:1 1 500px; min-width:320px;">
-            <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px; width: 460px; margin-right: 12px;">
-               <video autoplay loop muted playsinline preload="auto" style="width: 100%; display: block; border-radius: 1.75rem; background-color: #000;">
+          <div class="bi-panel-image-col">
+            <div class="bi-panel-media-wrapper">
+               <video autoplay loop muted playsinline preload="auto" class="screenshot-video">
                         <source src="./powerbiconnection.webm" type="video/webm">
-                        <!-- Fallback: Add your MP4 video here -->
-                        <!-- <source src="static/description/q1.mp4" type="video/mp4"> -->
                         Your browser does not support the video tag.
                     </video>
             </div>
           </div>
           <!-- Text Column -->
-          <div style="flex:1 1 460px; min-width:300px;">
+          <div class="bi-panel-text-col">
             <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(255,215,0,.4); color:#ffd700; background-color: rgba(255,215,0,.1);">&#128640; POWER BI + BIGQUERY</div>
             <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Build a Production-Ready Model</h3>
             <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">The definitive path for building scalable, high-performance BI on an Odoo + BigQuery stack.</p>
@@ -341,13 +474,13 @@
       
       <!-- Looker Studio Panel -->
       <div id="looker" style="scroll-margin-top:100px; margin-bottom: 48px;">
-        <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background-color:rgba(14, 21, 38, 0.9); border:1px solid rgba(60, 70, 100, 0.5); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
-          <div style="flex:1 1 500px; min-width:320px;">
-           <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px; width: 420px; margin-right: 12px;">
-             <img src="./lookerconnection.png" alt="Looker Studio Feature" style="width: 100%; display:block; border-radius:12px;">
+        <div class="d-flex flex-wrap align-items-center bi-integration-panel" style="gap:48px;">
+          <div class="bi-panel-image-col">
+           <div class="bi-panel-media-wrapper">
+             <img src="./lookerconnection.png" alt="Looker Studio Feature" class="screenshot-image">
            </div>
           </div>
-          <div style="flex:1 1 460px; min-width:300px;">
+          <div class="bi-panel-text-col">
             <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(66, 133, 244, 0.5); color:#8ab4f8; background-color:rgba(66, 133, 244, 0.1);">&#127760; LOOKER STUDIO + BIGQUERY</div>
             <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Ship Insights at High Velocity</h3>
             <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">Create beautiful, shareable dashboards that are fast, intuitive, and accessible to your entire team.</p>
@@ -365,40 +498,33 @@
       
       <!-- Tableau Panel -->
       <div id="tableau" style="scroll-margin-top:100px; margin-bottom: 48px;">
-        <div class="d-flex flex-wrap align-items-center" style="gap:48px; padding:28px; border-radius:24px; background-color:rgba(14, 21, 38, 0.9); border:1px solid rgba(60, 70, 100, 0.5); box-shadow: 0 50px 120px -30px rgba(0,0,0,.7);">
-          <div style="flex:1 1 500px; min-width:320px;">
-           <div style="background-color:rgba(0,0,0,0.3); border:1px solid #20283a; border-radius:16px; padding:12px; width: 420px; margin-right: 12px; ">
-             <img src="./tableauconnection.png" alt="Looker Studio Feature" style="width: 100%; display:block; border-radius:12px;">
+        <div class="d-flex flex-wrap align-items-center bi-integration-panel" style="gap:48px;">
+          <div class="bi-panel-image-col">
+           <div class="bi-panel-media-wrapper">
+             <img src="./tableauconnection.png" alt="Tableau Feature" class="screenshot-image">
            </div>
           </div>
-          <div style="flex:1 1 460px; min-width:300px;">
+          <div class="bi-panel-text-col">
             <div style="display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; margin-bottom:16px; border:1px solid rgba(66, 244, 214, 0.5); color:#8ab4f8; background-color:rgba(238, 66, 244, 0.1);">&#127912; Tableau + BIGQUERY</div>
-            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Ship Insights at High Velocity</h3>
-            <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">Create beautiful, shareable dashboards that are fast, intuitive, and accessible to your entire team.</p>
+            <h3 style="margin:0 0 10px 0; color:#e7eaf2; font-size:32px; font-weight:700;">Visual Storytelling with Data</h3>
+            <p style="margin:0 0 20px 0; color:#aebccf; line-height:1.7; font-size:16px;">Transform your Odoo data into compelling visual narratives and powerful interactive dashboards.</p>
             <div style="border-radius:14px; background-color:rgba(11,17,32,0.8); border:1px solid #27324a; padding:16px 18px; margin-bottom:14px;">
               <div style="font-weight:700; color:#d7e0ef; margin-bottom:10px; font-size:15px;">Key Plays</div>
               <ul style="margin:0 0 0 20px; padding:0; color:#c8d6ea; line-height:1.8; font-size:15px;">
                 <li>Connect directly to BigQuery tables using <strong>Viewer's Credentials</strong> for security.</li>
-                <li>Use BigQuery <strong>Views</strong> to pre-aggregate data and speed up dashboards.</li>
-                <li>Leverage <strong>Data Extracts</strong> for heavy pages to ensure near-instant load times.</li>
+                <li>Leverage BigQuery <strong>Views</strong> for pre-aggregated, performant data sources.</li>
+                <li>Utilize <strong>Extracts</strong> for massive datasets to ensure rapid dashboard loading and interactivity.</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      
-
     </div>
   </section>
-  
 </div>
 
-<!-- ===== /BI TABS (No-JS) ===== -->
-
-
-
   <!-- KEY BENEFITS SECTION -->
-  <div style="padding: 80px 20px;">
+  <section>
     <div style="max-width: 1200px; margin: 0 auto;">
         <div style="text-align: left; max-width: 700px; margin: 0 auto 60px auto;">
             <h2 style="font-size: clamp(30px, 5vw, 42px); font-weight: 700; color: #fff; margin-bottom: 15px;">Solve Your Biggest Data Challenges</h2>
@@ -413,7 +539,7 @@
             </p>      </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
             <!-- Benefit Card 1 -->
-            <div style="background: rgba(22, 27, 34, 0.5); margin-bottom: 20px; backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0 30px rgba(160, 68, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 45px rgba(160, 68, 255, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                 <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">&#36;</div>
                 <h3 style="color: white; font-size: 20px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Lower BigQuery Costs</h3>
                 <p style="font-size: 16px; color: #8899B3;">
@@ -423,7 +549,7 @@
                   Optimize your analytics budget while keeping your data pipeline lean and efficient.
                 </p>      </div>
             <!-- Benefit Card 2 -->
-            <div style="background: rgba(22, 27, 34, 0.5); margin-bottom: 20px; backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0 30px rgba(160, 68, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 45px rgba(160, 68, 255, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                 <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">&#10148;</div>
                 <h3 style="color: white; font-size: 20px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Faster, Cleaner Data</h3>
                 <p style="font-size: 16px; color: #8899B3;">
@@ -433,7 +559,7 @@
                   This streamlined approach means less time spent cleaning data and more time generating insights that drive your business forward.
                 </p>      </div>
             <!-- Benefit Card 3 -->
-            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 0 30px rgba(160, 68, 255, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="background: rgba(22, 27, 34, 0.5); backdrop-filter: blur(10px); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 45px rgba(160, 68, 255, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                 <div style="font-size: 32px; margin-bottom: 15px; color: #A044FF; line-height:1;">&#63104;</div>
                 <h3 style="color: white; font-size: 20px; margin-top: 0; margin-bottom: 10px; font-weight: 600;">Unlock Advanced Analytics</h3>
                 <p style="font-size: 16px; color: #8899B3;">
@@ -450,10 +576,10 @@
                 </p>      </div>
         </div>
     </div>
-  </div>
+  </section>
   
   <!-- HOW IT WORKS -->
- <div style="background-color: #05050A; padding: 120px 20px;">
+ <section style="background-color: #05050A;">
     <div style="max-width: 900px; margin: 0 auto;">
         
         <!-- Section Header -->
@@ -465,64 +591,60 @@
         </div>
 
         <!-- Timeline Steps -->
-        <div class="timeline-container" style="max-width: 800px; margin: 0 auto;">
+        <div class="timeline-container">
             
             <!-- Step 1 -->
-            <div class="timeline-step" style="margin-bottom: 50px;">
+            <div class="timeline-step">
                 <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">1. Connect Securely</h3>
                 <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Set up your Google Cloud Service Account credentials directly in Odoo. Just paste your JSON key into a secure field—no manual uploads or risky copy-pasting.</p>
             </div>
 
             <!-- Step 2 -->
-            <div class="timeline-step" style="margin-bottom: 50px;">
+            <div class="timeline-step">
                 <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">2. Choose Your Data</h3>
                 <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Select the Odoo model you want to export, apply advanced filters, and pick only the columns you need. Instantly preview records and fields before syncing.</p>
             </div>
 
             <!-- Step 3 -->
-            <div class="timeline-step" style="margin-bottom: 50px;">
+            <div class="timeline-step">
                 <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">3. Configure BigQuery</h3>
                 <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Enter your BigQuery project, dataset, and table names. The connector automatically creates the table if it doesn’t exist, matching your selected columns.</p>
             </div>
 
             <!-- Step 4 -->
-            <div class="timeline-step" style="margin-bottom: 50px;">
+            <div class="timeline-step">
                 <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">4. One-Click Sync</h3>
                 <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Start the export with a single click. Data is securely transferred using Google’s official APIs, with full support for large datasets and custom fields.</p>
             </div>
 
              <!-- Step 5 -->
-             <div class="timeline-step" style="margin-bottom: 80px;">
+             <div class="timeline-step">
                 <h3 style="font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px;">5. Automated & Repeatable</h3>
                 <p style="color: #AEBCCF; font-size: 17px; line-height: 1.7;">Schedule recurring syncs or trigger exports on demand. Your BigQuery table is always up to date, reflecting the latest filtered data from Odoo.</p>
             </div>
         </div>
-
-        <!-- Summary & Final Image -->
-        
-
     </div>
-</div>
+</section>
 
   <!-- FAQ SECTION -->
-  <div style="padding: 80px 20px; background-color: #000;">
+  <section style="background-color: #000;">
     <div style="max-width: 800px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 50px;">
         <h2 style="font-size: clamp(30px, 5vw, 42px); color: white; margin-bottom: 15px; font-weight: 700;">Frequently Asked Questions</h2>
       </div>
       <div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div class="faq-item">
           <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">What do I need to use this module?</h4>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">An Odoo instance, a Google Cloud account with BigQuery enabled, and a Service Account with "BigQuery Data Editor" and "Job User" roles.</p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div class="faq-item">
           <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Can it sync data from custom Odoo modules?</h4>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">Yes. The connector can access and export data from any standard or custom model within your Odoo database, including any custom fields.</p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div class="faq-item">
           <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">
             Does the sync overwrite the BigQuery table, or can I append data instead? What happens to existing records in BigQuery?
           </h4>
@@ -531,21 +653,21 @@
           </p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div class="faq-item">
           <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Is my data secure during the sync process?</h4>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">
             Yes. All data transfers use official Google Cloud authentication and encrypted connections. No third-party servers are involved—your data flows directly from Odoo to your BigQuery project.
           </p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div class="faq-item">
           <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Can I schedule automatic exports?</h4>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">
             Yes. You can schedule recurring syncs directly from Odoo, ensuring your BigQuery tables are always up to date with the latest filtered data.
           </p>
         </div>
         <!-- FAQ Item -->
-        <div style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease;">
+        <div class="faq-item">
           <h4 style="font-size: 18px; color: #E5E7EB; margin: 0 0 10px 0; font-weight: 600;">Does it support large datasets?</h4>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin: 0;">
             Yes. The connector is designed to handle large Odoo tables and will efficiently export even hundreds of thousands of records to BigQuery.
@@ -553,7 +675,7 @@
         </div>      
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- FINAL CTA -->
   <div style="padding: 100px 20px;">
@@ -588,3 +710,4 @@
 </div>
 
 </body>
+</html>
