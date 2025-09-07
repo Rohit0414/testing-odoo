@@ -35,6 +35,20 @@
             transform: scale(1.02);
             box-shadow: 0 20px 50px -15px rgba(160, 68, 255, 0.3);
         }
+        details > summary {
+            list-style: none; /* Hide the default marker */
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none; /* Hide the default marker in Chrome */
+        }
+        details summary .plus-icon::after {
+            content: '+';
+            transition: transform 0.3s ease;
+        }
+        details[open] summary .plus-icon::after {
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 <body style="margin:0; padding:0;">
@@ -123,35 +137,6 @@
     </div>
   </section>
   
-  <!-- INCREMENTAL AUTO EXPORT SECTION -->
-  <div style="padding: 120px 20px; background: linear-gradient(180deg, #0B0F19 0%, #111827 100%);">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <span style="display: inline-block; font-size: 14px; font-weight: 800; color: #c4b5fd; background-color: rgba(167, 139, 250, 0.1); border: 1px solid rgba(167, 139, 250, 0.3); border-radius: 999px; padding: 8px 16px; margin-bottom: 16px;">
-            AUTOMATE
-          </span>
-          <h2 style="font-size: clamp(30px, 5vw, 42px); color: #ddd6fe; font-weight: 700; margin-bottom: 15px;">
-            Incremental & Automated Exports
-          </h2>
-          <p style="font-size: 1.15rem; color: #8899B3; margin-bottom: 24px;">
-            Keep your BigQuery tables always up to date—without manual effort. Set a schedule and sync only new or changed records.
-          </p>
-          <ul style="color: #AEBCCF; font-size: 17px; line-height: 1.7; padding-left: 20px;">
-            <li style="margin-bottom: 8px;">Set up scheduled exports (hourly, daily, weekly, or custom intervals).</li>
-            <li style="margin-bottom: 8px;">Only syncs new or changed records to save time and costs.</li>
-            <li style="margin-bottom: 8px;">Ideal for real-time dashboards and reporting.</li>
-          </ul>
-        </div>
-        <div class="col-lg-6">
-          <div class="screenshot-frame">
-            <img src="./incre_export.png" alt="Incremental export settings in Odoo" style="width: 100%; border-radius: 14px; border: 1px solid rgba(0,0,0,0.5); background: #181C23;"/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- HOW IT WORKS (Timeline) -->
   <div style="background-color: #05050A; padding: 120px 20px;">
     <div style="max-width: 900px; margin: 0 auto;">
@@ -190,8 +175,8 @@
     </div>
 </div>
 
-<!-- BI INTEGRATIONS SHOWCASE -->
-<section id="bi-integrations" style="padding: 100px 24px; background-color: #0a0d14; border-top: 1px solid rgba(60, 70, 100, 0.2);">
+  <!-- BI INTEGRATIONS SHOWCASE -->
+  <section id="bi-integrations" style="padding: 100px 24px; background-color: #0a0d14; border-top: 1px solid rgba(60, 70, 100, 0.2); border-bottom: 1px solid rgba(60, 70, 100, 0.2);">
     <div style="max-width:1180px; margin:0 auto;">
       <div style="text-align: center; max-width: 750px; margin: 0 auto 64px auto;">
         <h2 style="font-size: clamp(38px, 5.5vw, 56px); font-weight: 700; letter-spacing: -2px; margin: 0 0 16px 0; color: #e7eaf2;">
@@ -201,8 +186,6 @@
           Your BigQuery data is the fuel. These are the engines. Connect your clean, structured Odoo data to the platform of your choice and start building dashboards that drive decisions.
         </p>
       </div>
-
-      <!-- BI Cards -->
       <div class="row g-4">
         <!-- Power BI Card -->
         <div class="col-lg-12">
@@ -267,19 +250,24 @@
         <details style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease; cursor: pointer;">
           <summary style="font-size: 18px; color: #E5E7EB; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center;">
             What do I need to use this module?
-            <span style="font-size: 24px; transition: transform 0.3s ease;">+</span>
+            <span class="plus-icon" style="font-size: 24px; transition: transform 0.3s ease;"></span>
           </summary>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin-top: 15px;">An Odoo instance, a Google Cloud account with BigQuery enabled, and a Service Account with "BigQuery Data Editor" and "Job User" roles.</p>
         </details>
-        <!-- FAQ Item -->
         <details style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease; cursor: pointer;">
           <summary style="font-size: 18px; color: #E5E7EB; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center;">
             Can it sync data from custom Odoo modules?
-            <span style="font-size: 24px; transition: transform 0.3s ease;">+</span>
+             <span class="plus-icon" style="font-size: 24px; transition: transform 0.3s ease;"></span>
           </summary>
           <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin-top: 15px;">Yes. The connector can access and export data from any standard or custom model within your Odoo database, including any custom fields.</p>
         </details>
-        <!-- Add other FAQ items in the same <details> format -->
+         <details style="margin-bottom: 15px; background: linear-gradient(to right, #1a1f2b, #161B22); border-radius: 10px; padding: 25px 30px; border: 1px solid #222838; transition: border-color 0.3s ease; cursor: pointer;">
+          <summary style="font-size: 18px; color: #E5E7EB; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Is my data secure during the sync process?
+             <span class="plus-icon" style="font-size: 24px; transition: transform 0.3s ease;"></span>
+          </summary>
+          <p style="font-size: 16px; color: #8899B3; line-height: 1.6; margin-top: 15px;">Yes. All data transfers use official Google Cloud authentication and encrypted connections. No third-party servers are involved—your data flows directly from Odoo to your BigQuery project.</p>
+        </details>
       </div>
     </div>
   </div>
