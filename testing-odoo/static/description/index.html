@@ -10,7 +10,13 @@
     radial-gradient(1200px 600px at 80% -10%, rgba(99,102,241,0.12), transparent 60%),
     radial-gradient(900px 500px at -10% 20%, rgba(45,212,191,0.10), transparent 55%),
     radial-gradient(700px 400px at 50% 120%, rgba(147,51,234,0.10), transparent 60%);
+  position: relative; /* Added for absolute positioning of the update text */
 ">
+
+  <!-- Last Updated Text -->
+  <div style="position: absolute; top: 20px; left: 20px; font-size: 0.85rem; color: #9ca3af; z-index: 10;">
+    Last updated: October 4, 2025 | Version: 19.0.3.0.2
+  </div>
 
   <!-- HERO -->
   <header style="padding: 180px 20px 100px 20px; text-align: center; overflow: hidden;">
@@ -45,7 +51,6 @@
     </div>
   </section>
 
-  <!-- NEW SECTION 1: HOW IT WORKS -->
   <!-- NEW SECTION 1: HOW IT WORKS -->
 <section style="padding:70px 0; background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;">
   <div class="container" style="padding:0 15px;">
@@ -323,7 +328,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                 <div style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:24px; height:100%;">
+                 <div style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:24px; height:100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
                     <div style="font-size: 2rem; color: #a5b4fc; margin-bottom: 12px;">&#128202;</div>
                     <h4 style="color:#f9fafb; font-size:1.25rem; font-weight:700; margin-bottom:12px;">Deep Dive with CSV</h4>
                     <p style="color:#9ca3af; font-size:1rem;">Export the raw data from any response as a CSV file. Seamlessly import it into Excel, Google Sheets, or other BI tools to perform your own calculations, create custom pivot tables, and conduct deeper analysis.</p>
@@ -542,7 +547,7 @@
             box-shadow: 0 25px 60px -15px rgba(0,0,0,0.7), 0 0 50px rgba(102, 204, 255, 0.4); /* Enhanced, vibrant shadow */
             transition: transform 0.4s ease-out; /* Smoother transition */
           " onmouseover="this.style.transform='translateY(-12px) scale(1.01)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
-            <div style="
+            <!-- <div style="
               display:flex;
               align-items:center;
               justify-content:space-between;
@@ -568,7 +573,7 @@
                 letter-spacing:0.5px;
                 border: 1px solid #374151;
               ">October 3, 2025</span>
-            </div>
+            </div> -->
             <p style="color:#b0b0b0; font-size:1.1rem; margin-bottom:30px; border-bottom:1px dashed #374151; padding-bottom:25px;">
               &#128640; This monumental update brings a dazzling new UI, unprecedented data transparency, powerful export capabilities, and a significant leap in AI intelligence. Prepare for an Odoo experience like never before!
             </p>
@@ -687,216 +692,11 @@
     </div>
   </section>
 
-  <!-- WHAT'S NEW -->
-  <div style="background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a; padding:70px 0;">
-    <div class="container" style="padding:0 15px;">
-      <!-- <div class="row">
-        <div class="col-12 text-center">
-          <span style="display:inline-block; font-size:14px; font-weight:700; color:#66ccff; background:#66ccff26; border:1px solid #66ccff66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">LATEST UPDATES</span>
-          <h2 style="font-size:38px; font-weight:800; margin:0 0 22px 0; color:#66ccff;">What&#8217;s New in August 2025</h2>
-        </div>
-      </div> -->
-
-      <div class="row" style="margin-top:10px;">
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <div style="background:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <div style="font-size:28px; color:#a78bfa; margin-bottom:6px;">&#129504;</div>
-            <h3 style="color:#f9fafb; font-size:18px; margin:0 0 6px 0;">Brain v2 &#8211; Harder Questions, Smarter Answers</h3>
-            <p style="color:#9ca3af; margin:0;">Upgraded reasoning and SQL generation for complex joins, date buckets, nested filters, and edge cases.</p>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <div style="font-size:28px; color:#60a5fa; margin-bottom:6px;">&#129689;</div>
-            <h3 style="color:#f9fafb; font-size:18px; margin:0 0 6px 0;">Token Meter per Question</h3>
-            <p style="color:#9ca3af; margin:0;">Each message shows prompt &#43; completion tokens. Keep usage transparent and optimize prompts easily.</p>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <div style="font-size:28px; color:#34d399; margin-bottom:6px;">&#128218;</div>
-            <h3 style="color:#f9fafb; font-size:18px; margin:0 0 6px 0;">Predefined Questions Library</h3>
-            <p style="color:#9ca3af; margin:0;">One-click starters by module (Sales, Invoicing, Inventory, HR). Ideal for onboarding and non-technical users.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick preview -->
-      <div class="row" style="margin-top:18px;">
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <img src="./question.png" alt="Ask any question" style="width:100%; border-radius:14px; border:1px solid #374151; display:block;">
-        </div>
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <img src="./token.png" alt="Token Usage" style="width:100%; border-radius:14px; border:1px solid #374151; display:block;">
-        </div>
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <img src="./predefined.png" alt="Predefined Questions"  style="width:100%; border-radius:14px; border:1px solid #374151; display:block;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOKEN METER -->
-  <div class="container" style="padding:70px 15px;">
-    <div class="row">
-      <div class="col-12 text-center">
-        <span style="display:inline-block; font-size:14px; font-weight:700; color:#60a5fa; background-color:#60a5fa26; border:1px solid #60a5fa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">USAGE VISIBILITY</span>
-        <h2 style="font-size:34px; font-weight:800; margin:0 0 16px 0; color:#c4d3ff;">Token Meter: Know What Each Question Costs</h2>
-        <p style="font-size:16px; color:#9ca3af; max-width:760px; margin:0 auto 18px;">Each chat reply carries a compact badge showing tokens consumed (prompt + completion). Optionally show a split and estimated cost based on your model pricing.</p>
-      </div>
-    </div>
-
-    <div class="row" style="margin-top:8px;">
-      <div class="col-12" style="overflow-x:auto;">
-        <table style="width:100%; border-collapse:collapse; border:1px solid #1f2937; background-color:#0f172a; border-radius:12px; overflow:hidden;">
-          <thead>
-            <tr>
-              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Sample Question</th>
-              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Prompt</th>
-              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Completion</th>
-              <th style="padding:12px 14px; background-color:#111827; color:#94a3b8; font-weight:700; text-align:left;">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#e5e7eb;">&#8220;Show revenue by month for FY 2025, grouped by country.&#8220;</td>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#e5e7eb;">1,120</td>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#e5e7eb;">640</td>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#34d399; font-weight:800;">1,760</td>
-            </tr>
-            <tr>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#e5e7eb;">&#8220;Which customers haven&#8217;t ordered in the last 6 months?&#8220;</td>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#e5e7eb;">890</td>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#e5e7eb;">420</td>
-              <td style="padding:12px 14px; border-top:1px solid #1f2937; color:#34d399; font-weight:800;">1,310</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="row" style="margin-top:16px;">
-      <div class="col-12 col-md-4" style="margin-bottom:12px;">
-        <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-          <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">How it&#8217;s shown</h4>
-          <p style="margin:0; color:#9ca3af;">A small badge (e.g., <strong>1,760 tokens</strong>) appears on each answer. This is addition of all the token used input+output.</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-4" style="margin-bottom:12px;">
-        <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-          <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Why it matters</h4>
-          <p style="margin:0; color:#9ca3af;">Keep usage transparent, coach teams on concise prompts, and control spend without restricting access.</p>
-        </div>
-      </div>
-      <div class="col-12 col-md-4" style="margin-bottom:12px;">
-        <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-          <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Admin toggle*</h4>
-          <p style="margin:0; color:#9ca3af;">Enable/disable Token Meter in <em>Settings → Niyu AI Analyst</em>. Visibility can be restricted to admins. (Coming soon)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PREDEFINED QUESTIONS -->
-  <div style="background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a; padding:70px 0;">
-    <div class="container" style="padding:0 15px;">
-      <div class="row">
-        <div class="col-12 text-center">
-          <span style="display:inline-block; font-size:14px; font-weight:700; color:#a78bfa; background-color:#a78bfa26; border:1px solid #a78bfa55; border-radius:999px; padding:8px 16px; margin-bottom:10px;">ONE&#45;CLICK STARTERS</span>
-          <h2 style="font-size:34px; font-weight:800; margin:0 0 10px 0; color:#c4b5fd;">Predefined Questions by Module</h2>
-          <p style="font-size:16px; color:#9ca3af; max-width:760px; margin:0 auto 10px;">Kickstart insights with curated prompts mapped to common Odoo workflows. Perfect for non&#45;technical users. Pre-defined questions can be customized from module XML or reach out to us and we will help.</p>
-        </div>
-      </div>
-
-      <div class="row" style="margin-top:10px;">
-        <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Sales &amp; CRM</h4>
-            <ul style="margin:0; padding-left:18px; color:#9ca3af;">
-              <li>Top 10 customers by revenue this quarter</li>
-              <li>Pipeline by stage with win rate</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Invoicing</h4>
-            <ul style="margin:0; padding-left:18px; color:#9ca3af;">
-              <li>Overdue invoices by account manager</li>
-              <li>Monthly revenue vs refunds (YTD)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">Inventory</h4>
-            <ul style="margin:0; padding-left:18px; color:#9ca3af;">
-              <li>Low stock items with last 14-day sales</li>
-              <li>Stock valuation by category</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-3" style="margin-bottom:16px;">
-          <div style="background-color:#111827; border:1px solid #1f2937; border-radius:14px; padding:18px; height:100%;">
-            <h4 style="margin:0 0 6px; color:#f9fafb; font-size:16px;">HR</h4>
-            <ul style="margin:0; padding-left:18px; color:#9ca3af;">
-              <li>Leaves pending approval this week</li>
-              <li>Upcoming contract renewals</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="row" style="margin-top:16px;">
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <img src="./pre1.png" style="width:100%; border-radius:14px; border:1px solid #374151; display:block;">
-        </div>
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <img src="./pre2.png" style="width:100%; border-radius:14px; border:1px solid #374151; display:block;">
-        </div>
-        <div class="col-12 col-md-4" style="margin-bottom:16px;">
-          <img src="./pre3.png" alt="Predefined Inventory" style="width:100%; border-radius:14px; border:1px solid #374151; display:block;">
-        </div>
-      </div>
-    </div>
-  </div>
    <div class="row">
        <div class="col-12" style="margin-bottom: 20px;">
             <img src="./newui.png" alt="Custom Keyword Mapping Configuration in Odoo Settings" style="width: 100%; padding: 15px; border-radius: 16px; display: block; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.8), 0 0 0 1px #374151;">
         </div>
       </div>
-
-  <!-- SCREENSHOTS -->
-<!--   <div class="container" style="padding:70px 15px;">
-    <div class="row">
-      <div class="col-12 text-center">
-        <span style="display:inline-block; font-size:14px; font-weight:700; color:#34d399; background-color:#22c55e26; border:1px solid #22c55e66; border-radius:999px; padding:8px 16px; margin-bottom:10px;">SCREENSHOTS</span>
-        <h2 style="font-size:34px; font-weight:800; margin:0 0 16px 0; color:#86efac;">See It in Action</h2>
-      </div>
-    </div>
-    <div class="row" style="margin-top:8px;">
-      <div class="col-12 col-md-4" style="margin-bottom:16px;">
-        <figure style="margin:0;">
-          <img src="./Analytics-Next-19-blog-Charles-2.gif" style="width:100%; border-radius:16px; border:1px solid #374151; display:block;">
-          <figcaption style="color:#9ca3af; font-size:15px; margin-top:8px;">Per-question Token Meter on each reply</figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-4" style="margin-bottom:16px;">
-        <figure style="margin:0;">
-          <img src="./Analytics-Next-19-blog-Charles-2.gif" alt="Cost breakdown popover" style="width:100%; border-radius:16px; border:1px solid #374151; display:block;">
-          <figcaption style="color:#9ca3af; font-size:15px; margin-top:8px;">Prompt vs completion split + estimated cost</figcaption>
-        </figure>
-      </div>
-      <div class="col-12 col-md-4" style="margin-bottom:16px;">
-        <figure style="margin:0;">
-          <img src="./Analytics-Next-19-blog-Charles-2.gif" style="width:100%; border-radius:16px; border:1px solid #374151; display:block;">
-          <figcaption style="color:#9ca3af; font-size:15px; margin-top:8px;">Predefined Questions picker by module</figcaption>
-        </figure>
-      </div>
-    </div>
-  </div> -->
 
   <!-- NEW SECTION 2: SETUP & CONFIGURATION -->
   <section style="padding:70px 0; background-color:#0b1220; border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;">
