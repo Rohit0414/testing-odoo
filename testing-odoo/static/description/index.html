@@ -1,195 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eLearning Assistant - The Ultimate Knowledge & People Platform</title>
-    <!-- Bootstrap CSS for Grid and Flex Utilities -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <meta charset="utf-8"/>
+  <title>Niyu eLearning RAG — AI Assistant for Odoo 18</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    :root{
+      --ink:#1f2937; --muted:#6b7280; --soft:#f5f7fb; --card:#ffffff; --line:#e6e9f5;
+      --violet:#6c5ce7; --teal:#14b8a6; --cyan:#00bcd4;
+      --violet-10:rgba(108,92,231,.10); --teal-10:rgba(20,184,166,.10);
+    }
+    html,body{margin:0;padding:0;background:var(--soft);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    .wrap{max-width:980px;margin:24px auto;padding:0 18px}
+    h1{font-size:30px;margin:0 0 8px}
+    h2{font-size:22px;margin:26px 0 10px}
+    h3{font-size:18px;margin:18px 0 8px}
+    p{margin:8px 0}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+    .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:4px 10px;border-radius:999px;background:#fff;font-size:12px;margin-right:6px}
+    .badge{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--teal));color:#fff;padding:2px 8px;border-radius:6px;font-size:12px}
+    .grid{display:grid;gap:12px}
+    @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+    .code{background:#0b1020;color:#e8ebff;border-radius:8px;padding:10px;font:13px/1.5 ui-monospace,Consolas,Menlo,monospace;overflow:auto}
+    .kbd{font:12px ui-monospace,Consolas,Menlo,monospace;background:#f2f3fb;border:1px solid var(--line);padding:1px 6px;border-radius:6px}
+    ul,ol{margin:6px 0 6px 18px}
+    .hero{display:flex;align-items:center;gap:14px}
+    .logo{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+          background:linear-gradient(135deg,rgba(108,92,231,.12),rgba(0,188,212,.10));border:1px solid var(--line);font-size:22px}
+    .callout{background:linear-gradient(135deg,rgba(108,92,231,.10),rgba(20,184,166,.10));border:1px solid var(--line)}
+    .ok{color:#10b981} .warn{color:#d97706} .err{color:#ef4444}
+    table{border-collapse:collapse;width:100%} th,td{border:1px solid var(--line);padding:8px;text-align:left}
+    th{background:linear-gradient(180deg, rgba(108,92,231,.06), rgba(20,184,166,.04))}
+    .toc a{color:var(--violet);text-decoration:none} .toc a:hover{text-decoration:underline}
+    .img{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  </style>
 </head>
-<body style="background-color:#030712; color:#e5e7eb; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height:1.7; margin:0; padding:0;">
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="logo">🎓</div>
+      <div>
+        <h1>Niyu eLearning RAG — AI Assistant for Odoo 18</h1>
+        <div class="muted">Ask natural questions grounded in your eLearning content. Cited answers, course filter, chat-like UX, optional employee lookup.</div>
+      </div>
+    </div>
 
-    <!-- HERO SECTION -->
-    <header style="padding: 180px 20px 140px 20px; text-align: center; overflow: hidden; background-image: radial-gradient(1200px 600px at 80% -10%, rgba(99,102,241,0.12), transparent 60%), radial-gradient(900px 500px at -10% 20%, rgba(45,212,191,0.10), transparent 55%), radial-gradient(700px 400px at 50% 120%, rgba(147,51,234,0.10), transparent 60%);">
-        <div class="container">
-            <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.05em; margin: 0 0 30px 0; color: #f9fafb; text-shadow: 0 5px 25px rgba(0,0,0,0.5);">
-                eLearning Assistant
-            </h1>
-            <p style="font-size: clamp(1.25rem, 3vw, 1.5rem); font-weight: 500; color: #d1d5db; max-width: 800px; margin: 0 auto 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.6);">
-                The All-In-One AI Platform that connects your people to the knowledge they need and the colleagues they work with. Instant answers, seamless connections, unparalleled productivity.
-            </p>
-            <a href="#demo" style="display: inline-block; background-color: #ffffff; color: #030712; padding: 18px 40px; font-size: 1.15rem; font-weight: 800; text-decoration: none; border-radius: 99px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25);"
-               onmouseover="this.style.transform='translateY(-7px)'; this.style.boxShadow='0 12px 25px -7px rgba(0,0,0,0.4), 0 8px 15px -7px rgba(0,0,0,0.3), 0 0 50px 10px rgba(255,255,255,0.35)';"
-               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25)';">
-                See it in Action <span style="margin-left: 10px;">&#9660;</span>
-            </a>
-        </div>
-    </header>
+    <div class="card callout">
+      <strong>Highlights</strong>:
+      <span class="pill">RAG over <b>Odoo eLearning</b></span>
+      <span class="pill">Qdrant Vector DB</span>
+      <span class="pill">OpenAI Embeddings + LLM</span>
+      <span class="pill">Course filter</span>
+      <span class="pill">Sources & Debug</span>
+      <span class="pill">Chat History (local)</span>
+      <span class="pill">People lookup (optional)</span>
+    </div>
 
-    <!-- VIDEO SHOWCASE -->
-    <section id="demo" style="padding: 0 0 120px 0; background-color: #030712;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div style="border-radius: 1.75rem; padding: 3px; background: linear-gradient(45deg, rgba(147,51,234,0.6), rgba(20, 184, 166, 0.6)); box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9);">
-                <!-- Video Placeholder -->
-                <div style="width: 100%; display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; background-color: #000; border-radius: 1.5rem;">
-                     <div style="text-align: center;">
-                        <div style="width: 80px; height: 80px; background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: white;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        </div>
-                        <p style="color: #9ca3af; font-weight: 600;">eLearning Assistant Demo Video</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="card toc">
+      <strong>Table of contents</strong>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#requirements">Requirements & Compatibility</a></li>
+        <li><a href="#install">Installation</a></li>
+        <li><a href="#configure">Configuration</a></li>
+        <li><a href="#use">Using the Assistant</a></li>
+        <li><a href="#internals">How it works (Internals)</a></li>
+        <li><a href="#routes">Endpoints (JSON-RPC)</a></li>
+        <li><a href="#troubleshoot">Troubleshooting</a></li>
+        <li><a href="#changelog">Changelog</a> • <a href="#license">License</a> • <a href="#support">Support</a></li>
+      </ul>
+    </div>
 
-    <!-- CORE PLATFORM PILLARS -->
-    <section style="padding:70px 0; background-color:#0b1220; border-top:1px solid #1f273a; border-bottom:1px solid #1f273a;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2 style="font-size:clamp(2.2rem, 5vw, 3rem); font-weight:800; margin:0 0 40px 0; color:#f9fafb;">More Than an Assistant. It's Your Central Hub.</h2>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-12">
-                    <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px; height:100%;">
-                        <div style="font-size:2rem; margin-bottom:10px;">&#128218;</div>
-                        <h4 style="margin:0 0 6px; color:#f9fafb; font-size:1.25rem; font-weight:700;">Instant Knowledge Engine</h4>
-                        <p style="margin:0; color:#9ca3af;">Get immediate, step-by-step answers from your entire knowledge ecosystem. From complex company policies to simple "how-to" guides, the answer is always at your fingertips, complete with source verification.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px; height:100%;">
-                        <div style="font-size:2rem; margin-bottom:10px;">&#128101;</div>
-                        <h4 style="margin:0 0 6px; color:#f9fafb; font-size:1.25rem; font-weight:700;">Intelligent People Finder</h4>
-                        <p style="margin:0; color:#9ca3af;">Connect to your HR directory to instantly find colleagues. Search by name, title, department, or even skills. Need to find the project manager for "Project Titan"? Just ask.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px; height:100%;">
-                        <div style="font-size:2rem; margin-bottom:10px;">&#128273;</div>
-                        <h4 style="margin:0 0 6px; color:#f9fafb; font-size:1.25rem; font-weight:700;">Enterprise-Grade Security</h4>
-                        <p style="margin:0; color:#9ca3af;">Built from the ground up with security in mind. The Assistant respects all existing user permissions and access control lists (ACLs), ensuring users only see the information they are authorized to view.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="grid cols-2">
+      <div class="card img">
+        <!-- Replace with your real image(s) -->
+        <img src="/niyu_elearn_rag/static/description/screenshot-ask.png" alt="Assistant view" style="width:100%;display:block"/>
+      </div>
+      <div class="card img">
+        <img src="/niyu_elearn_rag/static/description/screenshot-sources.png" alt="Sources & debug" style="width:100%;display:block"/>
+      </div>
+    </div>
 
-    <!-- FEATURE DEEP DIVE 1: KNOWLEDGE ENGINE -->
-    <section style="padding: 120px 20px; border-top: 1px solid #1f273a;">
-        <div class="container">
-            <div class="row text-center mb-5">
-                 <div class="col-12">
-                    <span style="display:inline-block; font-size:14px; font-weight:800; color:#4ade80; background-color:rgba(34, 197, 94, 0.1); border:1px solid rgba(34, 197, 94, 0.3); border-radius:999px; padding:8px 16px; margin-bottom:16px;">
-                        KNOWLEDGE AT SCALE
-                    </span>
-                    <h2 style="font-size: clamp(2.2rem, 5vw, 3rem); font-weight:800; margin:0 0 14px 0; color:#bbf7d0;">Your Entire Knowledge Base, One Search Box Away</h2>
-                    <p style="font-size:1.1rem; color:#9ca3af; max-width:860px; margin:0 auto;">Eliminate wasted time and empower your team with self-service answers. Our AI reads, understands, and synthesizes information from all your sources to provide a single, trustworthy response.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <img src="https://i.imgur.com/8i2jY8g.png" alt="Full-size screenshot of the eLearning Assistant answering a knowledge-based question like 'How do I enroll employees?'" style="width: 100%; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6); border: 1px solid #374151;">
-                </div>
-            </div>
-        </div>
-    </section>
+    <h2 id="features">Features</h2>
+    <div class="card">
+      <ul>
+        <li><b>Grounded answers</b> on your slides with source citations (per answer) and an optional debug table of retrieved chunks.</li>
+        <li><b>Course filter</b>: limit answers to one course or search across all.</li>
+        <li><b>Chat UX</b>: local chat history (browser <code>localStorage</code>), quick chips, copy answer, new chat, delete chat.</li>
+        <li><b>Admin panel</b>: Test Embeddings, Test Qdrant, Index Now, and last indexed timestamp.</li>
+        <li><b>People search</b> (optional): find employees by name/email/title; respects access rights.</li>
+        <li><b>Safe defaults</b>: if the context lacks the answer, the assistant says it doesn’t know.</li>
+      </ul>
+    </div>
 
-    <!-- FEATURE DEEP DIVE 2: PEOPLE FINDER -->
-    <section style="padding: 120px 20px; background-color:#0b1220; border-top: 1px solid #1f273a;">
-        <div class="container">
-            <div class="row text-center mb-5">
-                 <div class="col-12">
-                    <span style="display:inline-block; font-size:14px; font-weight:800; color:#f472b6; background-color:rgba(236, 72, 153, 0.1); border:1px solid rgba(236, 72, 153, 0.4); border-radius:999px; padding:8px 16px; margin-bottom:16px;">
-                        SEAMLESS COLLABORATION
-                    </span>
-                    <h2 style="font-size: clamp(2.2rem, 5vw, 3rem); font-weight:800; margin:0 0 14px 0; color:#fbcfe8;">Instantly Connect with Anyone in Your Organization</h2>
-                    <p style="font-size:1.1rem; color:#9ca3af; max-width:860px; margin:0 auto;">Break down silos and accelerate projects. The People Finder turns your company directory into a dynamic, searchable resource. Find experts, stakeholders, and team members in seconds.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <!-- Screenshot Placeholder for People Finder -->
-                    <div style="width: 100%; border: 1px solid #374151; border-radius: 1rem; background-color: #0d1117; padding: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);">
-                        <!-- Chat bubbles -->
-                        <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
-                            <div style="background-color:#3b82f6; color:white; padding: 12px 18px; border-radius: 18px 18px 4px 18px; max-width: 60%;">Find the HR manager for the engineering department</div>
-                        </div>
-                        <div style="display: flex; justify-content: flex-start;">
-                            <div style="background-color:#1f2937; color:#e5e7eb; padding: 18px; border-radius: 18px 18px 18px 4px; max-width: 80%;">
-                                <p style="margin:0 0 16px 0;">Certainly. The HR Manager for the Engineering department is <strong>Eleanor Vance</strong>. Here are her details:</p>
-                                <!-- Profile Card -->
-                                <div style="display: flex; align-items: center; background-color:#111827; border: 1px solid #374151; border-radius: 12px; padding: 16px;">
-                                    <img src="https://i.pravatar.cc/150?u=eleanor" alt="Eleanor Vance Profile Picture" style="width: 60px; height: 60px; border-radius: 50%; margin-right: 16px;">
-                                    <div>
-                                        <h5 style="color: #f9fafb; font-weight: 700; margin: 0 0 4px 0;">Eleanor Vance</h5>
-                                        <p style="color: #9ca3af; margin: 0 0 4px 0;">HR Manager, Engineering</p>
-                                        <a href="mailto:e.vance@example.com" style="color:#60a5fa; text-decoration:none; font-weight: 600;">e.vance@example.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <h2 id="requirements">Requirements & Compatibility</h2>
+    <div class="card">
+      <ul>
+        <li>Odoo 18 (Community or Enterprise)</li>
+        <li>Modules: <code>website_slides</code> (eLearning). <code>hr</code> optional for People search.</li>
+        <li>Python: <code>requests</code></li>
+        <li>Qdrant running and reachable by Odoo</li>
+        <li>OpenAI API key (Embeddings + Chat)</li>
+      </ul>
+    </div>
 
-    <!-- FEATURE DEEP DIVE 3: SECURITY & INTEGRATION -->
-    <section style="padding: 120px 20px; border-top: 1px solid #1f273a;">
-        <div class="container">
-            <div class="row text-center mb-5">
-                 <div class="col-12">
-                    <span style="display:inline-block; font-size:14px; font-weight:800; color:#fb923c; background-color:rgba(251, 146, 60, 0.1); border:1px solid rgba(251, 146, 60, 0.3); border-radius:999px; padding:8px 16px; margin-bottom:16px;">
-                        ENTERPRISE READY
-                    </span>
-                    <h2 style="font-size: clamp(2.2rem, 5vw, 3rem); font-weight:800; margin:0 0 14px 0; color:#fed7aa;">Secure, Compliant, and Seamlessly Integrated</h2>
-                    <p style="font-size:1.1rem; color:#9ca3af; max-width:860px; margin:0 auto;">The eLearning Assistant is designed to fit perfectly and securely within your existing IT infrastructure, providing powerful AI capabilities without compromising your security posture.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <!-- Screenshot Placeholder for Security Diagram -->
-                     <div style="width: 100%; border: 1px solid #374151; border-radius: 1rem; background-color: #0d1117; padding: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6); text-align: center;">
-                        <h4 style="color:#f9fafb; font-weight:700; margin-bottom: 30px;">Secure Architecture Overview</h4>
-                        <img src="https://i.imgur.com/gKzN6bB.png" alt="Diagram showing the secure connection between the user, the eLearning Assistant, and the company's internal knowledge and HR systems, highlighting data encryption and permission checks." style="max-width: 100%; height: auto;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <h2 id="install">Installation</h2>
+    <div class="card">
+      <ol>
+        <li>Clone to <code>custom_addons/niyu_elearn_rag</code> and update Apps list.</li>
+        <li>Install the module. (Ensure <code>website_slides</code> is installed.)</li>
+        <li>Start Qdrant. If changing embedding model later, recreate the collection to avoid vector size mismatch.</li>
+      </ol>
+    </div>
 
-    <!-- FAQ -->
-    <section style="padding: 120px 20px; background-color:#0b1220; border-top: 1px solid #1f273a;">
-        <div style="max-width: 900px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h2 style="font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.2; font-weight: 700; color: #a78bfa;">Your Questions, Answered</h2>
-            </div>
-            <div style="border-top: 1px solid #374151;">
-                <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Which HR and Knowledge systems can it integrate with?</h4><p style="color: #9ca3af; margin: 0;">Our platform supports a wide array of systems out-of-the-box, including Workday, BambooHR, Confluence, SharePoint, and more. We also offer a flexible API for connecting to custom-built internal systems.</p></div>
-                <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">How does it ensure the privacy of employee data from the HR system?</h4><p style="color: #9ca3af; margin: 0;">The Assistant operates on a "least privilege" principle. It only accesses the minimum data required to answer a query (e.g., name, title, department) and strictly adheres to the role-based access controls you have defined in your HR system.</p></div>
-                <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Can we customize the AI's personality or response style?</h4><p style="color: #9ca3af; margin: 0;">Yes. The Assistant can be configured to match your company's tone of voice, whether that's formal and professional or friendly and conversational, ensuring a consistent brand experience for your employees.</p></div>
-                 <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What does the implementation process involve?</h4><p style="color: #9ca3af; margin: 0;">Our dedicated onboarding team guides you through a simple, three-step process: Connect your data sources, configure your access controls, and deploy to your users. Most organizations are up and running in a matter of days, not months.</p></div>
-            </div>
-        </div>
-    </section>
+    <h2 id="configure">Configuration</h2>
+    <div class="card">
+      <ol>
+        <li>Go to <b>Settings → Niyu eLearning RAG</b> (app card in General Settings).</li>
+        <li>Fill in:
+          <ul>
+            <li><b>OpenAI API Key</b></li>
+            <li><b>Embeddings Model</b> (e.g. <code>text-embedding-3-small</code>)</li>
+            <li><b>LLM Model</b> (your chosen chat model)</li>
+            <li><b>Qdrant URL</b> (e.g. <code>http://127.0.0.1:6333</code>) & <b>Collection</b> (e.g. <code>elearning</code>)</li>
+            <li><b>Retrieval</b>: Top-K, Min score (defaults provided)</li>
+          </ul>
+        </li>
+        <li>Click <b>Save</b>.</li>
+        <li>Use <b>Test Qdrant</b> and <b>Test Embeddings</b> to validate connectivity.</li>
+        <li>Click <b>Index Now</b> to embed and push slides to Qdrant.</li>
+      </ol>
 
-    <!-- FINAL CTA -->
-    <section style="padding: 120px 20px;">
-        <div class="container text-center">
-            <div style="background-color:rgba(139, 92, 246, 0.15); padding: 100px 40px; border-radius: 2rem; border: 1px solid #374151; box-shadow: 0 30px 80px rgba(0,0,0,0.5);">
-                <h2 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.2; font-weight: 800; margin-bottom: 20px; color:#c4b5fd;">Ready to Revolutionize Your Workplace?</h2>
-                <p style="max-width: 700px; margin: 0 auto 50px; color: #d1d5db; font-size: 1.15rem;">Connect your people to the knowledge and colleagues they need to succeed. Schedule a personalized demo to see how the eLearning Assistant can transform your organization.</p>
-                <a href="#" style="display: inline-block; background-color: #ffffff; color: #030712; padding: 18px 40px; font-size: 1.15rem; font-weight: 800; text-decoration: none; border-radius: 99px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25);"
-                   onmouseover="this.style.transform='translateY(-7px)'; this.style.boxShadow='0 12px 25px -7px rgba(0,0,0,0.4), 0 8px 15px -7px rgba(0,0,0,0.3), 0 0 50px 10px rgba(255,255,255,0.35)';"
-                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25)';">
-                  Book Your Personalized Demo &#8594;
-                </a>
-            </div>
-        </div>
-    </section>
+      <h3>Config Parameters (stored in ICP)</h3>
+      <table>
+        <thead><tr><th>Key</th><th>Description</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>niyu_elearn_rag.openai_api_key</code></td><td>Secret OpenAI key</td><td>sk-…</td></tr>
+          <tr><td><code>niyu_elearn_rag.embeddings_model</code></td><td>Embedding model name</td><td>text-embedding-3-small</td></tr>
+          <tr><td><code>niyu_elearn_rag.llm_model</code></td><td>Chat model name</td><td>gpt-4o-mini</td></tr>
+          <tr><td><code>niyu_elearn_rag.qdrant_url</code></td><td>Qdrant base URL</td><td>http://127.0.0.1:6333</td></tr>
+          <tr><td><code>niyu_elearn_rag.qdrant_collection</code></td><td>Collection name</td><td>elearning</td></tr>
+          <tr><td><code>niyu_elearn_rag.top_k</code></td><td>Default retrieval size</td><td>12</td></tr>
+          <tr><td><code>niyu_elearn_rag.min_score</code></td><td>Minimum similarity score</td><td>0.25</td></tr>
+          <tr><td><code>niyu_elearn_rag.last_indexed_at</code></td><td>Watermark for incremental indexing</td><td>auto</td></tr>
+        </tbody>
+      </table>
+    </div>
 
+    <h2 id="use">Using the Assistant</h2>
+    <div class="card">
+      <ol>
+        <li>Open the client action: <b>eLearning → AI Assistant</b> (or search for “Niyu eLearning Assistant”).</li>
+        <li>Select a specific <b>Course</b> or leave <b>All courses</b>.</li>
+        <li>Ask your question in the composer (Enter to send; Shift+Enter for new line).</li>
+        <li>Review the answer and <b>Sources</b>. Toggle <b>Debug</b> to inspect retrieved chunks.</li>
+        <li>Use <b>New Chat</b> to start a fresh thread. Use the history drawer (FAB) to reopen or delete conversations.</li>
+        <li>(Optional) In the right panel, search <b>People</b> by name/email/title. Opens employee form with your access rights.</li>
+      </ol>
+      <p class="muted">Note: Chat history is stored locally in the browser via <code>localStorage</code>.</p>
+    </div>
+
+    <h2 id="internals">How it works (Internals)</h2>
+    <div class="card">
+      <ul>
+        <li><b>Indexing</b> (<code>services/ingest.py</code>): reads <code>slide.slide</code> (<code>html_content</code> → plaintext), chunks (≈1200 chars, 200 overlap), embeds, and upserts into Qdrant with payload:
+          <div class="code">{"slide_id","slide_title","channel_id","channel_name","tags","chunk_index","url","write_date","text"}</div>
+        </li>
+        <li><b>Retrieval</b>: query is embedded; top-N are fetched from Qdrant with vectors. Greedy <b>MMR</b> re-ranks (diversity) and we de-dupe per slide.</li>
+        <li><b>Answering</b>: system prompt enforces context-only answers and simple Markdown; <b>_attach_sources</b> replaces <code>(URL)</code> placeholders with real links and appends a Sources list.</li>
+        <li><b>Security</b>: All routes are <code>auth="user"</code> and respect Odoo ACLs; course filters restrict by visible <code>slide.channel</code> IDs. People search is optional and rights-aware.</li>
+      </ul>
+    </div>
+
+    <h2 id="routes">Endpoints (JSON-RPC)</h2>
+    <div class="card">
+      <h3>/niyu/elearn/ask</h3>
+      <p><b>POST</b> (auth user). Body:</p>
+      <div class="code">{
+  "jsonrpc":"2.0","method":"call","params":{
+    "question":"How do I enroll employees?",
+    "top_k":12, "min_score":0.25, "debug":false,
+    "channel_id": 0
+  }
+}</div>
+      <p>Response:</p>
+      <div class="code">{
+  "answer":"...", "sources":[{"title":"...","url":"/slides/ID"}],
+  "debug":[{"score":0.71,"title":"...","url":"/slides/ID","snippet":"..."}]
+}</div>
+
+      <h3>/niyu/elearn/courses</h3>
+      <p>List visible <code>slide.channel</code> (auth user).</p>
+
+      <h3>/niyu/elearn/people/search</h3>
+      <p>Optional; requires <code>hr</code>. Filters by name/email/title; can restrict to a course’s members.</p>
+
+      <h3>/niyu/elearn/status</h3>
+      <p>Admin flag and <code>last_indexed_at</code>.</p>
+
+      <h3>/niyu/elearn/admin/*</h3>
+      <ul>
+        <li><code>test_embeddings</code> → sanity check model</li>
+        <li><code>test_qdrant</code> → connectivity/version</li>
+        <li><code>index_now</code> → index updated slides</li>
+      </ul>
+    </div>
+
+    <h2 id="troubleshoot">Troubleshooting</h2>
+    <div class="card">
+      <ul>
+        <li><b>Missing template: “niyu_elearn_rag.AskView”</b> — Ensure your XML <code>t-name</code> matches the JS component’s <code>static template</code> and the asset bundle loads it.</li>
+        <li><b>“Entity &amp;nbsp; not defined”</b> — Don’t use HTML entities in XML; use a literal space or <code>&amp;#160;</code>.</li>
+        <li><b>OwlError: reading 'length'</b> — Guard nulls in template: use <code>state.list and state.list.length</code> or <code>state.list or []</code>.</li>
+        <li><b>Qdrant vector size mismatch</b> — If you change embeddings model, recreate the collection or point to a new one.</li>
+        <li><b>Index Now returns 0</b> — No new slides since last watermark; clear <code>last_indexed_at</code> or edit slides to re-index.</li>
+        <li><b>Scroll feels stuck</b> — Ensure the messages container has <code>overflow:auto</code> and no parent with <code>overflow:hidden</code>.</li>
+        <li><b>403 / forbidden on admin</b> — Only users in <code>base.group_system</code> can call admin routes.</li>
+      </ul>
+    </div>
+
+    <h2 id="changelog">Changelog</h2>
+    <div class="card">
+      <ul>
+        <li><b>v1.0.0</b> — First release: RAG, course filter, citations, debug, people search (opt), admin tools, chat UI.</li>
+      </ul>
+    </div>
+
+    <h2 id="license">License</h2>
+    <div class="card">
+      <p>Proprietary / Commercial (or fill in your chosen license).</p>
+    </div>
+
+    <h2 id="support">Support</h2>
+    <div class="card">
+      <p>Issues or feature requests? Reach us at <a href="mailto:support@niyulabs.com">support@niyulabs.com</a>.</p>
+      <p>When reporting, include Odoo version, module version, a screenshot, and the <span class="kbd">Settings → Technical → Parameters</span> values for this module.</p>
+    </div>
+
+  </div>
 </body>
 </html>
