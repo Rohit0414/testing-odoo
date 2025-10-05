@@ -1,300 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Niyu eLearning RAG — AI Assistant for Odoo 18</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-  <style>
-    /* ---------- Palette & Base ---------- */
-    :root{
-      --ink:#1f2937; --muted:#6b7280; --soft:#f5f7fb; --card:#ffffff; --line:#e6e9f5;
-      --violet:#6c5ce7; --teal:#14b8a6; --cyan:#00bcd4;
-      --violet-10:rgba(108,92,231,.10); --teal-10:rgba(20,184,166,.10);
-    }
-    html,body{margin:0;padding:0;background:var(--soft);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    .wrap{max-width:980px;margin:24px auto;padding:0 18px}
-    h1{font-size:30px;margin:0 0 8px}
-    h2{font-size:22px;margin:26px 0 10px}
-    h3{font-size:18px;margin:18px 0 8px}
-    p{margin:8px 0}
-    ul,ol{margin:6px 0 6px 18px}
-
-    /* ---------- Cards & Bits ---------- */
-    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
-    .muted{color:var(--muted)}
-    .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:4px 10px;border-radius:999px;background:#fff;font-size:12px;margin-right:6px}
-    .badge{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--teal));color:#fff;padding:2px 8px;border-radius:6px;font-size:12px}
-    .code{background:#0b1020;color:#e8ebff;border-radius:8px;padding:10px;font:13px/1.5 ui-monospace,Consolas,Menlo,monospace;overflow:auto}
-    .kbd{font:12px ui-monospace,Consolas,Menlo,monospace;background:#f2f3fb;border:1px solid var(--line);padding:1px 6px;border-radius:6px}
-
-    /* ---------- Table ---------- */
-    table{border-collapse:collapse;width:100%}
-    th,td{border:1px solid var(--line);padding:8px;text-align:left}
-    th{background:linear-gradient(180deg, rgba(108,92,231,.06), rgba(20,184,166,.04))}
-
-    /* ---------- Links ---------- */
-    .toc a{color:var(--violet);text-decoration:none}
-    .toc a:hover{text-decoration:underline}
-
-    /* ---------- Images ---------- */
-    .img{border:1px solid var(--line);border-radius:10px;overflow:hidden}
-    .p0{padding:0} /* helper: “image cards” without inner padding */
-
-    /* ---------- Status colors ---------- */
-    .ok{color:#10b981} .warn{color:#d97706} .err{color:#ef4444}
-
-    /* ---------- Logo & Callout ---------- */
-    .logo{
-      width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,rgba(108,92,231,.12),rgba(0,188,212,.10));border:1px solid var(--line);font-size:22px
-    }
-    .callout{background:linear-gradient(135deg,rgba(108,92,231,.10),rgba(20,184,166,.10));border:1px solid var(--line)}
-
-    /* ---------- Mini Bootstrap (flex utilities only) ---------- */
-    .d-flex{display:flex !important;}
-    .flex-wrap{flex-wrap:wrap !important;}
-    .flex-column{flex-direction:column !important;}
-    .align-items-start{align-items:flex-start !important;}
-    .align-items-center{align-items:center !important;}
-    .align-items-end{align-items:flex-end !important;}
-    .justify-content-start{justify-content:flex-start !important;}
-    .justify-content-center{justify-content:center !important;}
-    .justify-content-between{justify-content:space-between !important;}
-    .justify-content-end{justify-content:flex-end !important;}
-    /* gap scale similar to Bootstrap’s spacing (tweak as needed) */
-    .gap-1{gap:.25rem !important;} .gap-2{gap:.5rem !important;} .gap-3{gap:1rem !important;}
-    .gap-4{gap:1.5rem !important;} .gap-5{gap:3rem !important;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyu eLearning RAG — AI Assistant for Odoo 18</title>
+    <!-- Bootstrap CSS for Grid and Flex Utilities -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
-<body>
-  <div class="wrap">
+<body style="background-color:#030712; color:#e5e7eb; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height:1.7; margin:0; padding:0;">
 
-    <!-- HERO -->
-    <div class="d-flex align-items-center gap-3 flex-wrap" style="margin-bottom:8px">
-      <div class="logo">🎓</div>
-      <div>
-        <h1 style="margin-bottom:4px">Niyu eLearning RAG — AI Assistant for Odoo 18</h1>
-        <div class="muted">
-          Ask natural questions grounded in your eLearning content. Cited answers, course filter, chat-like UX, optional employee lookup.
+    <!-- HERO SECTION -->
+    <header style="padding: 160px 20px 120px 20px; text-align: center; overflow: hidden; background-image: radial-gradient(1200px 600px at 80% -10%, rgba(108,92,231,0.12), transparent 60%), radial-gradient(900px 500px at -10% 20%, rgba(20,184,166,0.10), transparent 55%);">
+        <div class="container">
+            <div style="width:60px; height:60px; margin: 0 auto 24px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,rgba(108,92,231,.15),rgba(20,184,166,.15)); border:1px solid #374151; font-size:32px;">🎓</div>
+            <h1 style="font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.04em; margin: 0 0 30px 0; color: #f9fafb; text-shadow: 0 5px 25px rgba(0,0,0,0.5);">
+                Unlock Your<br>Collective Genius
+            </h1>
+            <p style="font-size: clamp(1.2rem, 3vw, 1.4rem); font-weight: 500; color: #d1d5db; max-width: 750px; margin: 0 auto 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.6);">
+                Niyu's RAG Assistant for Odoo eLearning transforms your course content into an intelligent, interactive knowledge base. Ask anything, get cited answers instantly.
+            </p>
+            <a href="#features" style="display: inline-block; background-color: #ffffff; color: #030712; padding: 18px 40px; font-size: 1.15rem; font-weight: 800; text-decoration: none; border-radius: 99px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25);"
+               onmouseover="this.style.transform='translateY(-7px)'; this.style.boxShadow='0 12px 25px -7px rgba(0,0,0,0.4), 0 8px 15px -7px rgba(0,0,0,0.3), 0 0 50px 10px rgba(255,255,255,0.35)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25)';">
+                Explore Features <span style="margin-left: 10px;">&#9660;</span>
+            </a>
         </div>
-      </div>
-    </div>
+    </header>
+
+    <!-- MAIN SCREENSHOT SHOWCASE -->
+    <section style="max-width: 1200px; margin: -60px auto 120px auto; padding: 0 20px; position: relative; z-index: 10;">
+        <div style="padding: 3px; background: linear-gradient(45deg, rgba(108,92,231,0.5), rgba(20,184,166,0.5)); border-radius: 1.75rem; box-shadow: 0 60px 120px -30px rgba(0,0,0,0.8);">
+             <img src="/niyu_elearn_rag/static/description/screenshot-1.png" alt="Niyu eLearning RAG Assistant main interface" style="width: 100%; display: block; border-radius: 1.5rem; background-color: #000;">
+        </div>
+    </section>
 
     <!-- HIGHLIGHTS -->
-    <div class="card callout">
-      <strong>Highlights</strong>:
-      <span class="pill">RAG over <b>Odoo eLearning</b></span>
-      <span class="pill">Qdrant Vector DB</span>
-      <span class="pill">OpenAI Embeddings + LLM</span>
-      <span class="pill">Course filter</span>
-      <span class="pill">Sources &amp; Debug</span>
-      <span class="pill">Chat History (local)</span>
-      <span class="pill">People lookup (optional)</span>
-    </div>
+    <section style="padding: 0 20px 100px 20px;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 text-center">
+                    <div style="background: linear-gradient(135deg, rgba(108,92,231,.10), rgba(20,184,166,.10)); border: 1px solid #374151; border-radius: 16px; padding: 24px 32px;">
+                        <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: 12px 24px;">
+                            <span style="font-weight: 600; color: #d1d5db; font-size: 1.1rem;">Highlights:</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; border:1px solid #374151; padding:6px 12px; border-radius:999px; background:#111827; font-size:14px;">RAG for <b>eLearning</b></span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; border:1px solid #374151; padding:6px 12px; border-radius:999px; background:#111827; font-size:14px;">Qdrant Vector DB</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; border:1px solid #374151; padding:6px 12px; border-radius:999px; background:#111827; font-size:14px;">Cited Sources</span>
+                            <span style="display:inline-flex; align-items:center; gap:6px; border:1px solid #374151; padding:6px 12px; border-radius:999px; background:#111827; font-size:14px;">Course Filtering</span>
+                             <span style="display:inline-flex; align-items:center; gap:6px; border:1px solid #374151; padding:6px 12px; border-radius:999px; background:#111827; font-size:14px;">People Lookup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- TOC -->
-    <div class="card toc">
-      <div class="d-flex align-items-center justify-content-between flex-wrap">
-        <strong>Table of contents</strong>
-      </div>
-      <ul style="margin-top:8px">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#requirements">Requirements &amp; Compatibility</a></li>
-        <li><a href="#install">Installation</a></li>
-        <li><a href="#configure">Configuration</a></li>
-        <li><a href="#use">Using the Assistant</a></li>
-        <li><a href="#internals">How it works (Internals)</a></li>
-        <li><a href="#routes">Endpoints (JSON-RPC)</a></li>
-        <li><a href="#troubleshoot">Troubleshooting</a></li>
-        <li><a href="#changelog">Changelog</a> • <a href="#license">License</a> • <a href="#support">Support</a></li>
-      </ul>
-    </div>
+    <!-- FEATURES DEEP DIVE -->
+    <section id="features" style="padding: 100px 20px; background-color:#0b1220; border-top:1px solid #1f273a;">
+        <div class="container">
+            <!-- Feature 1: Grounded Answers -->
+            <div class="row d-flex align-items-center" style="margin-bottom: 120px;">
+                <div class="col-lg-6">
+                    <img src="/niyu_elearn_rag/static/description/screenshot-2.png" alt="An answer with source citations highlighted" style="width: 100%; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6); border: 1px solid #374151;">
+                </div>
+                <div class="col-lg-6" style="padding-left: 5%;">
+                    <h2 style="font-size:clamp(2rem, 5vw, 2.75rem); font-weight:800; color:#f9fafb; margin-bottom:20px;">Answers You Can Trust</h2>
+                    <p style="font-size:1.1rem; color:#9ca3af;">Move beyond generic AI responses. Every answer is generated directly from your trusted eLearning course content. The assistant provides direct links to the source slides, so you can instantly verify information and build confidence. Toggle the <strong>Debug</strong> panel to see the exact text chunks used to formulate the response.</p>
+                </div>
+            </div>
 
-    <!-- SCREENSHOTS (full-width, 3 images) -->
-    <div class="card img p0">
-      <img src="/niyu_elearn_rag/static/description/screenshot-1.png"
-           alt="Assistant main view"
-           style="width:100%;display:block"/>
-    </div>
-    <div class="card img p0">
-      <img src="/niyu_elearn_rag/static/description/screenshot-2.png"
-           alt="Answer with sources"
-           style="width:100%;display:block"/>
-    </div>
-    <div class="card img p0">
-      <img src="/niyu_elearn_rag/static/description/screenshot-3.png"
-           alt="Debug & people search"
-           style="width:100%;display:block"/>
-    </div>
+            <!-- Feature 2: People Search -->
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <img src="/niyu_elearn_rag/static/description/screenshot-3.png" alt="The people search panel showing an employee lookup" style="width: 100%; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6); border: 1px solid #374151;">
+                </div>
+                <div class="col-lg-6 order-lg-1" style="padding-right: 5%;">
+                    <h2 style="font-size:clamp(2rem, 5vw, 2.75rem); font-weight:800; color:#f9fafb; margin-bottom:20px;">Connect Knowledge to People</h2>
+                    <p style="font-size:1.1rem; color:#9ca3af;">Learning doesn't happen in a vacuum. The integrated <strong>People Search</strong> (optional) connects to your Odoo HR module, allowing you to find colleagues by name, title, or department. Find the course creator or a subject matter expert without ever leaving the assistant, all while respecting Odoo's access rights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- FEATURES -->
-    <h2 id="features">Features</h2>
-    <div class="card">
-      <ul>
-        <li><b>Grounded answers</b> on your slides with source citations (per answer) and an optional debug table of retrieved chunks.</li>
-        <li><b>Course filter</b>: limit answers to one course or search across all.</li>
-        <li><b>Chat UX</b>: local chat history (browser <code>localStorage</code>), quick chips, copy answer, new chat, delete chat.</li>
-        <li><b>Admin panel</b>: Test Embeddings, Test Qdrant, Index Now, and last indexed timestamp.</li>
-        <li><b>People search</b> (optional): find employees by name/email/title; respects access rights.</li>
-        <li><b>Safe defaults</b>: if the context lacks the answer, the assistant says it doesn’t know.</li>
-      </ul>
-    </div>
+    <!-- TECHNICAL SPECIFICATIONS -->
+    <section style="padding: 100px 20px; border-top:1px solid #1f273a;">
+        <div class="container">
+            <div class="row text-center mb-5">
+                 <div class="col-12">
+                    <span style="display:inline-block; font-size:14px; font-weight:800; color:#00bcd4; background-color:rgba(0,188,212,0.1); border:1px solid rgba(0,188,212,0.3); border-radius:999px; padding:8px 16px; margin-bottom:16px;">
+                        FOR DEVELOPERS & ADMINS
+                    </span>
+                    <h2 style="font-size: clamp(2.2rem, 5vw, 3rem); font-weight:800; margin:0 0 14px 0; color:#f9fafb;">Configuration & Internals</h2>
+                 </div>
+            </div>
 
-    <!-- REQUIREMENTS -->
-    <h2 id="requirements">Requirements &amp; Compatibility</h2>
-    <div class="card">
-      <ul>
-        <li>Odoo 18 (Community or Enterprise)</li>
-        <li>Modules: <code>website_slides</code> (eLearning). <code>hr</code> optional for People search.</li>
-        <li>Python: <code>requests</code></li>
-        <li>Qdrant running and reachable by Odoo</li>
-        <li>OpenAI API key (Embeddings + Chat)</li>
-      </ul>
-    </div>
+            <div class="row g-4">
+                <!-- Left Column: Config -->
+                <div class="col-lg-7">
+                     <h3 id="configure" style="font-size:22px; margin-bottom:16px; color:#c7d2fe;">Configuration</h3>
+                     <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px;">
+                        <p style="color: #9ca3af; margin-top:0;">Setup is managed in <strong>Settings → Niyu eLearning RAG</strong>. Connect to your services and click <strong>Index Now</strong>.</p>
+                        <table>
+                            <thead style="background:linear-gradient(180deg, rgba(108,92,231,.10), rgba(20,184,166,.08));">
+                                <tr>
+                                    <th style="border:1px solid #374151; padding:10px 12px; text-align:left; color:#e5e7eb;">Parameter</th>
+                                    <th style="border:1px solid #374151; padding:10px 12px; text-align:left; color:#e5e7eb;">Description</th>
+                                    <th style="border:1px solid #374151; padding:10px 12px; text-align:left; color:#e5e7eb;">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 14px;">
+                                <tr><td style="border:1px solid #374151; padding:10px 12px;">OpenAI API Key</td><td style="border:1px solid #374151; padding:10px 12px;">Your secret OpenAI key</td><td style="border:1px solid #374151; padding:10px 12px; font-family:monospace; color:#a5f3fc;">sk-…</td></tr>
+                                <tr><td style="border:1px solid #374151; padding:10px 12px;">Embeddings Model</td><td style="border:1px solid #374151; padding:10px 12px;">Model for vectorization</td><td style="border:1px solid #374151; padding:10px 12px; font-family:monospace; color:#a5f3fc;">text-embedding-3-small</td></tr>
+                                <tr><td style="border:1px solid #374151; padding:10px 12px;">LLM Model</td><td style="border:1px solid #374151; padding:10px 12px;">Chat generation model</td><td style="border:1px solid #374151; padding:10px 12px; font-family:monospace; color:#a5f3fc;">gpt-4o-mini</td></tr>
+                                <tr><td style="border:1px solid #374151; padding:10px 12px;">Qdrant URL</td><td style="border:1px solid #374151; padding:10px 12px;">Endpoint for your vector DB</td><td style="border:1px solid #374151; padding:10px 12px; font-family:monospace; color:#a5f3fc;">http://127.0.0.1:6333</td></tr>
+                                <tr><td style="border:1px solid #374151; padding:10px 12px;">Qdrant Collection</td><td style="border:1px solid #374151; padding:10px 12px;">Name of the Qdrant collection</td><td style="border:1px solid #374151; padding:10px 12px; font-family:monospace; color:#a5f3fc;">elearning</td></tr>
+                            </tbody>
+                        </table>
+                     </div>
+                </div>
 
-    <!-- INSTALL -->
-    <h2 id="install">Installation</h2>
-    <div class="card">
-      <ol>
-        <li>Clone to <code>custom_addons/niyu_elearn_rag</code> and update Apps list.</li>
-        <li>Install the module. (Ensure <code>website_slides</code> is installed.)</li>
-        <li>Start Qdrant. If changing embedding model later, recreate the collection to avoid vector size mismatch.</li>
-      </ol>
-    </div>
+                <!-- Right Column: How it Works -->
+                <div class="col-lg-5">
+                     <h3 id="internals" style="font-size:22px; margin-bottom:16px; color:#c7d2fe;">How It Works</h3>
+                     <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px; height:100%;">
+                         <ol style="margin:0; padding-left: 20px;">
+                            <li style="margin-bottom:12px;"><strong>Indexing:</strong> eLearning slides are converted to plaintext, split into overlapping chunks, and vectorized using your chosen OpenAI model.</li>
+                            <li style="margin-bottom:12px;"><strong>Storage:</strong> These vectors are stored in a Qdrant collection with rich metadata (slide ID, title, URL, etc.).</li>
+                            <li style="margin-bottom:12px;"><strong>Retrieval:</strong> A user's question is vectorized. A similarity search fetches the most relevant chunks (Top-K) from Qdrant.</li>
+                            <li style="margin-bottom:12px;"><strong>Generation:</strong> The retrieved chunks are passed to the LLM as context with a specialized prompt, instructing it to answer the user's question using *only* the provided information and to cite its sources.</li>
+                         </ol>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- CONFIGURE -->
-    <h2 id="configure">Configuration</h2>
-    <div class="card">
-      <ol>
-        <li>Go to <b>Settings → Niyu eLearning RAG</b> (app card in General Settings).</li>
-        <li>Fill in:
-          <ul>
-            <li><b>OpenAI API Key</b></li>
-            <li><b>Embeddings Model</b> (e.g. <code>text-embedding-3-small</code>)</li>
-            <li><b>LLM Model</b> (your chosen chat model)</li>
-            <li><b>Qdrant URL</b> (e.g. <code>http://127.0.0.1:6333</code>) &amp; <b>Collection</b> (e.g. <code>elearning</code>)</li>
-            <li><b>Retrieval</b>: Top-K, Min score (defaults provided)</li>
-          </ul>
-        </li>
-        <li>Click <b>Save</b>.</li>
-        <li>Use <b>Test Qdrant</b> and <b>Test Embeddings</b> to validate connectivity.</li>
-        <li>Click <b>Index Now</b> to embed and push slides to Qdrant.</li>
-      </ol>
+    <!-- SUPPORT & REQUIREMENTS -->
+    <section style="padding: 100px 20px; background-color:#0b1220; border-top:1px solid #1f273a;">
+        <div class="container">
+             <div class="row g-5">
+                <!-- Requirements -->
+                <div class="col-lg-6">
+                    <h3 id="requirements" style="font-size:22px; margin-bottom:16px; color:#f9fafb;">Requirements &amp; Compatibility</h3>
+                    <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px; height:100%;">
+                        <ul style="margin:0; padding-left: 20px; color: #9ca3af; font-size: 1rem;">
+                            <li style="margin-bottom:8px;">Odoo 18 (Community or Enterprise)</li>
+                            <li style="margin-bottom:8px;">Required Modules: <code>website_slides</code> (Odoo eLearning)</li>
+                            <li style="margin-bottom:8px;">Optional Modules: <code>hr</code> (for People Search)</li>
+                            <li style="margin-bottom:8px;">Running instance of Qdrant Vector Database</li>
+                            <li style="margin-bottom:8px;">An active OpenAI API key</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Support -->
+                <div class="col-lg-6">
+                    <h3 id="support" style="font-size:22px; margin-bottom:16px; color:#f9fafb;">Support & Contact</h3>
+                    <div style="background-color:#111827; border:1px solid #374151; border-radius:16px; padding:24px; height:100%;">
+                         <p style="margin-top:0; color: #9ca3af;">We're here to help you succeed. For any issues, feature requests, or questions, please reach out to our support team.</p>
+                         <p style="margin-bottom:0;">
+                             <a href="mailto:support@niyulabs.com" style="color: #6ee7b7; font-weight: 600; text-decoration: none;">support@niyulabs.com</a>
+                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <h3>Config Parameters (stored in ICP)</h3>
-      <table>
-        <thead><tr><th>Key</th><th>Description</th><th>Example</th></tr></thead>
-        <tbody>
-          <tr><td><code>niyu_elearn_rag.openai_api_key</code></td><td>Secret OpenAI key</td><td>sk-…</td></tr>
-          <tr><td><code>niyu_elearn_rag.embeddings_model</code></td><td>Embedding model name</td><td>text-embedding-3-small</td></tr>
-          <tr><td><code>niyu_elearn_rag.llm_model</code></td><td>Chat model name</td><td>gpt-4o-mini</td></tr>
-          <tr><td><code>niyu_elearn_rag.qdrant_url</code></td><td>Qdrant base URL</td><td>http://127.0.0.1:6333</td></tr>
-          <tr><td><code>niyu_elearn_rag.qdrant_collection</code></td><td>Collection name</td><td>elearning</td></tr>
-          <tr><td><code>niyu_elearn_rag.top_k</code></td><td>Default retrieval size</td><td>12</td></tr>
-          <tr><td><code>niyu_elearn_rag.min_score</code></td><td>Minimum similarity score</td><td>0.25</td></tr>
-          <tr><td><code>niyu_elearn_rag.last_indexed_at</code></td><td>Watermark for incremental indexing</td><td>auto</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- FINAL CTA -->
+    <section style="padding: 120px 20px;">
+        <div class="container text-center">
+            <div style="background-color:rgba(108,92,231,0.15); padding: 100px 40px; border-radius: 2rem; border: 1px solid #374151; box-shadow: 0 30px 80px rgba(0,0,0,0.5);">
+                <h2 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.2; font-weight: 800; margin-bottom: 20px; color:#c7d2fe;">Ready to Supercharge Your Odoo eLearning?</h2>
+                <p style="max-width: 700px; margin: 0 auto 50px; color: #d1d5db; font-size: 1.15rem;">Stop letting valuable knowledge sit idle. Empower your team with instant, reliable answers and seamless collaboration. Install the Niyu RAG Assistant today.</p>
+                <a href="#" style="display: inline-block; background-color: #ffffff; color: #030712; padding: 18px 40px; font-size: 1.15rem; font-weight: 800; text-decoration: none; border-radius: 99px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25);"
+                   onmouseover="this.style.transform='translateY(-7px)'; this.style.boxShadow='0 12px 25px -7px rgba(0,0,0,0.4), 0 8px 15px -7px rgba(0,0,0,0.3), 0 0 50px 10px rgba(255,255,255,0.35)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px -5px rgba(0, 0, 0, 0.3), 0 5px 10px -5px rgba(0, 0, 0, 0.2), 0 0 40px 8px rgba(255,255,255,0.25)';">
+                  Get it on the Odoo App Store &#8594;
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- USING -->
-    <h2 id="use">Using the Assistant</h2>
-    <div class="card">
-      <ol>
-        <li>Open the client action: <b>eLearning → AI Assistant</b> (or search for “Niyu eLearning Assistant”).</li>
-        <li>Select a specific <b>Course</b> or leave <b>All courses</b>.</li>
-        <li>Ask your question in the composer (Enter to send; Shift+Enter for new line).</li>
-        <li>Review the answer and <b>Sources</b>. Toggle <b>Debug</b> to inspect retrieved chunks.</li>
-        <li>Use <b>New Chat</b> to start a fresh thread. Use the history drawer (FAB) to reopen or delete conversations.</li>
-        <li>(Optional) In the right panel, search <b>People</b> by name/email/title. Opens employee form with your access rights.</li>
-      </ol>
-      <p class="muted">Note: Chat history is stored locally in the browser via <code>localStorage</code>.</p>
-    </div>
-
-    <!-- INTERNALS -->
-    <h2 id="internals">How it works (Internals)</h2>
-    <div class="card">
-      <ul>
-        <li><b>Indexing</b> (<code>services/ingest.py</code>): reads <code>slide.slide</code> (<code>html_content</code> → plaintext), chunks (≈1200 chars, 200 overlap), embeds, and upserts into Qdrant with payload:
-          <div class="code">{"slide_id","slide_title","channel_id","channel_name","tags","chunk_index","url","write_date","text"}</div>
-        </li>
-        <li><b>Retrieval</b>: query is embedded; top-N are fetched from Qdrant with vectors. Greedy <b>MMR</b> re-ranks (diversity) and we de-dupe per slide.</li>
-        <li><b>Answering</b>: system prompt enforces context-only answers and simple Markdown; <b>_attach_sources</b> replaces <code>(URL)</code> placeholders with real links and appends a Sources list.</li>
-        <li><b>Security</b>: All routes are <code>auth="user"</code> and respect Odoo ACLs; course filters restrict by visible <code>slide.channel</code> IDs. People search is optional and rights-aware.</li>
-      </ul>
-    </div>
-
-    <!-- ROUTES -->
-    <h2 id="routes">Endpoints (JSON-RPC)</h2>
-    <div class="card">
-      <h3>/niyu/elearn/ask</h3>
-      <p><b>POST</b> (auth user). Body:</p>
-      <div class="code">{
-  "jsonrpc":"2.0","method":"call","params":{
-    "question":"How do I enroll employees?",
-    "top_k":12, "min_score":0.25, "debug":false,
-    "channel_id": 0
-  }
-}</div>
-      <p>Response:</p>
-      <div class="code">{
-  "answer":"...", "sources":[{"title":"...","url":"/slides/ID"}],
-  "debug":[{"score":0.71,"title":"...","url":"/slides/ID","snippet":"..."}]
-}</div>
-
-      <h3>/niyu/elearn/courses</h3>
-      <p>List visible <code>slide.channel</code> (auth user).</p>
-
-      <h3>/niyu/elearn/people/search</h3>
-      <p>Optional; requires <code>hr</code>. Filters by name/email/title; can restrict to a course’s members.</p>
-
-      <h3>/niyu/elearn/status</h3>
-      <p>Admin flag and <code>last_indexed_at</code>.</p>
-
-      <h3>/niyu/elearn/admin/*</h3>
-      <ul>
-        <li><code>test_embeddings</code> → sanity check model</li>
-        <li><code>test_qdrant</code> → connectivity/version</li>
-        <li><code>index_now</code> → index updated slides</li>
-      </ul>
-    </div>
-
-    <!-- TROUBLESHOOT -->
-    <h2 id="troubleshoot">Troubleshooting</h2>
-    <div class="card">
-      <ul>
-        <li><b>Missing template: “niyu_elearn_rag.AskView”</b> — Ensure your XML <code>t-name</code> matches the JS component’s template and the asset bundle loads it.</li>
-        <li><b>“Entity &amp;nbsp; not defined”</b> — Don’t use HTML entities in XML; use a literal space or <code>&amp;#160;</code>.</li>
-        <li><b>OwlError: reading 'length'</b> — Guard nulls in template: use <code>state.list and state.list.length</code> or <code>state.list or []</code>.</li>
-        <li><b>Qdrant vector size mismatch</b> — If you change embeddings model, recreate the collection or point to a new one.</li>
-        <li><b>Index Now returns 0</b> — No new slides since last watermark; clear <code>last_indexed_at</code> or edit slides to re-index.</li>
-        <li><b>Scroll feels stuck</b> — Ensure the messages container has <code>overflow:auto</code> and no parent with <code>overflow:hidden</code>.</li>
-        <li><b>403 / forbidden on admin</b> — Only users in <code>base.group_system</code> can call admin routes.</li>
-      </ul>
-    </div>
-
-    <!-- CHANGELOG -->
-    <h2 id="changelog">Changelog</h2>
-    <div class="card">
-      <ul>
-        <li><b>v1.0.0</b> — First release: RAG, course filter, citations, debug, people search (opt), admin tools, chat UI.</li>
-      </ul>
-    </div>
-
-    <!-- LICENSE -->
-    <h2 id="license">License</h2>
-    <div class="card">
-      <p>Proprietary / Commercial (or fill in your chosen license).</p>
-    </div>
-
-    <!-- SUPPORT -->
-    <h2 id="support">Support</h2>
-    <div class="card">
-      <p>Issues or feature requests? Reach us at <a href="mailto:support@niyulabs.com">support@niyulabs.com</a>.</p>
-      <p>When reporting, include Odoo version, module version, a screenshot, and the <span class="kbd">Settings → Technical → Parameters</span> values for this module.</p>
-    </div>
-
-  </div>
 </body>
 </html>
