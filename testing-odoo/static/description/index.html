@@ -20,12 +20,9 @@
     .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
     .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:4px 10px;border-radius:999px;background:#fff;font-size:12px;margin-right:6px}
     .badge{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--teal));color:#fff;padding:2px 8px;border-radius:6px;font-size:12px}
-    .grid{display:grid;gap:12px}
-    @media(min-width:900px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
     .code{background:#0b1020;color:#e8ebff;border-radius:8px;padding:10px;font:13px/1.5 ui-monospace,Consolas,Menlo,monospace;overflow:auto}
     .kbd{font:12px ui-monospace,Consolas,Menlo,monospace;background:#f2f3fb;border:1px solid var(--line);padding:1px 6px;border-radius:6px}
     ul,ol{margin:6px 0 6px 18px}
-    .hero{display:flex;align-items:center;gap:14px}
     .logo{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
           background:linear-gradient(135deg,rgba(108,92,231,.12),rgba(0,188,212,.10));border:1px solid var(--line);font-size:22px}
     .callout{background:linear-gradient(135deg,rgba(108,92,231,.10),rgba(20,184,166,.10));border:1px solid var(--line)}
@@ -34,34 +31,44 @@
     th{background:linear-gradient(180deg, rgba(108,92,231,.06), rgba(20,184,166,.04))}
     .toc a{color:var(--violet);text-decoration:none} .toc a:hover{text-decoration:underline}
     .img{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    /* Small helper to remove inner padding from "image cards" */
+    .p0{padding:0}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="hero">
+
+    <!-- HERO -->
+    <div class="d-flex align-items-center gap-3 flex-wrap" style="margin-bottom:8px">
       <div class="logo">🎓</div>
       <div>
-        <h1>Niyu eLearning RAG — AI Assistant for Odoo 18</h1>
-        <div class="muted">Ask natural questions grounded in your eLearning content. Cited answers, course filter, chat-like UX, optional employee lookup.</div>
+        <h1 style="margin-bottom:4px">Niyu eLearning RAG — AI Assistant for Odoo 18</h1>
+        <div class="muted">
+          Ask natural questions grounded in your eLearning content. Cited answers, course filter, chat-like UX, optional employee lookup.
+        </div>
       </div>
     </div>
 
+    <!-- HIGHLIGHTS -->
     <div class="card callout">
       <strong>Highlights</strong>:
       <span class="pill">RAG over <b>Odoo eLearning</b></span>
       <span class="pill">Qdrant Vector DB</span>
       <span class="pill">OpenAI Embeddings + LLM</span>
       <span class="pill">Course filter</span>
-      <span class="pill">Sources & Debug</span>
+      <span class="pill">Sources &amp; Debug</span>
       <span class="pill">Chat History (local)</span>
       <span class="pill">People lookup (optional)</span>
     </div>
 
+    <!-- TOC -->
     <div class="card toc">
-      <strong>Table of contents</strong>
-      <ul>
+      <div class="d-flex align-items-center justify-content-between flex-wrap">
+        <strong>Table of contents</strong>
+      </div>
+      <ul style="margin-top:8px">
         <li><a href="#features">Features</a></li>
-        <li><a href="#requirements">Requirements & Compatibility</a></li>
+        <li><a href="#requirements">Requirements &amp; Compatibility</a></li>
         <li><a href="#install">Installation</a></li>
         <li><a href="#configure">Configuration</a></li>
         <li><a href="#use">Using the Assistant</a></li>
@@ -72,16 +79,24 @@
       </ul>
     </div>
 
-    <div class="grid cols-2">
-      <div class="card img">
-        <!-- Replace with your real image(s) -->
-        <img src="/niyu_elearn_rag/static/description/screenshot-ask.png" alt="Assistant view" style="width:100%;display:block"/>
-      </div>
-      <div class="card img">
-        <img src="/niyu_elearn_rag/static/description/screenshot-sources.png" alt="Sources & debug" style="width:100%;display:block"/>
-      </div>
+    <!-- SCREENSHOTS (full-width, 3 images) -->
+    <div class="card img p0">
+      <img src="/niyu_elearn_rag/static/description/screenshot-1.png"
+           alt="Assistant main view"
+           style="width:100%;display:block"/>
+    </div>
+    <div class="card img p0">
+      <img src="/niyu_elearn_rag/static/description/screenshot-2.png"
+           alt="Answer with sources"
+           style="width:100%;display:block"/>
+    </div>
+    <div class="card img p0">
+      <img src="/niyu_elearn_rag/static/description/screenshot-3.png"
+           alt="Debug & people search"
+           style="width:100%;display:block"/>
     </div>
 
+    <!-- FEATURES -->
     <h2 id="features">Features</h2>
     <div class="card">
       <ul>
@@ -94,7 +109,8 @@
       </ul>
     </div>
 
-    <h2 id="requirements">Requirements & Compatibility</h2>
+    <!-- REQUIREMENTS -->
+    <h2 id="requirements">Requirements &amp; Compatibility</h2>
     <div class="card">
       <ul>
         <li>Odoo 18 (Community or Enterprise)</li>
@@ -105,6 +121,7 @@
       </ul>
     </div>
 
+    <!-- INSTALL -->
     <h2 id="install">Installation</h2>
     <div class="card">
       <ol>
@@ -114,6 +131,7 @@
       </ol>
     </div>
 
+    <!-- CONFIGURE -->
     <h2 id="configure">Configuration</h2>
     <div class="card">
       <ol>
@@ -123,7 +141,7 @@
             <li><b>OpenAI API Key</b></li>
             <li><b>Embeddings Model</b> (e.g. <code>text-embedding-3-small</code>)</li>
             <li><b>LLM Model</b> (your chosen chat model)</li>
-            <li><b>Qdrant URL</b> (e.g. <code>http://127.0.0.1:6333</code>) & <b>Collection</b> (e.g. <code>elearning</code>)</li>
+            <li><b>Qdrant URL</b> (e.g. <code>http://127.0.0.1:6333</code>) &amp; <b>Collection</b> (e.g. <code>elearning</code>)</li>
             <li><b>Retrieval</b>: Top-K, Min score (defaults provided)</li>
           </ul>
         </li>
@@ -148,6 +166,7 @@
       </table>
     </div>
 
+    <!-- USING -->
     <h2 id="use">Using the Assistant</h2>
     <div class="card">
       <ol>
@@ -161,6 +180,7 @@
       <p class="muted">Note: Chat history is stored locally in the browser via <code>localStorage</code>.</p>
     </div>
 
+    <!-- INTERNALS -->
     <h2 id="internals">How it works (Internals)</h2>
     <div class="card">
       <ul>
@@ -173,6 +193,7 @@
       </ul>
     </div>
 
+    <!-- ROUTES -->
     <h2 id="routes">Endpoints (JSON-RPC)</h2>
     <div class="card">
       <h3>/niyu/elearn/ask</h3>
@@ -207,10 +228,11 @@
       </ul>
     </div>
 
+    <!-- TROUBLESHOOT -->
     <h2 id="troubleshoot">Troubleshooting</h2>
     <div class="card">
       <ul>
-        <li><b>Missing template: “niyu_elearn_rag.AskView”</b> — Ensure your XML <code>t-name</code> matches the JS component’s <code>static template</code> and the asset bundle loads it.</li>
+        <li><b>Missing template: “niyu_elearn_rag.AskView”</b> — Ensure your XML <code>t-name</code> matches the JS component’s template and the asset bundle loads it.</li>
         <li><b>“Entity &amp;nbsp; not defined”</b> — Don’t use HTML entities in XML; use a literal space or <code>&amp;#160;</code>.</li>
         <li><b>OwlError: reading 'length'</b> — Guard nulls in template: use <code>state.list and state.list.length</code> or <code>state.list or []</code>.</li>
         <li><b>Qdrant vector size mismatch</b> — If you change embeddings model, recreate the collection or point to a new one.</li>
@@ -220,6 +242,7 @@
       </ul>
     </div>
 
+    <!-- CHANGELOG -->
     <h2 id="changelog">Changelog</h2>
     <div class="card">
       <ul>
@@ -227,11 +250,13 @@
       </ul>
     </div>
 
+    <!-- LICENSE -->
     <h2 id="license">License</h2>
     <div class="card">
       <p>Proprietary / Commercial (or fill in your chosen license).</p>
     </div>
 
+    <!-- SUPPORT -->
     <h2 id="support">Support</h2>
     <div class="card">
       <p>Issues or feature requests? Reach us at <a href="mailto:support@niyulabs.com">support@niyulabs.com</a>.</p>
