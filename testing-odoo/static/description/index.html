@@ -4,7 +4,9 @@
   <meta charset="utf-8"/>
   <title>Niyu eLearning RAG — AI Assistant for Odoo 18</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
   <style>
+    /* ---------- Palette & Base ---------- */
     :root{
       --ink:#1f2937; --muted:#6b7280; --soft:#f5f7fb; --card:#ffffff; --line:#e6e9f5;
       --violet:#6c5ce7; --teal:#14b8a6; --cyan:#00bcd4;
@@ -16,23 +18,53 @@
     h2{font-size:22px;margin:26px 0 10px}
     h3{font-size:18px;margin:18px 0 8px}
     p{margin:8px 0}
-    .muted{color:var(--muted)}
+    ul,ol{margin:6px 0 6px 18px}
+
+    /* ---------- Cards & Bits ---------- */
     .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+    .muted{color:var(--muted)}
     .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:4px 10px;border-radius:999px;background:#fff;font-size:12px;margin-right:6px}
     .badge{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--teal));color:#fff;padding:2px 8px;border-radius:6px;font-size:12px}
     .code{background:#0b1020;color:#e8ebff;border-radius:8px;padding:10px;font:13px/1.5 ui-monospace,Consolas,Menlo,monospace;overflow:auto}
     .kbd{font:12px ui-monospace,Consolas,Menlo,monospace;background:#f2f3fb;border:1px solid var(--line);padding:1px 6px;border-radius:6px}
-    ul,ol{margin:6px 0 6px 18px}
-    .logo{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-          background:linear-gradient(135deg,rgba(108,92,231,.12),rgba(0,188,212,.10));border:1px solid var(--line);font-size:22px}
-    .callout{background:linear-gradient(135deg,rgba(108,92,231,.10),rgba(20,184,166,.10));border:1px solid var(--line)}
-    .ok{color:#10b981} .warn{color:#d97706} .err{color:#ef4444}
-    table{border-collapse:collapse;width:100%} th,td{border:1px solid var(--line);padding:8px;text-align:left}
+
+    /* ---------- Table ---------- */
+    table{border-collapse:collapse;width:100%}
+    th,td{border:1px solid var(--line);padding:8px;text-align:left}
     th{background:linear-gradient(180deg, rgba(108,92,231,.06), rgba(20,184,166,.04))}
-    .toc a{color:var(--violet);text-decoration:none} .toc a:hover{text-decoration:underline}
+
+    /* ---------- Links ---------- */
+    .toc a{color:var(--violet);text-decoration:none}
+    .toc a:hover{text-decoration:underline}
+
+    /* ---------- Images ---------- */
     .img{border:1px solid var(--line);border-radius:10px;overflow:hidden}
-    /* Small helper to remove inner padding from "image cards" */
-    .p0{padding:0}
+    .p0{padding:0} /* helper: “image cards” without inner padding */
+
+    /* ---------- Status colors ---------- */
+    .ok{color:#10b981} .warn{color:#d97706} .err{color:#ef4444}
+
+    /* ---------- Logo & Callout ---------- */
+    .logo{
+      width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,rgba(108,92,231,.12),rgba(0,188,212,.10));border:1px solid var(--line);font-size:22px
+    }
+    .callout{background:linear-gradient(135deg,rgba(108,92,231,.10),rgba(20,184,166,.10));border:1px solid var(--line)}
+
+    /* ---------- Mini Bootstrap (flex utilities only) ---------- */
+    .d-flex{display:flex !important;}
+    .flex-wrap{flex-wrap:wrap !important;}
+    .flex-column{flex-direction:column !important;}
+    .align-items-start{align-items:flex-start !important;}
+    .align-items-center{align-items:center !important;}
+    .align-items-end{align-items:flex-end !important;}
+    .justify-content-start{justify-content:flex-start !important;}
+    .justify-content-center{justify-content:center !important;}
+    .justify-content-between{justify-content:space-between !important;}
+    .justify-content-end{justify-content:flex-end !important;}
+    /* gap scale similar to Bootstrap’s spacing (tweak as needed) */
+    .gap-1{gap:.25rem !important;} .gap-2{gap:.5rem !important;} .gap-3{gap:1rem !important;}
+    .gap-4{gap:1.5rem !important;} .gap-5{gap:3rem !important;}
   </style>
 </head>
 <body>
