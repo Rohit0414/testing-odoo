@@ -1,98 +1,119 @@
-<!-- =================================================================== -->
-<!-- START: NEW SECTION - DYNAMIC CHARTING & VISUALIZATION -->
-<!-- =================================================================== -->
-<section style="
-    background-color: #030712;
-    padding: 120px 0;
-    overflow: hidden;
-    position: relative;
-    border-top: 1px solid #1f2937;
-    background-image: radial-gradient(circle at 0% 0%, rgba(45, 212, 191, 0.15), transparent 40%);
-">
-    <div class="container" style="padding: 0 15px;">
-        <!-- Section Header -->
-        <div class="row mb-5">
-            <div class="col-12 text-center">
-                <span style="
-                    display: inline-block;
-                    font-size: 14px;
-                    font-weight: 800;
-                    color: #2dd4bf;
-                    background-color: rgba(45, 212, 191, 0.1);
-                    border: 1px solid rgba(45, 212, 191, 0.3);
-                    border-radius: 999px;
-                    padding: 8px 16px;
-                    margin-bottom: 16px;
-                ">DYNAMIC VISUALIZATION</span>
-                <h2 style="
-                    font-size: clamp(2.5rem, 5vw, 3.5rem);
-                    font-weight: 800;
-                    margin: 0 0 14px 0;
-                    color: #99f6e4;
-                    text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
-                ">Click. See. Understand.</h2>
-                <p style="font-size: 1.15rem; color: #9ca3af; max-width: 860px; margin: 0 auto;">
-                    Every answer is now a potential dashboard. With a single click on <strong>Show Charts</strong>, Niyu AI intelligently analyzes your results and automatically generates the most effective visualizations—be it a bar chart for comparisons, a line chart for trends, or a pie chart for proportions. Stop interpreting tables and start seeing the story in your data.
-                </p>
-            </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo Pigment Connector</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Minimal CSS for hover effects and elements not easily styled inline */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+        }
+        .cta-button {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #00a892 !important;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body style="font-family: 'Poppins', sans-serif; background-color: #f7fafc; color: #4a5568; line-height: 1.6;">
 
-        <!-- Full-width Screenshot 1 -->
-       <div class="row justify-content-center">
-        <div class="col-12" style="margin-bottom: 60px;">
-            <div style="position: relative;">
-                <img src="./cha.png" alt="Niyu AI response with a 'Show Charts' button" style="
-                    width: 100%;
-                    border-radius: 16px;
-                    display: block;
-                    border: 1px solid #374151;
-                    box-shadow: 0 50px 100px -20px rgba(0,0,0,0.9), 0 0 40px rgba(45, 212, 191, 0.2);
-                ">
-            </div>
+    <!-- Header -->
+    <header class="text-center" style="background: linear-gradient(135deg, #6E6EDD, #4A4A88); color: #ffffff; padding: 4rem 2rem; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin: 0; font-weight: 700;">Odoo Pigment Connector</h1>
+            <p style="font-size: 1.25rem; margin-top: 0.5rem; opacity: 0.9;">
+                Seamless & Automated Data Integration for Modern Business Planning
+            </p>
         </div>
-      </div>
+    </header>
 
-        <!-- Full-width Screenshot 2 -->
-       <div class="row justify-content-center">
-        <div class="col-12" style="margin-bottom: 60px;">
-            <div style="position: relative;">
-                <img src="./charts.png" alt="Niyu AI displaying generated charts like bar, line, and pie" style="
-                    width: 100%;
-                    border-radius: 16px;
-                    display: block;
-                    border: 1px solid #374151;
-                    box-shadow: 0 50px 100px -20px rgba(0,0,0,0.9), 0 0 40px rgba(45, 212, 191, 0.2);
-                ">
-            </div>
-        </div>
-      </div>
+    <!-- Main Content -->
+    <main class="container my-5">
 
-        <!-- Supporting Feature Callouts -->
-        <div class="row g-4">
-            <div class="col-12 col-md-4">
-                <div style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:24px; height:100%;">
-                    <div style="font-size: 2rem; color: #2dd4bf; margin-bottom: 12px;">&#128202;</div>
-                    <h4 style="color:#f9fafb; font-size:1.25rem; font-weight:700; margin-bottom:12px;">Automatic Chart Selection</h4>
-                    <p style="color:#9ca3af; font-size:1rem;">Niyu intelligently picks the best chart type (Bar, Line, Pie, etc.) based on your data structure to provide the clearest insights instantly.</p>
+        <!-- Introduction Section -->
+        <section class="text-center mb-5 pb-4">
+            <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">Bridge Your ERP and FP&A</h2>
+            <p class="mx-auto" style="max-width: 800px; font-size: 1.1rem;">
+                Eliminate manual data exports and cumbersome CSV uploads. The Odoo Pigment Connector automates the flow of critical business data directly from your Odoo ERP to the Pigment planning platform, ensuring your financial models are always up-to-date, accurate, and reliable.
+            </p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mb-5">
+            <div class="row g-4 justify-content-center">
+                <!-- Feature 1 -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
+                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128202;</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Intuitive Field Mapping</h3>
+                        <p>Visually map any Odoo model field, including related fields, to your corresponding Pigment dimensions and metrics directly from the Odoo interface.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
+                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#9201;</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Automated Synchronization</h3>
+                        <p>Run data syncs on a schedule with Odoo's automated actions (cron jobs) or trigger them manually with a single click for real-time updates.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
+                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128273;</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Robust & Secure</h3>
+                        <p>Built with comprehensive error handling and logging. Securely connects to the Pigment API using your credentials stored safely in Odoo.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
+                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128170;</div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Flexible & Powerful</h3>
+                        <p>Extract data from any Odoo model—from sales and accounting to inventory and HR—to power your most complex Pigment business cases.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                 <div style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:24px; height:100%;">
-                    <div style="font-size: 2rem; color: #2dd4bf; margin-bottom: 12px;">&#128279;</div>
-                    <h4 style="color:#f9fafb; font-size:1.25rem; font-weight:700; margin-bottom:12px;">Interactive & Sharable</h4>
-                    <p style="color:#9ca3af; font-size:1rem;">Hover over data points for details, and export your charts to PDF or CSV, making it easy to share your findings with the entire team.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                 <div style="background-color:#111827; border:1px solid #1f2937; border-radius:16px; padding:24px; height:100%;">
-                    <div style="font-size: 2rem; color: #2dd4bf; margin-bottom: 12px;">&#128161;</div>
-                    <h4 style="color:#f9fafb; font-size:1.25rem; font-weight:700; margin-bottom:12px;">From Insight to Action</h4>
-                    <p style="color:#9ca3af; font-size:1rem;">Visualizing trends and outliers helps you make faster, more confident decisions directly from your Odoo data without any extra steps.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- =================================================================== -->
-<!-- END: NEW SECTION - DYNAMIC CHARTING & VISUALIZATION -->
-<!-- =================================================================== -->
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="text-center my-5 p-5" style="background-color: #ffffff; border-radius: 15px; border: 2px solid #00C4A7; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);">
+            <h2 style="font-size: 2rem; color: #4A4A88; margin-top: 0;">Free to Use, Professional Support to Start</h2>
+            <div style="font-size: 3.5rem; font-weight: 700; color: #00C4A7; margin: 10px 0;">FREE MODULE</div>
+            <p>This powerful connector module is available for free.</p>
+            <p style="font-style: italic; margin-bottom: 20px;">
+                To guarantee a seamless integration, we offer a <strong>one-time paid package</strong> for installation, initial configuration, and dedicated support to get you running flawlessly.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="text-center my-5 py-4">
+            <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">Have Questions or Need Help?</h2>
+            <p class="mx-auto" style="font-size: 1.1rem; max-width: 600px; margin-bottom: 25px;">
+                As a Pigment user, you understand the power of data. If you need assistance with the setup, have a question about mapping complex data, or require any support, our team is ready to assist.
+            </p>
+            <a href="mailto:info@niyulabs.com" class="cta-button" style="display: inline-block; background-color: #00C4A7; color: #ffffff; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: 600;">
+                Contact Us at info@niyulabs.com
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 p-4">
+        <p style="color: #aaa; font-size: 0.9rem;">&copy; 2025 Niyu Labs. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
