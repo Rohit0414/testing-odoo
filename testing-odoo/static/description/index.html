@@ -1175,24 +1175,72 @@
 <!-- =================================================================== -->
   
   <!-- FAQ -->
-  <section style="padding: 120px 20px; background-color: #030712;">
+<section style="padding: 120px 20px; background-color: #030712;">
     <div style="max-width: 900px; margin: 0 auto;">
       <div style="text-align: center; margin-bottom: 80px;">
         <span style="display: inline-block; background-color: rgba(139, 92, 246, 0.15); color: #a78bfa; padding: 8px 16px; border-radius: 99px; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(139, 92, 246, 0.4);">FAQ</span>
         <h2 style="font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.03em; margin: 0; color: #a78bfa;">Frequently Asked Questions</h2>
       </div>
       <div style="border-top: 1px solid #374151;">
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What Odoo versions are supported?</h4><p style="color: #9ca3af; margin: 0;">Niyu AI Analyst is currently supported on Odoo Version 14 and later. Please check the module listing for the most up-to-date compatibility information.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">How is my Odoo data kept secure?</h4><p style="color: #9ca3af; margin: 0;">Data security is paramount. Your actual Odoo business data *never* leaves your Odoo environment and is *never* stored on our servers or sent to OpenAI. Only non-sensitive information like your database schema (table and field names, their types) and your natural language query are sent to OpenAI via your API key to generate the correct SQL. The SQL query is then executed securely *within your Odoo database*. The results are displayed only to you in Odoo.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What types of questions can Niyu AI answer?</h4><p style="color: #9ca3af; margin: 0;">Niyu AI is designed to answer questions that can be resolved by querying data stored in your Odoo database. This includes questions about sales figures, inventory levels, customer data, order details, invoice status, lead information, and any data within standard or custom Odoo models. It excels at retrieving specific data sets, applying filters (by date, status, customer, etc.), sorting data, and performing aggregations (sum, count, average, min, max). Refrain from asking multiple questions in single promt. For highly complex analytical tasks or external reporting needs, consider integrating with tools like our BigQuery Connector.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Does it work with my custom Odoo modules and fields?</h4><p style="color: #9ca3af; margin: 0;">Yes, one of the key strengths of Niyu AI Analyst is you can add custom models and keywords to the code and it will start using those tables. It learns from the schema, including custom modules and fields you have created or installed, allowing you to query data unique to your business.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What are the technical requirements?</h4><p style="color: #9ca3af; margin: 0;">You need a running Odoo Version 14+ instance. The module requires access to the internet to communicate with the OpenAI API using your provided key. No complex server setup is required beyond standard Odoo hosting.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What are the costs involved?</h4><p style="color: #9ca3af; margin: 0;">You purchase the Niyu AI Analyst module license one-time from the Odoo App Store. The only ongoing operational cost is for your usage of the OpenAI API, which is billed directly by OpenAI based on your query volume. There are no additional recurring subscription fees from us for the AI analysis functionality itself.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Is a trial available?</h4><p style="color: #9ca3af; margin: 0;">Yes, you can reach out to us for demo and trial at info@niyulabs.com.</p></div>
-        <div style="padding: 32px 0; border-bottom: 1px solid #374151;"><h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Where can I find documentation or support?</h4><p style="color: #9ca3af; margin: 0;">Detailed documentation is available in this product page and on our website <em>https://niyulabs.com</em>. For support, please contact us at <em>info@niyulabs.com</em>.</p></div>
+        
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What Odoo versions are supported?</h4>
+          <p style="color: #9ca3af; margin: 0;">Odoo 14 and later. Check the module listing for the most up-to-date compatibility information.</p>
+        </div>
+        
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">How is my Odoo data kept secure?</h4>
+          <p style="color: #9ca3af; margin: 0;">Your business data never leaves your Odoo environment. We only send non-sensitive schema metadata (table/field names and types) and your natural-language question to the AI using your OpenAI API key to generate SQL. That SQL is executed inside your Odoo database, and results are shown only to you in Odoo.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Does it work on Odoo.sh and On-Prem?</h4>
+          <p style="color: #9ca3af; margin: 0;">Yes. Niyu AI Analyst runs on Odoo.sh and self-hosted / On-Prem environments.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What types of questions can Niyu AI answer?</h4>
+          <p style="color: #9ca3af; margin: 0;">Anything that can be answered from data already in your Odoo DB: Sales, Invoices, AR, Inventory, Purchase, CRM/Leads, Projects, HR and any custom apps. It handles filters (date/status/owner), sorting, group-by, and aggregations (sum/count/avg/min/max).<br><strong>Tip:</strong> ask one clear question per prompt for best results. For heavy analytics or blending external sources, consider our BigQuery Connector.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Can I use it with custom modules and custom fields?</h4>
+          <p style="color: #9ca3af; margin: 0;">Yes. It reads your schema (including custom models/fields). You can also extend a keyword map (via settings or config) so the AI maps business terms (e.g., “hotel”) to the right models/fields (e.g., property.hotel).</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Can I see or copy the SQL?</h4>
+          <p style="color: #9ca3af; margin: 0;">Yes. SQL transparency is a core feature—you can view and copy the exact SQL produced for any answer.</p>
+        </div>
+        
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Is it read-only? Can it change my data?</h4>
+          <p style="color: #9ca3af; margin: 0;">Niyu AI Analyst is designed for read-only analysis. The generated SQL is intended to retrieve data, not modify it.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What are the technical requirements?</h4>
+          <p style="color: #9ca3af; margin: 0;">You need a running Odoo Version 14+ instance. The module requires access to the internet to communicate with the OpenAI API using your provided key. No complex server setup is required beyond standard Odoo hosting.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">What are the costs involved?</h4>
+          <p style="color: #9ca3af; margin: 0;">You purchase the Niyu AI Analyst module license one-time from the Odoo App Store. The only ongoing operational cost is for your usage of the OpenAI API, which is billed directly by OpenAI based on your query volume. There are no additional recurring subscription fees from us for the AI analysis functionality itself.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Is a trial available?</h4>
+          <p style="color: #9ca3af; margin: 0;">Yes, you can reach out to us for demo and trial at info@niyulabs.com.</p>
+        </div>
+
+        <div style="padding: 32px 0; border-bottom: 1px solid #374151;">
+          <h4 style="font-size: 1.25rem; font-weight: 600; margin: 0 0 12px 0; color: #f9fafb;">Where can I find documentation or support?</h4>
+          <p style="color: #9ca3af; margin: 0;">Detailed documentation is available in this product page and on our website <em>https://niyulabs.com</em>. For support, please contact us at <em>info@niyulabs.com</em>.</p>
+        </div>
+        
       </div>
     </div>
-  </section>
+</section>
 
   <!-- FINAL CTA -->
   <section style="padding: 120px 20px; background-color: #030712;">
