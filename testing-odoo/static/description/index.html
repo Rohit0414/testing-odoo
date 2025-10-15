@@ -1092,31 +1092,21 @@
     background-color: #ffffff;
     padding: 100px 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    border-top: 1px solid #e5e7eb;
 ">
-    <div class="container" style="padding: 0 15px;">
+    <div class="container" style="padding: 0 15px; max-width: 1140px;">
 
         <!-- Section Header -->
         <div class="row mb-5">
             <div class="col-12 text-center">
-                <span style="
-                    display: inline-block;
-                    font-size: 14px;
-                    font-weight: 700;
-                    color: #9333ea;
-                    background-color: #f3e8ff;
-                    border: 1px solid #e9d5ff;
-                    border-radius: 999px;
-                    padding: 8px 16px;
-                    margin-bottom: 16px;
-                ">NIYU LABS ECOSYSTEM</span>
                 <h2 style="
-                    font-size: clamp(2.5rem, 5vw, 3.5rem);
+                    font-size: clamp(2.2rem, 5vw, 3rem);
                     font-weight: 800;
                     margin: 0 0 14px 0;
                     color: #1f2937;
-                    letter-spacing: -0.025em;
+                    letter-spacing: -0.02em;
                 ">Explore Our Other Innovations</h2>
-                <p style="font-size: 1.15rem; color: #6b7280; max-width: 860px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; color: #6b7280; max-width: 700px; margin: 0 auto;">
                     Supercharge your Odoo experience with our suite of intelligent tools designed for modern data challenges.
                 </p>
             </div>
@@ -1126,81 +1116,89 @@
         <div class="row g-4 justify-content-center">
 
             <!-- Card 1: AI Dashboard Builder -->
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 d-flex">
                 <div style="
                     background-color: #ffffff;
                     border: 1px solid #e5e7eb;
-                    border-radius: 1.5rem;
-                    height: 100%;
-                    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05);
+                    border-radius: 1.25rem;
+                    width: 100%;
+                    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
                     display: flex;
                     overflow: hidden;
-                ">
-                    <div style="padding: 24px; flex: 1;">
-                        <img src="./aidash.gif" alt="Niyu AI Dashboard Builder Preview" style="width: 150px; height: auto; border-radius: 0.75rem; margin-bottom: 16px; border: 1px solid #e5e7eb;">
-                        <h3 style="color: #1f2937; font-size: 1.75rem; font-weight: 800; margin: 0 0 12px 0;">Niyu AI Dashboard Builder</h3>
-                        <p style="color: #4b5563; font-size: 1rem; line-height: 1.6; margin: 0;">
+                    transition: box-shadow 0.3s ease;
+                " onmouseover="this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)';" onmouseout="this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05)';">
+                    
+                    <div style="padding: 24px 28px; flex: 1; display: flex; flex-direction: column;">
+                        <img src="./aidashboard.png" alt="Niyu AI Dashboard Builder Logo" style="width: 120px; height: auto; border-radius: 0.5rem; margin-bottom: 20px; border: 1px solid #e5e7eb;">
+                        <h3 style="color: #111827; font-size: 1.5rem; font-weight: 700; margin: 0 0 12px 0;">Niyu AI Dashboard Builder</h3>
+                        <p style="color: #4b5563; font-size: 0.95rem; line-height: 1.6; margin: 0; flex-grow: 1;">
                            Stop sifting through raw data. Simply tell Niyu AI what you want to see, and watch it magically construct stunning, interactive dashboards and reports in seconds.
                         </p>
                     </div>
+
                     <a href="https://apps.odoo.com/apps/modules/19.0/niyu_ai_analytics/" target="_blank" style="
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        background-color: #9333ea;
+                        background-color: #8b5cf6;
                         color: white;
                         text-decoration: none;
-                        padding: 24px;
-                        width: 140px;
+                        padding: 20px;
+                        width: 130px;
                         text-align: center;
                         font-weight: 600;
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         transition: background-color 0.3s ease;
-                    " onmouseover="this.style.backgroundColor='#7e22ce'" onmouseout="this.style.backgroundColor='#9333ea'">
-                        Learn More
-                        <span style="font-size: 1.5rem; margin-top: 8px;">&rarr;</span>
+                    " onmouseover="this.style.backgroundColor='#7c3aed'" onmouseout="this.style.backgroundColor='#8b5cf6'">
+                        Learn
+                        <span style="margin: 4px 0;">More</span>
+                        <span style="font-size: 1.2rem;">&rarr;</span>
                     </a>
                 </div>
             </div>
 
             <!-- Card 2: Pro BigQuery Connector -->
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 d-flex">
                  <div style="
                     background-color: #ffffff;
                     border: 1px solid #e5e7eb;
-                    border-radius: 1.5rem;
-                    height: 100%;
-                    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05);
+                    border-radius: 1.25rem;
+                    width: 100%;
+                    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
                     display: flex;
                     overflow: hidden;
-                ">
-                    <div style="padding: 24px; flex: 1;">
-                        <div style="width: 150px; height: 112.5px; border-radius: 0.75rem; margin-bottom: 16px; background-color: #f3f4f6; display: flex; justify-content: center; align-items: center;">
-                             <span style="font-size: 4rem; color: #9ca3af;">&#128279;</span>
+                    transition: box-shadow 0.3s ease;
+                 " onmouseover="this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)';" onmouseout="this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05)';">
+                    
+                    <div style="padding: 24px 28px; flex: 1; display: flex; flex-direction: column;">
+                        <div style="width: 120px; height: 90px; border-radius: 0.5rem; margin-bottom: 20px; background-color: #f3f4f6; display: flex; justify-content: center; align-items: center; border: 1px solid #e5e7eb;">
+                             <span style="font-size: 3rem; color: #9ca3af;">&#128279;</span>
                         </div>
-                        <h3 style="color: #1f2937; font-size: 1.75rem; font-weight: 800; margin: 0 0 12px 0;">Pro BigQuery Connector</h3>
-                        <p style="color: #4b5563; font-size: 1rem; line-height: 1.6; margin: 0;">
+                        <h3 style="color: #111827; font-size: 1.5rem; font-weight: 700; margin: 0 0 12px 0;">Pro BigQuery Connector</h3>
+                        <p style="color: #4b5563; font-size: 0.95rem; line-height: 1.6; margin: 0; flex-grow: 1;">
                            Unlock the full potential of your Odoo data. Export millions of records to BigQuery for advanced analytics, BI, and machine learning. Features powerful filtering, efficient batching, and automated scheduling.
                         </p>
                     </div>
+
                     <a href="https://apps.odoo.com/apps/modules/browse?search=Niyu+BigQuery" target="_blank" style="
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
-                        background-color: #059669;
+                        background-color: #10b981;
                         color: white;
                         text-decoration: none;
-                        padding: 24px;
-                        width: 140px;
+                        padding: 20px;
+                        width: 130px;
                         text-align: center;
                         font-weight: 600;
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         transition: background-color 0.3s ease;
-                    " onmouseover="this.style.backgroundColor='#047857'" onmouseout="this.style.backgroundColor='#059669'">
-                        Learn More
-                        <span style="font-size: 1.5rem; margin-top: 8px;">&rarr;</span>
+                    " onmouseover="this.style.backgroundColor='#059669'" onmouseout="this.style.backgroundColor='#10b981'">
+                        Learn
+                        <span style="margin: 4px 0;">More</span>
+                        <span style="font-size: 1.2rem;">&rarr;</span>
                     </a>
                 </div>
             </div>
