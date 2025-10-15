@@ -1,119 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odoo Pigment Connector</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Minimal CSS for hover effects and elements not easily styled inline */
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
-        }
-        .cta-button {
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #00a892 !important;
-            transform: translateY(-3px);
-        }
-    </style>
-</head>
-<body style="font-family: 'Poppins', sans-serif; background-color: #f7fafc; color: #4a5568; line-height: 1.6;">
+<!-- Header -->
+<header class="text-center" style="background: linear-gradient(135deg, #6E6EDD 0%, #4A4A88 100%); color: #ffffff; padding: 6rem 2rem; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+    <div class="container">
+        <h1 style="font-size: 4rem; margin: 0; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Odoo Pigment Connector</h1>
+        <p style="font-size: 1.5rem; margin-top: 1rem; opacity: 0.9; font-weight: 400;">
+            Unlock Your Business Potential with Seamless, Automated Data Integration
+        </p>
+    </div>
+</header>
 
-    <!-- Header -->
-    <header class="text-center" style="background-color:  #6c6c7c; color: #ffffff; padding: 4rem 2rem; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+<!-- Main Content -->
+<main class="container my-5 py-5">
+
+    <!-- Introduction Section -->
+    <section class="text-center mb-5 pb-5">
+        <h2 class="mb-4" style="font-size: 3rem; font-weight: 600; color: #4A4A88;">Bridge Your ERP and FP&A in Real-Time</h2>
+        <p class="mx-auto" style="max-width: 800px; font-size: 1.2rem; color: #555;">
+            Say goodbye to tedious manual data exports and error-prone CSV uploads. The Odoo Pigment Connector is your ultimate solution to automate the flow of critical business data directly from your Odoo ERP to the Pigment planning platform. This ensures your financial models are perpetually up-to-date, accurate, and reliable, empowering you to make decisions with confidence.
+        </p>
+    </section>
+
+    <!-- Visual Showcase Section 1: Connector Interface -->
+    <section class="mb-5 pb-5 text-center">
         <div class="container">
-            <h1 style="font-size: 3rem; margin: 0; font-weight: 700;">Odoo Pigment Connector</h1>
-            <p style="font-size: 1.25rem; margin-top: 0.5rem; opacity: 0.9;">
-                Seamless & Automated Data Integration for Modern Business Planning
-            </p>
+            <h2 class="mb-5" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">See it in Action: The Mapping Interface</h2>
+            <img src="./1.png" class="img-fluid" alt="A screenshot showing the intuitive drag-and-drop interface for mapping Odoo fields to Pigment dimensions within the Odoo environment." style="border-radius: 15px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border: 1px solid #eee;">
         </div>
-    </header>
+    </section>
 
-    <!-- Main Content -->
-    <main class="container my-5">
+    <!-- How it Works Section -->
+    <section class="mb-5 pb-5">
+        <h2 class="text-center mb-5" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">A Simple Yet Powerful Workflow</h2>
+        <div class="row g-5 align-items-center">
+            <div class="col-md-4 text-center">
+                <div style="font-size: 4rem; color: #00C4A7; margin-bottom: 15px;">&#128204;</div>
+                <h3 style="font-size: 1.5rem; color: #6E6EDD;">1. Connect</h3>
+                <p style="font-size: 1.1rem;">Securely link your Odoo instance to Pigment using API credentials.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div style="font-size: 4rem; color: #00C4A7; margin-bottom: 15px;">&#128221;</div>
+                <h3 style="font-size: 1.5rem; color: #6E6EDD;">2. Map</h3>
+                <p style="font-size: 1.1rem;">Visually map Odoo fields to Pigment dimensions with an intuitive interface.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div style="font-size: 4rem; color: #00C4A7; margin-bottom: 15px;">&#128640;</div>
+                <h3 style="font-size: 1.5rem; color: #6E6EDD;">3. Sync</h3>
+                <p style="font-size: 1.1rem;">Automate data synchronization on your preferred schedule or trigger manually.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Introduction Section -->
-        <section class="text-center mb-5 pb-4">
-            <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">Bridge Your ERP and FP&A</h2>
-            <p class="mx-auto" style="max-width: 800px; font-size: 1.1rem;">
-                Eliminate manual data exports and cumbersome CSV uploads. The Odoo Pigment Connector automates the flow of critical business data directly from your Odoo ERP to the Pigment planning platform, ensuring your financial models are always up-to-date, accurate, and reliable.
-            </p>
-        </section>
-
-        <!-- Features Section -->
-        <section class="mb-5">
-            <div class="row g-4 justify-content-center">
-                <!-- Feature 1 -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
-                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128202;</div>
-                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Intuitive Field Mapping</h3>
-                        <p>Visually map any Odoo model field, including related fields, to your corresponding Pigment dimensions and metrics directly from the Odoo interface.</p>
-                    </div>
-                </div>
-                <!-- Feature 2 -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
-                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#9201;</div>
-                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Automated Synchronization</h3>
-                        <p>Run data syncs on a schedule with Odoo's automated actions (cron jobs) or trigger them manually with a single click for real-time updates.</p>
-                    </div>
-                </div>
-                <!-- Feature 3 -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
-                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128273;</div>
-                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Robust & Secure</h3>
-                        <p>Built with comprehensive error handling and logging. Securely connects to the Pigment API using your credentials stored safely in Odoo.</p>
-                    </div>
-                </div>
-                <!-- Feature 4 -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);">
-                        <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128170;</div>
-                        <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Flexible & Powerful</h3>
-                        <p>Extract data from any Odoo model—from sales and accounting to inventory and HR—to power your most complex Pigment business cases.</p>
-                    </div>
+    <!-- Features Section -->
+    <section class="mb-5 pb-5">
+        <h2 class="text-center mb-5" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">Unlock Advanced Capabilities</h2>
+        <div class="row g-4 justify-content-center">
+            <!-- Feature 1 -->
+            <div class="col-lg-5 col-md-6">
+                <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128202;</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Intuitive Field Mapping</h3>
+                    <p>Effortlessly map any Odoo model field, including complex relational fields, to your Pigment dimensions and metrics directly within the Odoo interface. No coding required!</p>
                 </div>
             </div>
-        </section>
+            <!-- Feature 2 -->
+            <div class="col-lg-5 col-md-6">
+                <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#9201;</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Automated & On-Demand Sync</h3>
+                    <p>Set up recurring data synchronizations using Odoo's native automated actions (cron jobs) or trigger them manually with a single click for immediate, real-time updates.</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-lg-5 col-md-6">
+                <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128273;</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Robust, Secure & Transparent</h3>
+                    <p>Engineered with comprehensive error handling and detailed logging. Securely connect to the Pigment API using your credentials, safely stored and encrypted within Odoo.</p>
+                </div>
+            </div>
+            <!-- Feature 4 -->
+            <div class="col-lg-5 col-md-6">
+                <div class="feature-card text-center p-4 h-100" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.3s;">
+                    <div style="font-size: 3rem; color: #00C4A7; margin-bottom: 15px;">&#128170;</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 10px; color: #6E6EDD;">Unmatched Flexibility & Power</h3>
+                    <p>Extract and integrate data from any Odoo model—from sales and accounting to inventory, manufacturing, and HR—to fuel your most ambitious and complex Pigment business cases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Visual Showcase Section 2: Pigment Dashboard -->
+    <section class="mb-5 pb-5 text-center">
+        <div class="container">
+            <h2 class="mb-5" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">Power Your Dashboards with Real-Time Data</h2>
+            <img src="./2.png" class="img-fluid" alt="A vibrant and professional-looking business intelligence dashboard in Pigment, showing various charts and graphs powered by real-time Odoo data." style="border-radius: 15px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border: 1px solid #eee;">
+        </div>
+    </section>
 
-        <!-- Pricing Section -->
-        <section class="text-center my-5 p-5" style="background-color: #ffffff; border-radius: 15px; border: 2px solid #00C4A7; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);">
-            <h2 style="font-size: 2rem; color: #4A4A88; margin-top: 0;">Free to Use, Professional Support to Start</h2>
-            <div style="font-size: 3.5rem; font-weight: 700; color: #00C4A7; margin: 10px 0;">FREE MODULE</div>
-            <p>This powerful connector module is available for free.</p>
-            <p style="font-style: italic; margin-bottom: 20px;">
-                To guarantee a seamless integration, we offer a <strong>one-time paid package</strong> for installation, initial configuration, and dedicated support to get you running flawlessly.
-            </p>
-        </section>
+    <!-- Pricing Section -->
+    <section class="text-center my-5 p-5" style="background: #ffffff; border-radius: 20px; border: 3px solid #00C4A7; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 2.2rem; color: #4A4A88; margin-top: 0;">Free to Use, with Professional Support to Get You Started</h2>
+        <div style="font-size: 4rem; font-weight: 700; color: #00C4A7; margin: 15px 0;">FREE MODULE</div>
+        <p style="font-size: 1.2rem;">This powerful connector module is available completely free of charge.</p>
+        <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 25px;">
+            To ensure a flawless and seamless integration, we offer a <strong>one-time paid package</strong> that includes installation, initial configuration, and dedicated support to get you up and running without a hitch.
+        </p>
+    </section>
 
-        <!-- Contact Section -->
-        <section class="text-center my-5 py-4">
-            <h2 class="mb-4" style="font-size: 2.5rem; font-weight: 600; color: #4A4A88;">Have Questions or Need Help?</h2>
-            <p class="mx-auto" style="font-size: 1.1rem; max-width: 600px; margin-bottom: 25px;">
-                As a Pigment user, you understand the power of data. If you need assistance with the setup, have a question about mapping complex data, or require any support, our team is ready to assist.
-            </p>
-            <a href="mailto:info@niyulabs.com" class="cta-button" style="display: inline-block; background-color: #00C4A7; color: #ffffff; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: 600;">
-                Contact Us at info@niyulabs.com
-            </a>
-        </section>
+    <!-- Contact Section -->
+    <section class="text-center my-5 py-5">
+        <h2 class="mb-4" style="font-size: 3rem; font-weight: 600; color: #4A4A88;">Questions or Need a Hand?</h2>
+        <p class="mx-auto" style="font-size: 1.2rem; max-width: 700px; margin-bottom: 30px;">
+            As a Pigment user, you appreciate the power of data. If you need help with setup, have questions about mapping complex data, or require any support, our expert team is ready to assist you.
+        </p>
+        <a href="mailto:info@niyulabs.com" class="cta-button" style="display: inline-block; background-color: #00C4A7; color: #ffffff; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-size: 1.2rem; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 196, 167, 0.4); transition: all 0.3s;">
+            Contact Us at info@niyulabs.com
+        </a>
+    </section>
 
-    </main>
+</main>
 
-    <!-- Footer -->
-    <footer class="text-center mt-5 p-4">
-        <p style="color: #aaa; font-size: 0.9rem;">&copy; 2025 Niyu Labs. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html>
+<!-- Footer -->
+<footer class="text-center mt-5 p-5" style="background-color: #4A4A88; color: #f7fafc; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+    <p style="margin: 0; color: #ddd; font-size: 1rem;">&copy; 2025 Niyu Labs. All Rights Reserved.</p>
+</footer>
+<style>
+    .feature-card:hover {
+        transform: translateY(-10px);
+    }
+    .cta-button:hover {
+        background-color: #00A991;
+        box-shadow: 0 8px 20px rgba(0, 196, 167, 0.6);
+        transform: translateY(-2px);
+    }
+</style>
