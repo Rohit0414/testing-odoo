@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niyu PDF RAG for Odoo</title>
-    <!-- Bootstrap CSS for grid/flex utilities -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* Custom scrollbar for a darker aesthetic */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a2130;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a5a7b;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5c709e;
-        }
-    </style>
-</head>
+
 <body style="
     font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;
     color:#e9ecff;
@@ -39,11 +13,11 @@
   <!-- HERO -->
   <header class="container py-5" style="padding-top: 100px !important; padding-bottom: 100px !important;">
     <div class="row align-items-center g-4">
-      <div class="col-lg-6" style="padding-right: 37px; padding-left: 37px;">
+      <div class="col-lg-6" style="padding: 37px;">
         <span class="badge rounded-pill d-inline-flex align-items-center gap-2"
               style="background-color:#121725; border:1px solid #1c2131; color:#cbd5ff; padding:10px 14px;
                      box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-          &#10024; New &nbsp; Niyu PDF RAG for Odoo
+          &#10024; New &nbsp; Niyu PDF RAG for Odoo 
         </span>
 
         <h1 class="fw-bold mt-3" style="font-size: clamp(2.5rem, 6vw, 44px); letter-spacing:-.02em; color:#e9ecff; text-shadow: 0 4px 15px rgba(108,92,231,0.4);">
@@ -83,22 +57,32 @@
         </div>
       </div>
 
-      <div class="col-lg-6"> <!-- Removed padding-left from this col -->
-        <!-- Removed outer p-3 wrapper to maximize screenshot space -->
-        <div class="rounded-4"
+      <div class="col-lg-6" style="padding-left: 20px;">
+        <div class="p-3 rounded-4"
              style="background-color:#0e1422; border:1px solid #1a2130;
                     box-shadow:0 15px 45px rgba(0,0,0,.45), 0 0 30px rgba(108,92,231,0.25);">
           <div class="position-relative overflow-hidden rounded-4"
                style="border:1px solid #1b2334; background-color:#0e1220;
                       box-shadow:0 20px 50px rgba(6,10,20,.65), 0 0 40px rgba(108,92,231,0.35);">
-            <!-- Screenshot in Hero - this will now be full width of its container -->
-            <img src="./charts.png" alt="PDF RAG chat UI in Odoo backend" class="img-fluid w-100 d-block rounded-4"
-                 style="border:1px solid #2a3350; box-shadow:0 10px 30px rgba(0,0,0,.25);"/>
+            <!-- Screenshot 1 -->
+           <div class="col-12">
+            <div class="card bg-transparent border-0 rounded-4"
+                 style="background-color:#0e1422; border:1px solid #1a2130 !important;
+                        box-shadow:0 25px 70px rgba(0,0,0,.5), 0 0 60px rgba(108,92,231,0.35);
+                        transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='translateY(-10px) scale(1.005)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                <img src="./pdf.png" alt="Main PDF RAG Chat Interface" class="img-fluid w-100 d-block rounded-4"
+                     style="border:1px solid #2a3350; box-shadow:0 10px 30px rgba(0,0,0,.25);"/>
+                <div class="card-body text-center mt-3">
+                    <p class="lead mb-0" style="color:#009688; font-weight: 600;">&#128172; Engage in natural conversations, get instant answers from your PDFs.</p>
+                </div>
+            </div>
+        </div>
 
             <div class="position-absolute top-0 start-0 w-100 h-100" style="pointer-events:none;
                  background:linear-gradient(180deg, rgba(255,255,255,.08), transparent 180px);"></div>
           </div>
-          <div class="d-flex flex-wrap gap-2 mt-3 justify-content-center" style="padding:15px;">
+          <div class="d-flex flex-wrap gap-2 mt-3 justify-content-center">
             <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#a3b3e2; padding:8px 12px;">&#128269; Vector search</span>
             <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#a3b3e2; padding:8px 12px;">&#128196; Page citations</span>
             <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#a3b3e2; padding:8px 12px;">&#9889; Fast UX</span>
@@ -117,7 +101,7 @@
         </p>
     </div>
 
-    <div class="row g-5 justify-content-center"> <!-- Removed inline padding: 10px here -->
+    <div class="row g-5 justify-content-center" style="padding: 10px;">
         <!-- Main Chat UI Screenshot -->
         <div class="col-12">
             <div class="card bg-transparent border-0 rounded-4"
@@ -127,9 +111,9 @@
                  onmouseover="this.style.transform='translateY(-10px) scale(1.005)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
                 <img src="./pdf.png" alt="Main PDF RAG Chat Interface" class="img-fluid w-100 d-block rounded-4"
                      style="border:1px solid #2a3350; box-shadow:0 10px 30px rgba(0,0,0,.25);"/>
-                <div class="card-body text-center mt-3">
+                <!-- <div class="card-body text-center mt-3">
                     <p class="lead mb-0" style="color:#009688; font-weight: 600;">&#128172; Engage in natural conversations, get instant answers from your PDFs.</p>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -140,7 +124,7 @@
                         box-shadow:0 15px 40px rgba(0,0,0,.4), 0 0 30px rgba(68, 182, 203, 0.25);
                         transition: transform 0.3s ease-in-out;"
                  onmouseover="this.style.transform='translateY(-8px) scale(1.005)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
-                <img src="./pdf1.png" alt="Sources with page and snippet" class="img-fluid w-100 d-block rounded-top-4"
+                <img src="pdf1.png" alt="Sources with page and snippet" class="img-fluid w-100 d-block rounded-top-4"
                      style="border-bottom:1px solid #2a3350; box-shadow:0 8px 25px rgba(0,0,0,.2);"/>
                 <div class="card-body text-center mt-3">
                     <p class="lead mb-0" style="color:#009688; font-weight: 600;">&#128195; Verifiable answers with precise title, page, and snippet citations.</p>
@@ -240,7 +224,6 @@
 <span style="color:#68b6c8;"># 2) Install required Python dependencies in your Odoo virtual environment:</span>
 <span style="color:#7ec856;">pip install qdrant_client openai pypdf tiktoken</span>
 
-
 <span style="color:#68b6c8;"># 3) Update Odoo apps list and install "Niyu PDF RAG" from the Apps menu.</span>
 <span style="color:#68b6c8;"># 4) Navigate to Odoo Settings &#8594; PDF RAG:</span>
 <span style="color:#7ec856;">   - Paste your OpenAI API Key.</span>
@@ -328,4 +311,3 @@
   <!-- Bootstrap JS (optional, for components that need JS) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
