@@ -1,55 +1,104 @@
-
-<body style="font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif; color:#e9ecff; background-color: #0b0c10;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niyu PDF RAG for Odoo</title>
+    <!-- Bootstrap CSS for grid/flex utilities -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for a darker aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a2130;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5a7b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5c709e;
+        }
+    </style>
+</head>
+<body style="
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;
+    color:#e9ecff;
+    background-color: #0b0c10;
+    overflow-x: hidden; /* Prevent horizontal scroll from subtle glows */
+    background-image:
+        radial-gradient(800px 400px at 85% -10%, rgba(139, 92, 246, 0.1), transparent 60%),
+        radial-gradient(700px 350px at -10% 20%, rgba(68, 182, 203, 0.1), transparent 55%),
+        radial-gradient(600px 300px at 50% 110%, rgba(108, 92, 231, 0.15), transparent 60%);
+">
 
   <!-- HERO -->
-  <header class="container py-5">
+  <header class="container py-5" style="padding-top: 100px !important; padding-bottom: 100px !important;">
     <div class="row align-items-center g-4">
-      <div class="col-lg-6">
+      <div class="col-lg-6" style="padding-right: 20px;">
         <span class="badge rounded-pill d-inline-flex align-items-center gap-2"
-              style="background-color:#121725; border:1px solid #1c2131; color:#cbd5ff; padding:10px 14px;">
-          ✨ New · Niyu PDF RAG for Odoo 18
+              style="background-color:#121725; border:1px solid #1c2131; color:#cbd5ff; padding:10px 14px;
+                     box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+          &#10024; New &nbsp; Niyu PDF RAG for Odoo 18
         </span>
 
-        <h1 class="fw-bold mt-3" style="font-size:44px; letter-spacing:-.02em;">
+        <h1 class="fw-bold mt-3" style="font-size: clamp(2.5rem, 6vw, 44px); letter-spacing:-.02em; color:#e9ecff; text-shadow: 0 4px 15px rgba(108,92,231,0.4);">
           Chat with your PDFs — directly inside Odoo
         </h1>
-        <p class="lead mb-4" style="color:#b7c3ff;">
-          Index PDFs to <b>Qdrant</b>, embed with <b>OpenAI</b>, and ask natural questions.
+        <p class="lead mb-4" style="color:#b7c3ff; font-size: clamp(1rem, 2.5vw, 1.25rem); max-width: 600px;">
+          Index PDFs to <strong style="color:#8d79ff;">Qdrant</strong>, embed with <strong style="color:#8d79ff;">OpenAI</strong>, and ask natural questions.
           Answers are grounded in your documents with page-level citations.
         </p>
 
-        <div class="d-flex flex-wrap gap-2">
+        <div class="d-flex flex-wrap gap-3 mt-4">
           <a href="#screenshots" class="btn btn-primary fw-semibold"
-             style="background-color:#8d79ff; border:0; box-shadow:0 12px 25px rgba(108,92,231,.35);">
-            See Screenshots
+             style="background-color:#8d79ff; border:0; padding:15px 30px; font-size:1.05rem;
+                    box-shadow:0 12px 25px rgba(108,92,231,.35); transition:transform 0.3s ease, box-shadow 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 18px 35px rgba(108,92,231,.5)';"
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 25px rgba(108,92,231,.35)';">
+            See Screenshots &#8594;
           </a>
-          <a href="#install" class="btn btn-outline-light fw-semibold" style="border-color:#2a3350;">Install & Configure</a>
-          <a href="#how" class="btn btn-outline-light fw-semibold" style="border-color:#2a3350;">How it works</a>
+          <a href="#install" class="btn btn-outline-light fw-semibold"
+             style="border-color:#2a3350; padding:15px 30px; font-size:1.05rem; color:#b7c3ff;
+                    transition:background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;"
+             onmouseover="this.style.backgroundColor='#1a2130'; this.style.borderColor='#4a5a7b'; this.style.transform='translateY(-3px)';"
+             onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#2a3350'; this.style.transform='translateY(0)';">Install & Configure</a>
+          <a href="#how" class="btn btn-outline-light fw-semibold"
+             style="border-color:#2a3350; padding:15px 30px; font-size:1.05rem; color:#b7c3ff;
+                    transition:background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;"
+             onmouseover="this.style.backgroundColor='#1a2130'; this.style.borderColor='#4a5a7b'; this.style.transform='translateY(-3px)';"
+             onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#2a3350'; this.style.transform='translateY(0)';">How it works</a>
         </div>
 
-        <div class="d-flex flex-wrap gap-2 mt-3">
-          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131;">Odoo 18</span>
-          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131;">OpenAI: gpt-4o-mini · text-embedding-3-small</span>
-          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131;">Qdrant Cloud</span>
-          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131;">Citations</span>
-          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131;">Token-aware prompt</span>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131; color:#cbd5ff; padding:8px 12px;">Odoo 18</span>
+          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131; color:#cbd5ff; padding:8px 12px;">OpenAI: gpt-4o-mini &#183; text-embedding-3-small</span>
+          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131; color:#cbd5ff; padding:8px 12px;">Qdrant Cloud</span>
+          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131; color:#cbd5ff; padding:8px 12px;">Citations</span>
+          <span class="badge rounded-pill" style="background:#151a25; border:1px solid #1c2131; color:#cbd5ff; padding:8px 12px;">Token-aware prompt</span>
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-6" style="padding-left: 20px;">
         <div class="p-3 rounded-4"
-             style="background-color:#0e1422; border:1px solid #1a2130; box-shadow:0 10px 30px rgba(0,0,0,.25);">
+             style="background-color:#0e1422; border:1px solid #1a2130;
+                    box-shadow:0 15px 45px rgba(0,0,0,.45), 0 0 30px rgba(108,92,231,0.25);">
           <div class="position-relative overflow-hidden rounded-4"
-               style="border:1px solid #1b2334; background-color:#0e1220; box-shadow:0 15px 40px rgba(6,10,20,.45);">
+               style="border:1px solid #1b2334; background-color:#0e1220;
+                      box-shadow:0 20px 50px rgba(6,10,20,.65), 0 0 40px rgba(108,92,231,0.35);">
             <!-- Screenshot 1 -->
-            <img src="./charts.png" alt="PDF RAG chat UI in Odoo backend" class="img-fluid"/>
+            <img src="./charts.png" alt="PDF RAG chat UI in Odoo backend" class="img-fluid w-100 d-block" style="border-radius:15px;"/>
             <div class="position-absolute top-0 start-0 w-100 h-100" style="pointer-events:none;
-                 background:linear-gradient(180deg, rgba(255,255,255,.06), transparent 120px);"></div>
+                 background:linear-gradient(180deg, rgba(255,255,255,.08), transparent 180px);"></div>
           </div>
-          <div class="d-flex flex-wrap gap-2 mt-2">
-            <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#cbd5ff;">🔎 Vector search</span>
-            <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#cbd5ff;">📄 Page citations</span>
-            <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#cbd5ff;">⚡ Fast UX</span>
+          <div class="d-flex flex-wrap gap-2 mt-3 justify-content-center">
+            <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#a3b3e2; padding:8px 12px;">&#128269; Vector search</span>
+            <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#a3b3e2; padding:8px 12px;">&#128196; Page citations</span>
+            <span class="badge" style="background:#12182a;border:1px solid #1c2236;color:#a3b3e2; padding:8px 12px;">&#9889; Fast UX</span>
           </div>
         </div>
       </div>
@@ -57,157 +106,215 @@
   </header>
 
   <!-- SCREENSHOTS -->
-  <section id="screenshots" class="container pb-4">
-    <h2 class="h4 fw-bold mb-2">Beautiful, integrated UI</h2>
-    <p class="mb-4" style="color:#b7c3ff;">Clean chat on the left, sources on the right — with title, page and a short context snippet.</p>
+  <section id="screenshots" class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="h4 fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 32px); color:#e9ecff; text-shadow: 0 3px 10px rgba(108,92,231,0.3);">Beautiful, Integrated UI & Powerful Features</h2>
+        <p class="lead" style="color:#b7c3ff; max-width: 800px; margin: 0 auto; font-size: clamp(0.9rem, 2vw, 1.15rem);">
+            Experience a clean chat interface on the left, grounded answers with page-level citations, and flexible configurations on the right. Every detail crafted for clarity and efficiency.
+        </p>
+    </div>
 
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="card bg-transparent border-1 rounded-4"
-             style="border-color:#1a2130; box-shadow:0 10px 30px rgba(0,0,0,.18);">
-          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background:#0e1220; border-bottom:1px solid #1b2334;">
-            <!-- Screenshot 1 -->
-            <img src="./cha.png" alt="Chat panel" class="w-100 h-100 object-fit-cover"/>
-          </div>
-          <div class="card-body">
-            <p class="mb-0" style="color:#c7d2ff;">Chat panel — ask questions, get grounded answers.</p>
-          </div>
+    <div class="row g-5 justify-content-center">
+        <!-- Main Chat UI Screenshot -->
+        <div class="col-12">
+            <div class="card bg-transparent border-0 rounded-4"
+                 style="background-color:#0e1422; border:1px solid #1a2130 !important;
+                        box-shadow:0 25px 70px rgba(0,0,0,.5), 0 0 60px rgba(108,92,231,0.35);
+                        transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='translateY(-10px) scale(1.005)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                <img src="./cha.png" alt="Main PDF RAG Chat Interface" class="img-fluid w-100 d-block rounded-4"
+                     style="border:1px solid #2a3350; box-shadow:0 10px 30px rgba(0,0,0,.25);"/>
+                <div class="card-body text-center mt-3">
+                    <p class="lead mb-0" style="color:#c7d2ff; font-weight: 600;">&#128172; Engage in natural conversations, get instant answers from your PDFs.</p>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="col-lg-4">
-        <div class="card bg-transparent border-1 rounded-4"
-             style="border-color:#1a2130; box-shadow:0 10px 30px rgba(0,0,0,.18);">
-          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background-color:#0e1220; border-bottom:1px solid #1b2334;">
-            <!-- Screenshot 2 -->
-            <img src="./cha.png" alt="Sources with page and snippet" class="w-100 h-100 object-fit-cover"/>
-          </div>
-          <div class="card-body">
-            <p class="mb-0" style="color:#c7d2ff;">Sources — title · page · short snippet for quick verification.</p>
-          </div>
+        <!-- Sources Panel Screenshot -->
+        <div class="col-lg-6">
+            <div class="card bg-transparent border-0 rounded-4 h-100"
+                 style="background-color:#0e1422; border:1px solid #1a2130 !important;
+                        box-shadow:0 15px 40px rgba(0,0,0,.4), 0 0 30px rgba(68, 182, 203, 0.25);
+                        transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='translateY(-8px) scale(1.005)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                <img src="./cha.png" alt="Sources with page and snippet" class="img-fluid w-100 d-block rounded-top-4"
+                     style="border-bottom:1px solid #2a3350; box-shadow:0 8px 25px rgba(0,0,0,.2);"/>
+                <div class="card-body text-center mt-3">
+                    <p class="lead mb-0" style="color:#c7d2ff; font-weight: 600;">&#128195; Verifiable answers with precise title, page, and snippet citations.</p>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="col-lg-4">
-        <div class="card bg-transparent border-1 rounded-4"
-             style="border-color:#1a2130; box-shadow:0 10px 30px rgba(0,0,0,.18);">
-          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background-color:#0e1220; border-bottom:1px solid #1b2334;">
-            <!-- Screenshot 3 -->
-            <img src="./charts.png" alt="Settings page" class="w-100 h-100 object-fit-cover"/>
-          </div>
-          <div class="card-body">
-            <p class="mb-0" style="color:#c7d2ff;">Settings — tuning at the top, credentials below.</p>
-          </div>
+        <!-- Settings Page Screenshot -->
+        <div class="col-lg-6">
+            <div class="card bg-transparent border-0 rounded-4 h-100"
+                 style="background-color:#0e1422; border:1px solid #1a2130 !important;
+                        box-shadow:0 15px 40px rgba(0,0,0,.4), 0 0 30px rgba(139, 92, 246, 0.25);
+                        transition: transform 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='translateY(-8px) scale(1.005)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                <img src="./charts.png" alt="Settings page" class="img-fluid w-100 d-block rounded-top-4"
+                     style="border-bottom:1px solid #2a3350; box-shadow:0 8px 25px rgba(0,0,0,.2);"/>
+                <div class="card-body text-center mt-3">
+                    <p class="lead mb-0" style="color:#c7d2ff; font-weight: 600;">&#9881;&#65039; Fine-tune settings like model, API keys, and chunking parameters.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section id="how" class="container py-4">
-    <h2 class="h4 fw-bold mb-3">How it works</h2>
-    <div class="row g-3">
+  <section id="how" class="container py-5" style="background-color:#101625; border-top:1px solid #1f2937; border-bottom:1px solid #1f2937;">
+    <div class="text-center mb-5">
+        <span class="badge rounded-pill" style="background:#22283a; border:1px solid #323d57; color:#a3b3e2; padding:8px 16px; margin-bottom:15px;">UNDER THE HOOD</span>
+        <h2 class="h4 fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 32px); color:#e9ecff; text-shadow: 0 3px 10px rgba(108,92,231,0.3);">Seamlessly Intelligent: The Niyu PDF RAG Workflow</h2>
+        <p class="lead" style="color:#b7c3ff; max-width: 800px; margin: 0 auto; font-size: clamp(0.9rem, 2vw, 1.15rem);">
+            From document ingestion to precise answers, understand the powerful steps Niyu PDF RAG takes to deliver accurate, grounded insights.
+        </p>
+    </div>
+    <div class="row g-4">
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <h5 class="mb-1">1) Upload & Index</h5>
-          <p class="mb-0" style="color:#b7c3ff;">PDFs are split into chunks; each chunk is embedded and upserted into Qdrant with stable UUIDs (doc/page/chunk).</p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 class="mb-2" style="font-weight:700; color:#8d79ff; font-size:1.25rem;">&#x2780; 1) Upload & Index</h5>
+          <p class="mb-0" style="color:#b7c3ff; line-height:1.6;">PDFs are intelligently split into manageable chunks. Each chunk is then embedded into a vector representation and securely upserted into Qdrant, using stable UUIDs for precise document, page, and chunk identification.</p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <h5 class="mb-1">2) Ask a Question</h5>
-          <p class="mb-0" style="color:#b7c3ff;">We embed the query, retrieve Top-K vectors, keep best N, and build a token-aware context.</p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 class="mb-2" style="font-weight:700; color:#68b6c8; font-size:1.25rem;">&#x2781; 2) Ask a Question</h5>
+          <p class="mb-0" style="color:#b7c3ff; line-height:1.6;">Your natural language query is embedded into a vector. We then efficiently retrieve the Top-K most relevant vectors from Qdrant, filter them for optimal context, and carefully construct a token-aware prompt for the LLM.</p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <h5 class="mb-1">3) Grounded Answer</h5>
-          <p class="mb-0" style="color:#b7c3ff;">OpenAI responds strictly from the provided context. If not found, it replies <em>“I don’t know.”</em></p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 class="mb-2" style="font-weight:700; color:#e0ac5d; font-size:1.25rem;">&#x2782; 3) Grounded Answer</h5>
+          <p class="mb-0" style="color:#b7c3ff; line-height:1.6;">OpenAI processes your query strictly based on the provided document context. This ensures answers are factual and directly supported by your PDFs. If information isn't found, the AI transparently replies &#8220;I don&#8217;t know.&#8221;</p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <h5 class="mb-1">4) Citations</h5>
-          <p class="mb-0" style="color:#b7c3ff;">Each answer shows the PDF title, page number, and a short snippet for verification.</p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 class="mb-2" style="font-weight:700; color:#7ec856; font-size:1.25rem;">&#x2783; 4) Citations</h5>
+          <p class="mb-0" style="color:#b7c3ff; line-height:1.6;">Every answer is complemented with clear citations, showing the PDF title, exact page number, and a concise snippet from the source document. This allows for quick and effortless verification of the AI&#8217;s response.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- INSTALL -->
-  <section id="install" class="container py-4">
-    <h2 class="h4 fw-bold mb-3">Install &amp; Configure</h2>
-    <div class="row g-3">
+  <section id="install" class="container py-5" style="background-color:#0b0c10;">
+    <div class="text-center mb-5">
+        <span class="badge rounded-pill" style="background:#22283a; border:1px solid #323d57; color:#a3b3e2; padding:8px 16px; margin-bottom:15px;">GET STARTED</span>
+        <h2 class="h4 fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 32px); color:#e9ecff; text-shadow: 0 3px 10px rgba(108,92,231,0.3);">Install &amp; Configure: Unlock Your Data in Minutes</h2>
+        <p class="lead" style="color:#b7c3ff; max-width: 800px; margin: 0 auto; font-size: clamp(0.9rem, 2vw, 1.15rem);">
+            Follow these straightforward steps to integrate Niyu PDF RAG into your Odoo instance and start querying your documents.
+        </p>
+    </div>
+    <div class="row g-4 justify-content-center">
       <div class="col-lg-7">
-        <div class="p-3 rounded-3" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <h5>Requirements</h5>
-          <ul class="mb-3" style="color:#c8cff5; line-height:1.8">
+        <div class="p-4 rounded-4 h-100"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 style="font-weight:700; color:#e9ecff; font-size:1.25rem; margin-bottom:15px;">Requirements & Quickstart</h5>
+          <h6 style="font-weight:600; color:#c7d2ff; margin-bottom:10px;">Dependencies:</h6>
+          <ul class="mb-4" style="color:#d5defa; line-height:1.8; padding-left:25px; list-style-type:'&#x2714; ';">
             <li>Odoo 18 (community or enterprise)</li>
-            <li>Python deps: <code>qdrant_client</code>, <code>openai</code>, <code>pypdf</code>, <code>tiktoken</code></li>
+            <li>Python libraries: <code style="background-color:#1c2236; padding:3px 7px; border-radius:4px; font-family:monospace;">qdrant_client</code>, <code style="background-color:#1c2236; padding:3px 7px; border-radius:4px; font-family:monospace;">openai</code>, <code style="background-color:#1c2236; padding:3px 7px; border-radius:4px; font-family:monospace;">pypdf</code>, <code style="background-color:#1c2236; padding:3px 7px; border-radius:4px; font-family:monospace;">tiktoken</code></li>
             <li>Qdrant Cloud cluster &amp; API key</li>
             <li>OpenAI API key</li>
           </ul>
-          <h5>Quickstart</h5>
-          <pre class="p-3 rounded-3 mb-0" style="background-color:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;">
-# 1) Copy addon into your Odoo custom_addons/
-# 2) Install dependencies in the Odoo venv:
-pip install qdrant_client openai pypdf tiktoken
+          <h6 style="font-weight:600; color:#c7d2ff; margin-bottom:10px;">Setup Steps:</h6>
+          <pre class="p-4 rounded-3 mb-0"
+               style="background-color:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;
+                      font-family: 'Fira Code', 'SF Mono', Consolas, monospace; font-size:0.9rem; line-height:1.4;">
+<span style="color:#68b6c8;"># 1) Copy addon into your Odoo custom_addons/ directory.</span>
+<span style="color:#68b6c8;"># 2) Install required Python dependencies in your Odoo virtual environment:</span>
+<span style="color:#7ec856;">pip install qdrant_client openai pypdf tiktoken</span>
 
-# 3) Update apps list & install from Apps (9-dots) as "Niyu PDF RAG"
-# 4) In Settings → PDF RAG: paste OpenAI key, Qdrant URL, and Qdrant API key, then Save.
-# 5) Open PDF RAG → Documents: upload PDF and click "Index Now".
-# 6) Go to "Chat" and ask away.
+<span style="color:#68b6c8;"># 3) Update Odoo apps list and install "Niyu PDF RAG" from the Apps menu.</span>
+<span style="color:#68b6c8;"># 4) Navigate to Odoo Settings &#8594; PDF RAG:</span>
+<span style="color:#7ec856;">   - Paste your OpenAI API Key.</span>
+<span style="color:#7ec856;">   - Enter your Qdrant Cloud URL.</span>
+<span style="color:#7ec856;">   - Paste your Qdrant API Key.</span>
+<span style="color:#7ec856;">   - Click 'Save'.</span>
+<span style="color:#68b6c8;"># 5) Go to the "PDF RAG" app, open the "Documents" menu:</span>
+<span style="color:#7ec856;">   - Upload your desired PDF file(s).</span>
+<span style="color:#7ec856;">   - Click the "Index Now" button for each document.</span>
+<span style="color:#68b6c8;"># 6) Switch to the "Chat" section within the PDF RAG app and start asking questions!</span>
           </pre>
         </div>
       </div>
       <div class="col-lg-5">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <h5 class="mb-2">Reverse proxy note (file uploads)</h5>
-          <pre class="p-3 rounded-3 mb-2" style="background:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;">
-# /etc/nginx/sites-available/odoo
-client_max_body_size 100m;
-proxy_read_timeout   600s;
-proxy_send_timeout   600s;
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 style="font-weight:700; color:#e9ecff; font-size:1.25rem; margin-bottom:15px;">&#128270; Important: Reverse Proxy Configuration (for large PDFs)</h5>
+          <p class="mb-3" style="color:#b7c3ff;">To prevent "413 Request Entity Too Large" errors when uploading larger PDF files, adjust your web server (e.g., Nginx) configuration as follows:</p>
+          <pre class="p-4 rounded-3 mb-3"
+               style="background:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;
+                      font-family: 'Fira Code', 'SF Mono', Consolas, monospace; font-size:0.9rem; line-height:1.4;">
+<span style="color:#68b6c8;"># Example for /etc/nginx/sites-available/odoo configuration file:</span>
+<span style="color:#e0ac5d;">client_max_body_size 100m;</span>
+<span style="color:#e0ac5d;">proxy_read_timeout   600s;</span>
+<span style="color:#e0ac5d;">proxy_send_timeout   600s;</span>
 
-# Test + reload
-sudo nginx -t && sudo systemctl reload nginx
+<span style="color:#68b6c8;"># After modifying, test and reload Nginx:</span>
+<span style="color:#7ec856;">sudo nginx -t && sudo systemctl reload nginx</span>
           </pre>
-          <p class="mb-0" style="color:#b7c3ff;">Prevents 413 errors when uploading bigger PDFs.</p>
+          <p class="mb-0" style="color:#b7c3ff;">This configuration allows for larger file uploads and prevents timeouts during the indexing process.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="container py-4">
-    <h2 class="h4 fw-bold mb-3">FAQ</h2>
-    <div class="row g-3">
+  <section class="container py-5" style="background-color:#101625; border-top:1px solid #1f2937; border-bottom:1px solid #1f2937;">
+    <div class="text-center mb-5">
+        <span class="badge rounded-pill" style="background:#22283a; border:1px solid #323d57; color:#a3b3e2; padding:8px 16px; margin-bottom:15px;">COMMON QUESTIONS</span>
+        <h2 class="h4 fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 32px); color:#e9ecff; text-shadow: 0 3px 10px rgba(108,92,231,0.3);">Your Questions, Answered.</h2>
+        <p class="lead" style="color:#b7c3ff; max-width: 800px; margin: 0 auto; font-size: clamp(0.9rem, 2vw, 1.15rem);">
+            Find quick answers to common queries about Niyu PDF RAG and optimize your experience.
+        </p>
+    </div>
+    <div class="row g-4 justify-content-center">
       <div class="col-md-4">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <b>Why do I sometimes get “I don’t know”?</b>
-          <p class="mb-0 mt-2" style="color:#b7c3ff;">If retrieval returns no meaningful text (e.g., scanned PDFs without OCR), the assistant answers honestly. Reindex with OCR or verify your Qdrant collection.</p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 style="font-weight:700; color:#8d79ff; font-size:1.2rem;">&#10068; Why do I sometimes get &#8220;I don&#8217;t know&#8221;?</h5>
+          <p class="mb-0 mt-3" style="color:#b7c3ff; line-height:1.6;">If retrieval returns no meaningful text (e.g., from scanned PDFs without OCR, or if the information isn't present), the assistant will honestly reply. Ensure PDFs are text-searchable or verify your Qdrant collection's content.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <b>Can I tune tokens and Top-K?</b>
-          <p class="mb-0 mt-2" style="color:#b7c3ff;">Yes — in Settings, adjust <i>Top-K</i>, <i>Keep Top</i>, and <i>Answer max tokens</i>. Lower values reduce cost and latency.</p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 style="font-weight:700; color:#68b6c8; font-size:1.2rem;">&#9965; Can I tune token usage and Top-K parameters?</h5>
+          <p class="mb-0 mt-3" style="color:#b7c3ff; line-height:1.6;">Yes! Navigate to <em style="color:#c7d2ff;">Settings &#8594; PDF RAG</em>. You can adjust <em style="color:#c7d2ff;">Top-K</em> (number of vectors to retrieve), <em style="color:#c7d2ff;">Keep Top</em> (best vectors for context), and <em style="color:#c7d2ff;">Answer max tokens</em>. Adjusting these values allows you to fine-tune cost and latency.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
-          <b>How are points identified in Qdrant?</b>
-          <p class="mb-0 mt-2" style="color:#b7c3ff;">Stable UUIDv5 generated from <code>doc_id-page-chunk</code> so re-indexing overwrites prior chunks for the same location.</p>
+        <div class="p-4 rounded-4 h-100 d-flex flex-column"
+             style="background-color:#0f1424;border:1px solid #1b2236; box-shadow:0 8px 20px rgba(0,0,0,.3); transition: transform 0.3s ease;"
+             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <h5 style="font-weight:700; color:#e0ac5d; font-size:1.2rem;">&#128279; How are points identified in Qdrant?</h5>
+          <p class="mb-0 mt-3" style="color:#b7c3ff; line-height:1.6;">We use stable UUIDv5 identifiers for each point in Qdrant. These are generated based on a combination of <code style="background-color:#1c2236; padding:3px 7px; border-radius:4px; font-family:monospace;">doc_id-page-chunk</code>. This ensures that if you re-index a document, existing chunks for the same location are efficiently overwritten, maintaining data integrity.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="container d-flex justify-content-between align-items-center flex-wrap gap-2 py-4"
-          style="color:#9aa6c7;">
-    <div>© <span id="y"></span> Niyu Labs · PDF RAG</div>
-    <div>Made with ❤️ for Odoo · OpenAI · Qdrant</div>
+  <footer class="container d-flex justify-content-between align-items-center flex-wrap gap-3 py-4"
+          style="color:#9aa6c7; font-size:0.95rem; border-top:1px solid #1f2937; padding-top: 30px !important;">
+    <div style="flex-grow: 1;">&copy; <span id="y"></span> Niyu Labs &#183; PDF RAG</div>
+    <div style="text-align: right; flex-grow: 1;">Made with &#10084;&#65039; for Odoo &#183; OpenAI &#183; Qdrant</div>
   </footer>
 
   <script>
@@ -217,4 +324,4 @@ sudo nginx -t && sudo systemctl reload nginx
   <!-- Bootstrap JS (optional, for components that need JS) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
+</html>
