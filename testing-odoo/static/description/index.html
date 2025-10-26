@@ -22,7 +22,7 @@
     <div class="row align-items-center g-4">
       <div class="col-lg-6">
         <span class="badge rounded-pill d-inline-flex align-items-center gap-2"
-              style="background:linear-gradient(180deg,#181d2a,#121725); border:1px solid #1c2131; color:#cbd5ff; padding:10px 14px;">
+              style="background-color:#121725; border:1px solid #1c2131; color:#cbd5ff; padding:10px 14px;">
           ✨ New · Niyu PDF RAG for Odoo 18
         </span>
 
@@ -36,7 +36,7 @@
 
         <div class="d-flex flex-wrap gap-2">
           <a href="#screenshots" class="btn btn-primary fw-semibold"
-             style="background:linear-gradient(135deg,#6c5ce7,#8d79ff); border:0; box-shadow:0 12px 25px rgba(108,92,231,.35);">
+             style="background-color:#8d79ff; border:0; box-shadow:0 12px 25px rgba(108,92,231,.35);">
             See Screenshots
           </a>
           <a href="#install" class="btn btn-outline-light fw-semibold" style="border-color:#2a3350;">Install & Configure</a>
@@ -54,11 +54,11 @@
 
       <div class="col-lg-6">
         <div class="p-3 rounded-4"
-             style="background:linear-gradient(180deg,#111524,#0e1422); border:1px solid #1a2130; box-shadow:0 10px 30px rgba(0,0,0,.25);">
+             style="background-color:#0e1422; border:1px solid #1a2130; box-shadow:0 10px 30px rgba(0,0,0,.25);">
           <div class="position-relative overflow-hidden rounded-4"
-               style="border:1px solid #1b2334; background:#0e1220; box-shadow:0 15px 40px rgba(6,10,20,.45);">
+               style="border:1px solid #1b2334; background-color:#0e1220; box-shadow:0 15px 40px rgba(6,10,20,.45);">
             <!-- Screenshot 1 -->
-            <img src="assets/screenshot-chat.png" alt="PDF RAG chat UI in Odoo backend" class="img-fluid"/>
+            <img src="./charts.png" alt="PDF RAG chat UI in Odoo backend" class="img-fluid"/>
             <div class="position-absolute top-0 start-0 w-100 h-100" style="pointer-events:none;
                  background:linear-gradient(180deg, rgba(255,255,255,.06), transparent 120px);"></div>
           </div>
@@ -83,7 +83,7 @@
              style="border-color:#1a2130; box-shadow:0 10px 30px rgba(0,0,0,.18);">
           <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background:#0e1220; border-bottom:1px solid #1b2334;">
             <!-- Screenshot 1 -->
-            <img src="assets/screenshot-chat.png" alt="Chat panel" class="w-100 h-100 object-fit-cover"/>
+            <img src="./cha.png" alt="Chat panel" class="w-100 h-100 object-fit-cover"/>
           </div>
           <div class="card-body">
             <p class="mb-0" style="color:#c7d2ff;">Chat panel — ask questions, get grounded answers.</p>
@@ -94,9 +94,9 @@
       <div class="col-lg-4">
         <div class="card bg-transparent border-1 rounded-4"
              style="border-color:#1a2130; box-shadow:0 10px 30px rgba(0,0,0,.18);">
-          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background:#0e1220; border-bottom:1px solid #1b2334;">
+          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background-color:#0e1220; border-bottom:1px solid #1b2334;">
             <!-- Screenshot 2 -->
-            <img src="assets/screenshot-sources.png" alt="Sources with page and snippet" class="w-100 h-100 object-fit-cover"/>
+            <img src="./cha.png" alt="Sources with page and snippet" class="w-100 h-100 object-fit-cover"/>
           </div>
           <div class="card-body">
             <p class="mb-0" style="color:#c7d2ff;">Sources — title · page · short snippet for quick verification.</p>
@@ -107,7 +107,7 @@
       <div class="col-lg-4">
         <div class="card bg-transparent border-1 rounded-4"
              style="border-color:#1a2130; box-shadow:0 10px 30px rgba(0,0,0,.18);">
-          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background:#0e1220; border-bottom:1px solid #1b2334;">
+          <div class="ratio ratio-16x9 rounded-top-4 overflow-hidden" style="background-color:#0e1220; border-bottom:1px solid #1b2334;">
             <!-- Screenshot 3 -->
             <img src="assets/screenshot-settings.png" alt="Settings page" class="w-100 h-100 object-fit-cover"/>
           </div>
@@ -124,25 +124,25 @@
     <h2 class="h4 fw-bold mb-3">How it works</h2>
     <div class="row g-3">
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <h5 class="mb-1">1) Upload & Index</h5>
           <p class="mb-0" style="color:#b7c3ff;">PDFs are split into chunks; each chunk is embedded and upserted into Qdrant with stable UUIDs (doc/page/chunk).</p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <h5 class="mb-1">2) Ask a Question</h5>
           <p class="mb-0" style="color:#b7c3ff;">We embed the query, retrieve Top-K vectors, keep best N, and build a token-aware context.</p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <h5 class="mb-1">3) Grounded Answer</h5>
           <p class="mb-0" style="color:#b7c3ff;">OpenAI responds strictly from the provided context. If not found, it replies <em>“I don’t know.”</em></p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <h5 class="mb-1">4) Citations</h5>
           <p class="mb-0" style="color:#b7c3ff;">Each answer shows the PDF title, page number, and a short snippet for verification.</p>
         </div>
@@ -155,7 +155,7 @@
     <h2 class="h4 fw-bold mb-3">Install &amp; Configure</h2>
     <div class="row g-3">
       <div class="col-lg-7">
-        <div class="p-3 rounded-3" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3" style="background-color:#0f1424;border:1px solid #1b2236;">
           <h5>Requirements</h5>
           <ul class="mb-3" style="color:#c8cff5; line-height:1.8">
             <li>Odoo 18 (community or enterprise)</li>
@@ -164,7 +164,7 @@
             <li>OpenAI API key</li>
           </ul>
           <h5>Quickstart</h5>
-          <pre class="p-3 rounded-3 mb-0" style="background:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;">
+          <pre class="p-3 rounded-3 mb-0" style="background-color:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;">
 # 1) Copy addon into your Odoo custom_addons/
 # 2) Install dependencies in the Odoo venv:
 pip install qdrant_client openai pypdf tiktoken
@@ -177,7 +177,7 @@ pip install qdrant_client openai pypdf tiktoken
         </div>
       </div>
       <div class="col-lg-5">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <h5 class="mb-2">Reverse proxy note (file uploads)</h5>
           <pre class="p-3 rounded-3 mb-2" style="background:#0b0f1c;border:1px solid #1b2236;color:#d5defa;white-space:pre-wrap;">
 # /etc/nginx/sites-available/odoo
@@ -199,19 +199,19 @@ sudo nginx -t && sudo systemctl reload nginx
     <h2 class="h4 fw-bold mb-3">FAQ</h2>
     <div class="row g-3">
       <div class="col-md-4">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <b>Why do I sometimes get “I don’t know”?</b>
           <p class="mb-0 mt-2" style="color:#b7c3ff;">If retrieval returns no meaningful text (e.g., scanned PDFs without OCR), the assistant answers honestly. Reindex with OCR or verify your Qdrant collection.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <b>Can I tune tokens and Top-K?</b>
           <p class="mb-0 mt-2" style="color:#b7c3ff;">Yes — in Settings, adjust <i>Top-K</i>, <i>Keep Top</i>, and <i>Answer max tokens</i>. Lower values reduce cost and latency.</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="p-3 rounded-3 h-100" style="background:#0f1424;border:1px solid #1b2236;">
+        <div class="p-3 rounded-3 h-100" style="background-color:#0f1424;border:1px solid #1b2236;">
           <b>How are points identified in Qdrant?</b>
           <p class="mb-0 mt-2" style="color:#b7c3ff;">Stable UUIDv5 generated from <code>doc_id-page-chunk</code> so re-indexing overwrites prior chunks for the same location.</p>
         </div>
